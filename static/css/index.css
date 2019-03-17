@@ -1,0 +1,90 @@
+html, body {
+    padding: 0px;
+    margin: 0px;
+}
+
+@font-face {
+    font-family: 'Chalk';
+    src: url('/static/fonts/SqueakyChalkSound.ttf');
+}
+
+body {
+    background: url('/static/img/chalkboard_background.jpg');
+
+    color: white;
+}
+
+header{
+    padding: 1em 1em;
+
+    display: flex;
+    justify-content: center;
+}
+
+.handwritten-text {
+    /* font-family: 'Indie Flower', cursive; */
+    font-family: 'Chalk', serif;
+}
+
+.handwritten-input {
+
+    border: none;
+    background: transparent;
+
+    outline: none;
+    border-bottom: 1px dashed rgba(238, 238, 238, 0.7);
+
+    /* font-family: 'Indie Flower', cursive; */
+    font-family: 'Chalk', serif;
+
+    color: white
+}
+
+.book-card {
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 1em .5em;
+
+    border: 15px solid rgba(255,255,255,.8);
+    border-image: url('/static/img/chalk-border.png') 20;
+}
+
+
+.book-card::before{
+    content: '';
+}
+
+.book-cover {
+    align-self: center;
+    
+    box-shadow: 0px 0px 10px #fff;
+    border-radius: 15px;
+}
+
+.book-cover img {
+    width: 200px;
+}
+
+#no-result-section {
+    display: none;
+}
+
+#no-result-section img {
+    width: 200px;
+}
+
+.font-medium {
+    font-size: 1.4em;
+}
+
+.font-small {
+    font-size: 1em;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+
