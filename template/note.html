@@ -7,6 +7,11 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <!--/Fonts-->
 
+        <!--Vender Styles-->
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css" rel="stylesheet">
+        <!--/Vendor Style-->
+
         <style type="text/css">
             {% for item in inline_css %}
                 {{ item | safe }}
@@ -48,6 +53,59 @@
             .notes-content h1 {
                 text-align: center;
             }
+
+            .note-title {
+                text-align: center;
+
+                font-family: 'Roboto', sans-serif;
+                font-weight: bold;
+                font-size: 2em;
+
+                text-decoration: underline;
+            } 
+
+            #tableOfContent {
+                font-family: 'Roboto', sans-serif;
+                font-size: 1.2em;
+
+                margin: 2em 0em;
+            }
+
+            /* BlockQuote */
+            blockquote{
+                font-size: 1.4em;
+                font-family:Open Sans;
+                font-style:italic;
+                color: #555555;
+                padding:1.2em 30px 1.2em 75px;
+                border-left:8px solid #78C0A8 ;
+                line-height:1.6;
+                position: relative;
+                background:#EDEDED;
+            }
+            
+            blockquote::before{
+                font-family:Arial;
+                content: "\201C";
+                color:#78C0A8;
+                font-size:4em;
+                position: absolute;
+                left: 10px;
+                top:-10px;
+            }
+            
+            blockquote::after{
+                content: '';
+            }
+            
+            blockquote span{
+                display:block;
+                color:#333333;
+                font-style: normal;
+                font-weight: bold;
+                margin-top:1em;
+            }
+            /* /BlockQuote */
 
             /* code block */
             .notes-content div.input_area > div.highlight {
@@ -91,6 +149,10 @@
     </head>
 
     <body>
+        <p class="note-title">{{ title }}</p>
+
+        <div id="tableOfContent" class="mt-3 mb-3"></div>
+
         <div class="notes-content">
             {{ html_body | safe }}
         </div>
@@ -100,6 +162,7 @@
     <!-- Vendor script-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"></script>
     <!-- /Vendor script-->
 
     <!-- Load mathjax -->
@@ -123,5 +186,10 @@
     });
     </script>
     <!-- End of mathjax configuration -->
+
+    <!-- Custom scripts-->
+    <script src="/static/js/toc.js" lang="Javascript"></script>
+    <script src="/static/js/note.js" lang="Javascript"></script>
+    <!-- /Custom scripts-->
 
 </html>
