@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>Notes</title>
+
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <!--/Fonts-->
+
+    <!-- Vender Style-->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css' rel="stylesheet" />
+    <!-- /Vendor Style-->
+
+    <!-- Custom style-->
+    <link href="static/css/index.css" rel="stylesheet" />
+    <!-- /Custom style-->
+
+</head>
+
+
+<body>
+
+    <header>
+        <a class="logo" href="/"><img src="/static/img/logo.png"></a>
+    </header>
+
+    <main class="container">
+
+        <section class="row mt-5 mb-5">
+            <div class="col-xl-1 d-none d-lg-block">
+                <span class="handwritten-text font-medium">Search: </span>
+            </div>
+            <div class="col-xl-11 col-12">
+                <input type="text" id='txtSearch' class="handwritten-input font-medium w-100" placeholder="Type to start searching" />
+            </div>
+        </section>
+
+        <section class="row book-list">
+            
+                <div class="col-xl-4 book-card ">
+                    <a class="book-cover" href="dist/html/notes/books/programing/generic/clean-code.html" target="_blank">
+                        <img  src="static/img/notes/books/programing/clean_code/logo.jpg" />
+                    </a>
+                    <h4 class="handwritten-text mt-3 mb-3 text-center text-underline book-title">Clean Code</h4>
+                    <p class="handwritten-text font-small">Notes for the book Clean Code by Robert C Martin <a class="read-more" href="dist/html/notes/books/programing/generic/clean-code.html" target="_blank">Read...</a></p>
+                </div>
+            
+        </section>
+
+        <section class="row" id="no-result-section">
+            <div class="col-xl-12 d-flex flex-column align-items-center">
+                <img src="/static/img/test.png"/>
+                <h4 class="handwritten-text mt-3 text-center w-100">No Results</h4>
+            </div>
+        </section>
+        
+    </main>
+</body>
+
+<!--Vendor scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" lang="Javascript"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js" lang="Javascript"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" lang="Javascript"></script>
+<!--/Vendor scripts-->
+
+<!-- Custom scripts-->
+<script src="static/js/index.js"></script>
+<!-- /Custom scripts-->
+
+</html>

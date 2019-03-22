@@ -107,6 +107,24 @@
             }
             /* /BlockQuote */
 
+            /* HR after each H1 */
+            h1:after {
+                content:' ';
+                display:block;
+                border:0.5px solid black;
+                margin-top: 0.5em;
+            }
+
+            /* Code Segments*/
+            .notes-content code {
+                padding: 2px 4px;
+                font-size: 90%;
+                color: #c7254e;
+                background-color: #f9f2f4;
+                border-radius: 2px;
+            }
+
+
             /* code block */
             .notes-content div.input_area > div.highlight {
                 background-color: #22323a !important;
