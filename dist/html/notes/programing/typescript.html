@@ -1,19 +1,15 @@
 <html>
-
-    <head>
-        <title>Typescript</title>
-
-        <!--Fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
-        <!--/Fonts-->
-
-        <!--Vender Styles-->
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css" rel="stylesheet">
-        <!--/Vendor Style-->
-
-        <style type="text/css">
+<head>
+<title>Typescript</title>
+<!--Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css" rel="stylesheet"/>
+<!--/Fonts-->
+<!--Vender Styles-->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css" rel="stylesheet"/>
+<!--/Vendor Style-->
+<style type="text/css">
             
                 /*!
 *
@@ -13060,21 +13056,20 @@ ul.typeahead-list  > li > a.pull-right {
 
             
         </style>
-
-        <!--Custom Style-->
-        <style>
+<!--Custom Style-->
+<style>
             @font-face {
                 font-family: "Fira IScript";
-                src: url("/static/fonts/FiraCodeiScript-Regular.ttf");
+                src: url("/notes/static/fonts/FiraCodeiScript-Regular.ttf");
             }
             @font-face {
                 font-family: "Fira IScript";
-                src: url("/static/fonts/FiraCodeiScript-Bold.ttf");
+                src: url("/notes/static/fonts/FiraCodeiScript-Bold.ttf");
                 font-weight: bold;
             }
             @font-face {
                 font-family: "Fira IScript";
-                src: url("/static/fonts/FiraCodeiScript-Italic.ttf");
+                src: url("/notes/static/fonts/FiraCodeiScript-Italic.ttf");
                 font-style: italic;
             }
 
@@ -13241,21 +13236,17 @@ ul.typeahead-list  > li > a.pull-right {
                 }    
             }
         </style>
-        <!--/Custom Style-->
-    </head>
-
-    <body>
-        <p class="note-title">Typescript</p>
-
-        <div id="tableOfContent" class="mt-3 mb-3"></div>
-
-        <div class="notes-content">
-            
+<!--/Custom Style-->
+</head>
+<body>
+<p class="note-title">Typescript</p>
+<div class="mt-3 mb-3" id="tableOfContent"></div>
+<div class="notes-content">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>Typescript is a superset of javascript created by Microsoft. Typescript is a transcompiled language, which means typescript code is trans compiled (like babel) to javascript by typescript compiler.</p>
-<h2 id="Feature-of-typescript">Feature of typescript<a class="anchor-link" href="#Feature-of-typescript">&#182;</a></h2><h3 id="Types">Types<a class="anchor-link" href="#Types">&#182;</a></h3><p>Typescript provides type checking feature to javascript which is a dynamic. Typescript supports following types.</p>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h1><p>Typescript is a superset of javascript created by Microsoft. Typescript is a transcompiled language, which means typescript code is trans compiled (like babel) to javascript by typescript compiler.</p>
+<h2 id="Feature-of-typescript">Feature of typescript<a class="anchor-link" href="#Feature-of-typescript">¶</a></h2><h3 id="Types">Types<a class="anchor-link" href="#Types">¶</a></h3><p>Typescript provides type checking feature to javascript which is a dynamic. Typescript supports following types.</p>
 <ul>
 <li>boolean</li>
 <li>number</li>
@@ -13267,15 +13258,13 @@ ul.typeahead-list  > li > a.pull-right {
 <li>void</li>
 <li>undefined</li>
 </ul>
-<h3 id="Interfaces">Interfaces<a class="anchor-link" href="#Interfaces">&#182;</a></h3><p>An interface is a way to define a contract on a function with respect to the arguments and their type. Typescript interfaces are similar to that of java, where interface are used to defined the structure of any object/class. But the only difference between typescript interfaces and java interfaces is that, in java you have to specifically implement the interface but typescript follows a duck typing approach to interface. If any object/class has the properties defined by the interface then it is a valid value of the interface.</p>
-<h3 id="Decorators">Decorators<a class="anchor-link" href="#Decorators">&#182;</a></h3><p>Decorators are functions that are invoked with a prefixed @ symbol, and immediately followed by a class parameter, method or property. The decorator function is supplied information about the class, parameter or method, and the decorator function returns something in its place, or manipulates its target in some way. Typically the “something” a decorator returns is the same thing that was passed in, but it has been augmented in some way. You can think them as same as python Decorators.</p>
-<h2 id="Typescript-Compiler">Typescript Compiler<a class="anchor-link" href="#Typescript-Compiler">&#182;</a></h2><p>Generally transpiler for javascript follow this follow for converting new code to javascript</p>
-
+<h3 id="Interfaces">Interfaces<a class="anchor-link" href="#Interfaces">¶</a></h3><p>An interface is a way to define a contract on a function with respect to the arguments and their type. Typescript interfaces are similar to that of java, where interface are used to defined the structure of any object/class. But the only difference between typescript interfaces and java interfaces is that, in java you have to specifically implement the interface but typescript follows a duck typing approach to interface. If any object/class has the properties defined by the interface then it is a valid value of the interface.</p>
+<h3 id="Decorators">Decorators<a class="anchor-link" href="#Decorators">¶</a></h3><p>Decorators are functions that are invoked with a prefixed @ symbol, and immediately followed by a class parameter, method or property. The decorator function is supplied information about the class, parameter or method, and the decorator function returns something in its place, or manipulates its target in some way. Typically the “something” a decorator returns is the same thing that was passed in, but it has been augmented in some way. You can think them as same as python Decorators.</p>
+<h2 id="Typescript-Compiler">Typescript Compiler<a class="anchor-link" href="#Typescript-Compiler">¶</a></h2><p>Generally transpiler for javascript follow this follow for converting new code to javascript</p>
 <pre><code>```Tokenizer -&gt; AST -&gt; Emitter -&gt; Javascript```
 
 </code></pre>
 <p>But typescript tanspiler added two new steps to the process after AST.</p>
-
 <pre><code>```Tokenizer -&gt; AST -&gt; Binder -&gt; Checker -&gt; Emitter -&gt; Javascript```
 
 </code></pre>
@@ -13289,361 +13278,288 @@ ul.typeahead-list  > li > a.pull-right {
 <li><strong>Checker (checker.ts)</strong>: Checker is where typescript does the type checking of symbols.</li>
 <li><strong>Emitter (emitter.ts)</strong>: Final state where javascript is emitted for the generated AST.</li>
 </ul>
-<h1 id="Types">Types<a class="anchor-link" href="#Types">&#182;</a></h1><p>As the name Typescript suggest, typescript has multiple types available to be used in programing which would help in preventing common gotcha in javascript. Following are list of types supported by typescript.</p>
-<h2 id="Boolean">Boolean<a class="anchor-link" href="#Boolean">&#182;</a></h2><p>The most basic datatype is the simple true/false value, which JavaScript and TypeScript call a boolean value.</p>
-
+<h1 id="Types">Types<a class="anchor-link" href="#Types">¶</a></h1><p>As the name Typescript suggest, typescript has multiple types available to be used in programing which would help in preventing common gotcha in javascript. Following are list of types supported by typescript.</p>
+<h2 id="Boolean">Boolean<a class="anchor-link" href="#Boolean">¶</a></h2><p>The most basic datatype is the simple true/false value, which JavaScript and TypeScript call a boolean value.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">isDone</span>: <span class="kt">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Number">Number<a class="anchor-link" href="#Number">&#182;</a></h2><p>As in JavaScript, all numbers in TypeScript are floating point values. In addition to hexadecimal and decimal literals, TypeScript also supports binary and octal literals.</p>
-
+<h2 id="Number">Number<a class="anchor-link" href="#Number">¶</a></h2><p>As in JavaScript, all numbers in TypeScript are floating point values. In addition to hexadecimal and decimal literals, TypeScript also supports binary and octal literals.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">decimal</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mf">6.2</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">hex</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mh">0xf00d</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">binary</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">b1010</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">octal</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">o744</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="String">String<a class="anchor-link" href="#String">&#182;</a></h2><p>As in other languages, we use the type string to refer to these textual datatypes. Just like JavaScript TypeScript also uses double quotes (") or single quotes (’) to surround string data.</p>
-
+<h2 id="String">String<a class="anchor-link" href="#String">¶</a></h2><p>As in other languages, we use the type string to refer to these textual datatypes. Just like JavaScript TypeScript also uses double quotes (") or single quotes (’) to surround string data.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">color</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">;</span>
-<span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">;</span>
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">color</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">"blue"</span><span class="p">;</span>
+<span class="nx">color</span> <span class="o">=</span> <span class="s1">'red'</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can also use template strings, which can span multiple lines and have embedded expressions. These strings are surrounded by the backtick/backquote (`) character, and embedded expressions are of the form <code>${ expr }</code>.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">fullName</span>: <span class="kt">string</span> <span class="o">=</span> <span class="sb">`Sunit`</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">age</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">sentence</span>: <span class="kt">string</span> <span class="o">=</span> <span class="sb">`Hello, my name is </span><span class="si">${</span> <span class="nx">fullName</span> <span class="si">}</span><span class="sb">.</span>
 
-<span class="sb">I&#39;ll be </span><span class="si">${</span> <span class="nx">age</span> <span class="o">+</span> <span class="mi">1</span> <span class="si">}</span><span class="sb"> years old next month.`</span><span class="p">;</span>
+<span class="sb">I'll be </span><span class="si">${</span> <span class="nx">age</span> <span class="o">+</span> <span class="mi">1</span> <span class="si">}</span><span class="sb"> years old next month.`</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Array">Array<a class="anchor-link" href="#Array">&#182;</a></h2><p>TypeScript, like JavaScript, allows you to work with arrays of values. Array types can be written in one of two ways. In the first, you use the type of the elements followed by [] to denote an array of that element type</p>
-
+<h2 id="Array">Array<a class="anchor-link" href="#Array">¶</a></h2><p>TypeScript, like JavaScript, allows you to work with arrays of values. Array types can be written in one of two ways. In the first, you use the type of the elements followed by [] to denote an array of that element type</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">list</span>: <span class="kt">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The second way uses a generic array type, Array</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">list</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Tuple">Tuple<a class="anchor-link" href="#Tuple">&#182;</a></h2><p>Tuple types allow you to express an array where the type of a fixed number of elements is known, but need not be the same. For example, you may want to represent a value as a pair of a string and a number</p>
-
+<h2 id="Tuple">Tuple<a class="anchor-link" href="#Tuple">¶</a></h2><p>Tuple types allow you to express an array where the type of a fixed number of elements is known, but need not be the same. For example, you may want to represent a value as a pair of a string and a number</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="c1">// Declare a tuple type</span>
 <span class="kd">let</span> <span class="nx">x</span><span class="o">:</span> <span class="p">[</span><span class="kt">string</span><span class="p">,</span> <span class="kt">number</span><span class="p">];</span>
 
 <span class="c1">// Initialize it</span>
-<span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span> <span class="c1">// OK</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"hello"</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span> <span class="c1">// OK</span>
 
 <span class="c1">// Initialize it incorrectly</span>
-<span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">];</span> <span class="c1">// Error</span>
+<span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s2">"hello"</span><span class="p">];</span> <span class="c1">// Error</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Enum">Enum<a class="anchor-link" href="#Enum">&#182;</a></h2><p>A helpful addition to the standard set of datatypes from JavaScript is the enum. As in languages like C#, an enum is a way of giving more friendly names to sets of numeric values.</p>
-
+<h2 id="Enum">Enum<a class="anchor-link" href="#Enum">¶</a></h2><p>A helpful addition to the standard set of datatypes from JavaScript is the enum. As in languages like C#, an enum is a way of giving more friendly names to sets of numeric values.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span><span class="nx">Red</span><span class="p">,</span> <span class="nx">Green</span><span class="p">,</span> <span class="nx">Blue</span><span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">c</span>: <span class="kt">Color</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>By default, enums begin numbering their members starting at 0. You can change this by manually setting the value of one of its members.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span><span class="nx">Red</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Green</span><span class="p">,</span> <span class="nx">Blue</span><span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">c</span>: <span class="kt">Color</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Or, even manually set all the values in the enum</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span><span class="nx">Red</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Green</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nx">Blue</span><span class="o">=</span><span class="mi">9</span><span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">c</span>: <span class="kt">Color</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A handy feature of enums is that you can also go from a numeric value to the name of that value in the enum. For example, if we had the value 2 but weren't sure what that mapped to in the Color enum above, we could look up the corresponding name.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span><span class="nx">Red</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Green</span><span class="p">,</span> <span class="nx">Blue</span><span class="p">}</span>
 <span class="kd">let</span> <span class="nx">colorName</span>: <span class="kt">string</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colorName</span><span class="p">);</span> <span class="c1">// Displays &#39;Green&#39; as its value is 2 above</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colorName</span><span class="p">);</span> <span class="c1">// Displays 'Green' as its value is 2 above</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Any">Any<a class="anchor-link" href="#Any">&#182;</a></h2><p>We may need to describe the type of variables that we do not know when we are writing an application. These values may come from dynamic content, e.g. from the user or a 3rd party library. In these cases, we want to opt-out of type-checking and let the values pass through compile-time checks. To do so, we label these with the any type.</p>
-
+<h2 id="Any">Any<a class="anchor-link" href="#Any">¶</a></h2><p>We may need to describe the type of variables that we do not know when we are writing an application. These values may come from dynamic content, e.g. from the user or a 3rd party library. In these cases, we want to opt-out of type-checking and let the values pass through compile-time checks. To do so, we label these with the any type.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">notSure</span>: <span class="kt">any</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
 
-<span class="nx">notSure</span> <span class="o">=</span> <span class="s2">&quot;maybe a string instead&quot;</span><span class="p">;</span>
+<span class="nx">notSure</span> <span class="o">=</span> <span class="s2">"maybe a string instead"</span><span class="p">;</span>
 
 <span class="nx">notSure</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">// okay, definitely a boolean</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Void">Void<a class="anchor-link" href="#Void">&#182;</a></h2><p>void is a little like the opposite of any: the absence of having any type at all. You may commonly see this as the return type of functions that do not return a value.</p>
-
+<h2 id="Void">Void<a class="anchor-link" href="#Void">¶</a></h2><p>void is a little like the opposite of any: the absence of having any type at all. You may commonly see this as the return type of functions that do not return a value.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">warnUser</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;This is my warning message&quot;</span><span class="p">);</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"This is my warning message"</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Null-and-Undefined">Null and Undefined<a class="anchor-link" href="#Null-and-Undefined">&#182;</a></h2><p>In TypeScript, both undefined and null actually have their own types named undefined and null respectively. Much like void, they’re not extremely useful on their own.</p>
-
+<h2 id="Null-and-Undefined">Null and Undefined<a class="anchor-link" href="#Null-and-Undefined">¶</a></h2><p>In TypeScript, both undefined and null actually have their own types named undefined and null respectively. Much like void, they’re not extremely useful on their own.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="c1">// Not much else we can assign to these variables!</span>
 
 <span class="kd">let</span> <span class="nx">u</span>: <span class="kt">undefined</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
 <span class="kd">let</span> <span class="nx">n</span>: <span class="kt">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Never">Never<a class="anchor-link" href="#Never">&#182;</a></h2><p>The never type represents the type of values that never occur. For instance, never is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns; Variables also acquire the type never when narrowed by any type guards that can never be true.</p>
+<h2 id="Never">Never<a class="anchor-link" href="#Never">¶</a></h2><p>The never type represents the type of values that never occur. For instance, never is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns; Variables also acquire the type never when narrowed by any type guards that can never be true.</p>
 <p>The never type is a subtype of, and assignable to, every type; however, no type is a subtype of, or assignable to, never (except never itself). Even any isn't assignable to never.</p>
 <p>For example.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="c1">// Function returning never must have unreachable end point</span>
 <span class="kd">function</span> <span class="nx">error</span><span class="p">(</span><span class="nx">message</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">never</span> <span class="p">{</span>
     <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
@@ -13651,7 +13567,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <span class="c1">// Inferred return type is never</span>
 <span class="kd">function</span> <span class="nx">fail() {</span>
-    <span class="k">return</span> <span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Something failed&quot;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nx">error</span><span class="p">(</span><span class="s2">"Something failed"</span><span class="p">);</span>
 <span class="p">}</span>
 
 <span class="c1">// Function returning never must have unreachable end point</span>
@@ -13660,76 +13576,61 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Type-casting">Type casting<a class="anchor-link" href="#Type-casting">&#182;</a></h2><p>Type casting can be done in two ways in typescript.</p>
+<h2 id="Type-casting">Type casting<a class="anchor-link" href="#Type-casting">¶</a></h2><p>Type casting can be done in two ways in typescript.</p>
 <p>By using angular bracket</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">someValue</span>: <span class="kt">any</span> <span class="o">=</span> <span class="s2">&quot;this is a string&quot;</span><span class="p">;</span>
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">someValue</span>: <span class="kt">any</span> <span class="o">=</span> <span class="s2">"this is a string"</span><span class="p">;</span>
 
 <span class="kd">let</span> <span class="nx">strLength</span>: <span class="kt">number</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="nx">someValue</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Or by using <code>as</code> syntax</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">someValue</span>: <span class="kt">any</span> <span class="o">=</span> <span class="s2">&quot;this is a string&quot;</span><span class="p">;</span>
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">someValue</span>: <span class="kt">any</span> <span class="o">=</span> <span class="s2">"this is a string"</span><span class="p">;</span>
 
 <span class="kd">let</span> <span class="nx">strLength</span>: <span class="kt">number</span> <span class="o">=</span> <span class="p">(</span><span class="nx">someValue</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfaces">Interfaces<a class="anchor-link" href="#Interfaces">&#182;</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>One of TypeScript's core principles is that type-checking focuses on the shape that values have, called as "duck typing" or "structural subtyping". In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.</p>
+<h1 id="Interfaces">Interfaces<a class="anchor-link" href="#Interfaces">¶</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>One of TypeScript's core principles is that type-checking focuses on the shape that values have, called as "duck typing" or "structural subtyping". In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.</p>
 <p>Example of interface is</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">LabelledValue</span> <span class="p">{</span>
     <span class="nx">label</span>: <span class="kt">string</span><span class="p">;</span>
 <span class="p">}</span>
@@ -13738,38 +13639,33 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">labelledObj</span><span class="p">.</span><span class="nx">label</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">size</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span> <span class="s2">&quot;Size 10 Object&quot;</span><span class="p">};</span>
+<span class="kd">let</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">size</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span> <span class="s2">"Size 10 Object"</span><span class="p">};</span>
 <span class="nx">printLabel</span><span class="p">(</span><span class="nx">myObj</span><span class="p">);</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The interface <code>LabelledValue</code> is a name we use to describe the requirement. It represents having a single property called label that is of type string. Notice we didn't have to explicitly say that the object we pass to <code>printLabel</code> implements this interface like we might have to in other languages. Here, it's only the shape that matters. If the object we pass to the function meets the requirements listed, then it's allowed.</p>
 <p>It's worth pointing out that the type-checker does not require that these properties come in any sort of order, only that the properties the interface requires are present and have the required type.</p>
-<h2 id="Optional-Properties">Optional Properties<a class="anchor-link" href="#Optional-Properties">&#182;</a></h2><p>Interface can also have optional properties. For example</p>
-
+<h2 id="Optional-Properties">Optional Properties<a class="anchor-link" href="#Optional-Properties">¶</a></h2><p>Interface can also have optional properties. For example</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">SquareConfig</span> <span class="p">{</span>
     <span class="nx">color?</span>: <span class="kt">string</span><span class="p">;</span>
     <span class="nx">width?</span>: <span class="kt">number</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">createSquare</span><span class="p">(</span><span class="nx">config</span>: <span class="kt">SquareConfig</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span><span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span> <span class="nx">area</span>: <span class="kt">number</span><span class="p">}</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">newSquare</span> <span class="o">=</span> <span class="p">{</span><span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="nx">area</span>: <span class="kt">100</span><span class="p">};</span>
+    <span class="kd">let</span> <span class="nx">newSquare</span> <span class="o">=</span> <span class="p">{</span><span class="nx">color</span><span class="o">:</span> <span class="s2">"white"</span><span class="p">,</span> <span class="nx">area</span>: <span class="kt">100</span><span class="p">};</span>
     <span class="k">if</span> <span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">newSquare</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">color</span><span class="p">;</span>
     <span class="p">}</span>
@@ -13779,112 +13675,92 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="k">return</span> <span class="nx">newSquare</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">mySquare</span> <span class="o">=</span> <span class="nx">createSquare</span><span class="p">({</span><span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;black&quot;</span><span class="p">});</span>
+<span class="kd">let</span> <span class="nx">mySquare</span> <span class="o">=</span> <span class="nx">createSquare</span><span class="p">({</span><span class="nx">color</span><span class="o">:</span> <span class="s2">"black"</span><span class="p">});</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Interfaces with optional properties are written similar to other interfaces, with each optional property denoted by a <code>?</code> at the end of the property name in the declaration.</p>
 <p>The advantage of optional properties is that you can describe these possibly available properties while still also preventing use of properties that are not part of the interface. For example, had we mistyped the name of the color property in <code>createSquare</code>, we would get an error message letting us know.</p>
-<h2 id="Readonly-properties">Readonly properties<a class="anchor-link" href="#Readonly-properties">&#182;</a></h2><p>Some properties should only be modifiable when an object is first created. You can specify this by putting <code>readonly</code> before the name of the property</p>
-
+<h2 id="Readonly-properties">Readonly properties<a class="anchor-link" href="#Readonly-properties">¶</a></h2><p>Some properties should only be modifiable when an object is first created. You can specify this by putting <code>readonly</code> before the name of the property</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">Point</span> <span class="p">{</span>
     <span class="nx">readonly</span> <span class="nx">x</span>: <span class="kt">number</span><span class="p">;</span>
     <span class="nx">readonly</span> <span class="nx">y</span>: <span class="kt">number</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You can construct a Point by assigning an object literal. After the assignment, x and y can't be changed.</p>
-<h2 id="Function-Types">Function Types<a class="anchor-link" href="#Function-Types">&#182;</a></h2><p>Interfaces are capable of describing the wide range of shapes that JavaScript objects can take. In addition to describing an object with properties, interfaces are also capable of describing function types.</p>
+<h2 id="Function-Types">Function Types<a class="anchor-link" href="#Function-Types">¶</a></h2><p>Interfaces are capable of describing the wide range of shapes that JavaScript objects can take. In addition to describing an object with properties, interfaces are also capable of describing function types.</p>
 <p>To describe a function type with an interface, we give the interface a call signature. This is like a function declaration with only the parameter list and return type given. Each parameter in the parameter list requires both name and type.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">SearchFunc</span> <span class="p">{</span>
     <span class="p">(</span><span class="nx">source</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">subString</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Indexable-Types">Indexable Types<a class="anchor-link" href="#Indexable-Types">&#182;</a></h2><p>Similarly to how we can use interfaces to describe function types, we can also describe types that we can "index into" like <code>a[10]</code>, or <code>ageMap["daniel"]</code>. Indexable types have an index signature that describes the types we can use to index into the object, along with the corresponding return types when indexing. For example,</p>
-
+<h2 id="Indexable-Types">Indexable Types<a class="anchor-link" href="#Indexable-Types">¶</a></h2><p>Similarly to how we can use interfaces to describe function types, we can also describe types that we can "index into" like <code>a[10]</code>, or <code>ageMap["daniel"]</code>. Indexable types have an index signature that describes the types we can use to index into the object, along with the corresponding return types when indexing. For example,</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">StringArray</span> <span class="p">{</span>
     <span class="p">[</span><span class="nx">index</span>: <span class="kt">number</span><span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">myArray</span>: <span class="kt">StringArray</span><span class="p">;</span>
-<span class="nx">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Fred&quot;</span><span class="p">];</span>
+<span class="nx">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Bob"</span><span class="p">,</span> <span class="s2">"Fred"</span><span class="p">];</span>
 
 <span class="kd">let</span> <span class="nx">myStr</span>: <span class="kt">string</span> <span class="o">=</span> <span class="nx">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Above, we have a <code>StringArray</code> interface that has an index signature. This index signature states that when a <code>StringArray</code> is indexed with a number, it will return a string.</p>
 <p>There are two types of supported index signatures: string and number. It is possible to support both types of indexers, but the type returned from a numeric indexer must be a subtype of the type returned from the string indexer. This is because when indexing with a number, JavaScript will actually convert that to a string before indexing into an object. That means that indexing with 100 (a number) is the same thing as indexing with "100" (a string), so the two need to be consistent.</p>
-<h2 id="Implementing-an-interface">Implementing an interface<a class="anchor-link" href="#Implementing-an-interface">&#182;</a></h2><p>One of the most common uses of interfaces in languages like C# and Java, that of explicitly enforcing that a class meets a particular contract, is also possible in TypeScript.</p>
-
+<h2 id="Implementing-an-interface">Implementing an interface<a class="anchor-link" href="#Implementing-an-interface">¶</a></h2><p>One of the most common uses of interfaces in languages like C# and Java, that of explicitly enforcing that a class meets a particular contract, is also possible in TypeScript.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">ClockInterface</span> <span class="p">{</span>
     <span class="nx">currentTime</span>: <span class="kt">Date</span><span class="p">;</span>
 <span class="p">}</span>
@@ -13894,26 +13770,21 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="kr">constructor</span><span class="p">(</span><span class="nx">h</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">m</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Extending-Interfaces">Extending Interfaces<a class="anchor-link" href="#Extending-Interfaces">&#182;</a></h2><p>Like classes, interfaces can extend each other. This allows you to copy the members of one interface into another, which gives you more flexibility in how you separate your interfaces into reusable components.</p>
-
+<h2 id="Extending-Interfaces">Extending Interfaces<a class="anchor-link" href="#Extending-Interfaces">¶</a></h2><p>Like classes, interfaces can extend each other. This allows you to copy the members of one interface into another, which gives you more flexibility in how you separate your interfaces into reusable components.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">Shape</span> <span class="p">{</span>
     <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
 <span class="p">}</span>
@@ -13923,30 +13794,25 @@ ul.typeahead-list  > li > a.pull-right {
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">square</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">Square</span><span class="o">&gt;</span><span class="p">{};</span>
-<span class="nx">square</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">;</span>
+<span class="nx">square</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">"blue"</span><span class="p">;</span>
 <span class="nx">square</span><span class="p">.</span><span class="nx">sideLength</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Hybrid-Types">Hybrid Types<a class="anchor-link" href="#Hybrid-Types">&#182;</a></h2><p>Interfaces can describe the rich types present in real world JavaScript. Because of JavaScript's dynamic and flexible nature, you may occasionally encounter an object that works as a combination of some of the types described above.</p>
+<h2 id="Hybrid-Types">Hybrid Types<a class="anchor-link" href="#Hybrid-Types">¶</a></h2><p>Interfaces can describe the rich types present in real world JavaScript. Because of JavaScript's dynamic and flexible nature, you may occasionally encounter an object that works as a combination of some of the types described above.</p>
 <p>One such example is an object that acts as both a function and an object, with additional properties</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">Counter</span> <span class="p">{</span>
     <span class="p">(</span><span class="nx">start</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span><span class="p">;</span>
     <span class="nx">interval</span>: <span class="kt">number</span><span class="p">;</span>
@@ -13965,59 +13831,49 @@ ul.typeahead-list  > li > a.pull-right {
 <span class="nx">c</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
 <span class="nx">c</span><span class="p">.</span><span class="nx">interval</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Interfaces-Extending-Classes">Interfaces Extending Classes<a class="anchor-link" href="#Interfaces-Extending-Classes">&#182;</a></h2><p>When an interface type extends a class type it inherits the members of the class but not their implementations. It is as if the interface had declared all of the members of the class without providing an implementation. Interfaces inherit even the private and protected members of a base class. This means that when you create an interface that extends a class with private or protected members, that interface type can only be implemented by that class or a subclass of it.</p>
-<h1 id="Classes">Classes<a class="anchor-link" href="#Classes">&#182;</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>Example of class in typescript is as follows</p>
-
+<h2 id="Interfaces-Extending-Classes">Interfaces Extending Classes<a class="anchor-link" href="#Interfaces-Extending-Classes">¶</a></h2><p>When an interface type extends a class type it inherits the members of the class but not their implementations. It is as if the interface had declared all of the members of the class without providing an implementation. Interfaces inherit even the private and protected members of a base class. This means that when you create an interface that extends a class with private or protected members, that interface type can only be implemented by that class or a subclass of it.</p>
+<h1 id="Classes">Classes<a class="anchor-link" href="#Classes">¶</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>Example of class in typescript is as follows</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Greeter</span> <span class="p">{</span>
     <span class="nx">greeting</span>: <span class="kt">string</span><span class="p">;</span>
     <span class="kr">constructor</span><span class="p">(</span><span class="nx">message</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span> <span class="o">=</span> <span class="nx">message</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="nx">greet() {</span>
-        <span class="k">return</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s2">"Hello, "</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">greeter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Greeter</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">greeter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Greeter</span><span class="p">(</span><span class="s2">"world"</span><span class="p">);</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Inheritance">Inheritance<a class="anchor-link" href="#Inheritance">&#182;</a></h2><p>In TypeScript, we can use common object-oriented patterns. One of the most fundamental patterns in class-based programming is being able to extend existing classes to create new ones using inheritance.</p>
-
+<h2 id="Inheritance">Inheritance<a class="anchor-link" href="#Inheritance">¶</a></h2><p>In TypeScript, we can use common object-oriented patterns. One of the most fundamental patterns in class-based programming is being able to extend existing classes to create new ones using inheritance.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Animal</span> <span class="p">{</span>
     <span class="nx">move</span><span class="p">(</span><span class="nx">distanceInMeters</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
         <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Animal moved </span><span class="si">${</span><span class="nx">distanceInMeters</span><span class="si">}</span><span class="sb">m.`</span><span class="p">);</span>
@@ -14026,7 +13882,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <span class="kr">class</span> <span class="nx">Dog</span> <span class="kr">extends</span> <span class="nx">Animal</span> <span class="p">{</span>
     <span class="nx">bark() {</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Woof! Woof!&#39;</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'Woof! Woof!'</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
@@ -14035,26 +13891,21 @@ ul.typeahead-list  > li > a.pull-right {
 <span class="nx">dog</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
 <span class="nx">dog</span><span class="p">.</span><span class="nx">bark</span><span class="p">();</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Public,-private,-and-protected-modifiers">Public, private, and protected modifiers<a class="anchor-link" href="#Public,-private,-and-protected-modifiers">&#182;</a></h2><p>Modifier public, private and protected are attaching a prefix access modifier before the variable/function declaration</p>
-
+<h2 id="Public,-private,-and-protected-modifiers">Public, private, and protected modifiers<a class="anchor-link" href="#Public,-private,-and-protected-modifiers">¶</a></h2><p>Modifier public, private and protected are attaching a prefix access modifier before the variable/function declaration</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Animal</span> <span class="p">{</span>
     <span class="kr">private</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
     <span class="kr">public</span> <span class="kr">constructor</span><span class="p">(</span><span class="nx">theName</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">theName</span><span class="p">;</span> <span class="p">}</span>
@@ -14063,26 +13914,21 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Readonly-modifier">Readonly modifier<a class="anchor-link" href="#Readonly-modifier">&#182;</a></h2><p>You can make properties <code>readonly</code> by using the <code>readonly</code> keyword. Readonly properties must be initialized at their declaration or in the constructor.</p>
-
+<h2 id="Readonly-modifier">Readonly modifier<a class="anchor-link" href="#Readonly-modifier">¶</a></h2><p>You can make properties <code>readonly</code> by using the <code>readonly</code> keyword. Readonly properties must be initialized at their declaration or in the constructor.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Octopus</span> <span class="p">{</span>
     <span class="nx">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
     <span class="nx">readonly</span> <span class="nx">numberOfLegs</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
@@ -14090,31 +13936,26 @@ ul.typeahead-list  > li > a.pull-right {
         <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">theName</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="kd">let</span> <span class="nx">dad</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Octopus</span><span class="p">(</span><span class="s2">&quot;Man with the 8 strong legs&quot;</span><span class="p">);</span>
-<span class="nx">dad</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Man with the 3-piece suit&quot;</span><span class="p">;</span> <span class="c1">// error! name is readonly.</span>
+<span class="kd">let</span> <span class="nx">dad</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Octopus</span><span class="p">(</span><span class="s2">"Man with the 8 strong legs"</span><span class="p">);</span>
+<span class="nx">dad</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Man with the 3-piece suit"</span><span class="p">;</span> <span class="c1">// error! name is readonly.</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Accessors">Accessors<a class="anchor-link" href="#Accessors">&#182;</a></h2><p>TypeScript supports getters/setters as a way of intercepting accesses to a member of an object. This gives you a way of having finer-grained control over how a member is accessed on each object.</p>
+<h2 id="Accessors">Accessors<a class="anchor-link" href="#Accessors">¶</a></h2><p>TypeScript supports getters/setters as a way of intercepting accesses to a member of an object. This gives you a way of having finer-grained control over how a member is accessed on each object.</p>
 <p>For example,</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">passcode</span> <span class="o">=</span> <span class="s2">&quot;secret passcode&quot;</span><span class="p">;</span>
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">passcode</span> <span class="o">=</span> <span class="s2">"secret passcode"</span><span class="p">;</span>
 
 <span class="kr">class</span> <span class="nx">Employee</span> <span class="p">{</span>
     <span class="kr">private</span> <span class="nx">_fullName</span>: <span class="kt">string</span><span class="p">;</span>
@@ -14124,41 +13965,36 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="p">}</span>
 
     <span class="nx">set</span> <span class="nx">fullName</span><span class="p">(</span><span class="nx">newName</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">passcode</span> <span class="o">&amp;&amp;</span> <span class="nx">passcode</span> <span class="o">==</span> <span class="s2">&quot;secret passcode&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">passcode</span> <span class="o">&amp;&amp;</span> <span class="nx">passcode</span> <span class="o">==</span> <span class="s2">"secret passcode"</span><span class="p">)</span> <span class="p">{</span>
             <span class="k">this</span><span class="p">.</span><span class="nx">_fullName</span> <span class="o">=</span> <span class="nx">newName</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Error: Unauthorized update of employee!&quot;</span><span class="p">);</span>
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Error: Unauthorized update of employee!"</span><span class="p">);</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">employee</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">();</span>
-<span class="nx">employee</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="s2">&quot;Bob Smith&quot;</span><span class="p">;</span>
+<span class="nx">employee</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="s2">"Bob Smith"</span><span class="p">;</span>
 <span class="k">if</span> <span class="p">(</span><span class="nx">employee</span><span class="p">.</span><span class="nx">fullName</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">employee</span><span class="p">.</span><span class="nx">fullName</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Static-Properties">Static Properties<a class="anchor-link" href="#Static-Properties">&#182;</a></h2><p>We can also create static members of a class, those that are visible on the class itself rather than on the instances. For example</p>
-
+<h2 id="Static-Properties">Static Properties<a class="anchor-link" href="#Static-Properties">¶</a></h2><p>We can also create static members of a class, those that are visible on the class itself rather than on the instances. For example</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Grid</span> <span class="p">{</span>
     <span class="kr">static</span> <span class="nx">origin</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span>: <span class="kt">0</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">0</span><span class="p">};</span>
     <span class="nx">calculateDistanceFromOrigin</span><span class="p">(</span><span class="nx">point</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span>: <span class="kt">number</span><span class="p">;</span> <span class="nx">y</span>: <span class="kt">number</span><span class="p">;})</span> <span class="p">{</span>
@@ -14175,78 +14011,63 @@ ul.typeahead-list  > li > a.pull-right {
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">grid1</span><span class="p">.</span><span class="nx">calculateDistanceFromOrigin</span><span class="p">({</span><span class="nx">x</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">10</span><span class="p">}));</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">grid2</span><span class="p">.</span><span class="nx">calculateDistanceFromOrigin</span><span class="p">({</span><span class="nx">x</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">10</span><span class="p">}));</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Abstract-Classes">Abstract Classes<a class="anchor-link" href="#Abstract-Classes">&#182;</a></h2><p>Abstract classes are base classes from which other classes may be derived. They may not be instantiated directly. Unlike an interface, an abstract class may contain implementation details for its members. The abstract keyword is used to define abstract classes as well as abstract methods within an abstract class.</p>
-
+<h2 id="Abstract-Classes">Abstract Classes<a class="anchor-link" href="#Abstract-Classes">¶</a></h2><p>Abstract classes are base classes from which other classes may be derived. They may not be instantiated directly. Unlike an interface, an abstract class may contain implementation details for its members. The abstract keyword is used to define abstract classes as well as abstract methods within an abstract class.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">abstract</span> <span class="kr">class</span> <span class="nx">Animal</span> <span class="p">{</span>
     <span class="kr">abstract</span> <span class="nx">makeSound</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span><span class="p">;</span>
     <span class="nx">move</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;roaming the earth...&quot;</span><span class="p">);</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"roaming the earth..."</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Generics">Generics<a class="anchor-link" href="#Generics">&#182;</a></h1><p>Typescript supports generic framework somewhat similar to java.</p>
+<h1 id="Generics">Generics<a class="anchor-link" href="#Generics">¶</a></h1><p>Typescript supports generic framework somewhat similar to java.</p>
 <p>Here is an example of generic function which returns same value that it receives as an argument.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">identity</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">arg</span>: <span class="kt">T</span><span class="p">)</span><span class="o">:</span> <span class="nx">T</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">arg</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Generic-Classes">Generic Classes<a class="anchor-link" href="#Generic-Classes">&#182;</a></h2><p>Generic classes have a generic type parameter list in angle brackets (&lt;&gt;) following the name of the class.</p>
-
+<h2 id="Generic-Classes">Generic Classes<a class="anchor-link" href="#Generic-Classes">¶</a></h2><p>Generic classes have a generic type parameter list in angle brackets (&lt;&gt;) following the name of the class.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">GenericNumber</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
     <span class="nx">zeroValue</span>: <span class="kt">T</span><span class="p">;</span>
     <span class="nx">add</span><span class="o">:</span> <span class="p">(</span><span class="nx">x</span>: <span class="kt">T</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">T</span><span class="p">;</span>
@@ -14256,26 +14077,21 @@ ul.typeahead-list  > li > a.pull-right {
 <span class="nx">myGenericNumber</span><span class="p">.</span><span class="nx">zeroValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="nx">myGenericNumber</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span> <span class="p">};</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Generic-Constraints">Generic Constraints<a class="anchor-link" href="#Generic-Constraints">&#182;</a></h2><p>We can create constrain on the generic type which should be a subclass of a particular type with using extends keyword.</p>
-
+<h2 id="Generic-Constraints">Generic Constraints<a class="anchor-link" href="#Generic-Constraints">¶</a></h2><p>We can create constrain on the generic type which should be a subclass of a particular type with using extends keyword.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">Lengthwise</span> <span class="p">{</span>
     <span class="nx">length</span>: <span class="kt">number</span><span class="p">;</span>
 <span class="p">}</span>
@@ -14285,55 +14101,45 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="k">return</span> <span class="nx">arg</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Using-Type-Parameters-in-Generic-Constraints">Using Type Parameters in Generic Constraints<a class="anchor-link" href="#Using-Type-Parameters-in-Generic-Constraints">&#182;</a></h2><p>You can declare a type parameter that is constrained by another type parameter. For example, here we'd like to get a property from an object given its name. We'd like to ensure that we're not accidentally grabbing a property that does not exist on the obj, so we'll place a constraint between the two types:</p>
-
+<h2 id="Using-Type-Parameters-in-Generic-Constraints">Using Type Parameters in Generic Constraints<a class="anchor-link" href="#Using-Type-Parameters-in-Generic-Constraints">¶</a></h2><p>You can declare a type parameter that is constrained by another type parameter. For example, here we'd like to get a property from an object given its name. We'd like to ensure that we're not accidentally grabbing a property that does not exist on the obj, so we'll place a constraint between the two types:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getProperty</span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span> <span class="nx">K</span> <span class="kr">extends</span> <span class="nx">keyof</span> <span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">obj</span>: <span class="kt">T</span><span class="p">,</span> <span class="nx">key</span>: <span class="kt">K</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">b</span>: <span class="kt">2</span><span class="p">,</span> <span class="nx">c</span>: <span class="kt">3</span><span class="p">,</span> <span class="nx">d</span>: <span class="kt">4</span> <span class="p">};</span>
 
-<span class="nx">getProperty</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">);</span> <span class="c1">// okay</span>
-<span class="nx">getProperty</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">);</span> <span class="c1">// error: Argument of type &#39;m&#39; isn&#39;t assignable to &#39;a&#39; | &#39;b&#39; | &#39;c&#39; | &#39;d&#39;.</span>
+<span class="nx">getProperty</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">);</span> <span class="c1">// okay</span>
+<span class="nx">getProperty</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="s2">"m"</span><span class="p">);</span> <span class="c1">// error: Argument of type 'm' isn't assignable to 'a' | 'b' | 'c' | 'd'.</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Enums">Enums<a class="anchor-link" href="#Enums">&#182;</a></h1><p>Enums allow us to define a set of named constants. Using enums can make it easier to document intent, or create a set of distinct cases. TypeScript provides both numeric and string-based enums.</p>
-
+<h1 id="Enums">Enums<a class="anchor-link" href="#Enums">¶</a></h1><p>Enums allow us to define a set of named constants. Using enums can make it easier to document intent, or create a set of distinct cases. TypeScript provides both numeric and string-based enums.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Direction</span> <span class="p">{</span>
     <span class="nx">Up</span><span class="p">,</span>
     <span class="nx">Down</span><span class="p">,</span>
@@ -14341,54 +14147,44 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="nx">Right</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Here Up will have value 0, Down will have 1 etc . We can also change the initial value of the enum by initializing it at the time of declaration eg <code>UP = 1</code></p>
 <p>OR</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Direction</span> <span class="p">{</span>
-    <span class="nx">Up</span> <span class="o">=</span> <span class="s2">&quot;UP&quot;</span><span class="p">,</span>
-    <span class="nx">Down</span> <span class="o">=</span> <span class="s2">&quot;DOWN&quot;</span><span class="p">,</span>
-    <span class="nx">Left</span> <span class="o">=</span> <span class="s2">&quot;LEFT&quot;</span><span class="p">,</span>
-    <span class="nx">Right</span> <span class="o">=</span> <span class="s2">&quot;RIGHT&quot;</span><span class="p">,</span>
+    <span class="nx">Up</span> <span class="o">=</span> <span class="s2">"UP"</span><span class="p">,</span>
+    <span class="nx">Down</span> <span class="o">=</span> <span class="s2">"DOWN"</span><span class="p">,</span>
+    <span class="nx">Left</span> <span class="o">=</span> <span class="s2">"LEFT"</span><span class="p">,</span>
+    <span class="nx">Right</span> <span class="o">=</span> <span class="s2">"RIGHT"</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Advance-Type">Advance Type<a class="anchor-link" href="#Advance-Type">&#182;</a></h1><h2 id="Intersection-Types">Intersection Types<a class="anchor-link" href="#Intersection-Types">&#182;</a></h2><p>An intersection type combines multiple types into one. This allows you to add together existing types to get a single type that has all the features you need. For example, Person &amp; Serializable &amp; Loggable is a Person and Serializable and Loggable. That means an object of this type will have all members of all three types.</p>
-
+<h1 id="Advance-Type">Advance Type<a class="anchor-link" href="#Advance-Type">¶</a></h1><h2 id="Intersection-Types">Intersection Types<a class="anchor-link" href="#Intersection-Types">¶</a></h2><p>An intersection type combines multiple types into one. This allows you to add together existing types to get a single type that has all the features you need. For example, Person &amp; Serializable &amp; Loggable is a Person and Serializable and Loggable. That means an object of this type will have all members of all three types.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">extend</span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span> <span class="nx">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">first</span>: <span class="kt">T</span><span class="p">,</span> <span class="nx">second</span>: <span class="kt">U</span><span class="p">)</span><span class="o">:</span> <span class="nx">T</span> <span class="o">&amp;</span> <span class="nx">U</span> <span class="p">{</span>
     <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">T</span> <span class="o">&amp;</span> <span class="nx">U</span><span class="o">&gt;</span><span class="p">{};</span>
     <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">id</span> <span class="k">in</span> <span class="nx">first</span><span class="p">)</span> <span class="p">{</span>
@@ -14413,93 +14209,78 @@ ul.typeahead-list  > li > a.pull-right {
         <span class="c1">// ...</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="kd">var</span> <span class="nx">jim</span> <span class="o">=</span> <span class="nx">extend</span><span class="p">(</span><span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;Jim&quot;</span><span class="p">),</span> <span class="k">new</span> <span class="nx">ConsoleLogger</span><span class="p">());</span>
+<span class="kd">var</span> <span class="nx">jim</span> <span class="o">=</span> <span class="nx">extend</span><span class="p">(</span><span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">"Jim"</span><span class="p">),</span> <span class="k">new</span> <span class="nx">ConsoleLogger</span><span class="p">());</span>
 <span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">jim</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
 <span class="nx">jim</span><span class="p">.</span><span class="nx">log</span><span class="p">();</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Union-Types">Union Types<a class="anchor-link" href="#Union-Types">&#182;</a></h2><p>Union types are type which can take any particular value from given set of types. For example</p>
-
+<h2 id="Union-Types">Union Types<a class="anchor-link" href="#Union-Types">¶</a></h2><p>Union types are type which can take any particular value from given set of types. For example</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm"> * Takes a string and adds &quot;padding&quot; to the left.</span>
-<span class="cm"> * If &#39;padding&#39; is a string, then &#39;padding&#39; is appended to the left side.</span>
-<span class="cm"> * If &#39;padding&#39; is a number, then that number of spaces is added to the left side.</span>
+<span class="cm"> * Takes a string and adds "padding" to the left.</span>
+<span class="cm"> * If 'padding' is a string, then 'padding' is appended to the left side.</span>
+<span class="cm"> * If 'padding' is a number, then that number of spaces is added to the left side.</span>
 <span class="cm"> */</span>
 <span class="kd">function</span> <span class="nx">padLeft</span><span class="p">(</span><span class="nx">value</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">padding</span>: <span class="kt">string</span> <span class="o">|</span> <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// ...</span>
 <span class="p">}</span>
 
-<span class="kd">let</span> <span class="nx">indentedString</span> <span class="o">=</span> <span class="nx">padLeft</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">// errors during compilation</span>
+<span class="kd">let</span> <span class="nx">indentedString</span> <span class="o">=</span> <span class="nx">padLeft</span><span class="p">(</span><span class="s2">"Hello world"</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">// errors during compilation</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="User-Defined-Type-Guards">User-Defined Type Guards<a class="anchor-link" href="#User-Defined-Type-Guards">&#182;</a></h2><p>TypeScript has something called a type guard. A type guard is some expression that performs a runtime check that guarantees the type in some scope. To define a type guard, we simply need to define a function whose return type is a type predicate.</p>
-
+<h2 id="User-Defined-Type-Guards">User-Defined Type Guards<a class="anchor-link" href="#User-Defined-Type-Guards">¶</a></h2><p>TypeScript has something called a type guard. A type guard is some expression that performs a runtime check that guarantees the type in some scope. To define a type guard, we simply need to define a function whose return type is a type predicate.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">isFish</span><span class="p">(</span><span class="nx">pet</span>: <span class="kt">Fish</span> <span class="o">|</span> <span class="nx">Bird</span><span class="p">)</span><span class="o">:</span> <span class="nx">pet</span> <span class="nx">is</span> <span class="nx">Fish</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">Fish</span><span class="o">&gt;</span><span class="nx">pet</span><span class="p">).</span><span class="nx">swim</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><code>pet</code> is Fish is our type predicate in this example. A predicate takes the form parameterName is Type, where parameterName must be the name of a parameter from the current function signature.</p>
 <p>Any time <code>isFish</code> is called with some variable, TypeScript will narrow that variable to that specific type if the original type is compatible.</p>
-<h2 id="Type-Aliases">Type Aliases<a class="anchor-link" href="#Type-Aliases">&#182;</a></h2><p>Type aliases create a new name for a type. Type aliases are sometimes similar to interfaces, but can name primitives, unions, tuples, and any other types that you'd otherwise have to write by hand.</p>
-
+<h2 id="Type-Aliases">Type Aliases<a class="anchor-link" href="#Type-Aliases">¶</a></h2><p>Type aliases create a new name for a type. Type aliases are sometimes similar to interfaces, but can name primitives, unions, tuples, and any other types that you'd otherwise have to write by hand.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="nx">type</span> <span class="nx">Name</span> <span class="o">=</span> <span class="kt">string</span><span class="p">;</span>
 <span class="nx">type</span> <span class="nx">NameResolver</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="kt">string</span><span class="p">;</span>
 <span class="nx">type</span> <span class="nx">NameOrResolver</span> <span class="o">=</span> <span class="nx">Name</span> <span class="o">|</span> <span class="nx">NameResolver</span><span class="p">;</span>
 
 <span class="kd">function</span> <span class="nx">getName</span><span class="p">(</span><span class="nx">n</span>: <span class="kt">NameOrResolver</span><span class="p">)</span><span class="o">:</span> <span class="nx">Name</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">n</span> <span class="o">===</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">n</span> <span class="o">===</span> <span class="s2">"string"</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">return</span> <span class="nx">n</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">else</span> <span class="p">{</span>
@@ -14507,36 +14288,31 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="String-Literal-Types">String Literal Types<a class="anchor-link" href="#String-Literal-Types">&#182;</a></h2><p>String literal types allow you to specify the exact value a string must have. In practice string literal types combine nicely with union types, type guards, and type aliases. You can use these features together to get enum-like behavior with strings.</p>
-
+<h2 id="String-Literal-Types">String Literal Types<a class="anchor-link" href="#String-Literal-Types">¶</a></h2><p>String literal types allow you to specify the exact value a string must have. In practice string literal types combine nicely with union types, type guards, and type aliases. You can use these features together to get enum-like behavior with strings.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span></span><span class="nx">type</span> <span class="nx">Easing</span> <span class="o">=</span> <span class="s2">&quot;ease-in&quot;</span> <span class="o">|</span> <span class="s2">&quot;ease-out&quot;</span> <span class="o">|</span> <span class="s2">&quot;ease-in-out&quot;</span><span class="p">;</span>
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="nx">type</span> <span class="nx">Easing</span> <span class="o">=</span> <span class="s2">"ease-in"</span> <span class="o">|</span> <span class="s2">"ease-out"</span> <span class="o">|</span> <span class="s2">"ease-in-out"</span><span class="p">;</span>
 
 <span class="kr">class</span> <span class="nx">UIElement</span> <span class="p">{</span>
     <span class="nx">animate</span><span class="p">(</span><span class="nx">dx</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">dy</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">easing</span>: <span class="kt">Easing</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">easing</span> <span class="o">===</span> <span class="s2">&quot;ease-in&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">easing</span> <span class="o">===</span> <span class="s2">"ease-in"</span><span class="p">)</span> <span class="p">{</span>
             <span class="c1">// ...</span>
         <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">easing</span> <span class="o">===</span> <span class="s2">&quot;ease-out&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">easing</span> <span class="o">===</span> <span class="s2">"ease-out"</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">easing</span> <span class="o">===</span> <span class="s2">&quot;ease-in-out&quot;</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">easing</span> <span class="o">===</span> <span class="s2">"ease-in-out"</span><span class="p">)</span> <span class="p">{</span>
         <span class="p">}</span>
         <span class="k">else</span> <span class="p">{</span>
             <span class="c1">// error! should not pass null or undefined.</span>
@@ -14545,64 +14321,50 @@ ul.typeahead-list  > li > a.pull-right {
 <span class="p">}</span>
 
 <span class="kd">let</span> <span class="nx">button</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UIElement</span><span class="p">();</span>
-<span class="nx">button</span><span class="p">.</span><span class="nx">animate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ease-in&quot;</span><span class="p">);</span>
-<span class="nx">button</span><span class="p">.</span><span class="nx">animate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;uneasy&quot;</span><span class="p">);</span> <span class="c1">// error: &quot;uneasy&quot; is not allowed here</span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">animate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"ease-in"</span><span class="p">);</span>
+<span class="nx">button</span><span class="p">.</span><span class="nx">animate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"uneasy"</span><span class="p">);</span> <span class="c1">// error: "uneasy" is not allowed here</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Numeric-Literal-Types">Numeric Literal Types<a class="anchor-link" href="#Numeric-Literal-Types">&#182;</a></h2><p>TypeScript also has numeric literal types</p>
-
+<h2 id="Numeric-Literal-Types">Numeric Literal Types<a class="anchor-link" href="#Numeric-Literal-Types">¶</a></h2><p>TypeScript also has numeric literal types</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">rollDie</span><span class="p">()</span><span class="o">:</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">6</span> <span class="p">{</span>
     <span class="c1">// ...</span>
 <span class="p">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><p>Typescript Documentation (<a href="https://www.typescriptlang.org/docs/home.html">link</a>)</p>
-
+<h1 id="References">References<a class="anchor-link" href="#References">¶</a></h1><p>Typescript Documentation (<a href="https://www.typescriptlang.org/docs/home.html">link</a>)</p>
 </div>
 </div>
 </div>
- 
-
-
-        </div>
-    </body>
-
-
-    <!-- Vendor script-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"></script>
-    <!-- /Vendor script-->
-
-    <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
+</div>
+</body>
+<!-- Vendor script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"></script>
+<!-- /Vendor script-->
+<!-- Load mathjax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -14619,11 +14381,9 @@ ul.typeahead-list  > li > a.pull-right {
         }
     });
     </script>
-    <!-- End of mathjax configuration -->
-
-    <!-- Custom scripts-->
-    <script src="/static/js/toc.js" lang="Javascript"></script>
-    <script src="/static/js/note.js" lang="Javascript"></script>
-    <!-- /Custom scripts-->
-
+<!-- End of mathjax configuration -->
+<!-- Custom scripts-->
+<script lang="Javascript" src="/notes/static/js/toc.js"></script>
+<script lang="Javascript" src="/notes/static/js/note.js"></script>
+<!-- /Custom scripts-->
 </html>

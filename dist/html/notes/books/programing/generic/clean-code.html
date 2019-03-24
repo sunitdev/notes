@@ -1,19 +1,15 @@
 <html>
-
-    <head>
-        <title>Clean Code</title>
-
-        <!--Fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
-        <!--/Fonts-->
-
-        <!--Vender Styles-->
-        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css" rel="stylesheet">
-        <!--/Vendor Style-->
-
-        <style type="text/css">
+<head>
+<title>Clean Code</title>
+<!--Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css" rel="stylesheet"/>
+<!--/Fonts-->
+<!--Vender Styles-->
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css" rel="stylesheet"/>
+<!--/Vendor Style-->
+<style type="text/css">
             
                 /*!
 *
@@ -13060,21 +13056,20 @@ ul.typeahead-list  > li > a.pull-right {
 
             
         </style>
-
-        <!--Custom Style-->
-        <style>
+<!--Custom Style-->
+<style>
             @font-face {
                 font-family: "Fira IScript";
-                src: url("/static/fonts/FiraCodeiScript-Regular.ttf");
+                src: url("/notes/static/fonts/FiraCodeiScript-Regular.ttf");
             }
             @font-face {
                 font-family: "Fira IScript";
-                src: url("/static/fonts/FiraCodeiScript-Bold.ttf");
+                src: url("/notes/static/fonts/FiraCodeiScript-Bold.ttf");
                 font-weight: bold;
             }
             @font-face {
                 font-family: "Fira IScript";
-                src: url("/static/fonts/FiraCodeiScript-Italic.ttf");
+                src: url("/notes/static/fonts/FiraCodeiScript-Italic.ttf");
                 font-style: italic;
             }
 
@@ -13241,22 +13236,18 @@ ul.typeahead-list  > li > a.pull-right {
                 }    
             }
         </style>
-        <!--/Custom Style-->
-    </head>
-
-    <body>
-        <p class="note-title">Clean Code</p>
-
-        <div id="tableOfContent" class="mt-3 mb-3"></div>
-
-        <div class="notes-content">
-            
+<!--/Custom Style-->
+</head>
+<body>
+<p class="note-title">Clean Code</p>
+<div class="mt-3 mb-3" id="tableOfContent"></div>
+<div class="notes-content">
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>These notes are derived from the book "Clean Code", link in references.</p>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h1><p>These notes are derived from the book "Clean Code", link in references.</p>
 <p>This notes contains a general guidelines for writing clean code. Writing clean code is very important has the code is only written onces and read multiple times. So this notes summaries best principles to follow to write clean and better code</p>
-<h2 id="What-is-clean-code">What is clean code<a class="anchor-link" href="#What-is-clean-code">&#182;</a></h2><p>Lets see what great programmers have to say about what clean code is.</p>
+<h2 id="What-is-clean-code">What is clean code<a class="anchor-link" href="#What-is-clean-code">¶</a></h2><p>Lets see what great programmers have to say about what clean code is.</p>
 <blockquote><p>I like my code to be elegant and efficient. The logic should be straightforward to make it hard for bugs to hide, the dependencies minimal to ease maintenance, error handling complete according to an articulated strategy, and per- formance close to optimal so as not to tempt people to make the code messy with unprinci- pled optimizations. Clean code does one thing well.</p>
 <p><strong>Bjarne Stroustrup - C++ inventor</strong></p>
 </blockquote>
@@ -13272,43 +13263,35 @@ ul.typeahead-list  > li > a.pull-right {
 <blockquote><p>You know you are working on clean code when each routine you read turns out to be pretty much what you expected. You can call it beautiful code when the code also makes it look like the language was made for the problem.</p>
 <p><strong>Ward Cunningham - inventor of Wiki</strong></p>
 </blockquote>
-<h1 id="Naming">Naming<a class="anchor-link" href="#Naming">&#182;</a></h1><p>Names are everywhere in software. We name our variables, our functions, our arguments, classes, and packages. We name our source files and the directories that contain them. We name and name and name. Because we do so much of it, we’d better do it well. What follows are some simple rules for creating good names.</p>
-<h2 id="Use-Intention-Revealing-Names">Use Intention-Revealing Names<a class="anchor-link" href="#Use-Intention-Revealing-Names">&#182;</a></h2><p>The name of a variable, function, or class, should answer all the big questions. It should tell you why it exists, what it does, and how it is used. If a name requires a comment, then the name does not reveal its intent.</p>
-
+<h1 id="Naming">Naming<a class="anchor-link" href="#Naming">¶</a></h1><p>Names are everywhere in software. We name our variables, our functions, our arguments, classes, and packages. We name our source files and the directories that contain them. We name and name and name. Because we do so much of it, we’d better do it well. What follows are some simple rules for creating good names.</p>
+<h2 id="Use-Intention-Revealing-Names">Use Intention-Revealing Names<a class="anchor-link" href="#Use-Intention-Revealing-Names">¶</a></h2><p>The name of a variable, function, or class, should answer all the big questions. It should tell you why it exists, what it does, and how it is used. If a name requires a comment, then the name does not reveal its intent.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">d</span><span class="o">;</span> <span class="c1">// elapsed days in time (Bad)</span>
 
 <span class="kt">int</span> <span class="n">elapsedTimeInDays</span><span class="o">;</span> <span class="c1">// (Good, without coments)</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Make-Meaningful-Distinctions">Make Meaningful Distinctions<a class="anchor-link" href="#Make-Meaningful-Distinctions">&#182;</a></h2><p>Programmers create problems for themselves when they write code solely to satisfy a compiler or interpreter. For example, because you cant use the same name to refer to two different things in the same scope, you might be tempted to change one name in an arbitrary way. It is not sufficient to add number series or noise words, even though the compiler is satisfied. If names must be different, then they should also mean something different.</p>
+<h2 id="Make-Meaningful-Distinctions">Make Meaningful Distinctions<a class="anchor-link" href="#Make-Meaningful-Distinctions">¶</a></h2><p>Programmers create problems for themselves when they write code solely to satisfy a compiler or interpreter. For example, because you cant use the same name to refer to two different things in the same scope, you might be tempted to change one name in an arbitrary way. It is not sufficient to add number series or noise words, even though the compiler is satisfied. If names must be different, then they should also mean something different.</p>
 <p>Number-series naming <code>(a1, a2, .. aN)</code> is the opposite of intentional naming. Such names are not disinformative they are non informative; they provide no clue to the authors intention. Consider:</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="c1">// Bad variable name</span>
 <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">copyChars</span><span class="o">(</span><span class="kt">char</span> <span class="n">a1</span><span class="o">[],</span> <span class="kt">char</span> <span class="n">a2</span><span class="o">[])</span> <span class="o">{</span> 
     
@@ -13325,49 +13308,43 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-    </div>
 </div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This function reads much better when source and destination are used for the argument names.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Use-Pronounceable-Names">Use Pronounceable Names<a class="anchor-link" href="#Use-Pronounceable-Names">&#182;</a></h2><p>Humans are good at words. A significant part of our brains is dedicated to the concept of words. So make your names pronounceable.</p>
-<h2 id="Use-Searchable-Names">Use Searchable Names<a class="anchor-link" href="#Use-Searchable-Names">&#182;</a></h2><p>Single-letter names and numeric constants have a particular problem in that they are not easy to locate across a body of text.</p>
+<p>This function reads much better when source and destination are used for the argument names.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Use-Pronounceable-Names">Use Pronounceable Names<a class="anchor-link" href="#Use-Pronounceable-Names">¶</a></h2><p>Humans are good at words. A significant part of our brains is dedicated to the concept of words. So make your names pronounceable.</p>
+<h2 id="Use-Searchable-Names">Use Searchable Names<a class="anchor-link" href="#Use-Searchable-Names">¶</a></h2><p>Single-letter names and numeric constants have a particular problem in that they are not easy to locate across a body of text.</p>
 <p>One might easily grep for <code>MAX_CLASSES_PER_STUDENT</code>, but the number <code>7</code> could be more troublesome. Searches may turn up the digit as part of file names, other constant definitions, and in various expressions where the value is used with different intent. It is even worse when a constant is a long number and someone might have transposed digits, thereby creating a bug while simultaneously evading the programmers search.</p>
 <p>Likewise, the name e is a poor choice for any variable for which a programmer might need to search. It is the most common letter in the English language and likely to show up in every passage of text in every program. In this regard, longer names trump shorter names, and any searchable name trumps a constant in code.</p>
-<h2 id="Class-Names">Class Names<a class="anchor-link" href="#Class-Names">&#182;</a></h2><p>Classes and objects should have noun or noun phrase names like <code>Customer</code>, <code>WikiPage</code>, <code>Account</code>, and <code>AddressParser</code>. Avoid words like <code>Manager</code>, <code>Processor</code>, <code>Data</code>, or <code>Info</code> in the name of a class. A class name should not be a verb.</p>
-<h2 id="Method-Names">Method Names<a class="anchor-link" href="#Method-Names">&#182;</a></h2><p>Methods should have verb or verb phrase names like <code>postPayment</code>, <code>deletePage</code>, or save. Accessors, mutators, and predicates should be named for their value and prefixed with <strong>get</strong>, <strong>set</strong>, and <strong>is</strong>.</p>
-<h2 id="Pick-One-Word-per-Concept">Pick One Word per Concept<a class="anchor-link" href="#Pick-One-Word-per-Concept">&#182;</a></h2><p>Pick one word for one abstract concept and stick with it. For instance, its confusing to have <code>fetch</code>, <code>retrieve</code>, and <code>get</code> as equivalent methods of different classes.</p>
-<h1 id="Functions">Functions<a class="anchor-link" href="#Functions">&#182;</a></h1><p>Functions are the first line of organization in any program. So let see some guidelines for writing code functions</p>
-<h2 id="Function-show-be-small-tiny">Function show be <del>small</del> tiny<a class="anchor-link" href="#Function-show-be-small-tiny">&#182;</a></h2><p>The first rule of functions is that they should be small. The second rule of functions is that they should be smaller than that.</p>
+<h2 id="Class-Names">Class Names<a class="anchor-link" href="#Class-Names">¶</a></h2><p>Classes and objects should have noun or noun phrase names like <code>Customer</code>, <code>WikiPage</code>, <code>Account</code>, and <code>AddressParser</code>. Avoid words like <code>Manager</code>, <code>Processor</code>, <code>Data</code>, or <code>Info</code> in the name of a class. A class name should not be a verb.</p>
+<h2 id="Method-Names">Method Names<a class="anchor-link" href="#Method-Names">¶</a></h2><p>Methods should have verb or verb phrase names like <code>postPayment</code>, <code>deletePage</code>, or save. Accessors, mutators, and predicates should be named for their value and prefixed with <strong>get</strong>, <strong>set</strong>, and <strong>is</strong>.</p>
+<h2 id="Pick-One-Word-per-Concept">Pick One Word per Concept<a class="anchor-link" href="#Pick-One-Word-per-Concept">¶</a></h2><p>Pick one word for one abstract concept and stick with it. For instance, its confusing to have <code>fetch</code>, <code>retrieve</code>, and <code>get</code> as equivalent methods of different classes.</p>
+<h1 id="Functions">Functions<a class="anchor-link" href="#Functions">¶</a></h1><p>Functions are the first line of organization in any program. So let see some guidelines for writing code functions</p>
+<h2 id="Function-show-be-small-tiny">Function show be <del>small</del> tiny<a class="anchor-link" href="#Function-show-be-small-tiny">¶</a></h2><p>The first rule of functions is that they should be small. The second rule of functions is that they should be smaller than that.</p>
 <p>Every function must be just two, or three, or four lines long. Each one must be transparently obvious. Each functions told a story. And each led you to the next in a compelling order. That's how short your functions should be!</p>
-<h2 id="Blocks-and-Indenting">Blocks and Indenting<a class="anchor-link" href="#Blocks-and-Indenting">&#182;</a></h2><p>This implies that the blocks within if statements, else statements, while statements, and so on should be one line long. Probably that line should be a function call. Not only does this keep the enclosing function small, but it also adds documentary value because the function called within the block can have a nicely descriptive name.</p>
+<h2 id="Blocks-and-Indenting">Blocks and Indenting<a class="anchor-link" href="#Blocks-and-Indenting">¶</a></h2><p>This implies that the blocks within if statements, else statements, while statements, and so on should be one line long. Probably that line should be a function call. Not only does this keep the enclosing function small, but it also adds documentary value because the function called within the block can have a nicely descriptive name.</p>
 <p>This also implies that functions should not be large enough to hold nested structures. Therefore, the indent level of a function should not be greater than one or two. This, of course, makes the functions easier to read and understand.</p>
-<h2 id="Do-one-F**KING-thing">Do one F**KING thing<a class="anchor-link" href="#Do-one-F**KING-thing">&#182;</a></h2><p>Every function is should only do one thing. If it is doing multiple things, then break it down further in smaller functions.</p>
-<h2 id="Reading-Code-from-Top-to-Bottom:-The-Stepdown-Rule">Reading Code from Top to Bottom: The Stepdown Rule<a class="anchor-link" href="#Reading-Code-from-Top-to-Bottom:-The-Stepdown-Rule">&#182;</a></h2><p>We want the code to read like a top-down narrative. We want every function to be followed by those at the next level of abstraction so that we can read the program, descending one level of abstraction at a time as we read down the list of functions.</p>
-<h2 id="Switch-Statements">Switch Statements<a class="anchor-link" href="#Switch-Statements">&#182;</a></h2><p>It's hard to make a small switch statement. Even a switch statement with only two cases is larger than a single block or function to be. It's also hard to make a switch statement that does one thing. By their nature, switch statements always do N things. Unfortunately we can't always avoid switch statements, but we can make sure that each switch statement is buried in a low level class and is never repeated. We do this, of course, with polymorphism.</p>
+<h2 id="Do-one-F**KING-thing">Do one F**KING thing<a class="anchor-link" href="#Do-one-F**KING-thing">¶</a></h2><p>Every function is should only do one thing. If it is doing multiple things, then break it down further in smaller functions.</p>
+<h2 id="Reading-Code-from-Top-to-Bottom:-The-Stepdown-Rule">Reading Code from Top to Bottom: The Stepdown Rule<a class="anchor-link" href="#Reading-Code-from-Top-to-Bottom:-The-Stepdown-Rule">¶</a></h2><p>We want the code to read like a top-down narrative. We want every function to be followed by those at the next level of abstraction so that we can read the program, descending one level of abstraction at a time as we read down the list of functions.</p>
+<h2 id="Switch-Statements">Switch Statements<a class="anchor-link" href="#Switch-Statements">¶</a></h2><p>It's hard to make a small switch statement. Even a switch statement with only two cases is larger than a single block or function to be. It's also hard to make a switch statement that does one thing. By their nature, switch statements always do N things. Unfortunately we can't always avoid switch statements, but we can make sure that each switch statement is buried in a low level class and is never repeated. We do this, of course, with polymorphism.</p>
 <p>Consider the following code</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Money</span> <span class="nf">calculatePay</span><span class="o">(</span><span class="n">Employee</span> <span class="n">e</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InvalidEmployeeType</span> <span class="o">{</span>
     
     <span class="k">switch</span> <span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">type</span><span class="o">)</span> <span class="o">{</span> 
@@ -13386,27 +13363,22 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>There are several problems with this function. First, it's large, and when new employee types are added, it will grow. Second, it very clearly does more than one thing. Third, it violates the Single Responsibility Principle, because there is more than one reason for it to change. Fourth, it violates the Open Closed Principle, because it must change whenever new types are added. But possibly the worst problem with this function is that there are an unlimited number of other functions that will have the same structure.</p>
 <p>The solution to this problem is to bury the switch statement in the basement of an ABSTRACT FACTORY, and never let anyone see it. The factory will use the switch statement to create appropriate instances of the derivatives of Employee, and the various functions, such as <code>calculatePay</code>, <code>isPayday</code>, and <code>deliverPay</code>, will be dispatched polymorphically through the Employee interface.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Employee</span> <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">boolean</span> <span class="nf">isPayday</span><span class="o">();</span>
     <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Money</span> <span class="nf">calculatePay</span><span class="o">();</span>
@@ -13438,107 +13410,87 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Use-Descriptive-Names">Use Descriptive Names<a class="anchor-link" href="#Use-Descriptive-Names">&#182;</a></h2><p>Remember Ward's principle: "You know you are working on clean code when each routine turns out to be pretty much what you expected." Half the battle to achieving that principle is choosing good names for small functions that do one thing. The smaller and more focused a function is, the easier it is to choose a descriptive name.</p>
+<h2 id="Use-Descriptive-Names">Use Descriptive Names<a class="anchor-link" href="#Use-Descriptive-Names">¶</a></h2><p>Remember Ward's principle: "You know you are working on clean code when each routine turns out to be pretty much what you expected." Half the battle to achieving that principle is choosing good names for small functions that do one thing. The smaller and more focused a function is, the easier it is to choose a descriptive name.</p>
 <p>Don't be afraid to make a name long. A long descriptive name is better than a short enigmatic name. A long descriptive name is better than a long descriptive comment. Use a naming convention that allows multiple words to be easily read in the function names, and then make use of those multiple words to give the function a name that says what it does.</p>
-<h2 id="Function-Arguments">Function Arguments<a class="anchor-link" href="#Function-Arguments">&#182;</a></h2><p>The ideal number of arguments for a function is zero (niladic). Next comes one (monadic), followed closely by two (dyadic). Three arguments (triadic) should be avoided where possible. More than three (polyadic) requires very special justification and then shouldn't be used anyway.</p>
-<h2 id="Have-No-Side-Effects">Have No Side Effects<a class="anchor-link" href="#Have-No-Side-Effects">&#182;</a></h2><p>Side effects are lies. Your function promises to do one thing, but it also does other hidden things. Sometimes it will make unexpected changes to the variables of its own class. Sometimes it will make them to the parameters passed into the function or to system globals. In either case they are devious and damaging mistruths that often result in strange temporal couplings and order dependencies.</p>
+<h2 id="Function-Arguments">Function Arguments<a class="anchor-link" href="#Function-Arguments">¶</a></h2><p>The ideal number of arguments for a function is zero (niladic). Next comes one (monadic), followed closely by two (dyadic). Three arguments (triadic) should be avoided where possible. More than three (polyadic) requires very special justification and then shouldn't be used anyway.</p>
+<h2 id="Have-No-Side-Effects">Have No Side Effects<a class="anchor-link" href="#Have-No-Side-Effects">¶</a></h2><p>Side effects are lies. Your function promises to do one thing, but it also does other hidden things. Sometimes it will make unexpected changes to the variables of its own class. Sometimes it will make them to the parameters passed into the function or to system globals. In either case they are devious and damaging mistruths that often result in strange temporal couplings and order dependencies.</p>
 <p>So avoid them!</p>
-<h2 id="Command-Query-Separation">Command Query Separation<a class="anchor-link" href="#Command-Query-Separation">&#182;</a></h2><p>Functions should either do something or answer something, but not both. Either your function should change the state of an object, or it should return some information about that object. Doing both often leads to confusion. Consider, for example, the following function:</p>
-
+<h2 id="Command-Query-Separation">Command Query Separation<a class="anchor-link" href="#Command-Query-Separation">¶</a></h2><p>Functions should either do something or answer something, but not both. Either your function should change the state of an object, or it should return some information about that object. Doing both often leads to confusion. Consider, for example, the following function:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">set</span><span class="o">(</span><span class="n">String</span> <span class="n">attribute</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This function sets the value of a named attribute and returns true if it is successful and false if no such attribute exists. Which is bad.</p>
 <p>The real solution is to separate the command from the query.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">attributeExists</span><span class="o">(</span><span class="n">String</span> <span class="n">attribute</span><span class="o">);</span>
 
 <span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">attribute</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Prefer-Exceptions-to-Returning-Error-Codes">Prefer Exceptions to Returning Error Codes<a class="anchor-link" href="#Prefer-Exceptions-to-Returning-Error-Codes">&#182;</a></h2><p>Returning error codes from command functions is a subtle violation of command query separation. It promotes commands being used as expressions in the predicates of if statements in the calling function. So throw exception from function instead of returning error code.</p>
-<h1 id="Comments">Comments<a class="anchor-link" href="#Comments">&#182;</a></h1><p>Nothing can be quite so helpful as a well-placed comment. Nothing can clutter up a module more than frivolous dogmatic comments. Nothing can be quite so damaging as an old crufty comment that propagates lies and misinformation.</p>
+<h2 id="Prefer-Exceptions-to-Returning-Error-Codes">Prefer Exceptions to Returning Error Codes<a class="anchor-link" href="#Prefer-Exceptions-to-Returning-Error-Codes">¶</a></h2><p>Returning error codes from command functions is a subtle violation of command query separation. It promotes commands being used as expressions in the predicates of if statements in the calling function. So throw exception from function instead of returning error code.</p>
+<h1 id="Comments">Comments<a class="anchor-link" href="#Comments">¶</a></h1><p>Nothing can be quite so helpful as a well-placed comment. Nothing can clutter up a module more than frivolous dogmatic comments. Nothing can be quite so damaging as an old crufty comment that propagates lies and misinformation.</p>
 <p>The proper use of comments is to compensate for our failure to express ourself in code. Comments are always failures. We must have them because we cannot always figure out how to express ourselves without them, but their use is not a cause for celebration.</p>
 <p>So when you find yourself in a position where you need to write a comment, think it through and see whether there isn’t some way to turn the tables and express yourself in code. Every time you express yourself in code, you should pat yourself on the back. Every time you write a comment, you should grimace and feel the failure of your ability of expression.</p>
 <p>But comments can be good in some situations as follows.</p>
-<h2 id="Legal-Comments">Legal Comments<a class="anchor-link" href="#Legal-Comments">&#182;</a></h2><p>Sometimes our corporate coding standards force us to write certain comments for legal reasons. For example, copyright and authorship statements are necessary and reasonable things to put into a comment at the start of each source file.</p>
-<h2 id="Informative-Comments">Informative Comments<a class="anchor-link" href="#Informative-Comments">&#182;</a></h2><p>It is sometimes useful to provide basic information with a comment. For example, consider this comment:</p>
-
+<h2 id="Legal-Comments">Legal Comments<a class="anchor-link" href="#Legal-Comments">¶</a></h2><p>Sometimes our corporate coding standards force us to write certain comments for legal reasons. For example, copyright and authorship statements are necessary and reasonable things to put into a comment at the start of each source file.</p>
+<h2 id="Informative-Comments">Informative Comments<a class="anchor-link" href="#Informative-Comments">¶</a></h2><p>It is sometimes useful to provide basic information with a comment. For example, consider this comment:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="c1">// format matched kk:mm:ss EEE, MMM dd, yyyy </span>
-<span class="n">Pattern</span> <span class="n">timeMatcher</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">&quot;\\d*:\\d*:\\d* \\w*, \\w* \\d*, \\d*&quot;</span><span class="o">);</span>
+<span class="n">Pattern</span> <span class="n">timeMatcher</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">"\\d*:\\d*:\\d* \\w*, \\w* \\d*, \\d*"</span><span class="o">);</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Explanation-of-Intent">Explanation of Intent<a class="anchor-link" href="#Explanation-of-Intent">&#182;</a></h2><p>Sometimes a comment goes beyond just useful information about the implementation and provides the intent behind a decision.</p>
-
+<h2 id="Explanation-of-Intent">Explanation of Intent<a class="anchor-link" href="#Explanation-of-Intent">¶</a></h2><p>Sometimes a comment goes beyond just useful information about the implementation and provides the intent behind a decision.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="c1">//This is our best attempt to get a race condition </span>
 <span class="c1">//by creating large number of threads.</span>
 <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">25000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
@@ -13547,52 +13499,42 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span> 
 <span class="o">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Objects-and-Data-Structures">Objects and Data Structures<a class="anchor-link" href="#Objects-and-Data-Structures">&#182;</a></h1><p>There is a reason that we keep our variables private. We don't want anyone else to depend on them. We want to keep the freedom to change their type or implementation on a whim or an impulse. Why, then, do so many programmers automatically add getters and setters to their objects, exposing their private variables as if they were public?</p>
-<h2 id="Data-abstraction">Data abstraction<a class="anchor-link" href="#Data-abstraction">&#182;</a></h2><p>Consider example below</p>
-
+<h1 id="Objects-and-Data-Structures">Objects and Data Structures<a class="anchor-link" href="#Objects-and-Data-Structures">¶</a></h1><p>There is a reason that we keep our variables private. We don't want anyone else to depend on them. We want to keep the freedom to change their type or implementation on a whim or an impulse. Why, then, do so many programmers automatically add getters and setters to their objects, exposing their private variables as if they were public?</p>
+<h2 id="Data-abstraction">Data abstraction<a class="anchor-link" href="#Data-abstraction">¶</a></h2><p>Consider example below</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span> 
     <span class="kd">public</span> <span class="kt">double</span> <span class="n">x</span><span class="o">;</span> 
     <span class="kd">public</span> <span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
 <span class="o">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>and</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Point</span> <span class="o">{</span>
     <span class="kt">double</span> <span class="nf">getX</span><span class="o">();</span>
     <span class="kt">double</span> <span class="nf">getY</span><span class="o">();</span>
@@ -13602,11 +13544,9 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="kt">void</span> <span class="nf">setPolar</span><span class="o">(</span><span class="kt">double</span> <span class="n">r</span><span class="o">,</span> <span class="kt">double</span> <span class="n">theta</span><span class="o">);</span> 
 <span class="o">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13614,17 +13554,14 @@ ul.typeahead-list  > li > a.pull-right {
 <p>Both represent the data of a point on the Cartesian plane. And yet one exposes its implementation and the other completely hides it.</p>
 <p>The beautiful thing about the interface example is that there is no way you can tell whether the implementation is in rectangular or polar coordinates. It might be neither! And yet the interface still unmistakably represents a data structure.</p>
 <p>But it represents more than just a data structure. The methods enforce an access policy. You can read the individual coordinates independently, but you must set the coordinates together as an atomic operation.</p>
-<h2 id="Data/Object-Anti-Symmetry">Data/Object Anti-Symmetry<a class="anchor-link" href="#Data/Object-Anti-Symmetry">&#182;</a></h2><p>Consider the example</p>
-
+<h2 id="Data/Object-Anti-Symmetry">Data/Object Anti-Symmetry<a class="anchor-link" href="#Data/Object-Anti-Symmetry">¶</a></h2><p>Consider the example</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Square</span> <span class="o">{</span> 
     <span class="kd">public</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="o">;</span> 
     <span class="kd">public</span> <span class="kt">double</span> <span class="n">side</span><span class="o">;</span>
@@ -13660,26 +13597,21 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="o">}</span>
 <span class="o">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>And</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Square</span> <span class="kd">implements</span> <span class="n">Shape</span> <span class="o">{</span> 
     <span class="kd">private</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="o">;</span>
     <span class="kd">private</span> <span class="kt">double</span> <span class="n">side</span><span class="o">;</span>
@@ -13708,11 +13640,9 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="o">}</span> 
 <span class="o">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13722,7 +13652,7 @@ ul.typeahead-list  > li > a.pull-right {
 <p><em>Procedural code (code using data structures) makes it easy to add new functions without changing the existing data structures. OO code, on the other hand, makes it easy to add new classes without changing existing functions.</em></p>
 <p>The complement is also true:</p>
 <p><em>Procedural code makes it hard to add new data structures because all the functions must change. OO code makes it hard to add new functions because all the classes must change.</em></p>
-<h2 id="The-law-of-Demeter">The law of Demeter<a class="anchor-link" href="#The-law-of-Demeter">&#182;</a></h2><p>There is a well-known heuristic called the Law of Demeter2 that says a module should not know about the innards of the objects it manipulates. In other words, an object should not expose its internal structure through accessors because to do so is to expose, rather than to hide, its internal structure.</p>
+<h2 id="The-law-of-Demeter">The law of Demeter<a class="anchor-link" href="#The-law-of-Demeter">¶</a></h2><p>There is a well-known heuristic called the Law of Demeter2 that says a module should not know about the innards of the objects it manipulates. In other words, an object should not expose its internal structure through accessors because to do so is to expose, rather than to hide, its internal structure.</p>
 <p>More precisely, the Law of Demeter says that a method f of a class C should only call the methods of these:</p>
 <ul>
 <li>C</li>
@@ -13731,40 +13661,32 @@ ul.typeahead-list  > li > a.pull-right {
 <li>An object held in an instance variable C</li>
 </ul>
 <p>For example:</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">outputDir</span> <span class="o">=</span> <span class="n">ctxt</span><span class="o">.</span><span class="na">getOptions</span><span class="o">().</span><span class="na">getScratchDir</span><span class="o">().</span><span class="na">getAbsolutePath</span><span class="o">();</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The following code3 appears to violate the Law of Demeter (among other things) because it calls the <code>getScratchDir()</code> function on the return value of <code>getOptions()</code> and then calls <code>getAbsolutePath()</code> on the return value of <code>getScratchDir()</code>.</p>
-<h2 id="Data-transfer-object">Data transfer object<a class="anchor-link" href="#Data-transfer-object">&#182;</a></h2><p>The quintessential form of a data structure is a class with public variables and no functions. This is sometimes called a data transfer object, or DTO. DTOs are very useful structures, especially when communicating with databases or parsing messages from sockets, and so on. They often become the first in a series of translation stages that convert raw data in a database into objects in the application code.</p>
+<h2 id="Data-transfer-object">Data transfer object<a class="anchor-link" href="#Data-transfer-object">¶</a></h2><p>The quintessential form of a data structure is a class with public variables and no functions. This is sometimes called a data transfer object, or DTO. DTOs are very useful structures, especially when communicating with databases or parsing messages from sockets, and so on. They often become the first in a series of translation stages that convert raw data in a database into objects in the application code.</p>
 <p>Example of Address DTO.</p>
-
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-
-
 <div class="inner_cell">
-    <div class="input_area">
+<div class="input_area">
 <div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Address</span> <span class="o">{</span> 
     <span class="kd">private</span> <span class="n">String</span> <span class="n">street</span><span class="o">;</span> 
     <span class="kd">private</span> <span class="n">String</span> <span class="n">streetExtra</span><span class="o">;</span> 
@@ -13801,47 +13723,38 @@ ul.typeahead-list  > li > a.pull-right {
     <span class="o">}</span> 
 <span class="o">}</span>
 </pre></div>
-
-    </div>
 </div>
 </div>
-
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Active-Records">Active Records<a class="anchor-link" href="#Active-Records">&#182;</a></h2><p>Active Records are special forms of DTOs. They are data structures with public (or bean- accessed) variables; but they typically have navigational methods like save and find. Typically these Active Records are direct translations from database tables, or other data sources.</p>
-<h1 id="Classes">Classes<a class="anchor-link" href="#Classes">&#182;</a></h1><h2 id="Class-organization">Class organization<a class="anchor-link" href="#Class-organization">&#182;</a></h2><p>A class should begin with a list of variables. Public static constants, if any, should come first. Then private static variables, followed by private instance variables. There is seldom a good reason to have a public variable.</p>
+<h2 id="Active-Records">Active Records<a class="anchor-link" href="#Active-Records">¶</a></h2><p>Active Records are special forms of DTOs. They are data structures with public (or bean- accessed) variables; but they typically have navigational methods like save and find. Typically these Active Records are direct translations from database tables, or other data sources.</p>
+<h1 id="Classes">Classes<a class="anchor-link" href="#Classes">¶</a></h1><h2 id="Class-organization">Class organization<a class="anchor-link" href="#Class-organization">¶</a></h2><p>A class should begin with a list of variables. Public static constants, if any, should come first. Then private static variables, followed by private instance variables. There is seldom a good reason to have a public variable.</p>
 <p>Public functions should follow the list of variables. Private utilities called by a public function right after the public function itself. This follows the stepdown rule and helps the program read like a newspaper article.</p>
-<h2 id="Classes-Should-Be-Small!">Classes Should Be Small!<a class="anchor-link" href="#Classes-Should-Be-Small!">&#182;</a></h2><p>The first rule of classes is that they should be small. The second rule of classes is that they should be smaller than that.</p>
+<h2 id="Classes-Should-Be-Small!">Classes Should Be Small!<a class="anchor-link" href="#Classes-Should-Be-Small!">¶</a></h2><p>The first rule of classes is that they should be small. The second rule of classes is that they should be smaller than that.</p>
 <p>With functions we measured size by counting physical lines. With classes we use a different measure. We count responsibilities.</p>
-<h2 id="The-Single-Responsibility-Principle">The Single Responsibility Principle<a class="anchor-link" href="#The-Single-Responsibility-Principle">&#182;</a></h2><p>The Single Responsibility Principle (SRP) states that a class or module should have one, and only one, reason to change. This principle gives us both a definition of responsibility, and a guidelines for class size. Classes should have one responsibility and one reason to change.</p>
-<h2 id="Cohesion">Cohesion<a class="anchor-link" href="#Cohesion">&#182;</a></h2><p>Classes should have a small number of instance variables. Each of the methods of a class should manipulate one or more of those variables. In general the more variables a method manipulates the more cohesive that method is to its class. A class in which each variable is used by each method is maximally cohesive.</p>
+<h2 id="The-Single-Responsibility-Principle">The Single Responsibility Principle<a class="anchor-link" href="#The-Single-Responsibility-Principle">¶</a></h2><p>The Single Responsibility Principle (SRP) states that a class or module should have one, and only one, reason to change. This principle gives us both a definition of responsibility, and a guidelines for class size. Classes should have one responsibility and one reason to change.</p>
+<h2 id="Cohesion">Cohesion<a class="anchor-link" href="#Cohesion">¶</a></h2><p>Classes should have a small number of instance variables. Each of the methods of a class should manipulate one or more of those variables. In general the more variables a method manipulates the more cohesive that method is to its class. A class in which each variable is used by each method is maximally cohesive.</p>
 <p>In general it is neither advisable nor possible to create such maximally cohesive classes; on the other hand, we would like cohesion to be high. When cohesion is high, it means that the methods and variables of the class are co-dependent and hang together as a logical whole. Maintaining cohesion results in small classes.</p>
-<h2 id="Organizing-for-Change">Organizing for Change<a class="anchor-link" href="#Organizing-for-Change">&#182;</a></h2><p>For most systems, change is continual. Every change subjects us to the risk that the remainder of the system no longer works as intended. In a clean system we organize our classes so as to reduce the risk of change.</p>
+<h2 id="Organizing-for-Change">Organizing for Change<a class="anchor-link" href="#Organizing-for-Change">¶</a></h2><p>For most systems, change is continual. Every change subjects us to the risk that the remainder of the system no longer works as intended. In a clean system we organize our classes so as to reduce the risk of change.</p>
 <p>Classes should be open for extension but closed for modification.</p>
-<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><p>Clean Code - Robert C. Martin (<a href="https://www.goodreads.com/book/show/3735293-clean-code">link</a>)</p>
-
+<h1 id="References">References<a class="anchor-link" href="#References">¶</a></h1><p>Clean Code - Robert C. Martin (<a href="https://www.goodreads.com/book/show/3735293-clean-code">link</a>)</p>
 </div>
 </div>
 </div>
- 
-
-
-        </div>
-    </body>
-
-
-    <!-- Vendor script-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"></script>
-    <!-- /Vendor script-->
-
-    <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
+</div>
+</body>
+<!-- Vendor script-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.js"></script>
+<!-- /Vendor script-->
+<!-- Load mathjax -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+<!-- MathJax configuration -->
+<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
             inlineMath: [ ['$','$'], ["\\(","\\)"] ],
@@ -13858,11 +13771,9 @@ ul.typeahead-list  > li > a.pull-right {
         }
     });
     </script>
-    <!-- End of mathjax configuration -->
-
-    <!-- Custom scripts-->
-    <script src="/static/js/toc.js" lang="Javascript"></script>
-    <script src="/static/js/note.js" lang="Javascript"></script>
-    <!-- /Custom scripts-->
-
+<!-- End of mathjax configuration -->
+<!-- Custom scripts-->
+<script lang="Javascript" src="/notes/static/js/toc.js"></script>
+<script lang="Javascript" src="/notes/static/js/note.js"></script>
+<!-- /Custom scripts-->
 </html>
