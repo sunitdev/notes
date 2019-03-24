@@ -88,3 +88,12 @@ header{
 }
 
 
+@media only screen and (max-width: 992px) {
+    .book-description {
+        font-size: 1.5em;
+    }
+
+    .book-title {
+        font-size: 2em;
+    }
+}
