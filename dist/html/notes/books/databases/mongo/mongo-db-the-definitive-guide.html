@@ -1,7 +1,7 @@
 <html>
 
     <head>
-        <title>Typescript</title>
+        <title>MongoDB: The Definitive Guide</title>
 
         <!--Fonts-->
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -13245,7 +13245,7 @@ ul.typeahead-list  > li > a.pull-right {
     </head>
 
     <body>
-        <p class="note-title">Typescript</p>
+        <p class="note-title">MongoDB: The Definitive Guide</p>
 
         <div id="tableOfContent" class="mt-3 mb-3"></div>
 
@@ -13254,43 +13254,67 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>Typescript is a superset of javascript created by Microsoft. Typescript is a transcompiled language, which means typescript code is trans compiled (like babel) to javascript by typescript compiler.</p>
-<h2 id="Feature-of-typescript">Feature of typescript<a class="anchor-link" href="#Feature-of-typescript">&#182;</a></h2><h3 id="Types">Types<a class="anchor-link" href="#Types">&#182;</a></h3><p>Typescript provides type checking feature to javascript which is a dynamic. Typescript supports following types.</p>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>MongoDB is a powerful, flexible, and scalable general-purpose database. It combines the ability to scale out with features such as secondary indexes, range queries, sorting, aggregations, and geospatial indexes.</p>
+<p>MongoDB was made for high scalability. It does so by providing features like sharding, replication etc out of the box. It solve the scalability problems of relational database, by sacrificing some relational database principles and offloading the processing to the client side code.</p>
+<h2 id="Features">Features<a class="anchor-link" href="#Features">&#182;</a></h2><p>Following are a bunch of features of MongoDB. It provides all of these features without sacrificing speed.</p>
 <ul>
-<li>boolean</li>
-<li>number</li>
-<li>string</li>
-<li>Array</li>
-<li>Object</li>
-<li>enum</li>
-<li>any</li>
-<li>void</li>
-<li>undefined</li>
+<li><p>Ease of use
+  MongoDB is a document based database.A document-oriented database replaces the concept of a "row" with a more flexible model, the "document.". Unlike rows, documents don't have a fixed structure so developer can add any key-value pair at a given time.</p>
+</li>
+<li><p>Easy Scaling
+  MongoDB was build with scalability in mind. The document driven model help a lot in horizontal scaling and MongoDB provides features such as sharding, replica etc out of the box.</p>
+</li>
+<li><p>Indexing
+  MongoDB supports generic secondary indexes, allowing a variety of fast queries, and provides unique, compound, geospatial, and full-text indexing capabilities as well.</p>
+</li>
+<li><p>Aggregation
+  MongoDB supports an "aggregation pipeline" that allows you to build complex aggregations from simple pieces and allow the database to optimize it.</p>
+</li>
+<li><p>Special collection types
+  MongoDB supports time-to-live collections for data that should expire at a certain time, such as sessions. It also supports fixed-size collections, which are useful for holding recent data, such as logs.</p>
+</li>
+<li><p>File storage
+  MongoDB supports an easy-to-use protocol for storing large files and file metadata.</p>
+</li>
 </ul>
-<h3 id="Interfaces">Interfaces<a class="anchor-link" href="#Interfaces">&#182;</a></h3><p>An interface is a way to define a contract on a function with respect to the arguments and their type. Typescript interfaces are similar to that of java, where interface are used to defined the structure of any object/class. But the only difference between typescript interfaces and java interfaces is that, in java you have to specifically implement the interface but typescript follows a duck typing approach to interface. If any object/class has the properties defined by the interface then it is a valid value of the interface.</p>
-<h3 id="Decorators">Decorators<a class="anchor-link" href="#Decorators">&#182;</a></h3><p>Decorators are functions that are invoked with a prefixed @ symbol, and immediately followed by a class parameter, method or property. The decorator function is supplied information about the class, parameter or method, and the decorator function returns something in its place, or manipulates its target in some way. Typically the “something” a decorator returns is the same thing that was passed in, but it has been augmented in some way. You can think them as same as python Decorators.</p>
-<h2 id="Typescript-Compiler">Typescript Compiler<a class="anchor-link" href="#Typescript-Compiler">&#182;</a></h2><p>Generally transpiler for javascript follow this follow for converting new code to javascript</p>
+<h1 id="Getting-Started">Getting Started<a class="anchor-link" href="#Getting-Started">&#182;</a></h1><p>Here we go through the basics of MongoDB.</p>
+<h2 id="Installation">Installation<a class="anchor-link" href="#Installation">&#182;</a></h2><p>MongoDB works by providing a service called as mongod. This service is provides all the database operations. All of the MongoDB client (eg: mongo shell) connect to this service and perform operations when required by the user.</p>
+<p>For installation on Ubuntu follow this guide.</p>
+<p>Config file of mongod is at <code>/etc/mongod.conf</code></p>
+<h2 id="Documents">Documents<a class="anchor-link" href="#Documents">&#182;</a></h2><p>At the heart of MongoDB is the document: an ordered set of keys with associated values. An example of a document is as below.</p>
 
-<pre><code>```Tokenizer -&gt; AST -&gt; Emitter -&gt; Javascript```
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
 
-</code></pre>
-<p>But typescript tanspiler added two new steps to the process after AST.</p>
 
-<pre><code>```Tokenizer -&gt; AST -&gt; Binder -&gt; Checker -&gt; Emitter -&gt; Javascript```
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;key1&quot;</span><span class="o">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;key2&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">&quot;key3&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;pqr&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
 
-</code></pre>
-<p>The significance of each module is explained as below.</p>
-<p>The TypeScript compiler source is located under the src/compiler folder.</p>
-<p>It is split into the follow key parts:</p>
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Things to note.</p>
 <ul>
-<li><strong>Scanner (scanner.ts)</strong>: Tokenizer, responsible for generating token form ts source file.</li>
-<li><strong>Parser (parser.ts)</strong>: Uses token from scanner to build a AST (Abstract syntax tree)</li>
-<li><strong>Binder (binder.ts)</strong>: Binder converts AST nodes to Symbols (internal representation of declaration)</li>
-<li><strong>Checker (checker.ts)</strong>: Checker is where typescript does the type checking of symbols.</li>
-<li><strong>Emitter (emitter.ts)</strong>: Final state where javascript is emitted for the generated AST.</li>
+<li>Keys must not contain the character the null character. It is used to signify the end of a key.</li>
+<li>Key name is case-sensitive, <code>Key1</code> and <code>key1</code> are different.</li>
+<li>Key/value pairs in documents are ordered: <code>{"x" : 1, "y" : 2}</code> is not the same as {"y" : 2, "x" : 1} .</li>
 </ul>
-<h1 id="Types">Types<a class="anchor-link" href="#Types">&#182;</a></h1><p>As the name Typescript suggest, typescript has multiple types available to be used in programing which would help in preventing common gotcha in javascript. Following are list of types supported by typescript.</p>
-<h2 id="Boolean">Boolean<a class="anchor-link" href="#Boolean">&#182;</a></h2><p>The most basic datatype is the simple true/false value, which JavaScript and TypeScript call a boolean value.</p>
+<h2 id="Collection">Collection<a class="anchor-link" href="#Collection">&#182;</a></h2><p>A collection is a group of documents. If a document is the MongoDB analog of a row in a relational database, then a collection can be thought of as the analog to a table.</p>
+<p>Collections have dynamic schema's. This means that the documents within a single collection can have any number of different "shapes" For example, both of the following documents could be stored in a single collection:</p>
 
 </div>
 </div>
@@ -13301,7 +13325,9 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">isDone</span>: <span class="kt">boolean</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;key1&quot;</span><span class="o">:</span> <span class="s2">&quot;value1&quot;</span> <span class="p">}</span>
+
+<span class="p">{</span> <span class="s2">&quot;key2&quot;</span><span class="o">:</span> <span class="mi">2</span> <span class="p">}</span>
 </pre></div>
 
     </div>
@@ -13312,7 +13338,35 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Number">Number<a class="anchor-link" href="#Number">&#182;</a></h2><p>As in JavaScript, all numbers in TypeScript are floating point values. In addition to hexadecimal and decimal literals, TypeScript also supports binary and octal literals.</p>
+<p>Things to note</p>
+<ul>
+<li>One convention for organizing collections is to use namespaced sub collections separated by the <code>.</code> (dot) character. For example, an application containing a <code>blog</code> might have a collection named <code>blog.posts</code> and a separate collection named <code>blog.authors</code>. This is for organizational purposes only-there is no relationship between the <code>blog</code> collection (it doesn't even have to exist) and its "children".</li>
+</ul>
+<h2 id="Database">Database<a class="anchor-link" href="#Database">&#182;</a></h2><p>In addition to grouping documents by collection, MongoDB groups collections into databases. A single instance of MongoDB can host several databases, each grouping together zero or more collections. A database has its own permissions, and each database is stored in separate files on disk. A good rule of thumb is to store all data for a single application in the same database.</p>
+<p>Things to note</p>
+<ul>
+<li>A database name cannot contain any of these characters: /, , ., " , *, &lt;, &gt;, :, |, ?, \$, (a single space), or the null character. Basically, stick with alphanumeric ASCII.</li>
+<li>Database names are case-sensitive</li>
+<li>Database names are limited to a maximum of 64 bytes.</li>
+</ul>
+<h2 id="Existing-Database">Existing Database<a class="anchor-link" href="#Existing-Database">&#182;</a></h2><p>There are also several reserved database names, which you can access but which have special semantics. These are as follows:</p>
+<ul>
+<li><p><code>admin</code></p>
+<p>This is the <strong>root</strong> database, in terms of authentication. If a user is added to the <code>admin</code> database, the user automatically inherits permissions for all databases. There are also certain server-wide commands that can be run only from the <code>admin</code> database, such as listing all of the databases or shutting down the server.</p>
+</li>
+<li><p><code>local</code></p>
+<p>This database will never be replicated and can be used to store any collections that should be local to a single server.</p>
+</li>
+<li><p><code>config</code></p>
+<p>When MongoDB is being used in a sharded setup , it uses the config database to store information about the shards.</p>
+</li>
+</ul>
+<h2 id="Document-Data-Type">Document Data Type<a class="anchor-link" href="#Document-Data-Type">&#182;</a></h2><p>Following data types for values are supported by mongodb.</p>
+<ul>
+<li><p><strong>null</strong></p>
+<p>Null can be used to repesent both a null value and a nonexistent field.</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13323,10 +13377,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">decimal</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mf">6.2</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">hex</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mh">0xf00d</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">binary</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">b1010</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">octal</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="nx">o744</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;key1&quot;</span><span class="o">:</span>  <span class="kc">null</span> <span class="p">}</span>
 </pre></div>
 
     </div>
@@ -13337,7 +13388,11 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="String">String<a class="anchor-link" href="#String">&#182;</a></h2><p>As in other languages, we use the type string to refer to these textual datatypes. Just like JavaScript TypeScript also uses double quotes (") or single quotes (’) to surround string data.</p>
+<ul>
+<li><p><strong>boolean</strong></p>
+<p>There is a boolean type, which can be used for the values true and false.</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13348,8 +13403,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">color</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">;</span>
-<span class="nx">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;key1&quot;</span><span class="o">:</span>  <span class="kc">true</span> <span class="p">}</span>
 </pre></div>
 
     </div>
@@ -13360,7 +13414,11 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can also use template strings, which can span multiple lines and have embedded expressions. These strings are surrounded by the backtick/backquote (`) character, and embedded expressions are of the form <code>${ expr }</code>.</p>
+<ul>
+<li><p><strong>number</strong></p>
+<p>The shell defaults to using 64-bit floating point numbers</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13371,11 +13429,11 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">fullName</span>: <span class="kt">string</span> <span class="o">=</span> <span class="sb">`Sunit`</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">age</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">23</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">sentence</span>: <span class="kt">string</span> <span class="o">=</span> <span class="sb">`Hello, my name is </span><span class="si">${</span> <span class="nx">fullName</span> <span class="si">}</span><span class="sb">.</span>
+<div class="highlight"><pre><span></span><span class="p">{</span> <span class="s2">&quot;key1&quot;</span><span class="o">:</span>  <span class="mf">3.14</span> <span class="p">}</span>
 
-<span class="sb">I&#39;ll be </span><span class="si">${</span> <span class="nx">age</span> <span class="o">+</span> <span class="mi">1</span> <span class="si">}</span><span class="sb"> years old next month.`</span><span class="p">;</span>
+<span class="c1">//Or </span>
+
+<span class="p">{</span> <span class="s2">&quot;key1&quot;</span><span class="o">:</span>  <span class="mi">3</span> <span class="p">}</span>
 </pre></div>
 
     </div>
@@ -13386,7 +13444,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Array">Array<a class="anchor-link" href="#Array">&#182;</a></h2><p>TypeScript, like JavaScript, allows you to work with arrays of values. Array types can be written in one of two ways. In the first, you use the type of the elements followed by [] to denote an array of that element type</p>
+<p>For integers, use the <code>NumberInt</code> or <code>NumberLong</code> classes, which represent 4-byte or 8-byte signed integers, respectively.</p>
 
 </div>
 </div>
@@ -13397,7 +13455,9 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">list</span>: <span class="kt">number</span><span class="p">[]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;key1&quot;</span> <span class="o">:</span> <span class="nx">NumberInt</span><span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">)}</span>
+
+<span class="p">{</span><span class="s2">&quot;key1&quot;</span> <span class="o">:</span> <span class="nx">NumberLong</span><span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">)}</span>
 </pre></div>
 
     </div>
@@ -13408,7 +13468,11 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The second way uses a generic array type, Array</p>
+<ul>
+<li><p><strong>string</strong></p>
+<p>Any string of UTF-8 characters can be represented using the string type.</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13419,7 +13483,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">list</span>: <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;key1&quot;</span> <span class="o">:</span> <span class="s2">&quot;foobar&quot;</span><span class="p">}</span>
 </pre></div>
 
     </div>
@@ -13430,7 +13494,11 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Tuple">Tuple<a class="anchor-link" href="#Tuple">&#182;</a></h2><p>Tuple types allow you to express an array where the type of a fixed number of elements is known, but need not be the same. For example, you may want to represent a value as a pair of a string and a number</p>
+<ul>
+<li><p><strong>date</strong></p>
+<p>Dates are stored as milliseconds since the epoch. The time zone is not stored</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13441,14 +13509,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="c1">// Declare a tuple type</span>
-<span class="kd">let</span> <span class="nx">x</span><span class="o">:</span> <span class="p">[</span><span class="kt">string</span><span class="p">,</span> <span class="kt">number</span><span class="p">];</span>
-
-<span class="c1">// Initialize it</span>
-<span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">];</span> <span class="c1">// OK</span>
-
-<span class="c1">// Initialize it incorrectly</span>
-<span class="nx">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">];</span> <span class="c1">// Error</span>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;key1&quot;</span> <span class="o">:</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">()}</span>
 </pre></div>
 
     </div>
@@ -13459,7 +13520,11 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Enum">Enum<a class="anchor-link" href="#Enum">&#182;</a></h2><p>A helpful addition to the standard set of datatypes from JavaScript is the enum. As in languages like C#, an enum is a way of giving more friendly names to sets of numeric values.</p>
+<ul>
+<li><p><strong>regular expression</strong></p>
+<p>Queries can use regular expressions using JavaScript's regular expression syntax</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13470,9 +13535,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span><span class="nx">Red</span><span class="p">,</span> <span class="nx">Green</span><span class="p">,</span> <span class="nx">Blue</span><span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">c</span>: <span class="kt">Color</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;key1&quot;</span> <span class="o">:</span> <span class="sr">/foobar/i</span><span class="p">}</span>
 </pre></div>
 
     </div>
@@ -13483,7 +13546,11 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>By default, enums begin numbering their members starting at 0. You can change this by manually setting the value of one of its members.</p>
+<ul>
+<li><p><strong>array</strong></p>
+<p>Sets or lists of values can be represented as arrays</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13494,9 +13561,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span><span class="nx">Red</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Green</span><span class="p">,</span> <span class="nx">Blue</span><span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">c</span>: <span class="kt">Color</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;key1&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]}</span>
 </pre></div>
 
     </div>
@@ -13507,7 +13572,11 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Or, even manually set all the values in the enum</p>
+<ul>
+<li><p><strong>embedded document</strong></p>
+<p>Documents can contain entire documents embedded as values in a parent document</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13518,9 +13587,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span><span class="nx">Red</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Green</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="nx">Blue</span><span class="o">=</span><span class="mi">9</span><span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">c</span>: <span class="kt">Color</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">.</span><span class="nx">Green</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;key1&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;foo&quot;</span> <span class="o">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">}}</span>
 </pre></div>
 
     </div>
@@ -13531,7 +13598,11 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A handy feature of enums is that you can also go from a numeric value to the name of that value in the enum. For example, if we had the value 2 but weren't sure what that mapped to in the Color enum above, we could look up the corresponding name.</p>
+<ul>
+<li><p><strong>object id</strong></p>
+<p>An object id is a 12-byte ID for documents.</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13542,10 +13613,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Color</span> <span class="p">{</span><span class="nx">Red</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">Green</span><span class="p">,</span> <span class="nx">Blue</span><span class="p">}</span>
-<span class="kd">let</span> <span class="nx">colorName</span>: <span class="kt">string</span> <span class="o">=</span> <span class="nx">Color</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">colorName</span><span class="p">);</span> <span class="c1">// Displays &#39;Green&#39; as its value is 2 above</span>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;key1&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">()}</span>
 </pre></div>
 
     </div>
@@ -13556,7 +13624,14 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Any">Any<a class="anchor-link" href="#Any">&#182;</a></h2><p>We may need to describe the type of variables that we do not know when we are writing an application. These values may come from dynamic content, e.g. from the user or a 3rd party library. In these cases, we want to opt-out of type-checking and let the values pass through compile-time checks. To do so, we label these with the any type.</p>
+<ul>
+<li><p><strong>binary data</strong></p>
+<p>Binary data is a string of arbitrary bytes. It cannot be manipulated from the shell. Binary data is the only way to save non-UTF-8 strings to the database.</p>
+</li>
+<li><p><strong>code</strong></p>
+<p>Queries and documents can also contain arbitrary JavaScript code:</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -13567,11 +13642,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">notSure</span>: <span class="kt">any</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-
-<span class="nx">notSure</span> <span class="o">=</span> <span class="s2">&quot;maybe a string instead&quot;</span><span class="p">;</span>
-
-<span class="nx">notSure</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span> <span class="c1">// okay, definitely a boolean</span>
+<div class="highlight"><pre><span></span><span class="p">{</span><span class="s2">&quot;key1&quot;</span> <span class="o">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}}</span>
 </pre></div>
 
     </div>
@@ -13582,7 +13653,20 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Void">Void<a class="anchor-link" href="#Void">&#182;</a></h2><p>void is a little like the opposite of any: the absence of having any type at all. You may commonly see this as the return type of functions that do not return a value.</p>
+<h2 id="_id-and-ObjectIds">_id and ObjectIds<a class="anchor-link" href="#_id-and-ObjectIds">&#182;</a></h2><p>Every document stored in MongoDB must have an <code>_id</code> key. The <code>_id</code> key's value can be any type, but it defaults to an ObjectId . In a single collection, every document must have a unique value for <code>_id</code> , which ensures that every document in a collection can be uniquely identified.</p>
+<h3 id="ObjectIds">ObjectIds<a class="anchor-link" href="#ObjectIds">&#182;</a></h3><p>The 12-byte ID generated by the function ObjectId has following format.</p>
+<p><img src="/static/img/notes/books/databases/mongo/objectid_format.png" alt="object_id_format"></p>
+<ul>
+<li>The first four bytes of an ObjectId are a timestamp in seconds since the epoch, this provides uniqueness at the granularity of a second.</li>
+<li>Next three bytes of an ObjectId are a unique identifier of the machine on which it was generated. This is usually a hash of the machine's hostname.</li>
+<li>To provide uniqueness among different processes generating ObjectId concurrently on a single machine, the next two bytes are taken from the process identifier (PID) of the ObjectId -generating process.</li>
+<li>The last three bytes are simply an incrementing counter that is responsible for uniqueness within a second in a single process. This allows for up to $256^3= 16,777,261$ unique ObjectId to be generated per process in a single second.</li>
+</ul>
+<h2 id="Mongo-Shell">Mongo Shell<a class="anchor-link" href="#Mongo-Shell">&#182;</a></h2><p>Mongo shell can be executed with <code>mongo</code> command. It is a javascript interpreter and provides some mongo specific functionality.</p>
+<p>There is usually a file present in the home folder name <code>.mongorc</code> which is loaded every time mongo shell is started. We can use this file to initialize some utility function or declare some global variables.</p>
+<h1 id="CUD-of-document">CUD of document<a class="anchor-link" href="#CUD-of-document">&#182;</a></h1><p>MongoDB (MongoShell/Mongo Library) provides three methods to modify content of a document, namely <code>insert()</code>, <code>update()</code> and <code>remove()</code>.</p>
+<h2 id="Inserting-documents">Inserting documents<a class="anchor-link" href="#Inserting-documents">&#182;</a></h2><p>A single document can be inserted into a collection by using the insert() method of that collection.</p>
+<p>For example to insert/create a user document in a user collection of <code>blog</code> database we could write the following code in mongoshell</p>
 
 </div>
 </div>
@@ -13593,9 +13677,20 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">warnUser</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;This is my warning message&quot;</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">user_data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;user1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;user1&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;age&quot;</span><span class="o">:</span> <span class="mi">10</span>
+<span class="p">};</span>
+
+<span class="nx">use</span> <span class="nx">blog</span><span class="p">;</span>
+<span class="c1">// Here blog is name of our database. </span>
+<span class="c1">// This statment will select blog db if it exists or it will create one.</span>
+<span class="c1">// Note: use is not a valid javascript keyword, it is provided by mongo shell.</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">insert</span><span class="p">(</span><span class="nx">user_data</span><span class="p">);</span> 
+<span class="c1">// Here we insert a document into users collection.</span>
+<span class="c1">// If users collection does not exists if will be created then document will be inserted. </span>
 </pre></div>
 
     </div>
@@ -13606,7 +13701,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Null-and-Undefined">Null and Undefined<a class="anchor-link" href="#Null-and-Undefined">&#182;</a></h2><p>In TypeScript, both undefined and null actually have their own types named undefined and null respectively. Much like void, they’re not extremely useful on their own.</p>
+<p>To insert a bulk of document in an atomic way we can use <code>batchInsert</code> method, as follows.</p>
 
 </div>
 </div>
@@ -13617,48 +13712,17 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="c1">// Not much else we can assign to these variables!</span>
-
-<span class="kd">let</span> <span class="nx">u</span>: <span class="kt">undefined</span> <span class="o">=</span> <span class="kc">undefined</span><span class="p">;</span>
-<span class="kd">let</span> <span class="nx">n</span>: <span class="kt">null</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Never">Never<a class="anchor-link" href="#Never">&#182;</a></h2><p>The never type represents the type of values that never occur. For instance, never is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns; Variables also acquire the type never when narrowed by any type guards that can never be true.</p>
-<p>The never type is a subtype of, and assignable to, every type; however, no type is a subtype of, or assignable to, never (except never itself). Even any isn't assignable to never.</p>
-<p>For example.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span></span><span class="c1">// Function returning never must have unreachable end point</span>
-<span class="kd">function</span> <span class="nx">error</span><span class="p">(</span><span class="nx">message</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="nx">never</span> <span class="p">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="nx">message</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// Inferred return type is never</span>
-<span class="kd">function</span> <span class="nx">fail() {</span>
-    <span class="k">return</span> <span class="nx">error</span><span class="p">(</span><span class="s2">&quot;Something failed&quot;</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// Function returning never must have unreachable end point</span>
-<span class="kd">function</span> <span class="nx">infiniteLoop</span><span class="p">()</span><span class="o">:</span> <span class="nx">never</span> <span class="p">{</span>
-    <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">user_list</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;user_1&quot;</span><span class="p">;</span>
+    <span class="p">},{</span>
+        <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;user_2&quot;</span><span class="p">;</span>
+    <span class="p">},{</span>
+        <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;user_3&quot;</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">];</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">batchInsert</span><span class="p">(</span><span class="nx">user_list</span><span class="p">);</span>
 </pre></div>
 
     </div>
@@ -13669,8 +13733,8 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Type-casting">Type casting<a class="anchor-link" href="#Type-casting">&#182;</a></h2><p>Type casting can be done in two ways in typescript.</p>
-<p>By using angular bracket</p>
+<p><strong>NOTE:</strong></p>
+<p>If there are an invalid document in an array, then only the document before the invalid document will be inserted in the array and rest will be ignored. For example.</p>
 
 </div>
 </div>
@@ -13681,9 +13745,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">someValue</span>: <span class="kt">any</span> <span class="o">=</span> <span class="s2">&quot;this is a string&quot;</span><span class="p">;</span>
-
-<span class="kd">let</span> <span class="nx">strLength</span>: <span class="kt">number</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="nx">someValue</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">batchInsert</span><span class="p">([{</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">}])</span> 
 </pre></div>
 
     </div>
@@ -13694,7 +13756,10 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Or by using <code>as</code> syntax</p>
+<p>For the above statement only document <code>_id:0</code> and <code>_id:1</code> will be created and scene the third document contain and error (Document with same id) the rest of the array will be ignored. To prevent this we can use the <code>continueOnError</code> option to continue after an insert failure.</p>
+<p><strong>NOTE:</strong></p>
+<p>MongoDB does minimal checks on data being inserted: it check's the document's basic structure and adds an <code>_id</code> field if one does not exist. One of the basic structure checks is size, all documents must be smaller than 16 MB. This is a somewhat arbitrary limit (and may be raised in the future); it is mostly to prevent bad schema design and ensure consistent performance.</p>
+<h2 id="Removing-Document">Removing Document<a class="anchor-link" href="#Removing-Document">&#182;</a></h2><p>Document can be removed/deleted from the collection by using the remove method as follow.</p>
 
 </div>
 </div>
@@ -13705,9 +13770,12 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">someValue</span>: <span class="kt">any</span> <span class="o">=</span> <span class="s2">&quot;this is a string&quot;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span><span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;user_1&quot;</span><span class="p">})</span>
+<span class="c1">//Remove a document from user collection matching the criteria </span>
 
-<span class="kd">let</span> <span class="nx">strLength</span>: <span class="kt">number</span> <span class="o">=</span> <span class="p">(</span><span class="nx">someValue</span> <span class="kr">as</span> <span class="kt">string</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">user</span><span class="p">.</span><span class="nx">remove</span><span class="p">()</span>
+<span class="c1">//Remove all document from collection.</span>
+<span class="c1">//Note: this operation is much slower than actually drop a collection and recreating it.</span>
 </pre></div>
 
     </div>
@@ -13718,8 +13786,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interfaces">Interfaces<a class="anchor-link" href="#Interfaces">&#182;</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>One of TypeScript's core principles is that type-checking focuses on the shape that values have, called as "duck typing" or "structural subtyping". In TypeScript, interfaces fill the role of naming these types, and are a powerful way of defining contracts within your code as well as contracts with code outside of your project.</p>
-<p>Example of interface is</p>
+<h2 id="Updating-Document">Updating Document<a class="anchor-link" href="#Updating-Document">&#182;</a></h2><p>Document can be updated using the <code>update()</code> method. <code>update()</code> method takes two parameters: a query document, which locates documents to update, and a modifier document, which describes the changes to make to the documents found.</p>
 
 </div>
 </div>
@@ -13730,16 +13797,10 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">LabelledValue</span> <span class="p">{</span>
-    <span class="nx">label</span>: <span class="kt">string</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;user_1&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="s2">&quot;y&quot;</span><span class="p">})</span>
 
-<span class="kd">function</span> <span class="nx">printLabel</span><span class="p">(</span><span class="nx">labelledObj</span>: <span class="kt">LabelledValue</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">labelledObj</span><span class="p">.</span><span class="nx">label</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">myObj</span> <span class="o">=</span> <span class="p">{</span><span class="nx">size</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">label</span><span class="o">:</span> <span class="s2">&quot;Size 10 Object&quot;</span><span class="p">};</span>
-<span class="nx">printLabel</span><span class="p">(</span><span class="nx">myObj</span><span class="p">);</span>
+<span class="c1">//This method replaces the entire user_1 document with new document x,y.</span>
+<span class="c1">//Note: Update doesn&#39;t updates the document it replaces the entire content.</span>
 </pre></div>
 
     </div>
@@ -13750,9 +13811,8 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The interface <code>LabelledValue</code> is a name we use to describe the requirement. It represents having a single property called label that is of type string. Notice we didn't have to explicitly say that the object we pass to <code>printLabel</code> implements this interface like we might have to in other languages. Here, it's only the shape that matters. If the object we pass to the function meets the requirements listed, then it's allowed.</p>
-<p>It's worth pointing out that the type-checker does not require that these properties come in any sort of order, only that the properties the interface requires are present and have the required type.</p>
-<h2 id="Optional-Properties">Optional Properties<a class="anchor-link" href="#Optional-Properties">&#182;</a></h2><p>Interface can also have optional properties. For example</p>
+<h3 id="Update-Modifier">Update Modifier<a class="anchor-link" href="#Update-Modifier">&#182;</a></h3><p>Update modifiers are special keys that can be used to specify complex update operations, such as altering, adding, or removing keys, and even manipulating arrays and embedded documents. Following are the list of commonly used modifiers.</p>
+<h4 id="$set"><code>$set</code><a class="anchor-link" href="#$set">&#182;</a></h4><p><code>$set</code> sets the value of a field. If the field does not yet exist, it will be created. This is used to update a field in a document instead of replacing the entire document. $set can be used to update the value as well as the data type of the value. For example.</p>
 
 </div>
 </div>
@@ -13763,23 +13823,13 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">SquareConfig</span> <span class="p">{</span>
-    <span class="nx">color?</span>: <span class="kt">string</span><span class="p">;</span>
-    <span class="nx">width?</span>: <span class="kt">number</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;4b253b067525f35f94b60a31&quot;</span><span class="p">)},</span> 
+                    <span class="p">{</span><span class="s2">&quot;$set&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;favorite book&quot;</span> <span class="o">:</span> <span class="s2">&quot;War and Peace&quot;</span><span class="p">}})</span>
+<span class="c1">// Add/Update &quot;favorite book&quot; key to user.</span>
 
-<span class="kd">function</span> <span class="nx">createSquare</span><span class="p">(</span><span class="nx">config</span>: <span class="kt">SquareConfig</span><span class="p">)</span><span class="o">:</span> <span class="p">{</span><span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span> <span class="nx">area</span>: <span class="kt">number</span><span class="p">}</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">newSquare</span> <span class="o">=</span> <span class="p">{</span><span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;white&quot;</span><span class="p">,</span> <span class="nx">area</span>: <span class="kt">100</span><span class="p">};</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">newSquare</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">color</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">config</span><span class="p">.</span><span class="nx">width</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">newSquare</span><span class="p">.</span><span class="nx">area</span> <span class="o">=</span> <span class="nx">config</span><span class="p">.</span><span class="nx">width</span> <span class="o">*</span> <span class="nx">config</span><span class="p">.</span><span class="nx">width</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">newSquare</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">mySquare</span> <span class="o">=</span> <span class="nx">createSquare</span><span class="p">({</span><span class="nx">color</span><span class="o">:</span> <span class="s2">&quot;black&quot;</span><span class="p">});</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;4b253b067525f35f94b60a31&quot;</span><span class="p">)},</span> 
+                    <span class="p">{</span><span class="s2">&quot;$set&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;favorite book&quot;</span> <span class="o">:</span>  <span class="p">[</span> <span class="s2">&quot;War and Peace&quot;</span><span class="p">,</span> <span class="s2">&quot;Calculus&quot;</span><span class="p">]</span> <span class="p">}})</span>
+<span class="c1">// Update &quot;favorite book&quot; to an array </span>
 </pre></div>
 
     </div>
@@ -13790,9 +13840,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Interfaces with optional properties are written similar to other interfaces, with each optional property denoted by a <code>?</code> at the end of the property name in the declaration.</p>
-<p>The advantage of optional properties is that you can describe these possibly available properties while still also preventing use of properties that are not part of the interface. For example, had we mistyped the name of the color property in <code>createSquare</code>, we would get an error message letting us know.</p>
-<h2 id="Readonly-properties">Readonly properties<a class="anchor-link" href="#Readonly-properties">&#182;</a></h2><p>Some properties should only be modifiable when an object is first created. You can specify this by putting <code>readonly</code> before the name of the property</p>
+<h4 id="$inc"><code>$inc</code><a class="anchor-link" href="#$inc">&#182;</a></h4><p>The <code>$inc</code> modifier can be used to increment/decrement the value for an existing key or to create a new key if it does not already exist. For example</p>
 
 </div>
 </div>
@@ -13803,10 +13851,9 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">Point</span> <span class="p">{</span>
-    <span class="nx">readonly</span> <span class="nx">x</span>: <span class="kt">number</span><span class="p">;</span>
-    <span class="nx">readonly</span> <span class="nx">y</span>: <span class="kt">number</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;4b253b067525f35f94b60a31&quot;</span><span class="p">)},</span> <span class="p">{</span><span class="s2">&quot;$inc&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;age&quot;</span> <span class="o">:</span> <span class="mi">10</span><span class="p">}})</span>
+<span class="c1">// If age key exits it will be increment by 10.</span>
+<span class="c1">// If age key doesn&#39;t exists, $inc will add a age key and assign it value 10.</span>
 </pre></div>
 
     </div>
@@ -13817,9 +13864,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can construct a Point by assigning an object literal. After the assignment, x and y can't be changed.</p>
-<h2 id="Function-Types">Function Types<a class="anchor-link" href="#Function-Types">&#182;</a></h2><p>Interfaces are capable of describing the wide range of shapes that JavaScript objects can take. In addition to describing an object with properties, interfaces are also capable of describing function types.</p>
-<p>To describe a function type with an interface, we give the interface a call signature. This is like a function declaration with only the parameter list and return type given. Each parameter in the parameter list requires both name and type.</p>
+<h3 id="Array-Modifier">Array Modifier<a class="anchor-link" href="#Array-Modifier">&#182;</a></h3><h4 id="$push"><code>$push</code><a class="anchor-link" href="#$push">&#182;</a></h4><p><code>$push</code> adds elements to the end of an array if the array exists and creates a new array if it does not. For example.</p>
 
 </div>
 </div>
@@ -13830,9 +13875,9 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">SearchFunc</span> <span class="p">{</span>
-    <span class="p">(</span><span class="nx">source</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">subString</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="kr">boolean</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;4b253b067525f35f94b60a31&quot;</span><span class="p">)},</span> <span class="p">{</span><span class="s2">&quot;$push&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;friends&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;friend 1&quot;</span><span class="p">}}})</span>
+<span class="c1">// If friends array exits then it will be append new document to it.</span>
+<span class="c1">// If friends array doesn&#39;t exists, $push will create a array with friends key and append new document to it.</span>
 </pre></div>
 
     </div>
@@ -13843,7 +13888,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Indexable-Types">Indexable Types<a class="anchor-link" href="#Indexable-Types">&#182;</a></h2><p>Similarly to how we can use interfaces to describe function types, we can also describe types that we can "index into" like <code>a[10]</code>, or <code>ageMap["daniel"]</code>. Indexable types have an index signature that describes the types we can use to index into the object, along with the corresponding return types when indexing. For example,</p>
+<p>This is the simple form of push, but you can use it for more complex array operations as well. You can push multiple values in one operation using the <code>$each</code> suboperator.</p>
 
 </div>
 </div>
@@ -13854,14 +13899,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">StringArray</span> <span class="p">{</span>
-    <span class="p">[</span><span class="nx">index</span>: <span class="kt">number</span><span class="p">]</span><span class="o">:</span> <span class="kt">string</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">myArray</span>: <span class="kt">StringArray</span><span class="p">;</span>
-<span class="nx">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Fred&quot;</span><span class="p">];</span>
-
-<span class="kd">let</span> <span class="nx">myStr</span>: <span class="kt">string</span> <span class="o">=</span> <span class="nx">myArray</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">stock</span><span class="p">.</span><span class="nx">ticker</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="s2">&quot;GOOG&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;$push&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;hourly&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$each&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="mf">562.776</span><span class="p">,</span> <span class="mf">562.790</span><span class="p">,</span> <span class="mf">559.123</span><span class="p">]}}})</span>
 </pre></div>
 
     </div>
@@ -13872,9 +13910,8 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Above, we have a <code>StringArray</code> interface that has an index signature. This index signature states that when a <code>StringArray</code> is indexed with a number, it will return a string.</p>
-<p>There are two types of supported index signatures: string and number. It is possible to support both types of indexers, but the type returned from a numeric indexer must be a subtype of the type returned from the string indexer. This is because when indexing with a number, JavaScript will actually convert that to a string before indexing into an object. That means that indexing with 100 (a number) is the same thing as indexing with "100" (a string), so the two need to be consistent.</p>
-<h2 id="Implementing-an-interface">Implementing an interface<a class="anchor-link" href="#Implementing-an-interface">&#182;</a></h2><p>One of the most common uses of interfaces in languages like C# and Java, that of explicitly enforcing that a class meets a particular contract, is also possible in TypeScript.</p>
+<p>This would push three new elements onto the array.</p>
+<p>If we only want the array to grow to a certain length, you can also use the $slice operator in conjunction with ```$push``` to prevent an array from growing beyond a certain size, effectively making a top N list of items.</p>
 
 </div>
 </div>
@@ -13885,14 +13922,12 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">ClockInterface</span> <span class="p">{</span>
-    <span class="nx">currentTime</span>: <span class="kt">Date</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kr">class</span> <span class="nx">Clock</span> <span class="kr">implements</span> <span class="nx">ClockInterface</span> <span class="p">{</span>
-    <span class="nx">currentTime</span>: <span class="kt">Date</span><span class="p">;</span>
-    <span class="kr">constructor</span><span class="p">(</span><span class="nx">h</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">m</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">movies</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;genre&quot;</span> <span class="o">:</span> <span class="s2">&quot;horror&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;$push&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;top10&quot;</span> <span class="o">:</span> <span class="p">{</span>
+        
+        <span class="s2">&quot;$each&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;Nightmare on Elm Street&quot;</span><span class="p">,</span> <span class="s2">&quot;Saw&quot;</span><span class="p">],</span>
+        
+        <span class="s2">&quot;$slice&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">}}})</span>
 </pre></div>
 
     </div>
@@ -13903,7 +13938,8 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Extending-Interfaces">Extending Interfaces<a class="anchor-link" href="#Extending-Interfaces">&#182;</a></h2><p>Like classes, interfaces can extend each other. This allows you to copy the members of one interface into another, which gives you more flexibility in how you separate your interfaces into reusable components.</p>
+<p>This example would limit the array to the last 10 elements pushed. Slices must always be negative numbers.</p>
+<p>Finally, you can <code>$sort</code> before trimming, so long as you are pushing subobjects onto the array</p>
 
 </div>
 </div>
@@ -13914,17 +13950,14 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">Shape</span> <span class="p">{</span>
-    <span class="nx">color</span>: <span class="kt">string</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">movies</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;genre&quot;</span> <span class="o">:</span> <span class="s2">&quot;horror&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;$push&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;top10&quot;</span> <span class="o">:</span> <span class="p">{</span>
 
-<span class="kr">interface</span> <span class="nx">Square</span> <span class="kr">extends</span> <span class="nx">Shape</span> <span class="p">{</span>
-    <span class="nx">sideLength</span>: <span class="kt">number</span><span class="p">;</span>
-<span class="p">}</span>
+        <span class="s2">&quot;$each&quot;</span> <span class="o">:</span> <span class="p">[{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Nightmare on Elm Street&quot;</span><span class="p">,</span> <span class="s2">&quot;rating&quot;</span> <span class="o">:</span> <span class="mf">6.6</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Saw&quot;</span><span class="p">,</span> <span class="s2">&quot;rating&quot;</span> <span class="o">:</span> <span class="mf">4.3</span><span class="p">}],</span>
 
-<span class="kd">let</span> <span class="nx">square</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">Square</span><span class="o">&gt;</span><span class="p">{};</span>
-<span class="nx">square</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">;</span>
-<span class="nx">square</span><span class="p">.</span><span class="nx">sideLength</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+        <span class="s2">&quot;$slice&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">,</span>
+
+        <span class="s2">&quot;$sort&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;rating&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}}}})</span>
 </pre></div>
 
     </div>
@@ -13935,8 +13968,8 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Hybrid-Types">Hybrid Types<a class="anchor-link" href="#Hybrid-Types">&#182;</a></h2><p>Interfaces can describe the rich types present in real world JavaScript. Because of JavaScript's dynamic and flexible nature, you may occasionally encounter an object that works as a combination of some of the types described above.</p>
-<p>One such example is an object that acts as both a function and an object, with additional properties</p>
+<p>This will sort all of the objects in the array by their rating field and then keep the first 10.</p>
+<p>We can also use array as a set, by using the modifier <code>$addToSet.</code> For example When adding another email address, we can use <code>$addToSet</code> to prevent duplicates</p>
 
 </div>
 </div>
@@ -13947,23 +13980,8 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">Counter</span> <span class="p">{</span>
-    <span class="p">(</span><span class="nx">start</span>: <span class="kt">number</span><span class="p">)</span><span class="o">:</span> <span class="kt">string</span><span class="p">;</span>
-    <span class="nx">interval</span>: <span class="kt">number</span><span class="p">;</span>
-    <span class="nx">reset</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">function</span> <span class="nx">getCounter</span><span class="p">()</span><span class="o">:</span> <span class="nx">Counter</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">counter</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">Counter</span><span class="o">&gt;</span><span class="kd">function</span> <span class="p">(</span><span class="nx">start</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span> <span class="p">};</span>
-    <span class="nx">counter</span><span class="p">.</span><span class="nx">interval</span> <span class="o">=</span> <span class="mi">123</span><span class="p">;</span>
-    <span class="nx">counter</span><span class="p">.</span><span class="nx">reset</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="p">};</span>
-    <span class="k">return</span> <span class="nx">counter</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="nx">getCounter</span><span class="p">();</span>
-<span class="nx">c</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<span class="nx">c</span><span class="p">.</span><span class="nx">reset</span><span class="p">();</span>
-<span class="nx">c</span><span class="p">.</span><span class="nx">interval</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;4b2d75476cc613d5ee930164&quot;</span><span class="p">)},</span> 
+        <span class="p">{</span><span class="s2">&quot;$addToSet&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;emails&quot;</span> <span class="o">:</span> <span class="s2">&quot;joe@gmail.com&quot;</span><span class="p">}})</span>
 </pre></div>
 
     </div>
@@ -13974,8 +13992,8 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Interfaces-Extending-Classes">Interfaces Extending Classes<a class="anchor-link" href="#Interfaces-Extending-Classes">&#182;</a></h2><p>When an interface type extends a class type it inherits the members of the class but not their implementations. It is as if the interface had declared all of the members of the class without providing an implementation. Interfaces inherit even the private and protected members of a base class. This means that when you create an interface that extends a class with private or protected members, that interface type can only be implemented by that class or a subclass of it.</p>
-<h1 id="Classes">Classes<a class="anchor-link" href="#Classes">&#182;</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>Example of class in typescript is as follows</p>
+<h4 id="$pop"><code>$pop</code><a class="anchor-link" href="#$pop">&#182;</a></h4><p>There are a few ways to remove elements from an array. If we want to treat the array like a queue or a stack, we can use <code>$pop</code> , which can remove elements from either end. <code>{"$pop" : {"key" : 1}}</code> removes an element from the end of the array. <code>{"$pop" : {"key" : -1}}</code> removes it from the beginning.</p>
+<p>For example, suppose we have a list of things that need to be done but not in any specific order</p>
 
 </div>
 </div>
@@ -13986,17 +14004,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Greeter</span> <span class="p">{</span>
-    <span class="nx">greeting</span>: <span class="kt">string</span><span class="p">;</span>
-    <span class="kr">constructor</span><span class="p">(</span><span class="nx">message</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span> <span class="o">=</span> <span class="nx">message</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">greet() {</span>
-        <span class="k">return</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">greeting</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">greeter</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Greeter</span><span class="p">(</span><span class="s2">&quot;world&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">lists</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="s2">&quot;todo&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;dishes&quot;</span><span class="p">,</span> <span class="s2">&quot;laundry&quot;</span><span class="p">,</span> <span class="s2">&quot;dry cleaning&quot;</span><span class="p">]})</span>
 </pre></div>
 
     </div>
@@ -14007,7 +14015,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Inheritance">Inheritance<a class="anchor-link" href="#Inheritance">&#182;</a></h2><p>In TypeScript, we can use common object-oriented patterns. One of the most fundamental patterns in class-based programming is being able to extend existing classes to create new ones using inheritance.</p>
+<p>If we do the laundry first, we can remove it from the list with the following</p>
 
 </div>
 </div>
@@ -14018,22 +14026,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Animal</span> <span class="p">{</span>
-    <span class="nx">move</span><span class="p">(</span><span class="nx">distanceInMeters</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Animal moved </span><span class="si">${</span><span class="nx">distanceInMeters</span><span class="si">}</span><span class="sb">m.`</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kr">class</span> <span class="nx">Dog</span> <span class="kr">extends</span> <span class="nx">Animal</span> <span class="p">{</span>
-    <span class="nx">bark() {</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Woof! Woof!&#39;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kr">const</span> <span class="nx">dog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">();</span>
-<span class="nx">dog</span><span class="p">.</span><span class="nx">bark</span><span class="p">();</span>
-<span class="nx">dog</span><span class="p">.</span><span class="nx">move</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
-<span class="nx">dog</span><span class="p">.</span><span class="nx">bark</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">lists</span><span class="p">.</span><span class="nx">update</span><span class="p">({},</span> <span class="p">{</span><span class="s2">&quot;$pull&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;todo&quot;</span> <span class="o">:</span> <span class="s2">&quot;laundry&quot;</span><span class="p">}})</span>
 </pre></div>
 
     </div>
@@ -14044,7 +14037,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Public,-private,-and-protected-modifiers">Public, private, and protected modifiers<a class="anchor-link" href="#Public,-private,-and-protected-modifiers">&#182;</a></h2><p>Modifier public, private and protected are attaching a prefix access modifier before the variable/function declaration</p>
+<h2 id="Changing-size-of-document">Changing size of document<a class="anchor-link" href="#Changing-size-of-document">&#182;</a></h2><p>When you start inserting documents into MongoDB, it puts each document right next to the previous one on disk. Thus, if a document gets bigger, it will no longer fit in the space it was originally written to and will be moved to another part of the collection. We can see this from example.</p>
 
 </div>
 </div>
@@ -14055,13 +14048,21 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Animal</span> <span class="p">{</span>
-    <span class="kr">private</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
-    <span class="kr">public</span> <span class="kr">constructor</span><span class="p">(</span><span class="nx">theName</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">theName</span><span class="p">;</span> <span class="p">}</span>
-    <span class="kr">public</span> <span class="nx">move</span><span class="p">(</span><span class="nx">distanceInMeters</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="si">}</span><span class="sb"> moved </span><span class="si">${</span><span class="nx">distanceInMeters</span><span class="si">}</span><span class="sb">m.`</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">b</span><span class="p">.</span><span class="nx">coll</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="s2">&quot;x&quot;</span> <span class="o">:</span><span class="s2">&quot;a&quot;</span><span class="p">})</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">coll</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="s2">&quot;x&quot;</span> <span class="o">:</span><span class="s2">&quot;b&quot;</span><span class="p">})</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">coll</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="s2">&quot;x&quot;</span> <span class="o">:</span><span class="s2">&quot;c&quot;</span><span class="p">})</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">coll</span><span class="p">.</span><span class="nx">find</span><span class="p">();</span>
+
+<span class="c1">// &quot;_id&quot; : ObjectId(&quot;507c3581d87d6a342e1c81d3&quot;), &quot;x&quot; : &quot;a&quot; }</span>
+<span class="c1">// &quot;_id&quot; : ObjectId(&quot;507c3583d87d6a342e1c81d4&quot;), &quot;x&quot; :&quot;b&quot; }</span>
+<span class="c1">// &quot;_id&quot; : ObjectId(&quot;507c3585d87d6a342e1c81d5&quot;), &quot;x&quot; : &quot;c&quot; }</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">coll</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;x&quot;</span> <span class="o">:</span> <span class="s2">&quot;b&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nx">$set</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span> <span class="o">:</span> <span class="s2">&quot;bbb&quot;</span><span class="p">}})</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">coll</span><span class="p">.</span><span class="nx">find</span><span class="p">()</span>
+
+<span class="c1">// &quot;_id&quot; : ObjectId(&quot;507c3581d87d6a342e1c81d3&quot;), &quot;x&quot; : &quot;a&quot; }</span>
+<span class="c1">// &quot;_id&quot; : ObjectId(&quot;507c3585d87d6a342e1c81d5&quot;), &quot;x&quot; : &quot;c&quot; }</span>
+<span class="c1">// &quot;_id&quot; : ObjectId(&quot;507c3583d87d6a342e1c81d4&quot;), &quot;x&quot; :&quot;bbb&quot; }</span>
 </pre></div>
 
     </div>
@@ -14072,7 +14073,14 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Readonly-modifier">Readonly modifier<a class="anchor-link" href="#Readonly-modifier">&#182;</a></h2><p>You can make properties <code>readonly</code> by using the <code>readonly</code> keyword. Readonly properties must be initialized at their declaration or in the constructor.</p>
+<p>We can see this in action by creating a new collection with just a few documents and then making a document that is sandwiched between two other documents larger. It will be bumped to the end of the collection.</p>
+<p>When MongoDB has to move a document, it bumps the collection's padding factor, which is the amount of extra space MongoDB leaves around new documents to give them room to grow. You can see the padding factor by running <code>db.coll.stats()</code>. Before doing the update above, the "paddingFactor" field will be 1: allocate exactly the size of the document for each new document, as shown in Figure below.</p>
+<p><img src="/static/img/notes/books/databases/mongo/doc_size_1.png" alt="doc_size_1"></p>
+<p>If you run it again after making one of the documents larger (as shown in Figure 3-2), you'll see that it has grown to around 1.5, each new document will be given half of its size in free space to grow.</p>
+<p><img src="/static/img/notes/books/databases/mongo/doc_size_2.png" alt="doc_size_2"></p>
+<p>If subsequent updates cause more moves, the padding factor will continue to grow (although not as dramatically as it did on the first move). If there aren't more moves, the padding factor will slowly go down.</p>
+<p><img src="/static/img/notes/books/databases/mongo/doc_size_3.png" alt="doc_size_3"></p>
+<h2 id="Upserts">Upserts<a class="anchor-link" href="#Upserts">&#182;</a></h2><p>An upsert is a special type of update. If no document is found that matches the update criteria, a new document will be created by combining the criteria and updated documents. If a matching document is found, it will be updated normally.</p>
 
 </div>
 </div>
@@ -14083,15 +14091,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Octopus</span> <span class="p">{</span>
-    <span class="nx">readonly</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">;</span>
-    <span class="nx">readonly</span> <span class="nx">numberOfLegs</span>: <span class="kt">number</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
-    <span class="kr">constructor</span> <span class="p">(</span><span class="nx">theName</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">theName</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">let</span> <span class="nx">dad</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Octopus</span><span class="p">(</span><span class="s2">&quot;Man with the 8 strong legs&quot;</span><span class="p">);</span>
-<span class="nx">dad</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">&quot;Man with the 3-piece suit&quot;</span><span class="p">;</span> <span class="c1">// error! name is readonly.</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">analytics</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;url&quot;</span> <span class="o">:</span> <span class="s2">&quot;/blog&quot;</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;$inc&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;pageviews&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">}},</span> <span class="kc">true</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14102,8 +14102,8 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Accessors">Accessors<a class="anchor-link" href="#Accessors">&#182;</a></h2><p>TypeScript supports getters/setters as a way of intercepting accesses to a member of an object. This gives you a way of having finer-grained control over how a member is accessed on each object.</p>
-<p>For example,</p>
+<p>This code create a document is it doesn't exists, and if it exists then it will update the document.</p>
+<h2 id="Updating-Multiple-documents">Updating Multiple documents<a class="anchor-link" href="#Updating-Multiple-documents">&#182;</a></h2><p>Updates, by default, update only the first document found that matches the criteria. If there are more matching documents, they will remain unchanged. To modify all of the documents matching the criteria, you can pass true as the fourth parameter to update.</p>
 
 </div>
 </div>
@@ -14114,30 +14114,8 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">let</span> <span class="nx">passcode</span> <span class="o">=</span> <span class="s2">&quot;secret passcode&quot;</span><span class="p">;</span>
-
-<span class="kr">class</span> <span class="nx">Employee</span> <span class="p">{</span>
-    <span class="kr">private</span> <span class="nx">_fullName</span>: <span class="kt">string</span><span class="p">;</span>
-
-    <span class="nx">get</span> <span class="nx">fullName</span><span class="p">()</span><span class="o">:</span> <span class="kt">string</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">_fullName</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="nx">set</span> <span class="nx">fullName</span><span class="p">(</span><span class="nx">newName</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">passcode</span> <span class="o">&amp;&amp;</span> <span class="nx">passcode</span> <span class="o">==</span> <span class="s2">&quot;secret passcode&quot;</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">_fullName</span> <span class="o">=</span> <span class="nx">newName</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Error: Unauthorized update of employee!&quot;</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">employee</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Employee</span><span class="p">();</span>
-<span class="nx">employee</span><span class="p">.</span><span class="nx">fullName</span> <span class="o">=</span> <span class="s2">&quot;Bob Smith&quot;</span><span class="p">;</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">employee</span><span class="p">.</span><span class="nx">fullName</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">employee</span><span class="p">.</span><span class="nx">fullName</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span><span class="s2">&quot;birthday&quot;</span> <span class="o">:</span> <span class="s2">&quot;10/13/1978&quot;</span><span class="p">},</span>
+                <span class="p">{</span><span class="s2">&quot;$set&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;gift&quot;</span> <span class="o">:</span> <span class="s2">&quot;Happy Birthday!&quot;</span><span class="p">}},</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14148,7 +14126,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Static-Properties">Static Properties<a class="anchor-link" href="#Static-Properties">&#182;</a></h2><p>We can also create static members of a class, those that are visible on the class itself rather than on the instances. For example</p>
+<h1 id="Reading-Documents.">Reading Documents.<a class="anchor-link" href="#Reading-Documents.">&#182;</a></h1><p>Mongo provides a <code>find()</code> method to perform queries in MongoDB. Example are given below.</p>
 
 </div>
 </div>
@@ -14159,21 +14137,11 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">Grid</span> <span class="p">{</span>
-    <span class="kr">static</span> <span class="nx">origin</span> <span class="o">=</span> <span class="p">{</span><span class="nx">x</span>: <span class="kt">0</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">0</span><span class="p">};</span>
-    <span class="nx">calculateDistanceFromOrigin</span><span class="p">(</span><span class="nx">point</span><span class="o">:</span> <span class="p">{</span><span class="nx">x</span>: <span class="kt">number</span><span class="p">;</span> <span class="nx">y</span>: <span class="kt">number</span><span class="p">;})</span> <span class="p">{</span>
-        <span class="kd">let</span> <span class="nx">xDist</span> <span class="o">=</span> <span class="p">(</span><span class="nx">point</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="nx">Grid</span><span class="p">.</span><span class="nx">origin</span><span class="p">.</span><span class="nx">x</span><span class="p">);</span>
-        <span class="kd">let</span> <span class="nx">yDist</span> <span class="o">=</span> <span class="p">(</span><span class="nx">point</span><span class="p">.</span><span class="nx">y</span> <span class="o">-</span> <span class="nx">Grid</span><span class="p">.</span><span class="nx">origin</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
-        <span class="k">return</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">sqrt</span><span class="p">(</span><span class="nx">xDist</span> <span class="o">*</span> <span class="nx">xDist</span> <span class="o">+</span> <span class="nx">yDist</span> <span class="o">*</span> <span class="nx">yDist</span><span class="p">)</span> <span class="o">/</span> <span class="k">this</span><span class="p">.</span><span class="nx">scale</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="kr">constructor</span> <span class="p">(</span><span class="kr">public</span> <span class="nx">scale</span>: <span class="kt">number</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;age&quot;</span> <span class="o">:</span> <span class="mi">27</span><span class="p">})</span>
+<span class="c1">// Find user with age 27</span>
 
-<span class="kd">let</span> <span class="nx">grid1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Grid</span><span class="p">(</span><span class="mf">1.0</span><span class="p">);</span>  <span class="c1">// 1x scale</span>
-<span class="kd">let</span> <span class="nx">grid2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Grid</span><span class="p">(</span><span class="mf">5.0</span><span class="p">);</span>  <span class="c1">// 5x scale</span>
-
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">grid1</span><span class="p">.</span><span class="nx">calculateDistanceFromOrigin</span><span class="p">({</span><span class="nx">x</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">10</span><span class="p">}));</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">grid2</span><span class="p">.</span><span class="nx">calculateDistanceFromOrigin</span><span class="p">({</span><span class="nx">x</span>: <span class="kt">10</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">10</span><span class="p">}));</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;age&quot;</span> <span class="o">:</span> <span class="mi">27</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;username&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;email&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">})</span>
+<span class="c1">// Specify which keys to return, return only username and email</span>
 </pre></div>
 
     </div>
@@ -14184,7 +14152,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Abstract-Classes">Abstract Classes<a class="anchor-link" href="#Abstract-Classes">&#182;</a></h2><p>Abstract classes are base classes from which other classes may be derived. They may not be instantiated directly. Unlike an interface, an abstract class may contain implementation details for its members. The abstract keyword is used to define abstract classes as well as abstract methods within an abstract class.</p>
+<h2 id="Query-Criteria">Query Criteria<a class="anchor-link" href="#Query-Criteria">&#182;</a></h2><h3 id="Query-Conditionals">Query Conditionals<a class="anchor-link" href="#Query-Conditionals">&#182;</a></h3><p><code>$lt</code> , <code>$lte</code> , <code>$gt</code> , and <code>$gte</code> are all comparison operators, corresponding to <code>&lt;, &lt;=, &gt;,</code> and <code>&gt;=</code> respectively. They can be combined to look for a range of values. For example, to look for users who are between the ages of 18 and 30, we can do this</p>
 
 </div>
 </div>
@@ -14195,12 +14163,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">abstract</span> <span class="kr">class</span> <span class="nx">Animal</span> <span class="p">{</span>
-    <span class="kr">abstract</span> <span class="nx">makeSound</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span><span class="p">;</span>
-    <span class="nx">move</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span> <span class="p">{</span>
-        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;roaming the earth...&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;age&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$gte&quot;</span> <span class="o">:</span> <span class="mi">18</span><span class="p">,</span> <span class="s2">&quot;$lte&quot;</span> <span class="o">:</span> <span class="mi">30</span><span class="p">}})</span>
 </pre></div>
 
     </div>
@@ -14211,8 +14174,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Generics">Generics<a class="anchor-link" href="#Generics">&#182;</a></h1><p>Typescript supports generic framework somewhat similar to java.</p>
-<p>Here is an example of generic function which returns same value that it receives as an argument.</p>
+<h3 id="OR-Queries">OR Queries<a class="anchor-link" href="#OR-Queries">&#182;</a></h3><p>There are two ways to do an OR query in MongoDB. <code>$in</code> can be used to query for a variety of values for a single key. <code>$or</code> is more general; it can be used to query for any of the given values across multiple keys. For example,</p>
 
 </div>
 </div>
@@ -14223,9 +14185,13 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">identity</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">arg</span>: <span class="kt">T</span><span class="p">)</span><span class="o">:</span> <span class="nx">T</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">arg</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">raffle</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;ticket_no&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$in&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="mi">725</span><span class="p">,</span> <span class="mi">542</span><span class="p">,</span> <span class="mi">390</span><span class="p">]}})</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">raffle</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;$or&quot;</span> <span class="o">:</span> <span class="p">[{</span><span class="s2">&quot;ticket_no&quot;</span> <span class="o">:</span> <span class="mi">725</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;winner&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">}]})</span>
+
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">raffle</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;$or&quot;</span> <span class="o">:</span> <span class="p">[{</span><span class="s2">&quot;ticket_no&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$in&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="mi">725</span><span class="p">,</span> <span class="mi">542</span><span class="p">,</span> <span class="mi">390</span><span class="p">]}},</span>
+                        <span class="p">{</span><span class="s2">&quot;winner&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">}]})</span>
 </pre></div>
 
     </div>
@@ -14236,7 +14202,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Generic-Classes">Generic Classes<a class="anchor-link" href="#Generic-Classes">&#182;</a></h2><p>Generic classes have a generic type parameter list in angle brackets (&lt;&gt;) following the name of the class.</p>
+<h3 id="$not"><code>$not</code><a class="anchor-link" href="#$not">&#182;</a></h3><p><code>$not</code> is a metaconditional: it can be applied on top of any other criteria. If we want, to return users with id_num's of 2, 3, 4, 5, 7, 8, 9, 10, 12, etc., we can use <code>$not</code></p>
 
 </div>
 </div>
@@ -14247,14 +14213,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">class</span> <span class="nx">GenericNumber</span><span class="o">&lt;</span><span class="nx">T</span><span class="o">&gt;</span> <span class="p">{</span>
-    <span class="nx">zeroValue</span>: <span class="kt">T</span><span class="p">;</span>
-    <span class="nx">add</span><span class="o">:</span> <span class="p">(</span><span class="nx">x</span>: <span class="kt">T</span><span class="p">,</span> <span class="nx">y</span>: <span class="kt">T</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">T</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">myGenericNumber</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">GenericNumber</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">();</span>
-<span class="nx">myGenericNumber</span><span class="p">.</span><span class="nx">zeroValue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="nx">myGenericNumber</span><span class="p">.</span><span class="nx">add</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="nx">y</span><span class="p">;</span> <span class="p">};</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;id_num&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$not&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$mod&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">]}}})</span>
 </pre></div>
 
     </div>
@@ -14265,7 +14224,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Generic-Constraints">Generic Constraints<a class="anchor-link" href="#Generic-Constraints">&#182;</a></h2><p>We can create constrain on the generic type which should be a subclass of a particular type with using extends keyword.</p>
+<h2 id="Querying-Arrays">Querying Arrays<a class="anchor-link" href="#Querying-Arrays">&#182;</a></h2><p>If you need to match arrays by more than one element, you can use <code>$all</code>.</p>
 
 </div>
 </div>
@@ -14276,14 +14235,13 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">interface</span> <span class="nx">Lengthwise</span> <span class="p">{</span>
-    <span class="nx">length</span>: <span class="kt">number</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">food</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;peach&quot;</span><span class="p">]})</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">food</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;kumquat&quot;</span><span class="p">,</span> <span class="s2">&quot;orange&quot;</span><span class="p">]})</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">food</span><span class="p">.</span><span class="nx">insert</span><span class="p">({</span><span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;fruit&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;cherry&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">]})</span>
 
-<span class="kd">function</span> <span class="nx">loggingIdentity</span><span class="o">&lt;</span><span class="nx">T</span> <span class="kr">extends</span> <span class="nx">Lengthwise</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">arg</span>: <span class="kt">T</span><span class="p">)</span><span class="o">:</span> <span class="nx">T</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arg</span><span class="p">.</span><span class="nx">length</span><span class="p">);</span>  <span class="c1">// Now we know it has a .length property, so no more error</span>
-    <span class="k">return</span> <span class="nx">arg</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">food</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="nx">fruit</span> <span class="o">:</span> <span class="p">{</span><span class="nx">$all</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;banana&quot;</span><span class="p">]}})</span>
+<span class="c1">// {&quot;_id&quot; : 1, &quot;fruit&quot; : [&quot;apple&quot;, &quot;banana&quot;, &quot;peach&quot;]}</span>
+<span class="c1">// {&quot;_id&quot; : 3, &quot;fruit&quot; : [&quot;cherry&quot;, &quot;banana&quot;, &quot;apple&quot;]}</span>
 </pre></div>
 
     </div>
@@ -14294,7 +14252,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Using-Type-Parameters-in-Generic-Constraints">Using Type Parameters in Generic Constraints<a class="anchor-link" href="#Using-Type-Parameters-in-Generic-Constraints">&#182;</a></h2><p>You can declare a type parameter that is constrained by another type parameter. For example, here we'd like to get a property from an object given its name. We'd like to ensure that we're not accidentally grabbing a property that does not exist on the obj, so we'll place a constraint between the two types:</p>
+<p>A useful conditional for querying arrays is <code>$size</code> , which allows you to query for arrays of a given size.</p>
 
 </div>
 </div>
@@ -14305,14 +14263,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">getProperty</span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span> <span class="nx">K</span> <span class="kr">extends</span> <span class="nx">keyof</span> <span class="nx">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">obj</span>: <span class="kt">T</span><span class="p">,</span> <span class="nx">key</span>: <span class="kt">K</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
-<span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">a</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">b</span>: <span class="kt">2</span><span class="p">,</span> <span class="nx">c</span>: <span class="kt">3</span><span class="p">,</span> <span class="nx">d</span>: <span class="kt">4</span> <span class="p">};</span>
-
-<span class="nx">getProperty</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">);</span> <span class="c1">// okay</span>
-<span class="nx">getProperty</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">);</span> <span class="c1">// error: Argument of type &#39;m&#39; isn&#39;t assignable to &#39;a&#39; | &#39;b&#39; | &#39;c&#39; | &#39;d&#39;.</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">food</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;fruit&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$size&quot;</span> <span class="o">:</span> <span class="mi">3</span><span class="p">}})</span>
 </pre></div>
 
     </div>
@@ -14323,7 +14274,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Enums">Enums<a class="anchor-link" href="#Enums">&#182;</a></h1><p>Enums allow us to define a set of named constants. Using enums can make it easier to document intent, or create a set of distinct cases. TypeScript provides both numeric and string-based enums.</p>
+<p><code>$slice</code> operator can be used to return a subset of elements for an array key</p>
 
 </div>
 </div>
@@ -14334,12 +14285,14 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Direction</span> <span class="p">{</span>
-    <span class="nx">Up</span><span class="p">,</span>
-    <span class="nx">Down</span><span class="p">,</span>
-    <span class="nx">Left</span><span class="p">,</span>
-    <span class="nx">Right</span><span class="p">,</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">blog</span><span class="p">.</span><span class="nx">posts</span><span class="p">.</span><span class="nx">findOne</span><span class="p">(</span><span class="nx">criteria</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;comments&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$slice&quot;</span> <span class="o">:</span> <span class="mi">10</span><span class="p">}})</span>
+<span class="c1">// Return first 10 comments</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">blog</span><span class="p">.</span><span class="nx">posts</span><span class="p">.</span><span class="nx">findOne</span><span class="p">(</span><span class="nx">criteria</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;comments&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$slice&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mi">10</span><span class="p">}})</span>
+<span class="c1">// Return last 10 comments</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">blog</span><span class="p">.</span><span class="nx">posts</span><span class="p">.</span><span class="nx">findOne</span><span class="p">(</span><span class="nx">criteria</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;comments&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;$slice&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="mi">23</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}})</span>
+<span class="c1">// skip the first 23 elements and return the 24th through 33th</span>
 </pre></div>
 
     </div>
@@ -14350,83 +14303,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Here Up will have value 0, Down will have 1 etc . We can also change the initial value of the enum by initializing it at the time of declaration eg <code>UP = 1</code></p>
-<p>OR</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kr">enum</span> <span class="nx">Direction</span> <span class="p">{</span>
-    <span class="nx">Up</span> <span class="o">=</span> <span class="s2">&quot;UP&quot;</span><span class="p">,</span>
-    <span class="nx">Down</span> <span class="o">=</span> <span class="s2">&quot;DOWN&quot;</span><span class="p">,</span>
-    <span class="nx">Left</span> <span class="o">=</span> <span class="s2">&quot;LEFT&quot;</span><span class="p">,</span>
-    <span class="nx">Right</span> <span class="o">=</span> <span class="s2">&quot;RIGHT&quot;</span><span class="p">,</span>
-<span class="p">}</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Advance-Type">Advance Type<a class="anchor-link" href="#Advance-Type">&#182;</a></h1><h2 id="Intersection-Types">Intersection Types<a class="anchor-link" href="#Intersection-Types">&#182;</a></h2><p>An intersection type combines multiple types into one. This allows you to add together existing types to get a single type that has all the features you need. For example, Person &amp; Serializable &amp; Loggable is a Person and Serializable and Loggable. That means an object of this type will have all members of all three types.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-
-
-<div class="inner_cell">
-    <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">extend</span><span class="o">&lt;</span><span class="nx">T</span><span class="p">,</span> <span class="nx">U</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">first</span>: <span class="kt">T</span><span class="p">,</span> <span class="nx">second</span>: <span class="kt">U</span><span class="p">)</span><span class="o">:</span> <span class="nx">T</span> <span class="o">&amp;</span> <span class="nx">U</span> <span class="p">{</span>
-    <span class="kd">let</span> <span class="nx">result</span> <span class="o">=</span> <span class="o">&lt;</span><span class="nx">T</span> <span class="o">&amp;</span> <span class="nx">U</span><span class="o">&gt;</span><span class="p">{};</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">id</span> <span class="k">in</span> <span class="nx">first</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">(</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="nx">result</span><span class="p">)[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="nx">first</span><span class="p">)[</span><span class="nx">id</span><span class="p">];</span>
-    <span class="p">}</span>
-    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">id</span> <span class="k">in</span> <span class="nx">second</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="nx">id</span><span class="p">))</span> <span class="p">{</span>
-            <span class="p">(</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="nx">result</span><span class="p">)[</span><span class="nx">id</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">any</span><span class="o">&gt;</span><span class="nx">second</span><span class="p">)[</span><span class="nx">id</span><span class="p">];</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="nx">result</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="kr">class</span> <span class="nx">Person</span> <span class="p">{</span>
-    <span class="kr">constructor</span><span class="p">(</span><span class="kr">public</span> <span class="nx">name</span>: <span class="kt">string</span><span class="p">)</span> <span class="p">{</span> <span class="p">}</span>
-<span class="p">}</span>
-<span class="kr">interface</span> <span class="nx">Loggable</span> <span class="p">{</span>
-    <span class="nx">log</span><span class="p">()</span><span class="o">:</span> <span class="k">void</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kr">class</span> <span class="nx">ConsoleLogger</span> <span class="kr">implements</span> <span class="nx">Loggable</span> <span class="p">{</span>
-    <span class="nx">log() {</span>
-        <span class="c1">// ...</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">var</span> <span class="nx">jim</span> <span class="o">=</span> <span class="nx">extend</span><span class="p">(</span><span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="s2">&quot;Jim&quot;</span><span class="p">),</span> <span class="k">new</span> <span class="nx">ConsoleLogger</span><span class="p">());</span>
-<span class="kd">var</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">jim</span><span class="p">.</span><span class="nx">name</span><span class="p">;</span>
-<span class="nx">jim</span><span class="p">.</span><span class="nx">log</span><span class="p">();</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Union-Types">Union Types<a class="anchor-link" href="#Union-Types">&#182;</a></h2><p>Union types are type which can take any particular value from given set of types. For example</p>
+<h2 id="Querying-on-Embedded-Documents">Querying on Embedded Documents<a class="anchor-link" href="#Querying-on-Embedded-Documents">&#182;</a></h2><p>We can query the embeded document by using the <code>.</code> (dot) syntax. For example.</p>
 
 </div>
 </div>
@@ -14438,15 +14315,16 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span></span><span class="cm">/*</span>
-<span class="cm"> * Takes a string and adds &quot;padding&quot; to the left.</span>
-<span class="cm"> * If &#39;padding&#39; is a string, then &#39;padding&#39; is appended to the left side.</span>
-<span class="cm"> * If &#39;padding&#39; is a number, then that number of spaces is added to the left side.</span>
-<span class="cm"> */</span>
-<span class="kd">function</span> <span class="nx">padLeft</span><span class="p">(</span><span class="nx">value</span>: <span class="kt">string</span><span class="p">,</span> <span class="nx">padding</span>: <span class="kt">string</span> <span class="o">|</span> <span class="kt">number</span><span class="p">)</span> <span class="p">{</span>
-    <span class="c1">// ...</span>
-<span class="p">}</span>
+<span class="cm">{</span>
+<span class="cm">    &quot;name&quot; : {</span>
+<span class="cm">        &quot;first&quot; : &quot;Joe&quot;,</span>
+<span class="cm">        &quot;last&quot; : &quot;Schmoe&quot;</span>
+<span class="cm">    },</span>
+<span class="cm">    &quot;age&quot; : 45</span>
+<span class="cm">}</span>
+<span class="cm">*/</span>
 
-<span class="kd">let</span> <span class="nx">indentedString</span> <span class="o">=</span> <span class="nx">padLeft</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span> <span class="c1">// errors during compilation</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">people</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;name.first&quot;</span> <span class="o">:</span> <span class="s2">&quot;Joe&quot;</span><span class="p">,</span> <span class="s2">&quot;name.last&quot;</span> <span class="o">:</span> <span class="s2">&quot;Schmoe&quot;</span><span class="p">})</span>
 </pre></div>
 
     </div>
@@ -14457,7 +14335,7 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="User-Defined-Type-Guards">User-Defined Type Guards<a class="anchor-link" href="#User-Defined-Type-Guards">&#182;</a></h2><p>TypeScript has something called a type guard. A type guard is some expression that performs a runtime check that guarantees the type in some scope. To define a type guard, we simply need to define a function whose return type is a type predicate.</p>
+<h2 id="$where-Queries"><code>$where</code> Queries<a class="anchor-link" href="#$where-Queries">&#182;</a></h2><p>For queries that cannot be done any other way, there are <code>$where</code> clauses, which allow you to execute arbitrary JavaScript as part of your query. This allows you to do (almost) anything within a query.</p>
 
 </div>
 </div>
@@ -14468,9 +14346,14 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">isFish</span><span class="p">(</span><span class="nx">pet</span>: <span class="kt">Fish</span> <span class="o">|</span> <span class="nx">Bird</span><span class="p">)</span><span class="o">:</span> <span class="nx">pet</span> <span class="nx">is</span> <span class="nx">Fish</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="p">(</span><span class="o">&lt;</span><span class="nx">Fish</span><span class="o">&gt;</span><span class="nx">pet</span><span class="p">).</span><span class="nx">swim</span> <span class="o">!==</span> <span class="kc">undefined</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">foo</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;$where&quot;</span> <span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;value&#39;</span><span class="p">){</span>
+            <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+        <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+            <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="p">}</span>
+
+    <span class="p">}});</span>
 </pre></div>
 
     </div>
@@ -14481,9 +14364,9 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><code>pet</code> is Fish is our type predicate in this example. A predicate takes the form parameterName is Type, where parameterName must be the name of a parameter from the current function signature.</p>
-<p>Any time <code>isFish</code> is called with some variable, TypeScript will narrow that variable to that specific type if the original type is compatible.</p>
-<h2 id="Type-Aliases">Type Aliases<a class="anchor-link" href="#Type-Aliases">&#182;</a></h2><p>Type aliases create a new name for a type. Type aliases are sometimes similar to interfaces, but can name primitives, unions, tuples, and any other types that you'd otherwise have to write by hand.</p>
+<h2 id="Cursors">Cursors<a class="anchor-link" href="#Cursors">&#182;</a></h2><p>The database returns results from find using a cursor. The client-side implementations of cursors generally allow you to control a great deal about the eventual output of a query. You can limit the number of results, skip over some number of results, sort results by any combination of keys in any direction, and perform a number of other powerful operations.</p>
+<p>If we assign the result of <code>find()</code> to a variable, it is stored in a form of a cursor which only request a particularly amount of data, mostly 4MB at a time.</p>
+<h2 id="Database-Commands">Database Commands<a class="anchor-link" href="#Database-Commands">&#182;</a></h2><p>There is one very special type of query called a database command. Database commands do "everything else", from administrative tasks like shutting down the server and cloning databases to counting documents in a collection and performing aggregations.</p>
 
 </div>
 </div>
@@ -14494,17 +14377,276 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="nx">type</span> <span class="nx">Name</span> <span class="o">=</span> <span class="kt">string</span><span class="p">;</span>
-<span class="nx">type</span> <span class="nx">NameResolver</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="kt">string</span><span class="p">;</span>
-<span class="nx">type</span> <span class="nx">NameOrResolver</span> <span class="o">=</span> <span class="nx">Name</span> <span class="o">|</span> <span class="nx">NameResolver</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="s2">&quot;drop&quot;</span> <span class="o">:</span> <span class="s2">&quot;test&quot;</span><span class="p">});</span>
+<span class="c1">// dropping a collection is done via the &quot; drop &quot; database command</span>
 
-<span class="kd">function</span> <span class="nx">getName</span><span class="p">(</span><span class="nx">n</span>: <span class="kt">NameOrResolver</span><span class="p">)</span><span class="o">:</span> <span class="nx">Name</span> <span class="p">{</span>
-    <span class="k">if</span> <span class="p">(</span><span class="k">typeof</span> <span class="nx">n</span> <span class="o">===</span> <span class="s2">&quot;string&quot;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">n</span><span class="p">;</span>
+<span class="nx">db</span><span class="p">.</span><span class="nx">test</span><span class="p">.</span><span class="nx">drop</span><span class="p">()</span>
+<span class="c1">// The shell helper, which wraps the command and provides a simpler interface</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="How-Commands-Work">How Commands Work<a class="anchor-link" href="#How-Commands-Work">&#182;</a></h3><p>A database command always returns a document containing the key <code>ok</code> . If <code>ok</code> is <code>1</code> , the command was successful; and if it is 0 , the command failed for some reason. If <code>ok</code> is <code>0</code> then an additional key will be present, <code>errmsg</code> . The value of <code>errmsg</code> is a string explaining why the command failed.</p>
+<p>Commands in MongoDB are implemented as a special type of query that gets performed on the <code>$cmd</code> collection. When the MongoDB server gets a query on the <code>$cmd</code> collection, it handles it using special logic, rather than the normal code for handling queries.</p>
+<h1 id="Special-Collection-and-Index-Types">Special Collection and Index Types<a class="anchor-link" href="#Special-Collection-and-Index-Types">&#182;</a></h1><h2 id="Explain-function">Explain function<a class="anchor-link" href="#Explain-function">&#182;</a></h2><p>Mongo shell has an <code>explain()</code> method, to see more internal information about a query.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">find</span><span class="p">({</span><span class="s2">&quot;age&quot;</span> <span class="o">:</span> <span class="mi">42</span><span class="p">}).</span><span class="nx">explain</span><span class="p">()</span>
+
+<span class="c1">// Output: </span>
+<span class="c1">//</span>
+<span class="c1">// {</span>
+<span class="c1">//   &quot;cursor&quot;: &quot;BtreeCursor age_1_username_1&quot;,</span>
+<span class="c1">//   &quot;isMultiKey&quot;: false,</span>
+<span class="c1">//   &quot;n&quot;: 8332,</span>
+<span class="c1">//   &quot;nscannedObjects&quot;: 8332,</span>
+<span class="c1">//   &quot;nscanned&quot;: 8332,</span>
+<span class="c1">//   &quot;nscannedObjectsAllPlans&quot;: 8332,</span>
+<span class="c1">//   &quot;nscannedAllPlans&quot;: 8332,</span>
+<span class="c1">//   &quot;scanAndOrder&quot;: false,</span>
+<span class="c1">//   &quot;indexOnly&quot;: false,</span>
+<span class="c1">//   &quot;nYields&quot;: 0,</span>
+<span class="c1">//   &quot;nChunkSkips&quot;: 0,</span>
+<span class="c1">//   &quot;millis&quot;: 91,</span>
+<span class="c1">//   &quot;indexBounds&quot;: {</span>
+<span class="c1">//     &quot;age&quot;: [</span>
+<span class="c1">//       [</span>
+<span class="c1">//         42,</span>
+<span class="c1">//         42</span>
+<span class="c1">//       ]</span>
+<span class="c1">//     ],</span>
+<span class="c1">//     &quot;username&quot;: [</span>
+<span class="c1">//       [</span>
+<span class="c1">//         {</span>
+<span class="c1">//           &quot;$minElement&quot;: 1</span>
+<span class="c1">//         },</span>
+<span class="c1">//         {</span>
+<span class="c1">//           &quot;$maxElement&quot;: 1</span>
+<span class="c1">//         }</span>
+<span class="c1">//       ]</span>
+<span class="c1">//     ]</span>
+<span class="c1">//   },</span>
+<span class="c1">//   &quot;server&quot;: &quot;ubuntu:27017&quot;</span>
+<span class="c1">// }</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here we get following information.</p>
+<ul>
+<li><p><strong>"cursor" : "BtreeCursor age_1_username_1"</strong></p>
+<p>BtreeCursor means that an index was used, specifically, the index on age and username: {"age" : 1, "username" : 1}. For no index query it is "BasicCursor".</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>"isMultiKey" : false</strong></p>
+<p>If this query used a multikey index</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>"n" : 8332</strong></p>
+<p>Number of documents returned by the query.</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>"nscannedObjects" : 8332</strong></p>
+<p>This is a count of the number of times MongoDB had to follow an index pointer to the actual document on disk. If the query contains criteria that is not part of the index or requests fields back that aren't contained in the index, MongoDB must look up the document each index entry points to.</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>"nscanned" : 8332</strong></p>
+<p>The number of index entries looked at if an index was used. If this was a table scan, it is the number of documents examined.</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>"scanAndOrder" : false</strong></p>
+<p>If MongoDB had to sort results in memory.</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>"indexOnly" : false</strong></p>
+<p>If MongoDB was able to fulfill this query using only the index entries. In this example, MongoDB found all matching documents using the index, which we know because "nscanned" is the same as "n" . However, the query was told to return every field in the matching documents and the index only contained the "age" and "username" fields. If we changed the query to have a second argument, {"_id" : 0, "age" : 1, "username" : 1} , then it would be covered by the index and "indexOnly" would be true .</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>"nYields": 0</strong></p>
+<p>The number of times this query yielded (paused) to allow a write request to proceed. If there are writes waiting to go, queries will periodically release their lock and allow them to do so.</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>"millis" : 91</strong></p>
+<p>The number of milliseconds it took the database to execute the query.</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>"indexBounds" : {…}</strong></p>
+<p>This field describes how the index was used, giving ranges of the index traversed. As the first clause in the query was an exact match, the index only needed to look at that value: 42. The second index key was a free variable, as the query didn't specify any restrictions to it</p>
+</li>
+</ul>
+<h2 id="Index">Index<a class="anchor-link" href="#Index">&#182;</a></h2><p>MongoDB has the same concept of index as the relational database. Index generally form a B-Tree on the key that is being indexed. Then mongodb uses the index when querying the document for that given key. A query that does not use an index is called a table scan (a term inherited from relational databases), which means that the server has to "look through the whole collection" to find a query's results.</p>
+<p>Index can be created using following method.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">ensureIndex</span><span class="p">({</span><span class="s2">&quot;username&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Unique-Index">Unique Index<a class="anchor-link" href="#Unique-Index">&#182;</a></h3><p>Unique indexes guarantee that each value will appear at most once in the index. For example, if we want to make sure no two documents can have the same value in the "username" key, we can create a unique index.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">ensureIndex</span><span class="p">({</span><span class="s2">&quot;username&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;unique&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>NOTE:</strong></p>
+<p>Unique indexes count null as a value, so we cannot have a unique index with more than one document missing the key.</p>
+<h3 id="Sparse-Indexes">Sparse Indexes<a class="anchor-link" href="#Sparse-Indexes">&#182;</a></h3><p>As mentioned in an earlier section, unique indexes count null as a value, so we cannot have a unique index with more than one document missing the key. However, there are lots of cases where we may want the unique index to be enforced only if the key exists. If we have a field that may or may not exist but must be unique when it does, we can combine the unique option with the sparse option.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">ensureIndex</span><span class="p">({</span><span class="s2">&quot;email&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="s2">&quot;unique&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;sparse&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">})</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Capped-Collections">Capped Collections<a class="anchor-link" href="#Capped-Collections">&#182;</a></h2><p>Normal collections in MongoDB are created dynamically and automatically grow in size to fit additional data. MongoDB also supports a different type of collection, called a capped collection, which is created in advance and is fixed in size. Capped collections behave like circular queues, if we're out of space, the oldest document will be deleted, and the new one will take its place.</p>
+<p>Certain operations are not allowed on capped collections. Documents cannot be removed or deleted (aside from the automatic age-out described earlier), and updates that would cause documents to grow in size are disallowed. By preventing these two operations, we guarantee that documents in a capped collection are stored in insertion order and that there is no need to maintain a free list for space from removed documents.</p>
+<p>To create a capped collection we can do the following.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">createCollection</span><span class="p">(</span><span class="s2">&quot;my_collection2&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;capped&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="s2">&quot;size&quot;</span> <span class="o">:</span> <span class="mi">100000</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span> <span class="o">:</span> <span class="mi">100</span><span class="p">})</span>
+
+<span class="c1">// Where size (required): Size in bytes for the collection.</span>
+<span class="c1">// max (optional): Max number of documents.</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tailable-Cursors">Tailable Cursors<a class="anchor-link" href="#Tailable-Cursors">&#182;</a></h2><p>Tailable cursors are a special type of cursor that are not closed when their results are exhausted. They were inspired by the tail -f command and, similar to the command, will continue fetching output for as long as possible. Because the cursors do not die when they run out of results, they can continue to fetch new results as documents are added to the collection. Tailable cursors can be used only on capped collections, since insert order is not tracked for normal collections.</p>
+<p>Tailable cursors are often used for processing documents as they are inserted onto a "work queue" (the capped collection). Because tailable cursors will time out after 10 minutes of no results, it is important to include logic to re-query the collection if they die.</p>
+<h2 id="Time-To-Live-Indexes">Time-To-Live Indexes<a class="anchor-link" href="#Time-To-Live-Indexes">&#182;</a></h2><p>Time-to-live (TTL) indexes allows us to set a timeout for each document. When a document reaches a preconfigured age, it will be deleted. This type of index is useful for caching problems like session storage.</p>
+<h2 id="Full-Text-Indexes">Full-Text Indexes<a class="anchor-link" href="#Full-Text-Indexes">&#182;</a></h2><p>MongoDB has a special type of index for searching for text within documents. We can query for strings using exact matches and regular expressions, but these techniques have some limitations. Searching a large block of text for a regular expression is slow and it's tough to take linguistic issues into account (e.g., that "entry" should match "entries"). Full-text indexes give us the ability to search text quickly, as well as provide built-in support for multi-language stemming and stop words.</p>
+<p>For example.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span></span><span class="nx">db</span><span class="p">.</span><span class="nx">hn</span><span class="p">.</span><span class="nx">ensureIndex</span><span class="p">({</span><span class="s2">&quot;title&quot;</span> <span class="o">:</span> <span class="s2">&quot;text&quot;</span><span class="p">})</span>
+<span class="c1">// To run a search over the text, we first need to create a &quot;text&quot; index</span>
+
+<span class="nx">db</span><span class="p">.</span><span class="nx">runCommand</span><span class="p">({</span><span class="s2">&quot;text&quot;</span> <span class="o">:</span> <span class="s2">&quot;hn&quot;</span><span class="p">,</span> <span class="s2">&quot;search&quot;</span> <span class="o">:</span> <span class="s2">&quot;ask hn&quot;</span><span class="p">})</span>
+<span class="c1">// This will match titles like &quot;Ask Hn&quot;, &quot;Show Hn&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Geospatial-Indexing">Geospatial Indexing<a class="anchor-link" href="#Geospatial-Indexing">&#182;</a></h2><p>MongoDB has a few types of geospatial indexes. The most commonly used ones are <code>2dsphere</code> , for surface-of-the-earth-type maps, and 2d , for flat maps (and time series data).</p>
+<p><code>2dsphere</code> allows us to specify points, lines, and polygons in <code>GeoJSON</code> format. A point is given by a two-element array, representing <code>[ longitude , latitude ]</code>. For example,</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;New York City&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;loc&quot;</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;Point&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;coordinates&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
     <span class="p">}</span>
-    <span class="k">else</span> <span class="p">{</span>
-        <span class="k">return</span> <span class="nx">n</span><span class="p">();</span>
-    <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -14516,7 +14658,29 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="String-Literal-Types">String Literal Types<a class="anchor-link" href="#String-Literal-Types">&#182;</a></h2><p>String literal types allow you to specify the exact value a string must have. In practice string literal types combine nicely with union types, type guards, and type aliases. You can use these features together to get enum-like behavior with strings.</p>
+<h1 id="GridFS">GridFS<a class="anchor-link" href="#GridFS">&#182;</a></h1><p>GridFS is a mechanism for storing large binary files in MongoDB.</p>
+<p><strong>Advantage of GridFS</strong>.</p>
+<ul>
+<li><p>Using GridFS can simplify our stack. If we are already using MongoDB, we might be able to use GridFS instead of a separate tool for file storage.</p>
+</li>
+<li><p>GridFS will leverage any existing replication or autosharding that we've set up for MongoDB, so getting failover and scale-out for file storage is easier.</p>
+</li>
+<li><p>GridFS can alleviate some of the issues that certain filesystems can exhibit when being used to store user uploads. For example, GridFS does not have issues with storing large numbers of files in the same directory.</p>
+</li>
+<li><p>We can get great disk locality with GridFS, because MongoDB allocates data files in 2 GB chunks.</p>
+</li>
+</ul>
+<p><strong>Disadvantage of GridFS</strong>.</p>
+<ul>
+<li><p>Slower performance: accessing files from MongoDB will not be as fast as going directly through the filesystem.</p>
+</li>
+<li><p>We can only modify documents by deleting them and resaving the whole thing. MongoDB stores files as multiple documents so it cannot lock all of the chunks in a file at the same time.</p>
+</li>
+</ul>
+<h2 id="Working-With-GridFS">Working With GridFS<a class="anchor-link" href="#Working-With-GridFS">&#182;</a></h2><p>GridFS generally provides following method, list (List all files), delete (Delete a specific file), search (Search for a file), put (Add a file from filesystem), get (Save file from GridFS to filesystem).</p>
+<h2 id="Under-the-hood.">Under the hood.<a class="anchor-link" href="#Under-the-hood.">&#182;</a></h2><p>GridFS is a lightweight specification for storing files that is built on top of normal MongoDB documents. The MongoDB server actually does almost nothing to “special-case” the handling of GridFS requests; all the work is handled by the client-side drivers and tools.</p>
+<p>The basic idea behind GridFS is that we can store large files by splitting them up into chunks and storing each chunk as a separate document. Because MongoDB supports storing binary data in documents, we can keep storage overhead for chunks to a minimum. In addition to storing each chunk of a file, we store a single document that groups the chunks together and contains metadata about the file.</p>
+<p>The chunks for GridFS are stored in their own collection. By default chunks will use the collection <code>fs.chunks</code>, but this can be overridden. Within the chunks collection the structure of the individual documents is pretty simple.</p>
 
 </div>
 </div>
@@ -14527,26 +14691,12 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="nx">type</span> <span class="nx">Easing</span> <span class="o">=</span> <span class="s2">&quot;ease-in&quot;</span> <span class="o">|</span> <span class="s2">&quot;ease-out&quot;</span> <span class="o">|</span> <span class="s2">&quot;ease-in-out&quot;</span><span class="p">;</span>
-
-<span class="kr">class</span> <span class="nx">UIElement</span> <span class="p">{</span>
-    <span class="nx">animate</span><span class="p">(</span><span class="nx">dx</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">dy</span>: <span class="kt">number</span><span class="p">,</span> <span class="nx">easing</span>: <span class="kt">Easing</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nx">easing</span> <span class="o">===</span> <span class="s2">&quot;ease-in&quot;</span><span class="p">)</span> <span class="p">{</span>
-            <span class="c1">// ...</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">easing</span> <span class="o">===</span> <span class="s2">&quot;ease-out&quot;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">easing</span> <span class="o">===</span> <span class="s2">&quot;ease-in-out&quot;</span><span class="p">)</span> <span class="p">{</span>
-        <span class="p">}</span>
-        <span class="k">else</span> <span class="p">{</span>
-            <span class="c1">// error! should not pass null or undefined.</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;n&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;data&quot;</span> <span class="o">:</span> <span class="nx">BinData</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;files_id&quot;</span> <span class="o">:</span> <span class="nx">ObjectId</span><span class="p">(</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
 <span class="p">}</span>
-
-<span class="kd">let</span> <span class="nx">button</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">UIElement</span><span class="p">();</span>
-<span class="nx">button</span><span class="p">.</span><span class="nx">animate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ease-in&quot;</span><span class="p">);</span>
-<span class="nx">button</span><span class="p">.</span><span class="nx">animate</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;uneasy&quot;</span><span class="p">);</span> <span class="c1">// error: &quot;uneasy&quot; is not allowed here</span>
 </pre></div>
 
     </div>
@@ -14557,7 +14707,51 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Numeric-Literal-Types">Numeric Literal Types<a class="anchor-link" href="#Numeric-Literal-Types">&#182;</a></h2><p>TypeScript also has numeric literal types</p>
+<p>Where,</p>
+<ul>
+<li><p><code>`files_id</code></p>
+<p>The <code>_id</code> of the file document that contains the metadata for this chunk.</p>
+</li>
+</ul>
+<ul>
+<li><p><code>n</code></p>
+<p>The chunk's position in the file, relative to the other chunks.</p>
+</li>
+</ul>
+<ul>
+<li><p><code>data</code></p>
+<p>The bytes in this chunk of the file.</p>
+</li>
+</ul>
+<p>The metadata for each file is stored in a separate collection, which defaults to <code>fs.files</code>. With following keys.</p>
+<ul>
+<li><p><code>_id</code></p>
+<p>A unique id for the file—this is what will be stored in each chunk as the value for the “files_id” key.</p>
+</li>
+</ul>
+<ul>
+<li><p><code>length</code></p>
+<p>The total number of bytes making up the content of the file.</p>
+</li>
+</ul>
+<ul>
+<li><p><code>chunkSize</code></p>
+<p>The size of each chunk comprising the file, in bytes. The default is 256K, but this can be adjusted if needed.</p>
+</li>
+</ul>
+<ul>
+<li><p><code>uploadDate</code></p>
+<p>A timestamp representing when this file was stored in GridFS.</p>
+</li>
+</ul>
+<ul>
+<li><p><code>md5</code></p>
+<p>An md5 checksum of this file’s contents, generated on the server side.</p>
+</li>
+</ul>
+<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><ul>
+<li>MongoDB: The definitive Guide, Kristina Chodorow ((link)[<a href="http://shop.oreilly.com/product/0636920028031.do">http://shop.oreilly.com/product/0636920028031.do</a>])</li>
+</ul>
 
 </div>
 </div>
@@ -14568,23 +14762,13 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kd">function</span> <span class="nx">rollDie</span><span class="p">()</span><span class="o">:</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> <span class="mi">4</span> <span class="o">|</span> <span class="mi">5</span> <span class="o">|</span> <span class="mi">6</span> <span class="p">{</span>
-    <span class="c1">// ...</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="References">References<a class="anchor-link" href="#References">&#182;</a></h1><p>Typescript Documentation (<a href="https://www.typescriptlang.org/docs/home.html">link</a>)</p>
-
-</div>
-</div>
 </div>
  
 
