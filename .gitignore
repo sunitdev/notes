@@ -3,3 +3,6 @@
 
 # Juypter notebook
 .ipynb_checkpoints/
+
+# SOS Kernel
+.sos/

@@ -5,6 +5,7 @@
 
         <!--Fonts-->
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css">
         <!--/Fonts-->
 
         <!--Vender Styles-->
@@ -13062,6 +13063,21 @@ ul.typeahead-list  > li > a.pull-right {
 
         <!--Custom Style-->
         <style>
+            @font-face {
+                font-family: "Fira IScript";
+                src: url("/static/fonts/FiraCodeiScript-Regular.ttf");
+            }
+            @font-face {
+                font-family: "Fira IScript";
+                src: url("/static/fonts/FiraCodeiScript-Bold.ttf");
+                font-weight: bold;
+            }
+            @font-face {
+                font-family: "Fira IScript";
+                src: url("/static/fonts/FiraCodeiScript-Italic.ttf");
+                font-style: italic;
+            }
+
             html, body {
                 width: 100%;
                 height: 100%;
@@ -13168,6 +13184,13 @@ ul.typeahead-list  > li > a.pull-right {
 
 
             /* code block */
+            code,
+            kbd,
+            pre,
+            samp {
+                font-family: 'Fira IScript', monospace !important;
+            }
+
             .notes-content div.input_area > div.highlight {
                 background-color: #22323a !important;
                 color: #cdd3de !important;
@@ -13180,12 +13203,22 @@ ul.typeahead-list  > li > a.pull-right {
             
             /* Colors */
             .highlight .nb { color: #65a5ea } /* Name.Builtin */
+            .highlight .nf { color: #65a5ea; font-style: italic } /* Name.Function */
+            .highlight .nc { color: #65a5ea; font-weight: bold } /* Name.Class */
+            .highlight .na { color: #65a5ea; font-style: italic } /* Name.Attribute */
 
             .highlight .p { color: #F8BF52 } /* Paranthesis */
 
             .highlight .k { color: #c594c5; font-style: bold } /* Keyword */
+            .highlight .kt { color: #F8CE59; } /* Keyword.Type */
+            .highlight .kd { color: #c594c5; font-weight: bold; font-style: italic } /* Keyword.Declaration */
+            .highlight .kc { color: #FE8C4D; font-style: italic } /* Keyword.Constant */
+            .highlight .kr { color: #c594c5; font-weight: bold } /* Keyword.Reserved */
 
+            .highlight .s { color: #99c794 } /* Literal.String */
             .highlight .s1 { color: #99c794 } /* Literal.String.Single */
+            .highlight .s2 { color: #99c794 } /* Literal.String.Double */
+            .highlight .sb { color: #99c794 } /* Literal.String.Backtick */
 
             .highlight .mb { color: #F8BF52 } /* Literal.Number.Bin */
             .highlight .mf { color: #F8BF52 } /* Literal.Number.Float */
@@ -13197,6 +13230,8 @@ ul.typeahead-list  > li > a.pull-right {
 
             .highlight .kn { color: #B584C4; font-weight: bold } /* Keyword.Namespace - import */
             .highlight .nn { color: #cdd3de; font-weight: bold } /* Name.Namespace */
+
+            .highlight .c1 { color: #657172; font-style: italic } /* Comment.Single */
 
             @media only screen and (max-width: 992px) and (orientation:portrait){
                 .notes-content {
@@ -13248,9 +13283,9 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="nb">int</span> <span class="n">d</span><span class="p">;</span> <span class="o">//</span> <span class="n">elapsed</span> <span class="n">days</span> <span class="ow">in</span> <span class="n">time</span> <span class="p">(</span><span class="n">Bad</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">d</span><span class="o">;</span> <span class="c1">// elapsed days in time (Bad)</span>
 
-<span class="nb">int</span> <span class="n">elapsedTimeInDays</span><span class="p">;</span> <span class="o">//</span> <span class="p">(</span><span class="n">Good</span><span class="p">,</span> <span class="n">without</span> <span class="n">coments</span><span class="p">)</span>
+<span class="kt">int</span> <span class="n">elapsedTimeInDays</span><span class="o">;</span> <span class="c1">// (Good, without coments)</span>
 </pre></div>
 
     </div>
@@ -13273,21 +13308,21 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="o">//</span> <span class="n">Bad</span> <span class="n">variable</span> <span class="kp">name</span>
-<span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">copyChars</span><span class="p">(</span><span class="n">char</span> <span class="n">a1</span><span class="p">[],</span> <span class="n">char</span> <span class="n">a2</span><span class="p">[])</span> <span class="p">{</span> 
+<div class="highlight"><pre><span></span><span class="c1">// Bad variable name</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">copyChars</span><span class="o">(</span><span class="kt">char</span> <span class="n">a1</span><span class="o">[],</span> <span class="kt">char</span> <span class="n">a2</span><span class="o">[])</span> <span class="o">{</span> 
     
-    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a1</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">a2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">a1</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> 
-    <span class="p">}</span>
-<span class="p">}</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">a1</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">a2</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">a1</span><span class="o">[</span><span class="n">i</span><span class="o">];</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
 
-<span class="o">//</span> <span class="n">Bad</span> <span class="n">variable</span> <span class="kp">name</span>
-<span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="n">copyChars2</span><span class="p">(</span><span class="n">char</span> <span class="n">source</span><span class="p">[],</span> <span class="n">char</span> <span class="n">destination</span><span class="p">[])</span> <span class="p">{</span> 
+<span class="c1">// Bad variable name</span>
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">copyChars2</span><span class="o">(</span><span class="kt">char</span> <span class="n">source</span><span class="o">[],</span> <span class="kt">char</span> <span class="n">destination</span><span class="o">[])</span> <span class="o">{</span> 
     
-    <span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">source</span><span class="o">.</span><span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">destination</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="n">i</span><span class="p">];</span> 
-    <span class="p">}</span>
-<span class="p">}</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">source</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="n">destination</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">source</span><span class="o">[</span><span class="n">i</span><span class="o">];</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 
     </div>
@@ -13332,23 +13367,23 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="n">public</span> <span class="n">Money</span> <span class="n">calculatePay</span><span class="p">(</span><span class="n">Employee</span> <span class="n">e</span><span class="p">)</span> <span class="n">throws</span> <span class="n">InvalidEmployeeType</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="n">Money</span> <span class="nf">calculatePay</span><span class="o">(</span><span class="n">Employee</span> <span class="n">e</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InvalidEmployeeType</span> <span class="o">{</span>
     
-    <span class="n">switch</span> <span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span> 
+    <span class="k">switch</span> <span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">type</span><span class="o">)</span> <span class="o">{</span> 
         
-        <span class="n">case</span> <span class="n">COMMISSIONED</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">calculateCommissionedPay</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+        <span class="k">case</span> <span class="n">COMMISSIONED</span><span class="o">:</span>
+            <span class="k">return</span> <span class="n">calculateCommissionedPay</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
         
-        <span class="n">case</span> <span class="n">HOURLY</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">calculateHourlyPay</span><span class="p">(</span><span class="n">e</span><span class="p">);</span> 
+        <span class="k">case</span> <span class="n">HOURLY</span><span class="o">:</span>
+            <span class="k">return</span> <span class="n">calculateHourlyPay</span><span class="o">(</span><span class="n">e</span><span class="o">);</span> 
         
-        <span class="n">case</span> <span class="n">SALARIED</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">calculateSalariedPay</span><span class="p">(</span><span class="n">e</span><span class="p">);</span> 
+        <span class="k">case</span> <span class="n">SALARIED</span><span class="o">:</span>
+            <span class="k">return</span> <span class="n">calculateSalariedPay</span><span class="o">(</span><span class="n">e</span><span class="o">);</span> 
         
-        <span class="n">default</span><span class="p">:</span>
-            <span class="n">throw</span> <span class="n">new</span> <span class="n">InvalidEmployeeType</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">type</span><span class="p">);</span> 
-    <span class="p">}</span>
-<span class="p">}</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="n">InvalidEmployeeType</span><span class="o">(</span><span class="n">e</span><span class="o">.</span><span class="na">type</span><span class="o">);</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 
     </div>
@@ -13371,36 +13406,36 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="n">public</span> <span class="n">abstract</span> <span class="k">class</span> <span class="nc">Employee</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="n">abstract</span> <span class="n">boolean</span> <span class="n">isPayday</span><span class="p">();</span>
-    <span class="n">public</span> <span class="n">abstract</span> <span class="n">Money</span> <span class="n">calculatePay</span><span class="p">();</span>
-    <span class="n">public</span> <span class="n">abstract</span> <span class="n">void</span> <span class="n">deliverPay</span><span class="p">(</span><span class="n">Money</span> <span class="n">pay</span><span class="p">);</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">abstract</span> <span class="kd">class</span> <span class="nc">Employee</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">boolean</span> <span class="nf">isPayday</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="n">Money</span> <span class="nf">calculatePay</span><span class="o">();</span>
+    <span class="kd">public</span> <span class="kd">abstract</span> <span class="kt">void</span> <span class="nf">deliverPay</span><span class="o">(</span><span class="n">Money</span> <span class="n">pay</span><span class="o">);</span>
+<span class="o">}</span>
 
-<span class="n">public</span> <span class="n">interface</span> <span class="n">EmployeeFactory</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="n">Employee</span> <span class="n">makeEmployee</span><span class="p">(</span><span class="n">EmployeeRecord</span> <span class="n">r</span><span class="p">)</span> <span class="n">throws</span> <span class="n">InvalidEmployeeType</span><span class="p">;</span> 
-<span class="p">}</span>
+<span class="kd">public</span> <span class="kd">interface</span> <span class="nc">EmployeeFactory</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Employee</span> <span class="nf">makeEmployee</span><span class="o">(</span><span class="n">EmployeeRecord</span> <span class="n">r</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InvalidEmployeeType</span><span class="o">;</span> 
+<span class="o">}</span>
 
 
-<span class="n">public</span> <span class="k">class</span> <span class="nc">EmployeeFactoryImpl</span> <span class="n">implements</span> <span class="n">EmployeeFactory</span> <span class="p">{</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">EmployeeFactoryImpl</span> <span class="kd">implements</span> <span class="n">EmployeeFactory</span> <span class="o">{</span>
     
-    <span class="n">public</span> <span class="n">Employee</span> <span class="n">makeEmployee</span><span class="p">(</span><span class="n">EmployeeRecord</span> <span class="n">r</span><span class="p">)</span> <span class="n">throws</span> <span class="n">InvalidEmployeeType</span> <span class="p">{</span> 
+    <span class="kd">public</span> <span class="n">Employee</span> <span class="nf">makeEmployee</span><span class="o">(</span><span class="n">EmployeeRecord</span> <span class="n">r</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">InvalidEmployeeType</span> <span class="o">{</span> 
         
-        <span class="n">switch</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">type</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">case</span> <span class="n">COMMISSIONED</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">new</span> <span class="n">CommissionedEmployee</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="p">;</span>
+        <span class="k">switch</span> <span class="o">(</span><span class="n">r</span><span class="o">.</span><span class="na">type</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="n">COMMISSIONED</span><span class="o">:</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">CommissionedEmployee</span><span class="o">(</span><span class="n">r</span><span class="o">)</span> <span class="o">;</span>
 
-            <span class="n">case</span> <span class="n">HOURLY</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">new</span> <span class="n">HourlyEmployee</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+            <span class="k">case</span> <span class="n">HOURLY</span><span class="o">:</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">HourlyEmployee</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
 
-            <span class="n">case</span> <span class="n">SALARIED</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">new</span> <span class="n">SalariedEmploye</span><span class="p">(</span><span class="n">r</span><span class="p">);</span>
+            <span class="k">case</span> <span class="n">SALARIED</span><span class="o">:</span>
+                <span class="k">return</span> <span class="k">new</span> <span class="n">SalariedEmploye</span><span class="o">(</span><span class="n">r</span><span class="o">);</span>
             
-            <span class="n">default</span><span class="p">:</span>
-                <span class="n">throw</span> <span class="n">new</span> <span class="n">InvalidEmployeeType</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">type</span><span class="p">);</span>
-        <span class="p">}</span> 
-    <span class="p">}</span>
-<span class="p">}</span>
+            <span class="k">default</span><span class="o">:</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">InvalidEmployeeType</span><span class="o">(</span><span class="n">r</span><span class="o">.</span><span class="na">type</span><span class="o">);</span>
+        <span class="o">}</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 
     </div>
@@ -13427,7 +13462,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="n">public</span> <span class="n">boolean</span> <span class="nb">set</span><span class="p">(</span><span class="n">String</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">String</span> <span class="n">value</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">set</span><span class="o">(</span><span class="n">String</span> <span class="n">attribute</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
 </pre></div>
 
     </div>
@@ -13450,9 +13485,9 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="n">public</span> <span class="n">boolean</span> <span class="n">attributeExists</span><span class="p">(</span><span class="n">String</span> <span class="n">attribute</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">attributeExists</span><span class="o">(</span><span class="n">String</span> <span class="n">attribute</span><span class="o">);</span>
 
-<span class="n">public</span> <span class="n">void</span> <span class="n">setAttribute</span><span class="p">(</span><span class="n">String</span> <span class="n">attribute</span><span class="p">,</span> <span class="n">String</span> <span class="n">value</span><span class="p">);</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">setAttribute</span><span class="o">(</span><span class="n">String</span> <span class="n">attribute</span><span class="o">,</span> <span class="n">String</span> <span class="n">value</span><span class="o">);</span>
 </pre></div>
 
     </div>
@@ -13480,8 +13515,8 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="o">//</span> <span class="n">format</span> <span class="n">matched</span> <span class="n">kk</span><span class="p">:</span><span class="n">mm</span><span class="p">:</span><span class="n">ss</span> <span class="n">EEE</span><span class="p">,</span> <span class="n">MMM</span> <span class="n">dd</span><span class="p">,</span> <span class="n">yyyy</span> 
-<span class="n">Pattern</span> <span class="n">timeMatcher</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\\</span><span class="s2">d*:</span><span class="se">\\</span><span class="s2">d*:</span><span class="se">\\</span><span class="s2">d* </span><span class="se">\\</span><span class="s2">w*, </span><span class="se">\\</span><span class="s2">w* </span><span class="se">\\</span><span class="s2">d*, </span><span class="se">\\</span><span class="s2">d*&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="c1">// format matched kk:mm:ss EEE, MMM dd, yyyy </span>
+<span class="n">Pattern</span> <span class="n">timeMatcher</span> <span class="o">=</span> <span class="n">Pattern</span><span class="o">.</span><span class="na">compile</span><span class="o">(</span><span class="s">&quot;\\d*:\\d*:\\d* \\w*, \\w* \\d*, \\d*&quot;</span><span class="o">);</span>
 </pre></div>
 
     </div>
@@ -13503,13 +13538,13 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="o">//</span><span class="n">This</span> <span class="ow">is</span> <span class="n">our</span> <span class="n">best</span> <span class="n">attempt</span> <span class="n">to</span> <span class="n">get</span> <span class="n">a</span> <span class="n">race</span> <span class="n">condition</span> 
-<span class="o">//</span><span class="n">by</span> <span class="n">creating</span> <span class="n">large</span> <span class="n">number</span> <span class="n">of</span> <span class="n">threads</span><span class="o">.</span>
-<span class="k">for</span> <span class="p">(</span><span class="nb">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">25000</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">WidgetBuilderThread</span> <span class="n">widgetBuilderThread</span> <span class="o">=</span><span class="n">new</span> <span class="n">WidgetBuilderThread</span><span class="p">(</span><span class="n">widgetBuilder</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">failFlag</span><span class="p">);</span>
-    <span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Thread</span><span class="p">(</span><span class="n">widgetBuilderThread</span><span class="p">);</span>
-    <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">();</span> 
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="c1">//This is our best attempt to get a race condition </span>
+<span class="c1">//by creating large number of threads.</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">25000</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+    <span class="n">WidgetBuilderThread</span> <span class="n">widgetBuilderThread</span> <span class="o">=</span><span class="k">new</span> <span class="n">WidgetBuilderThread</span><span class="o">(</span><span class="n">widgetBuilder</span><span class="o">,</span> <span class="n">text</span><span class="o">,</span> <span class="n">parent</span><span class="o">,</span> <span class="n">failFlag</span><span class="o">);</span>
+    <span class="n">Thread</span> <span class="n">thread</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Thread</span><span class="o">(</span><span class="n">widgetBuilderThread</span><span class="o">);</span>
+    <span class="n">thread</span><span class="o">.</span><span class="na">start</span><span class="o">();</span> 
+<span class="o">}</span>
 </pre></div>
 
     </div>
@@ -13532,10 +13567,10 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">Point</span> <span class="p">{</span> 
-    <span class="n">public</span> <span class="n">double</span> <span class="n">x</span><span class="p">;</span> 
-    <span class="n">public</span> <span class="n">double</span> <span class="n">y</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Point</span> <span class="o">{</span> 
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">x</span><span class="o">;</span> 
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">y</span><span class="o">;</span>
+<span class="o">}</span>
 </pre></div>
 
     </div>
@@ -13557,14 +13592,14 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="n">public</span> <span class="n">interface</span> <span class="n">Point</span> <span class="p">{</span>
-    <span class="n">double</span> <span class="n">getX</span><span class="p">();</span>
-    <span class="n">double</span> <span class="n">getY</span><span class="p">();</span>
-    <span class="n">void</span> <span class="n">setCartesian</span><span class="p">(</span><span class="n">double</span> <span class="n">x</span><span class="p">,</span> <span class="n">double</span> <span class="n">y</span><span class="p">);</span> 
-    <span class="n">double</span> <span class="n">getR</span><span class="p">();</span>
-    <span class="n">double</span> <span class="n">getTheta</span><span class="p">();</span>
-    <span class="n">void</span> <span class="n">setPolar</span><span class="p">(</span><span class="n">double</span> <span class="n">r</span><span class="p">,</span> <span class="n">double</span> <span class="n">theta</span><span class="p">);</span> 
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">Point</span> <span class="o">{</span>
+    <span class="kt">double</span> <span class="nf">getX</span><span class="o">();</span>
+    <span class="kt">double</span> <span class="nf">getY</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">setCartesian</span><span class="o">(</span><span class="kt">double</span> <span class="n">x</span><span class="o">,</span> <span class="kt">double</span> <span class="n">y</span><span class="o">);</span> 
+    <span class="kt">double</span> <span class="nf">getR</span><span class="o">();</span>
+    <span class="kt">double</span> <span class="nf">getTheta</span><span class="o">();</span>
+    <span class="kt">void</span> <span class="nf">setPolar</span><span class="o">(</span><span class="kt">double</span> <span class="n">r</span><span class="o">,</span> <span class="kt">double</span> <span class="n">theta</span><span class="o">);</span> 
+<span class="o">}</span>
 </pre></div>
 
     </div>
@@ -13589,40 +13624,40 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">Square</span> <span class="p">{</span> 
-    <span class="n">public</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="p">;</span> 
-    <span class="n">public</span> <span class="n">double</span> <span class="n">side</span><span class="p">;</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Square</span> <span class="o">{</span> 
+    <span class="kd">public</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="o">;</span> 
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">side</span><span class="o">;</span>
+<span class="o">}</span>
 
-<span class="n">public</span> <span class="k">class</span> <span class="nc">Rectangle</span> <span class="p">{</span> 
-    <span class="n">public</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="p">;</span> 
-    <span class="n">public</span> <span class="n">double</span> <span class="n">height</span><span class="p">;</span> 
-    <span class="n">public</span> <span class="n">double</span> <span class="n">width</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="o">{</span> 
+    <span class="kd">public</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="o">;</span> 
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">height</span><span class="o">;</span> 
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">width</span><span class="o">;</span>
+<span class="o">}</span>
 
-<span class="n">public</span> <span class="k">class</span> <span class="nc">Circle</span> <span class="p">{</span> 
-    <span class="n">public</span> <span class="n">Point</span> <span class="n">center</span><span class="p">;</span> 
-    <span class="n">public</span> <span class="n">double</span> <span class="n">radius</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="o">{</span> 
+    <span class="kd">public</span> <span class="n">Point</span> <span class="n">center</span><span class="o">;</span> 
+    <span class="kd">public</span> <span class="kt">double</span> <span class="n">radius</span><span class="o">;</span>
+<span class="o">}</span>
 
-<span class="n">public</span> <span class="k">class</span> <span class="nc">Geometry</span> <span class="p">{</span>
-    <span class="n">public</span> <span class="n">final</span> <span class="n">double</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.141592653589793</span><span class="p">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Geometry</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.141592653589793</span><span class="o">;</span>
     
-    <span class="n">public</span> <span class="n">double</span> <span class="n">area</span><span class="p">(</span><span class="n">Object</span> <span class="n">shape</span><span class="p">)</span> <span class="n">throws</span> <span class="n">NoSuchShapeException</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">(</span><span class="n">Object</span> <span class="n">shape</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">NoSuchShapeException</span> <span class="o">{</span>
 
-        <span class="k">if</span> <span class="p">(</span><span class="n">shape</span> <span class="n">instanceof</span> <span class="n">Square</span><span class="p">)</span> <span class="p">{</span> 
-            <span class="n">Square</span> <span class="n">s</span> <span class="o">=</span> <span class="p">(</span><span class="n">Square</span><span class="p">)</span><span class="n">shape</span><span class="p">;</span> 
-            <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">side</span> <span class="o">*</span> <span class="n">s</span><span class="o">.</span><span class="n">side</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">shape</span> <span class="n">instanceof</span> <span class="n">Rectangle</span><span class="p">)</span> <span class="p">{</span> 
-            <span class="n">Rectangle</span> <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">Rectangle</span><span class="p">)</span><span class="n">shape</span><span class="p">;</span> <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">r</span><span class="o">.</span><span class="n">width</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">shape</span> <span class="n">instanceof</span> <span class="n">Circle</span><span class="p">)</span> <span class="p">{</span>
-            <span class="n">Circle</span> <span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="n">Circle</span><span class="p">)</span><span class="n">shape</span><span class="p">;</span>
-            <span class="k">return</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">radius</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="n">radius</span><span class="p">;</span> 
-        <span class="p">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">shape</span> <span class="k">instanceof</span> <span class="n">Square</span><span class="o">)</span> <span class="o">{</span> 
+            <span class="n">Square</span> <span class="n">s</span> <span class="o">=</span> <span class="o">(</span><span class="n">Square</span><span class="o">)</span><span class="n">shape</span><span class="o">;</span> 
+            <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="na">side</span> <span class="o">*</span> <span class="n">s</span><span class="o">.</span><span class="na">side</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">shape</span> <span class="k">instanceof</span> <span class="n">Rectangle</span><span class="o">)</span> <span class="o">{</span> 
+            <span class="n">Rectangle</span> <span class="n">r</span> <span class="o">=</span> <span class="o">(</span><span class="n">Rectangle</span><span class="o">)</span><span class="n">shape</span><span class="o">;</span> <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="na">height</span> <span class="o">*</span> <span class="n">r</span><span class="o">.</span><span class="na">width</span><span class="o">;</span>
+        <span class="o">}</span> <span class="k">else</span> <span class="k">if</span> <span class="o">(</span><span class="n">shape</span> <span class="k">instanceof</span> <span class="n">Circle</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">Circle</span> <span class="n">c</span> <span class="o">=</span> <span class="o">(</span><span class="n">Circle</span><span class="o">)</span><span class="n">shape</span><span class="o">;</span>
+            <span class="k">return</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="na">radius</span> <span class="o">*</span> <span class="n">c</span><span class="o">.</span><span class="na">radius</span><span class="o">;</span> 
+        <span class="o">}</span>
         
-        <span class="n">throw</span> <span class="n">new</span> <span class="n">NoSuchShapeException</span><span class="p">();</span> 
-    <span class="p">}</span>
-<span class="p">}</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="n">NoSuchShapeException</span><span class="o">();</span> 
+    <span class="o">}</span>
+<span class="o">}</span>
 </pre></div>
 
     </div>
@@ -13644,33 +13679,33 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">Square</span> <span class="n">implements</span> <span class="n">Shape</span> <span class="p">{</span> 
-    <span class="n">private</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="p">;</span>
-    <span class="n">private</span> <span class="n">double</span> <span class="n">side</span><span class="p">;</span>
-    <span class="n">public</span> <span class="n">double</span> <span class="n">area</span><span class="p">()</span> <span class="p">{</span> 
-        <span class="k">return</span> <span class="n">side</span><span class="o">*</span><span class="n">side</span><span class="p">;</span>
-    <span class="p">}</span> 
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Square</span> <span class="kd">implements</span> <span class="n">Shape</span> <span class="o">{</span> 
+    <span class="kd">private</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">side</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="k">return</span> <span class="n">side</span><span class="o">*</span><span class="n">side</span><span class="o">;</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
 
-<span class="n">public</span> <span class="k">class</span> <span class="nc">Rectangle</span> <span class="n">implements</span> <span class="n">Shape</span> <span class="p">{</span> 
-    <span class="n">private</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="p">;</span>
-    <span class="n">private</span> <span class="n">double</span> <span class="n">height</span><span class="p">;</span>
-    <span class="n">private</span> <span class="n">double</span> <span class="n">width</span><span class="p">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Rectangle</span> <span class="kd">implements</span> <span class="n">Shape</span> <span class="o">{</span> 
+    <span class="kd">private</span> <span class="n">Point</span> <span class="n">topLeft</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">height</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">width</span><span class="o">;</span>
     
-    <span class="n">public</span> <span class="n">double</span> <span class="n">area</span><span class="p">()</span> <span class="p">{</span> 
-        <span class="k">return</span> <span class="n">height</span> <span class="o">*</span> <span class="n">width</span><span class="p">;</span>
-    <span class="p">}</span> 
-<span class="p">}</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="k">return</span> <span class="n">height</span> <span class="o">*</span> <span class="n">width</span><span class="o">;</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
 
-<span class="n">public</span> <span class="k">class</span> <span class="nc">Circle</span> <span class="n">implements</span> <span class="n">Shape</span> <span class="p">{</span> 
-    <span class="n">private</span> <span class="n">Point</span> <span class="n">center</span><span class="p">;</span>
-    <span class="n">private</span> <span class="n">double</span> <span class="n">radius</span><span class="p">;</span>
-    <span class="n">public</span> <span class="n">final</span> <span class="n">double</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.141592653589793</span><span class="p">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Circle</span> <span class="kd">implements</span> <span class="n">Shape</span> <span class="o">{</span> 
+    <span class="kd">private</span> <span class="n">Point</span> <span class="n">center</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">double</span> <span class="n">radius</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">final</span> <span class="kt">double</span> <span class="n">PI</span> <span class="o">=</span> <span class="mf">3.141592653589793</span><span class="o">;</span>
     
-    <span class="n">public</span> <span class="n">double</span> <span class="n">area</span><span class="p">()</span> <span class="p">{</span>
-       <span class="k">return</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="p">;</span>
-    <span class="p">}</span> 
-<span class="p">}</span>
+    <span class="kd">public</span> <span class="kt">double</span> <span class="nf">area</span><span class="o">()</span> <span class="o">{</span>
+       <span class="k">return</span> <span class="n">PI</span> <span class="o">*</span> <span class="n">radius</span> <span class="o">*</span> <span class="n">radius</span><span class="o">;</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
 </pre></div>
 
     </div>
@@ -13705,7 +13740,7 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="n">final</span> <span class="n">String</span> <span class="n">outputDir</span> <span class="o">=</span> <span class="n">ctxt</span><span class="o">.</span><span class="n">getOptions</span><span class="p">()</span><span class="o">.</span><span class="n">getScratchDir</span><span class="p">()</span><span class="o">.</span><span class="n">getAbsolutePath</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><span class="kd">final</span> <span class="n">String</span> <span class="n">outputDir</span> <span class="o">=</span> <span class="n">ctxt</span><span class="o">.</span><span class="na">getOptions</span><span class="o">().</span><span class="na">getScratchDir</span><span class="o">().</span><span class="na">getAbsolutePath</span><span class="o">();</span>
 </pre></div>
 
     </div>
@@ -13729,41 +13764,41 @@ ul.typeahead-list  > li > a.pull-right {
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-sos"><pre><span></span><span class="n">public</span> <span class="k">class</span> <span class="nc">Address</span> <span class="p">{</span> 
-    <span class="n">private</span> <span class="n">String</span> <span class="n">street</span><span class="p">;</span> 
-    <span class="n">private</span> <span class="n">String</span> <span class="n">streetExtra</span><span class="p">;</span> 
-    <span class="n">private</span> <span class="n">String</span> <span class="n">city</span><span class="p">;</span> 
-    <span class="n">private</span> <span class="n">String</span> <span class="n">state</span><span class="p">;</span> 
-    <span class="n">private</span> <span class="n">String</span> <span class="nb">zip</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Address</span> <span class="o">{</span> 
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">street</span><span class="o">;</span> 
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">streetExtra</span><span class="o">;</span> 
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">city</span><span class="o">;</span> 
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">state</span><span class="o">;</span> 
+    <span class="kd">private</span> <span class="n">String</span> <span class="n">zip</span><span class="o">;</span>
 
-    <span class="n">public</span> <span class="n">Address</span><span class="p">(</span><span class="n">String</span> <span class="n">street</span><span class="p">,</span> <span class="n">String</span> <span class="n">streetExtra</span><span class="p">,</span> <span class="n">String</span> <span class="n">city</span><span class="p">,</span> <span class="n">String</span> <span class="n">state</span><span class="p">,</span> <span class="n">String</span> <span class="nb">zip</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">this</span><span class="o">.</span><span class="n">street</span> <span class="o">=</span> <span class="n">street</span><span class="p">;</span> 
-        <span class="n">this</span><span class="o">.</span><span class="n">streetExtra</span> <span class="o">=</span> <span class="n">streetExtra</span><span class="p">;</span> 
-        <span class="n">this</span><span class="o">.</span><span class="n">city</span> <span class="o">=</span> <span class="n">city</span><span class="p">;</span>
-        <span class="n">this</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">state</span><span class="p">;</span>
-        <span class="n">this</span><span class="o">.</span><span class="n">zip</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kd">public</span> <span class="nf">Address</span><span class="o">(</span><span class="n">String</span> <span class="n">street</span><span class="o">,</span> <span class="n">String</span> <span class="n">streetExtra</span><span class="o">,</span> <span class="n">String</span> <span class="n">city</span><span class="o">,</span> <span class="n">String</span> <span class="n">state</span><span class="o">,</span> <span class="n">String</span> <span class="n">zip</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">street</span> <span class="o">=</span> <span class="n">street</span><span class="o">;</span> 
+        <span class="k">this</span><span class="o">.</span><span class="na">streetExtra</span> <span class="o">=</span> <span class="n">streetExtra</span><span class="o">;</span> 
+        <span class="k">this</span><span class="o">.</span><span class="na">city</span> <span class="o">=</span> <span class="n">city</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">state</span> <span class="o">=</span> <span class="n">state</span><span class="o">;</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">zip</span> <span class="o">=</span> <span class="n">zip</span><span class="o">;</span>
+    <span class="o">}</span>
     
-    <span class="n">public</span> <span class="n">String</span> <span class="n">getStreet</span><span class="p">()</span> <span class="p">{</span> 
-        <span class="k">return</span> <span class="n">street</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getStreet</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="k">return</span> <span class="n">street</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    <span class="n">public</span> <span class="n">String</span> <span class="n">getStreetExtra</span><span class="p">()</span> <span class="p">{</span> 
-        <span class="k">return</span> <span class="n">streetExtra</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getStreetExtra</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="k">return</span> <span class="n">streetExtra</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    <span class="n">public</span> <span class="n">String</span> <span class="n">getCity</span><span class="p">()</span> <span class="p">{</span> 
-        <span class="k">return</span> <span class="n">city</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getCity</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="k">return</span> <span class="n">city</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    <span class="n">public</span> <span class="n">String</span> <span class="n">getState</span><span class="p">()</span> <span class="p">{</span> 
-        <span class="k">return</span> <span class="n">state</span><span class="p">;</span>
-    <span class="p">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getState</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="k">return</span> <span class="n">state</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    <span class="n">public</span> <span class="n">String</span> <span class="n">getZip</span><span class="p">()</span> <span class="p">{</span> 
-        <span class="k">return</span> <span class="nb">zip</span><span class="p">;</span>
-    <span class="p">}</span> 
-<span class="p">}</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getZip</span><span class="o">()</span> <span class="o">{</span> 
+        <span class="k">return</span> <span class="n">zip</span><span class="o">;</span>
+    <span class="o">}</span> 
+<span class="o">}</span>
 </pre></div>
 
     </div>
