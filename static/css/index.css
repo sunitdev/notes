@@ -5,11 +5,11 @@ html, body {
 
 @font-face {
     font-family: 'Chalk';
-    src: url('/static/fonts/SqueakyChalkSound.ttf');
+    src: url('/notes/static/fonts/SqueakyChalkSound.ttf');
 }
 
 body {
-    background: url('/static/img/chalkboard_background.jpg');
+    background: url('/notes/static/img/chalkboard_background.jpg');
 
     color: white;
 }
