@@ -41,7 +41,7 @@
                     <a class="book-cover" href="{{ note.html_file }}" target="_blank">
                         <img  src="{{ note.image }}" />
                     </a>
-                    <h4 class="handwritten-text mt-3 mb-3 text-center text-underline book-title">{{ note.title }}</h4>
+                    <a href="{{ notes.html_file }}" target="_blank" ><h4 class="handwritten-text mt-3 mb-3 text-center text-underline book-title">{{ note.title }}</h4></a>
                     <p class="handwritten-text font-small">{{ note.description }} <a class="read-more" href="{{ note.html_file }}" target="_blank">Read...</a></p>
                 </div>
             {% endfor %}
