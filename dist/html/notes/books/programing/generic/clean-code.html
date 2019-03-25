@@ -8,6 +8,7 @@
 <!--Vender Styles-->
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-treeview/1.2.0/bootstrap-treeview.min.css" rel="stylesheet"/>
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet"/>
 <!--/Vendor Style-->
 <style type="text/css">
             
@@ -13240,6 +13241,29 @@ ul.typeahead-list  > li > a.pull-right {
                     margin-bottom: 1em;
                 }    
             }
+
+
+            .floating-icon-button{
+                position:fixed;
+                width:60px;
+                height:60px;
+                bottom:40px;
+                right:25px;
+                background-color:#0C9;
+                color:#FFF;
+                border-radius:50px;
+                text-align:center;
+                box-shadow: 2px 2px 3px #999;
+            }
+            
+            .floating-icon-button:hover{
+                color: #FFF;
+            }
+
+            .floating-icon-button > i{
+                margin-top:22px;
+            }
+
         </style>
 <!--/Custom Style-->
 </head>
@@ -13750,6 +13774,9 @@ ul.typeahead-list  > li > a.pull-right {
 </div>
 </div>
 </div>
+<a class="floating-icon-button" data-toggle="tooltip" href="" title="Scroll Top">
+<i class="fa fa-arrow-up"></i>
+</a>
 </body>
 <!-- Vendor script-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
