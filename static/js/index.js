@@ -18,6 +18,8 @@ const App = (function ($) {
             
             itemSelector: '.book-card',
 
+            layoutMode: 'fitRows',
+
             filter: function () {
                 return searchRegex ? $(this).find('.book-title').text().match(searchRegex) : true;
             }
