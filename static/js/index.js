@@ -65,5 +65,4 @@ const App = (function ($) {
 
 jQuery(window).on('load', function(){
     App.init();
-    alert('New Content');
 });
