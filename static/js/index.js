@@ -57,13 +57,13 @@ const App = (function ($) {
         });
     }
 
-
     return {
         init: init
     }
 
 })(jQuery);
 
-jQuery(function () {
+jQuery(window).load(function(){
     App.init();
-})
+    alert('New Content');
+});
