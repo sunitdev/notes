@@ -14,26 +14,32 @@ const App = (function ($) {
     // Private methods
     function initIsotope() {
 
-        bookList = $('.book-list').isotope({
-            
-            itemSelector: '.book-card',
+        const container = $('.book-list');
 
-            filter: function () {
-                return searchRegex ? $(this).find('.book-title').text().match(searchRegex) : true;
-            }
+        // Setup isotope after images are loaded
+        container.imagesLoaded(function(){
+
+            bookList = $('.book-list').isotope({
+
+                itemSelector: '.book-card',
+
+                filter: function () {
+                    return searchRegex ? $(this).find('.book-title').text().match(searchRegex) : true;
+                }
+
+            });
+
+            // Setup no result message
+            bookList.on('arrangeComplete', function(event, filteredItems) {
+                // Show no result if not items left
+                if(filteredItems.length <= 0){
+                    $('#no-result-section').show();
+                }else{
+                    $('#no-result-section').hide();
+                }
+            })
 
         });
-
-        // Setup no result message
-        bookList.on('arrangeComplete', function(event, filteredItems) {
-            // Show no result if not items left
-            if(filteredItems.length <= 0){
-                $('#no-result-section').show();
-            }else{
-                $('#no-result-section').hide();
-            }
-        })
-        
     }
 
     function initEventHandlers() {
@@ -41,7 +47,7 @@ const App = (function ($) {
         // Search field
         var searchField = $('#txtSearch');
         searchField.keyup(function(){
-            
+
             // Remove no result and let isotope animation run
             $('#no-result-section').hide();
 
@@ -51,13 +57,12 @@ const App = (function ($) {
         });
     }
 
-
     return {
         init: init
     }
 
 })(jQuery);
 
-jQuery(function () {
+jQuery(window).on('load', function(){
     App.init();
-})
+});
