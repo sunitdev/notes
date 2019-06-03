@@ -13493,7 +13493,25 @@ $$\lim_{x \to x_o} f(x) = L$$<p>which is read "the limit of $f(x)$ as x approach
 <p>Let $f(x)$ be defined on an open interval about $x_o$, except possibly at $x_o$ itself. We say that the limit of $f(x)$ as $x$ approaches $x_o$ is the</p>
 $$\lim_{x \to x_o} f(x) = L $$<p>if, for every number $\in &gt; 0$, there exists a corresponding number $\delta &gt; 0$ such that for all $x$,</p>
 $$ 0 &lt; \lvert x - x_o \rvert &lt; \delta \;\;\; \Longrightarrow \;\;\; \lvert f(x) - L \rvert &lt; \in $$<hr/>
-<h2 id="Limit-Laws">Limit Laws<a class="anchor-link" href="#Limit-Laws">¶</a></h2>
+<h2 id="Limit-Laws">Limit Laws<a class="anchor-link" href="#Limit-Laws">¶</a></h2><p>We can use the following rules to calculated limit of a new function if we already now the limit for the function used.</p>
+<p>If $L, M, c$ and $k$ are real numbers and $\lim_{x \to c} f(x) = L$ and $\lim_{x \to c} g(x) = M$ then following rule holds.</p>
+<p><strong>Sum Rule</strong></p>
+$$\lim_{x \to c} (f(x) + g(x)) = L + M$$<p><strong>Difference Rule</strong></p>
+$$\lim_{x \to c} (f(x) - g(x)) = L - M$$<p><strong>Constant Rule</strong></p>
+$$\lim_{x \to c} ( k * f(x)) = k * L$$<p><strong>Product Rule</strong></p>
+$$\lim_{x \to c} (f(x) * g(x)) = L * M$$<p><strong>Quotient Rule</strong></p>
+$$\lim_{x \to c} \frac{f(x)}{g(x)} = \frac{L}{M}$$<p><strong>Power Rule</strong></p>
+$$\lim_{x \to c} [f(x)]^n = L^n$$<p><strong>Root Rule</strong></p>
+$$\lim_{x \to c} \sqrt[n]{f(x)} =  \sqrt[n]{L} $$<p><strong>Sandwich Theorem</strong></p>
+<p>Sandwich theorem can be to calculate limit of the function if the value of function lies between two function, hence called the sandwich theorem. It is as follow.</p>
+<p>Suppose that $g(x) \leqslant f(x) \leqslant h(x)$ for all $x$ in some open interval containing $c$, except possibly at $x=c$ itself. Suppose also that.</p>
+$$\lim_{x \to c} g(x) = \lim_{x \to c} h(x) = L$$<p>Then, $\lim_{x \to c} f(x) = L$.</p>
+<h2 id="One-Sided-Limit">One-Sided Limit<a class="anchor-link" href="#One-Sided-Limit">¶</a></h2><p>To have a limit $L$ as $x$ approaches $c$, a function $f$ must be defined on both side of $c$ and its value $f(x)$ must approach $L$ as $x$ approaches $c$ from either side. Because of this, ordinary limits are called two-sided.</p>
+<p>If $f$ fails to have a two-sided limit at $c$, it may still have a one-sided limit, that is, a limit if the approach is only from one side. If the approach is from the right, the limit is a <strong>right-hand</strong> limit. From left, it is a <strong>left-hand</strong> limit.</p>
+<p>Intuitively, if $f(x)$ is defined on an interval $(c,b)$, where $c &lt; b$, and approaches arbitrarily close to $L$ as $x$ approaches $c$ from within that interval, then $f$ has right-hand limit $L$ at $c$. We write.</p>
+$$\lim_{x \to c^+} f(x) = L$$<p>The symbol "$x \to c^+$" means that we consider only values of $x$ greater than $c$.</p>
+<p>Similarly left-hand limit is written as.</p>
+$$\lim_{x \to c^-} f(x) = M$$
 </div>
 </div>
 </div>
