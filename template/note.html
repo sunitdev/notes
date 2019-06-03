@@ -79,7 +79,7 @@
                 font-size: 2em;
 
                 text-decoration: underline;
-            } 
+            }
 
             #tableOfContent {
                 font-family: 'Roboto', sans-serif;
@@ -100,7 +100,7 @@
                 position: relative;
                 background:#EDEDED;
             }
-            
+
             blockquote::before{
                 font-family:Arial;
                 content: "\201C";
@@ -110,11 +110,11 @@
                 left: 10px;
                 top:-10px;
             }
-            
+
             blockquote::after{
                 content: '';
             }
-            
+
             blockquote span{
                 display:block;
                 color:#333333;
@@ -123,6 +123,35 @@
                 margin-top:1em;
             }
             /* /BlockQuote */
+
+            /*Table*/
+            .rendered_html table {
+                width: 100%;
+
+                border-collapse: separate;
+                border: solid black 1px;
+                border-radius: 6px;
+
+                box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            }
+
+            .rendered_html th {
+                text-align: center;
+                font-size: 1.4em;
+
+                background: #6C7AE0;
+                color: white;
+
+                padding: 10px 0px;
+            }
+
+            .rendered_html td {
+                text-align: center;
+                font-size: 1.2em;
+
+                padding: 10px 0px;
+            }
+            /*/Table*/
 
             /* HR after each H1 */
             h1:after {
@@ -160,7 +189,7 @@
             .notes-content div.input_area > div.highlight pre {
                 color: #cdd3de !important;
             }
-            
+
             /* Colors */
             .highlight .nb { color: #65a5ea } /* Name.Builtin */
             .highlight .nf { color: #65a5ea; font-style: italic } /* Name.Function */
@@ -202,7 +231,7 @@
                 .note-title{
                     font-size: 3.5em;
                     margin-bottom: 1em;
-                }    
+                }
             }
 
 
@@ -218,7 +247,7 @@
                 text-align:center;
                 box-shadow: 2px 2px 3px #999;
             }
-            
+
             .floating-icon-button:hover{
                 color: #FFF;
             }

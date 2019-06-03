@@ -13116,7 +13116,7 @@ ul.typeahead-list  > li > a.pull-right {
                 font-size: 2em;
 
                 text-decoration: underline;
-            } 
+            }
 
             #tableOfContent {
                 font-family: 'Roboto', sans-serif;
@@ -13137,7 +13137,7 @@ ul.typeahead-list  > li > a.pull-right {
                 position: relative;
                 background:#EDEDED;
             }
-            
+
             blockquote::before{
                 font-family:Arial;
                 content: "\201C";
@@ -13147,11 +13147,11 @@ ul.typeahead-list  > li > a.pull-right {
                 left: 10px;
                 top:-10px;
             }
-            
+
             blockquote::after{
                 content: '';
             }
-            
+
             blockquote span{
                 display:block;
                 color:#333333;
@@ -13160,6 +13160,35 @@ ul.typeahead-list  > li > a.pull-right {
                 margin-top:1em;
             }
             /* /BlockQuote */
+
+            /*Table*/
+            .rendered_html table {
+                width: 100%;
+
+                border-collapse: separate;
+                border: solid black 1px;
+                border-radius: 6px;
+
+                box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+            }
+
+            .rendered_html th {
+                text-align: center;
+                font-size: 1.4em;
+
+                background: #6C7AE0;
+                color: white;
+
+                padding: 10px 0px;
+            }
+
+            .rendered_html td {
+                text-align: center;
+                font-size: 1.2em;
+
+                padding: 10px 0px;
+            }
+            /*/Table*/
 
             /* HR after each H1 */
             h1:after {
@@ -13197,7 +13226,7 @@ ul.typeahead-list  > li > a.pull-right {
             .notes-content div.input_area > div.highlight pre {
                 color: #cdd3de !important;
             }
-            
+
             /* Colors */
             .highlight .nb { color: #65a5ea } /* Name.Builtin */
             .highlight .nf { color: #65a5ea; font-style: italic } /* Name.Function */
@@ -13239,7 +13268,7 @@ ul.typeahead-list  > li > a.pull-right {
                 .note-title{
                     font-size: 3.5em;
                     margin-bottom: 1em;
-                }    
+                }
             }
 
 
@@ -13255,7 +13284,7 @@ ul.typeahead-list  > li > a.pull-right {
                 text-align:center;
                 box-shadow: 2px 2px 3px #999;
             }
-            
+
             .floating-icon-button:hover{
                 color: #FFF;
             }
@@ -13421,7 +13450,7 @@ $$ f(x) = \frac{x^2 -1}{x-1} $$<p>what is the value at $x=1$ ?</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can see form the graph the value at $x=1$ is not know, indicated by the circle. If we put the value of $x=1$ in the function $f(x)$ we get the value of $\frac{0}{0}$ which evaluates to $\infity$.</p>
+<p>As we can see form the graph the value at $x=1$ is not know, indicated by the circle. If we put the value of $x=1$ in the function $f(x)$ we get the value of $\frac{0}{0}$ which evaluates to $\infty$.</p>
 <p>But if we observe the graph of the function we can see that the value of function at $x=1$ should have been 2 or at least something close to 2. We can also see the analytically as show in following table.</p>
 <table>
 <thead><tr>
