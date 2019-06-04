@@ -13549,6 +13549,67 @@ $$\lim_{x \to c^-} f(x) = M$$<h2 id="Computing-Limits">Computing Limits<a class=
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Derivative">Derivative<a class="anchor-link" href="#Derivative">¶</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>In every function there are some independent variable and some dependent variable. In a single variable function $f(x)$ generally the independent variable is denoted as $x$ and the dependent variable is denoted by $y$. Whenever we change the value of independent variable the value of dependent variable (output of function) changes.</p>
+<p>Let take an example. Suppose we have the following function.</p>
+$$ f(x) = 2x + 1$$<p>We can calculate the value of the function at a particular value of $x$ by substituting the corresponding values of $x$ in the function. For example</p>
+$$
+\begin{align*}
+f(x) &amp;= 2 (2) + 1 = 5 \;\; (where \, x = 2) \\
+f(x) &amp;= 2 (-5) + 1 = -9 \;\; (where \, x = -9) \\
+\end{align*}
+$$<p>But sometime we are interested in the rate of change of output variable based on input variable. To put in other way, how to find out that by how much the value of $f(x)$ changes if we change the value of $x$ by one. Let see it analytically.</p>
+<table>
+<thead><tr>
+<th>Value of $x$</th>
+<th>Value of $f(x)$</th>
+<th>Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>3</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>5</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>7</td>
+<td>2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>9</td>
+<td>2</td>
+</tr>
+</tbody>
+</table>
+<p>As we can see from the above table, every time we increase the value of $x$ by 1, the value of $f(x)$ is increased by 2. And this rate of change is called derivate.</p>
+<p>Intuitively, derivate is rate of change of output of function when compared with the rate of change of input of the function. If we compute derivative of this function mathematically we would get the same result "2" as the answer. Shown below.</p>
+$$
+\begin{align*}
+\frac{d}{dx}f(x) &amp;= \frac{d}{dx} (2x + 1) \\
+&amp;= \frac{d}{dx}(2x) + \frac{d}{dx}(1) \tag{Derivate Sum Rule} \\
+&amp;= \frac{d}{dx}{2x} + 0 \tag{Derivate of Constant} \\
+\frac{d}{dx}f(x) &amp;= 2 \tag{Derivate of x = 1} \\
+\end{align*}
+$$<p>Thus using derivate we were able to find the rate of change of output of the function in the same way we did analytically.</p>
+<p>Formally, derivate is defined as follows.</p>
+<hr/>
+<p>The <strong>derivate</strong> of the function $f(x)$ with respect to the variable $x$ is the function $\frac{d}{dx}f(x)$ or $f'(x)$ whose value at x is</p>
+$$ f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} $$<p>Provided the limit exists.</p>
+<hr/>
+<p>So while finding the derivate we compute the change in the function value for small change in the input value $(h)$ but taking limit as $h$ approaches zero $(h \to 0)$</p>
+</div>
+</div>
+</div>
 </div>
 <a class="floating-icon-button" data-toggle="tooltip" href="" title="Scroll Top">
 <i class="fa fa-arrow-up"></i>
