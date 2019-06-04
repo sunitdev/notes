@@ -13518,7 +13518,34 @@ $$\lim_{x \to c} g(x) = \lim_{x \to c} h(x) = L$$<p>Then, $\lim_{x \to c} f(x) =
 <p>Intuitively, if $f(x)$ is defined on an interval $(c,b)$, where $c &lt; b$, and approaches arbitrarily close to $L$ as $x$ approaches $c$ from within that interval, then $f$ has right-hand limit $L$ at $c$. We write.</p>
 $$\lim_{x \to c^+} f(x) = L$$<p>The symbol "$x \to c^+$" means that we consider only values of $x$ greater than $c$.</p>
 <p>Similarly left-hand limit is written as.</p>
-$$\lim_{x \to c^-} f(x) = M$$
+$$\lim_{x \to c^-} f(x) = M$$<h2 id="Computing-Limits">Computing Limits<a class="anchor-link" href="#Computing-Limits">¶</a></h2><h3 id="Python">Python<a class="anchor-link" href="#Python">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="kn">as</span> <span class="nn">sp</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
+<span class="n">func</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">func_limit</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'Limit is: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">func_limit</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Limit is: 2
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
