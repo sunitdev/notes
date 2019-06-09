@@ -13995,7 +13995,35 @@ $$<h3 id="Additivity">Additivity<a class="anchor-link" href="#Additivity">¶</a>
 $$<h3 id="Substitution-Rule">Substitution Rule<a class="anchor-link" href="#Substitution-Rule">¶</a></h3><p>If $ u = g(x) $ is a differentiable function whose range is an interval $I$, and $f$ is continuous on $I$, then</p>
 $$
 \int f(g(x))g'(x) \, dx = \int f(u) du
-$$
+$$<h2 id="Computing-Integrals">Computing Integrals<a class="anchor-link" href="#Computing-Integrals">¶</a></h2><h3 id="Python">Python<a class="anchor-link" href="#Python">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sympy</span> <span class="kn">as</span> <span class="nn">sp</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">symbols</span><span class="p">(</span><span class="s1">'x'</span><span class="p">)</span>
+<span class="n">func</span> <span class="o">=</span> <span class="n">x</span> <span class="o">**</span> <span class="mi">2</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'Indefinite Integral: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Defintive Intergal: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Indefinite Integral: x**3/3
+Defintive Intergal: 21
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
