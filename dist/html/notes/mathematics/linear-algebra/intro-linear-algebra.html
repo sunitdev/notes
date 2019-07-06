@@ -13801,6 +13801,7 @@ $$<p>So basically what we do is linearly transform the second vector $\overright
 $$
 \begin{bmatrix}x \\ y \end{bmatrix} \Rightarrow x \begin{bmatrix} 1 \\ -2 \end{bmatrix} + y \begin{bmatrix} 3 \\ 0 \end{bmatrix} = \begin{bmatrix} 1x + 3y \\ -2x + 0y \end{bmatrix}
 $$<p>Thus using the above formula we can calculate the final position of any vector after transformation</p>
+<p><strong>Note:</strong> Such transformation are called linear because we only deal with transformation that we get by scaling and adding vectors. More formally linear transformation are those transformation which keep evenly separated points or lines evenly separated even after transformation.</p>
 <h3 id="Matrix-as-Linear-Transformation">Matrix as Linear Transformation<a class="anchor-link" href="#Matrix-as-Linear-Transformation">¶</a></h3><p>Now we can combine the components needed to a transformation, namely coordinates of $\hat{i}$ and $\hat{j}$ into a single unit as below.</p>
 $$
 \begin{bmatrix} 1 &amp; -2 \\ 3 &amp; 0 \end{bmatrix}
@@ -13813,7 +13814,26 @@ $$
 \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}\begin{bmatrix} x \\ y \end{bmatrix} = x \begin{bmatrix} a \\ c  \end{bmatrix} + y \begin{bmatrix} b \\  d \end{bmatrix} = \begin{bmatrix} ax + by \\ cx + dy \end{bmatrix}
 $$<p>Thus giving us formula for matrix multiplication.</p>
 <h2 id="Matrix-Multiplication">Matrix Multiplication<a class="anchor-link" href="#Matrix-Multiplication">¶</a></h2><p>We have a already seen how to multiply/transpose vector by a matrix. But what is means to multiply matrix by matrix and what it signifies.</p>
-<h3 id="Composition-of-Linear-Combination">Composition of Linear Combination<a class="anchor-link" href="#Composition-of-Linear-Combination">¶</a></h3><h3 id="Dot-Product">Dot Product<a class="anchor-link" href="#Dot-Product">¶</a></h3><h3 id="Column-Multiplication">Column Multiplication<a class="anchor-link" href="#Column-Multiplication">¶</a></h3><h3 id="Row-Multiplication">Row Multiplication<a class="anchor-link" href="#Row-Multiplication">¶</a></h3><h1 id="Elimination-Method">Elimination Method<a class="anchor-link" href="#Elimination-Method">¶</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><h2 id="Solving-Equation-with-Elimination">Solving Equation with Elimination<a class="anchor-link" href="#Solving-Equation-with-Elimination">¶</a></h2><h2 id="Inverse-of-Matrix">Inverse of Matrix<a class="anchor-link" href="#Inverse-of-Matrix">¶</a></h2>
+<h3 id="Composition-of-Linear-Combination">Composition of Linear Combination<a class="anchor-link" href="#Composition-of-Linear-Combination">¶</a></h3><p>Suppose we have two matrix $\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}$ and $\begin{bmatrix} e &amp; f \\ g &amp; h \end{bmatrix}$ and we apply both of these transformation to a vector $\begin{bmatrix} x \\ y \end{bmatrix}$</p>
+<p>We get the something as following.</p>
+$$
+\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} \left ( \begin{bmatrix} e &amp; f \\ g &amp; h \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} \right )
+$$<p>That is, first applying the $\begin{bmatrix} e &amp; f \\ g &amp; h \end{bmatrix}$ transformation and the applying $\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}$ transformation.</p>
+<p>But, we can apply a single transformation which can be combination of both of the transformation</p>
+$$
+\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} \begin{bmatrix} e &amp; f \\ g &amp; h \end{bmatrix}  
+$$<p>Now, if we look the above transformation, the column $\begin{bmatrix} e  \\ g  \end{bmatrix}$ represents the value of $\hat{i}$ after first transformation and column $\begin{bmatrix} f  \\ h  \end{bmatrix}$ represents the value of $\hat{j}$ after first transformation. So considering the columns as new position for $\hat{i}$ and $\hat{j}$ we can compute the final matrix for transformation as follow.</p>
+<p>For $\hat{i}$ it become</p>
+$$
+\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} \begin{bmatrix} e  \\ g \end{bmatrix}  =  \begin{bmatrix} ae + bg  \\ ce + dg \end{bmatrix}
+$$<p>For $\hat{j}$ it become</p>
+$$
+\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} \begin{bmatrix} f  \\ h \end{bmatrix}  =  \begin{bmatrix} af + bh  \\ cf + dh \end{bmatrix}
+$$<p>Thus the final transformation matrix becomes.</p>
+$$
+\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} \begin{bmatrix} e &amp; f  \\ g &amp; h \end{bmatrix}  =  \begin{bmatrix}ae + bg &amp; af + bh  \\ ce + dg &amp; cf + dh \end{bmatrix}
+$$<p>Thus giving us the formula for matrix multiplication.</p>
+<h3 id="Dot-Product">Dot Product<a class="anchor-link" href="#Dot-Product">¶</a></h3><h3 id="Column-Multiplication">Column Multiplication<a class="anchor-link" href="#Column-Multiplication">¶</a></h3><h3 id="Row-Multiplication">Row Multiplication<a class="anchor-link" href="#Row-Multiplication">¶</a></h3><h1 id="Elimination-Method">Elimination Method<a class="anchor-link" href="#Elimination-Method">¶</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><h2 id="Solving-Equation-with-Elimination">Solving Equation with Elimination<a class="anchor-link" href="#Solving-Equation-with-Elimination">¶</a></h2><h2 id="Inverse-of-Matrix">Inverse of Matrix<a class="anchor-link" href="#Inverse-of-Matrix">¶</a></h2>
 </div>
 </div>
 </div>
