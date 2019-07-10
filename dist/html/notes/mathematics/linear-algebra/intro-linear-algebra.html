@@ -13833,7 +13833,221 @@ $$<p>Thus the final transformation matrix becomes.</p>
 $$
 \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} \begin{bmatrix} e &amp; f  \\ g &amp; h \end{bmatrix}  =  \begin{bmatrix}ae + bg &amp; af + bh  \\ ce + dg &amp; cf + dh \end{bmatrix}
 $$<p>Thus giving us the formula for matrix multiplication.</p>
-<h3 id="Dot-Product">Dot Product<a class="anchor-link" href="#Dot-Product">¶</a></h3><h3 id="Column-Multiplication">Column Multiplication<a class="anchor-link" href="#Column-Multiplication">¶</a></h3><h3 id="Row-Multiplication">Row Multiplication<a class="anchor-link" href="#Row-Multiplication">¶</a></h3><h1 id="Elimination-Method">Elimination Method<a class="anchor-link" href="#Elimination-Method">¶</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><h2 id="Solving-Equation-with-Elimination">Solving Equation with Elimination<a class="anchor-link" href="#Solving-Equation-with-Elimination">¶</a></h2><h2 id="Inverse-of-Matrix">Inverse of Matrix<a class="anchor-link" href="#Inverse-of-Matrix">¶</a></h2>
+<p>We can infer one more thing from the matrix multiplication, that is the order of multiplication matter. Because first sheering and the rotating the vector will give you a different outcome than first rotating and sheering the vector. So $A*B \neq B*A$</p>
+<h3 id="Dot-Product">Dot Product<a class="anchor-link" href="#Dot-Product">¶</a></h3><p>We can formulate the above multiplication calculation in another way. Let assume we have two matrix $A_{MxN}$ where $M$ is the number of rows and $N$ is the number of columns and we have $B_{NxP}$ where $N$ is the number of rows and $P$ is the number of columns.</p>
+<p>As we can see to multiply matrix's the number of row of left hand side matrix must match the number of column of right hand side matrix. The final matrix lets call is $C$ will have dimension of $MxP$</p>
+<p>Now if we consider a individual indices of the result matrix lets say, $C_{2x3}$. That is, the number in second row and third column. We can represent that number as the dot product of second row of $A$ and third column of $B$.</p>
+$$
+\begin{align*}
+C_{2X3} &amp;= (2^{nd}\text{ row of A}) \bullet (3^{rd} \text{ column of B}) \\
+C_{2x3} &amp;= A_{2x1} + B_{1x3} + A_{2x2} + B_{2x3} + A_{2x3} + B_{3x3} + .....
+\end{align*}
+$$<p>We can formalize a general equation of any index of $C$ as follows</p>
+$$
+C_{IxJ} = \sum\limits_{K=1}^{N} A_{IxK} + B_{KxJ}
+$$<h3 id="Column-Multiplication">Column Multiplication<a class="anchor-link" href="#Column-Multiplication">¶</a></h3><p>Another way to look at matrix multiplication is to look at a column at a time. Suppose we have same matrix $A$ and $B$ with us.</p>
+$$
+\begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix} \begin{bmatrix} e &amp; f \\ g &amp; h \end{bmatrix}
+$$<p>Now if we consider what will come in the first column of $C$. We can say that the first column of $C$ consists of Matrix $A$ multiplied by the first column of $B$. And we already know how to multiple a matrix and a vector.</p>
+<p>So we can think of first column of $C$ consisting of combination of columns of $A$ and in what combination is given by the first column of $B$.</p>
+<p>For example</p>
+$$
+\begin{bmatrix} - &amp; - &amp; - \\ - &amp; - &amp; - \\ - &amp; - &amp; - \end{bmatrix} \begin{bmatrix} 3 \\ 4 \\ 5 \end{bmatrix} = ( \text{3 * column1}) + (\text{4 * column2}) + (\text{5* column3}) = \text{first column of C}
+$$<p>So this is the way of multiplying matrix column at a time.</p>
+<h3 id="Row-Multiplication">Row Multiplication<a class="anchor-link" href="#Row-Multiplication">¶</a></h3><p>Similarly we can look at matrix multiplication at a single row at a time.</p>
+<p>We can thing of first row of $C$ as the multiplication of row of $A$ with the matrix $B$.</p>
+<p>Thus the row of $C$ is combination of rows of $B$ and what combination is given by row of $A$.</p>
+<p>For example</p>
+<p>For example</p>
+$$
+\begin{bmatrix} 1 &amp; 2 &amp; 7 \end{bmatrix} \begin{bmatrix} - &amp; - &amp; - \\ - &amp; - &amp; - \\ - &amp; - &amp; - \end{bmatrix}  = ( \text{1 * row1}) + (\text{2 * row2}) + (\text{7* row3}) = \text{first row of C}
+$$<p><strong>Note:</strong> Multiplication on left multiplies column and multiplication of right multiplies rows.</p>
+<h3 id="Sum-of-Column-and-row.">Sum of Column and row.<a class="anchor-link" href="#Sum-of-Column-and-row.">¶</a></h3><p>Another way of multiplying matrix is that we can take sum of column of $A$ into row of $B$.</p>
+<p>For example.</p>
+$$
+\begin{bmatrix} 2 &amp; 7 \\ 3 &amp; 8 \\ 4 &amp; 9 \end{bmatrix} \begin{bmatrix} 1 &amp; 6 \\ 0 &amp; 0 \end{bmatrix} = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix} \begin{bmatrix} 1 &amp; 6 \end{bmatrix} + \begin{bmatrix} 7  \\ 8 \\ 9 \end{bmatrix} \begin{bmatrix} 0 &amp; 0 \end{bmatrix} = \begin{bmatrix} 2 &amp; 12 \\ 3 &amp; 18 \\ 4 &amp; 24 \end{bmatrix}
+$$<h2 id="Computation">Computation<a class="anchor-link" href="#Computation">¶</a></h2><h3 id="Python">Python<a class="anchor-link" href="#Python">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+
+<span class="n">mat1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">mat2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">mat1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'*'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mat2</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'='</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">mat1</span><span class="p">,</span> <span class="n">mat2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[[2 6]
+ [6 4]]
+*
+[[8 7]
+ [6 4]]
+=
+[[52 38]
+ [72 58]]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Elimination-Method">Elimination Method<a class="anchor-link" href="#Elimination-Method">¶</a></h1><p>Linear algebra is all about solving linear equations using matrices. We will see one way of solving equations called elimination and see how we can extend that to find the inverse of matrix.</p>
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>Suppose we have following set of equations with us.</p>
+$$
+\begin{align}
+x + 2y + z &amp;= 2 \\
+3x + 8y + z &amp;= 12 \\
+4y + z &amp;= 2
+\end{align}
+$$<p>and we wish to find the solution of these equations.</p>
+<p>We we were to solve it analytically we would have done that by subtracting $-3$ times the first equation with the second one thus eliminating $x$ from the equation and repeating it with $y$. Finally solving the equation for $z$ and substituting value of $z, y$ and $x$ respectively.</p>
+<p>We can do the same thing with matrix. Lets see how.</p>
+<h2 id="Solving-Equation-with-Elimination">Solving Equation with Elimination<a class="anchor-link" href="#Solving-Equation-with-Elimination">¶</a></h2><p>First we can express the equation in terms of matrix multiplication. The above equations can be expressed as following equation $Ax=B$ where $A$ is matrix of the coefficient of the variables, $x$ is the variable matrix which we want to bind and the $b$ is the right size of the equation.</p>
+<p>Thus in our case</p>
+$$
+\begin{align}
+Ax &amp;= B \\
+\begin{bmatrix} 1 &amp; 2 &amp; 1 \\ 3 &amp; 8 &amp; 1 \\ 0 &amp; 4 &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} &amp;= \begin{bmatrix} 2 \\ 12 \\ 2 \end{bmatrix}
+\end{align}
+$$<p>One way of doing it is the same way we did it analytically. It is by eliminating $x$ from the set of equations. We do this by creating a new matrix by taking the matrix $A$ and augmenting column of $b$ into $A$ so, the new matrix will be.</p>
+$$
+\begin{bmatrix} 1 &amp; 2 &amp; 1 &amp; 2 \\ 3 &amp; 8 &amp; 1 &amp; 12 \\ 0 &amp; 4 &amp; 1 &amp; 2 \end{bmatrix}
+$$<p>In first step we want to get a non zero number in position of $x$ which is in row 1 and column 1 (1, 1) and zero below in the column below it. The number in consider is called pivot element. So in the matrix above our pivot element is $1$. And we want $0$ in place of $3$ i.e at row 2, column 1.</p>
+<p>We can get zero below pivot element by multiplying the first row by $3$ and and the subtracting it with second row. So we can multiply the matrix by a new matrix to the desire result.</p>
+$$
+\begin{bmatrix} 1 &amp; 2 &amp; 1 &amp; 2 \\ 3 &amp; 8 &amp; 1 &amp; 12 \\ 0 &amp; 4 &amp; 1 &amp; 2 \end{bmatrix} \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ -3 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+$$<p><strong>Note:</strong> here we multiple the matrix on right as we want to perform row operations.</p>
+<p>The matrix we multiply it with is called <strong>elimination matrix</strong>. Each elimination matrix is generally subscripted by the index of pivot element it is operated on, so the new matrix above can be symbolize as $E_{(1,1)}$.</p>
+<p>The first row of elimination matrix is $\begin{bmatrix}1 &amp; 0 &amp; 0 \end{bmatrix}$ as we want to first row as it is. The second row is $\begin{bmatrix}3 &amp; -1 &amp; 0 \end{bmatrix}$ as we want to multiply the first row by $3$ and then subtract it with the second row. The third row of elimination matrix is $\begin{bmatrix}0 &amp; 0 &amp; 1 \end{bmatrix}$ as there is already a zero in the column as we want to third row as it is.</p>
+<p>So after we multiply the equation we get.</p>
+$$
+\begin{bmatrix} 1 &amp; 2 &amp; 1 &amp; 2 \\ 3 &amp; 8 &amp; 1 &amp; 12 \\ 0 &amp; 4 &amp; 1 &amp; 2 \end{bmatrix} \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ -3 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 &amp; 1 &amp; 2 \\ 0 &amp; 2 &amp; -2 &amp; 6 \\ 0 &amp; 4 &amp; 1 &amp; 2 \end{bmatrix}
+$$<p>Now we have pivot element for $x$ (first column) we repeat the same step for $y$, taking the elimination matrix from previous step as input to the next step.</p>
+<p>Thus the new elimination matrix will become as follows.</p>
+$$
+\begin{bmatrix} 1 &amp; 2 &amp; 1 &amp; 2 \\ 0 &amp; 2 &amp; -2 &amp; 6 \\ 0 &amp; 4 &amp; 1 &amp; 2 \end{bmatrix} \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; -2 &amp; 1 \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 &amp; 1 &amp; 2 \\ 0 &amp; 2 &amp; -2 &amp; -6 \\ 0 &amp; 0 &amp; 5 &amp; -10 \end{bmatrix} 
+$$<p>Now, we have three pivots $1, 2$ and $5$ respectively, with there respective right hand sides.</p>
+<p>So now we do back substitution the value of each variable. First we will back substitute value of $z$.</p>
+$$
+\begin{align}
+5z &amp;= -10 \\
+z &amp;= -2
+\end{align}
+$$<p>Now we can back substitute value of $z$ in the original equation.</p>
+$$
+\begin{align}
+4y + z &amp;= 2 \\
+4y + (-2) &amp;= 2 \\
+4y &amp;= 4 \\
+y &amp;= 1
+\end{align}
+$$<p>Now we can get the value of $x$.</p>
+$$
+\begin{align}
+x + 2y + z &amp;= 2 \\
+x + 2(1) + (-2) &amp;= 2\\
+x + 0 &amp;= 2 \\
+x &amp;= 2 
+\end{align}
+$$<p>Thus we have solution for the equations $x=2, y=1$ and $z=-2$</p>
+<h3 id="Failure-in-elimination">Failure in elimination<a class="anchor-link" href="#Failure-in-elimination">¶</a></h3><p>Not all elimination always works. There are some set of equation which don't have a solution at all. Thus resulting a zero in the place of the pivot element. Something such zero pivot failure can solved showing row exchange, that is replacing the zero element row with some other non zero element row.</p>
+<h3 id="Elimination-with-matrix">Elimination with matrix<a class="anchor-link" href="#Elimination-with-matrix">¶</a></h3><p>We can combine the elimination step of multiple elimination matrix by combining all the elimination matrix in a single elimination matrix. That is inside of doing $ E_{2,2}(E_{1,1} A)$ we can multiply $E_{2,2}$ and $E_{1,1}$ to find a single elimination matrix $E$. So our final equation of elimination would become</p>
+$$
+AE=U
+$$<p>where $U$ stands for upper triangular matrix we obtain after elimination, which we can then use for back substitution</p>
+<h2 id="Inverse-of-Matrix">Inverse of Matrix<a class="anchor-link" href="#Inverse-of-Matrix">¶</a></h2><p>Inverse of a matrix is a matrix when multiple with the original matrix return the identity matrix.</p>
+$$
+AA^{-1} = I
+$$<h3 id="Condition-for-inverse-to-exists">Condition for inverse to exists<a class="anchor-link" href="#Condition-for-inverse-to-exists">¶</a></h3><p>Not every matrix has a inverse, to determine if a matrix has an inverse we can use any of the following method.</p>
+<h4 id="Determinant-cannot-be-zero">Determinant cannot be zero<a class="anchor-link" href="#Determinant-cannot-be-zero">¶</a></h4><p>If the determinant ( which we will see later) is zero for a matrix, then its inverse does not exists.</p>
+<h3 id="Vector-method">Vector method<a class="anchor-link" href="#Vector-method">¶</a></h3><p>If for a matrix $A$ we have can find some vector $x$ such that $x$ is not a zero vector and $Ax=0$ then they inverse of matrix does not exists.</p>
+<h3 id="Inverse-with-elimination">Inverse with elimination<a class="anchor-link" href="#Inverse-with-elimination">¶</a></h3><p>We can use the elimination method to find the inverse of a matrix, given that inverse of the matrix exists.</p>
+<p>Suppose we have following matrix $(A)$.</p>
+$$
+\begin{bmatrix} 1 &amp; 3 \\ 2 &amp; 7 \end{bmatrix}
+$$<p>we can find the inverse of the matrix by augmenting the identity matrix to the matrix $A$ and using the elimination method to get the identity matrix on the left hand side</p>
+<p>So the augmented matrix becomes</p>
+$$
+\begin{bmatrix} 1 &amp; 3 &amp; 1 &amp; 0 \\ 2 &amp; 7 &amp; 0 &amp; 1 \end{bmatrix}
+$$<p>Now to get zero in the position (2, 1) we subtract two of first row from the second row, resulting in the matrix.</p>
+$$
+\begin{bmatrix} 1 &amp; 3 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; -2 &amp; 1 \end{bmatrix}
+$$<p>Now to eliminate 3 in the position of (1,2) we subtract three of first second row from the first row resulting in the following matrix.</p>
+$$
+\begin{bmatrix} 1 &amp; 0 &amp; 7 &amp; -3 \\ 0 &amp; 1 &amp; -2 &amp; 1 \end{bmatrix}
+$$<p>Now we get the identity matrix in the left hand side. So the inverse of the matrix should be right hand side part.</p>
+<p>so,</p>
+$$
+A^{-1} = \begin{bmatrix}7 &amp; -3 \\ -2 &amp; 1 \end{bmatrix}
+$$<p>So how did it worked? Why the remaining matrix was the inverse matrix.</p>
+<p>If we thing properly what we did here was we had a invertible matrix $A$ we augmented the identity matrix $I$ to it and then later while applying elimination method we multiplied it with and elimination matrix so the operation we performed was this</p>
+$$
+E [A \; I]
+$$<p>After this operation we got the result as $[I \; X]$ I and some other matrix X. So the equation becomes</p>
+$$
+E [A \; I] = [I \; X]
+$$<p>So from above equation when we multiply $E$ by $A$ we get $I$, $E \; A = I$ so E is the inverse of the matrix $A$ and in the second operation when we multiple $E$ with the identity matrix $I$ we get $E$ it self which is the inverse. So the $X$ is nothing but the inverse of the matrix. Thus the equation becomes</p>
+$$
+E [A \; I] = [I \; A^{-1}]
+$$<h3 id="Computation">Computation<a class="anchor-link" href="#Computation">¶</a></h3><h4 id="Python">Python<a class="anchor-link" href="#Python">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+ <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+ <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">]</span>
+<span class="p">])</span>
+
+<span class="n">inverse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'Orginal Matrix = '</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mat</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Invserve Matrix = '</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">inverse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Orginal Matrix = 
+[[1 3]
+ [2 7]]
+Invserve Matrix = 
+[[ 7. -3.]
+ [-2.  1.]]
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
