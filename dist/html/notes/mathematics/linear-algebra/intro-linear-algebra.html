@@ -14051,6 +14051,28 @@ Invserve Matrix =
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Factorization-A=LU">Factorization A=LU<a class="anchor-link" href="#Factorization-A=LU">¶</a></h2><p>Usually while performing numerical method it is often required to split a matrix $A$ into two matrix $L$ Lower triangular matrix and $U$ upper triangular matrix. We can do that using elimination method. Suppose we have following matrix.</p>
+$$
+A = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{bmatrix}
+$$<p>Now we perform elimination on the matrix with the goal of getting all zeros in the first column of the matrix expect the pivot element. To do so we subtract 4 of first row with second and 7 of first row with last. As follows.</p>
+$$
+\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ -4 &amp; 1 &amp; 0 \\ -7 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; -3 &amp; -6 \\ 0 &amp; -6 &amp; -11 \end{bmatrix}
+$$<p>Now we follow the same elimination step with second pivot. To do that we subtract now 2 of second row with third. Which is same as following operation</p>
+$$
+\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 \\ 0 &amp; -2 &amp; 1 \end{bmatrix} \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ -4 &amp; 1 &amp; 0 \\ -7 &amp; 0 &amp; 1 \end{bmatrix} \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; -3 &amp; -6 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+$$<p>We now have the complete elimination matrix with us. To make it single operation we can combine the matrix on left into a single matrix. Thus the equation becomes.</p>
+$$
+\begin{bmatrix} 1 &amp; 0 &amp; 0 \\ -4 &amp; 1 &amp; 0 \\ 1 &amp; -2 &amp; 1 \end{bmatrix}  \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{bmatrix} = \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; -3 &amp; -6 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}
+$$<p>Now we can move the matrix to left hand side of $A$ to the right hand side, we do that by multiplying the inverse of the matrix to both left and right hand side. The inverse of the matrix is simple, it will do the the opposite of what the original matrix will doing. For example the original matrix is subtracting 4 times the first row to second row $-4$ in position $(2,1)$ so the inverse will do opposite i.e add 4 time the first row to second. Thus we can find the inverse of the matrix. So the final equation becomes.</p>
+$$
+\begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 4 &amp; 5 &amp; 6 \\ 7 &amp; 8 &amp; 9 \end{bmatrix} =  \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 4 &amp; 1 &amp; 0 \\ -1 &amp; 2 &amp; 1 \end{bmatrix}  \begin{bmatrix} 1 &amp; 2 &amp; 3 \\ 0 &amp; -3 &amp; -6 \\ 0 &amp; 0 &amp; 1 \end{bmatrix}  
+$$<p>Thus factorizing $A$ into $A=LU$ where $L$ is the lower triangular matrix and $U$ is upper triangular matrix.</p>
+</div>
+</div>
+</div>
 </div>
 <a class="floating-icon-button" data-toggle="tooltip" href="" title="Scroll Top">
 <i class="fa fa-arrow-up"></i>
