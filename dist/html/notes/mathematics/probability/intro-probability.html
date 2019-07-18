@@ -13303,7 +13303,28 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h1><h1 id="Combinator-Analysis">Combinator Analysis<a class="anchor-link" href="#Combinator-Analysis">¶</a></h1><h1 id="Probability-Axioms">Probability Axioms<a class="anchor-link" href="#Probability-Axioms">¶</a></h1>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h1><p>Many events cant be predicted with total certainty. The best we can say is how <strong><em>likely</em></strong> they are to happen using the idea of probability. Probability can be thought as a mathematical framework for reasoning about uncertainty and developing approaches to inference problems.</p>
+<h1 id="Combinator-Analysis">Combinator Analysis<a class="anchor-link" href="#Combinator-Analysis">¶</a></h1><p>Probability is all about likeness of an event to occur. Hence it would be useful to have an effective method for counting the number of ways a thing can occur. The mathematical theory of counting is formally knows as the combinatorial analysis.</p>
+<h2 id="The-Basic-Principle-of-Counting">The Basic Principle of Counting<a class="anchor-link" href="#The-Basic-Principle-of-Counting">¶</a></h2><p>The basic principle of counting will be fundamental to all the theories in probability. Loosely put, it states that if one experiment can result in any of $m$ possible outcomes and if other experiment can result in any $n$ possible outcomes, then there are $mn$ possible outcomes of the two experiments.</p>
+<p>We can generalize the formula as such.</p>
+<div class="alert alert-block alert-success">
+If $r$ experiments that are to be performed such that the first one may result in any of $n_1$ possible outcomes; and if, for each of there $n_1$ possible outcomes, there are $n_2$ possible outcomes of the second experiment; and if, for each of the possible outcomes of the first two experiment, there are $n_3$ possible outcomes of the third experiment; then there is a total of $n_1 * n_2 ... n_r$ possible outcomes of the $r$ experiments.
+</div><h2 id="Permutations">Permutations<a class="anchor-link" href="#Permutations">¶</a></h2><p>Permutation is number of ways we can arrange objects. Suppose we have three letters $a, b$ and $c$, how many different ordered arrangements of the letters are possible? In this case we can simply list it down and count. $abc, acb, bac, bca, cab$ and $cba$ as we can see there are $6$ possible arrangements. But we could have calculated it without listing it down. Since the first object in the permutation can be any of the $3$, second can be any of the $2$ and the third object is the remaining one. So the total possible permutations would have been $3 * 2 * 1 = 6$. Thus we can generalize this as follows.</p>
+<div class="alert alert-block alert-success">
+Suppose we have $n$ objects. We can have following number of permutations for it. <br/><br/>
+$$
+n(n-1)(n-2)......3.2.1 = n!
+$$
+</div><p>Consider another case, how many permutation can be formed from the letter $PEPPER$?</p>
+<p>Since there are $6$ letter then total $6!$ combinations. But it is only true if we consider each $E$ and $P$ as separate letter. What if we consider all $P$ and all $E$ as single letter. The the permutation will be total permutation divided by the permutation possible for all $P's$ and all $E's$. Since there are three $P's$ possible permutation are $3!$ and for $E$ it is $2!$. So by basic principle of counting, the total permutation of $P's$ and $E's$ is $3! * 2!$ and the total permutation of all letter will be $\frac{6!}{3!2!}$.</p>
+<div class="alert alert-block alert-success">
+In general, for $n$ objects the total permutation are. <br/><br/>
+$$
+\frac{n!}{n_1! * n_2! ... n_r!}
+$$
+<br/>
+Where $n_1$ is alike and $n_2$ is alike and so on.
+</div><h2 id="Combinations">Combinations<a class="anchor-link" href="#Combinations">¶</a></h2><h2 id="Multinomial-Coefficients">Multinomial Coefficients<a class="anchor-link" href="#Multinomial-Coefficients">¶</a></h2><h1 id="Probability-Axioms">Probability Axioms<a class="anchor-link" href="#Probability-Axioms">¶</a></h1>
 </div>
 </div>
 </div>
