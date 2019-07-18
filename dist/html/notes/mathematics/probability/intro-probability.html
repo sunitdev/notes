@@ -13324,7 +13324,28 @@ $$
 $$
 <br/>
 Where $n_1$ is alike and $n_2$ is alike and so on.
-</div><h2 id="Combinations">Combinations<a class="anchor-link" href="#Combinations">¶</a></h2><h2 id="Multinomial-Coefficients">Multinomial Coefficients<a class="anchor-link" href="#Multinomial-Coefficients">¶</a></h2><h1 id="Probability-Axioms">Probability Axioms<a class="anchor-link" href="#Probability-Axioms">¶</a></h1>
+</div><h2 id="Combinations">Combinations<a class="anchor-link" href="#Combinations">¶</a></h2><p>We are often interested in determining the number of different groups of $r$ objects that could be formed form total of $n$ objects. For example, how many group of $3$ can we select from following $5$ items $A, B, C, D$ and $E$?. Since there are $5$ item the total permutation will be $5!$, however since we have group of $3$ same group of three items eg ABC will be counted $3!$ times (ABC, ACB, BCA, BAC, CAB, CBA). So to get the total number of group we different by number of repetition, thus giving $\frac{5!}{3!}$ or $\frac{5.4.3}{3.2.1}$</p>
+<p>In general, as $n(n-1)...(n-r+1)$ represents the number of different ways that a group of $r$ items could be selected from $n$ items when the order of selection is relevant, and each group of $r$ items will be counted $r!$ times in the count. So the final formula will be.</p>
+$$
+\frac{n(n-1)...(n-r+1)}{r!} = \frac{n!}{(n-r)!r!}
+$$<p>Combinations are generally denoted as $\binom{n}{r}$ and read as "n choose r"</p>
+<h2 id="Multinomial-Coefficients">Multinomial Coefficients<a class="anchor-link" href="#Multinomial-Coefficients">¶</a></h2><p>Suppose a set of $n$ distinct items is to be divided into $r$ distinct groups of respective sizes $n_1, n_2, ...,n_r$, where $\sum_{i=1}^{r} n_i = n$. Then the number of possible group can be calculated as follows.</p>
+<p>We note that there are $\binom{n}{n_1}$ possible choices for first group, $\binom{n-n_1}{n_2}$ possible choices for second group, $\binom{n-n_1-n_2}{n_3}$ for third group and so on. Thus by basic counting principle we can calculate total group count.</p>
+$$
+\begin{align}
+\binom{n}{n_1} \binom{n-n_1}{n_2} ... \binom{n-n_1-n_2 - ... n_{r-1}}{n_r} &amp;=  \\
+&amp;= \frac{n!}{(n-n_1)!n_1!} \frac{(n - n_1)!}{(n-n_1 -n_2)!n_2!} ... \frac{(n - n_1 - ... - n_{r-1})!}{0!n_r!} \\
+&amp;= \frac{n!}{n_1!n_2!...n_r!}
+\end{align}
+$$<p>Thus,</p>
+<div class="alert alert-block alert-success">
+If $n_1+n_2+ .... +n_r = n$, we define $\binom{n}{n_1, n_2, ..., n_r}$ by <br/><br/>
+$$
+\binom{n}{n_1, n_2, ..., n_r} = \frac{n!}{n_1! * n_2! ... n_r!}
+$$
+<br/>
+Thus $\binom{n}{n_1, n_2, ..., n_r}$ represents the number of possible divisions of $n$ distinct objects into $r$ distinct groups of respective sizes $n_1, n_2,..., n_r$
+</div><h1 id="Probability-Axioms">Probability Axioms<a class="anchor-link" href="#Probability-Axioms">¶</a></h1>
 </div>
 </div>
 </div>
