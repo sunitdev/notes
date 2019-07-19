@@ -13404,6 +13404,16 @@ Thus $\binom{n}{n_1, n_2, ..., n_r}$ represents the number of possible divisions
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13474,6 +13484,72 @@ and vice versa.</li>
 $$
 P(A|B) = \frac{P(A \cap B)}{P(B)}
 $$<p><strong>NOTE:</strong> $P(A|B)$ is undefined when $P(B) = 0$.</p>
+<h2 id="Conditional-Probability-Tools">Conditional Probability Tools<a class="anchor-link" href="#Conditional-Probability-Tools">¶</a></h2><h3 id="Multiplication-Rule">Multiplication Rule<a class="anchor-link" href="#Multiplication-Rule">¶</a></h3><p>Let's suppose we have three events $A, B$ and $C$ in sequence, then the we can draw a tree representation something like this.</p>
+<p><img alt="Conditional Multiplication Tree" src="/notes/static/img/notes/mathematics/intro-probability/conditional_multiplication_rule.png"/></p>
+<p>Then the multiplication rule states that.</p>
+$$
+P(A \cap B \cap C) = P(A) * P(B | A) * P(C | A \cap B)
+$$<p>we get this formula by following the leaf through the root and multiplying every probability along the way.</p>
+<p>More generally we can write</p>
+$$
+P \left ( \bigcap\limits_{i=1}^{n} A_i \right ) = P(A_1)*P(A_2 | A_1)*P(A_3 | A_1 \cap A_2) ...
+$$<p>or,</p>
+$$
+\begin{align}
+P(A | B) &amp;= \frac{P(A \cap B)}{P(B)} \\
+P(A | B) * P(B) &amp;= P(A \cap B)
+\end{align}
+$$<p>Thus giving us the multiplication rule. $P(A \cap B) = P(A | B) * P(B)$</p>
+<h3 id="Total-Probability-Theorem">Total Probability Theorem<a class="anchor-link" href="#Total-Probability-Theorem">¶</a></h3><p><img alt="Conditional Total Probability" src="/notes/static/img/notes/mathematics/intro-probability/conditional_total_probability.png"/></p>
+<p>Here the event $B$ is divided into partition by subsets of sample space $A_1, A_2$ and $A_3$. So the total probability of $B$ can be computed by.</p>
+$$
+P(B) = P(A_1) * P(B|A_1) + P(A_2) * P(B|A_2) + P(A_3) * P(B | A_3)
+$$<p>where $P(B|A_1)$ is same as $P(P_1)$, $P(B|A_2)$ is same as $P(P_2)$ and $P(B|A_3)$ is same as $P(P_3)$.</p>
+<p>The probability of event $B$ is calculated by taking weighted average of each individual piece of $B$ depending upon the probability of each partition.</p>
+<p>We can generalize this into total probability theorem as follows.</p>
+$$
+\begin{align}
+P(B) &amp;= P(A_1 \cap B) + P(A_2 \cap B)+ ... + P(A_n \cap B) \\
+&amp;= P(A_1) * P(B|A_1) + P(A_2) * P(B|A_2) + ... + P(A_n) * P(B | A_n)
+\end{align}
+$$<h3 id="Bayes-Rule">Bayes Rule<a class="anchor-link" href="#Bayes-Rule">¶</a></h3><p>In the same diagram as that of total probability theorem, if we know the $P(B)$ and we know $P(B|A_i)$ and we need to compute $P(A_i|B)$ then,</p>
+$$
+\begin{align}
+P(A_i | B) &amp;= \frac{P(A_i \cap B)}{P(B)} \tag{By definition} \\
+&amp;= \frac{P(A_i) P(B | A_i)}{P(B)} \tag{Multiplication rule} \\
+P(A_i | B) &amp;= \frac{P(A_i) P(B | A_i)}{\sum_j P(A_j)P(B | A_j)} \tag{Total Probability Theorem}
+\end{align}
+$$<p>Thus Baye's rule states that,</p>
+<div class="alert alert-block alert-success">
+Let $A_1, A_2, ..., A_n$ be disjoint events which partition event $B$, then <br/><br/>
+$$
+P(A_i | B) = \frac{P(A_i) P(B | A_i)}{P(A_1) P(B|A_1) + ... + P(A_n) P(B|A_n)}
+$$
+</div><h2 id="Independence">Independence<a class="anchor-link" href="#Independence">¶</a></h2><p>Two events are said to be independent when occurrence of one event does not affects or tell anything more about occurrence of other events. More conceptually we can say.</p>
+$$ 
+P(A | B) = P(A) 
+$$<p>Which means knowing event $B$ has occurred doesn't change our believes of event $A$, such events are called <strong>independent events</strong>.</p>
+<p>By above definition following equality  holds,</p>
+$$
+\begin{align}
+P(A | B) &amp;= \frac{P(A \cap B)}{P(B)} \\
+P(A) &amp;= \frac{P(A \cap B)}{P(B)} \\
+\text{therefore,} \\
+P(A \cap B) &amp;= P(A)*P(B)
+\end{align}
+$$<p>Or more generally,</p>
+$$
+P(A_1...A_n) = \sum\limits_{i=1}^{n} P(A_i)
+$$<p>We adopt this relation to test independence because it can be used even when $P(B)=0$. And, the symmetry of this relation also implies that independence is a symmetric property, if $A$ is independent to $B$, then $B$ is also independent to $A$.</p>
+<p><strong>Note:</strong></p>
+<p>Independence is not similar to disjoint of a set. For example.</p>
+<p><img alt="Disjoint Sets" src="/notes/static/img/notes/mathematics/intro-probability/disjoint_sets.png"/></p>
+<p>Here two events $A$ and $B$ are not independent because if somehow we know that event $A$ has occurred $(P(A) = 1)$ then event $B$ can't occur $P(B) = 0$. Thus both are dependent on each other, or more precisely, the probability or likelihood is dependent on each other</p>
+<h3 id="Conditional-Independence">Conditional Independence<a class="anchor-link" href="#Conditional-Independence">¶</a></h3><p>We can modify the definition of independence to incorporate conditioning as follows.</p>
+$$
+P(A \cap B | C) = P(A|C) * P(B|C)
+$$<p>where $A$ and $B$ are independent events, conditioned on $C$.</p>
+<p><strong>Note:</strong> Independence does not imply conditional independence, both are different.</p>
 </div>
 </div>
 </div>
