@@ -13466,6 +13466,14 @@ $$
 $$
 and vice versa.</li>
 </ol>
+<h1 id="Conditional-Probability">Conditional Probability<a class="anchor-link" href="#Conditional-Probability">¶</a></h1><p>Conditional probability provides us with a way to reason about the outcome of an experiment based on <strong>partial information</strong>.</p>
+<p>For example, if in an experiment of two successive rolls of die, we are told that sum of the two rolls is $9$. How likely it is that the first roll was a $6$?</p>
+<p>In more precise terms, given an experiment, a corresponding sample space and a probability law, suppose that we know that the outcome is within some given event B. We wish to quantify the likelihood that the outcome also belongs to some other given event $A$. We thus seek to construct a new probability law that takes into account the available knowledge. A probability law that for any event $A$ specifies the conditional probability of $A$ given $B$ is denoted by $P(A|B)$.</p>
+<p><img alt="Conditional Probability Example" src="/notes/static/img/notes/mathematics/intro-probability/conditional_probability.png"/></p>
+<p>In such situations we are given that event $B$ has occurred. So now event $B$ becomes are new sample space and thus $P(A|B)$ can be calculated by,</p>
+$$
+P(A|B) = \frac{P(A \cap B)}{P(B)}
+$$<p><strong>NOTE:</strong> $P(A|B)$ is undefined when $P(B) = 0$.</p>
 </div>
 </div>
 </div>
