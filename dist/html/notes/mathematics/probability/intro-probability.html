@@ -13404,16 +13404,6 @@ Thus $\binom{n}{n_1, n_2, ..., n_r}$ represents the number of possible divisions
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -13550,6 +13540,22 @@ $$
 P(A \cap B | C) = P(A|C) * P(B|C)
 $$<p>where $A$ and $B$ are independent events, conditioned on $C$.</p>
 <p><strong>Note:</strong> Independence does not imply conditional independence, both are different.</p>
+<h1 id="Random-Variables">Random Variables<a class="anchor-link" href="#Random-Variables">¶</a></h1><p>In many probabilities models the outcome of every experiment is some numerical value. Even if the outcome is not numeric we could assign some numeric value to the outcome. So given an experiment when we assign a numerical value to the outcome of the experiment, the numerical value is called the <strong>value of random variable</strong> and the function which takes outcome of an experiment and produces a numerical value if called the <strong>random variable</strong>. Diagram below will illustrate the concept of random variable.</p>
+<p><img alt="Random Variable Concept" src="/notes/static/img/notes/mathematics/intro-probability/random_variable_concept.png"/></p>
+<p>For example, suppose that our experiment consists of tossing $3$ fair coin. If we let $Y$ denote the number of heads that appear, the $Y$ is a random variable taking on one of the values $0, 1, 2$ and $3$ with respective probabilities.</p>
+$$
+\begin{align}
+P\{Y = 0\} &amp;= P\{(TTT)\} = \frac{1}{8} \\
+P\{Y = 1\} &amp;= P\{(TTH, THT, HTT)\} = \frac{3}{8} \\
+P\{Y = 2\} &amp;= P\{(THH, HTH, HHT)\} = \frac{3}{8} \\
+P\{Y = 3\} &amp;= P\{(HHH)\} = \frac{1}{8} \\
+\end{align}
+$$<p>Since $Y$ must take on one of the value $0$ through $3$, we must have</p>
+$$
+1 = P \left ( \bigcup\limits_{i=0}^{3} \{ Y = i \} \right ) = \sum\limits_{i=0}^{3} P\{ Y = i \}
+$$<p>which, of course, is in accord with the preceding probabilities.</p>
+<p>Random variables are also of two types discrete random variable which return a discrete value for each outcome and continuous random variable which is a continuous function.</p>
+<h2 id="Probability-Mass-Function">Probability Mass Function<a class="anchor-link" href="#Probability-Mass-Function">¶</a></h2>
 </div>
 </div>
 </div>
