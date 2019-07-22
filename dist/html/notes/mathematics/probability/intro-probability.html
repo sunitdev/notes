@@ -13540,7 +13540,7 @@ $$
 P(A \cap B | C) = P(A|C) * P(B|C)
 $$<p>where $A$ and $B$ are independent events, conditioned on $C$.</p>
 <p><strong>Note:</strong> Independence does not imply conditional independence, both are different.</p>
-<h1 id="Random-Variables">Random Variables<a class="anchor-link" href="#Random-Variables">¶</a></h1><p>In many probabilities models the outcome of every experiment is some numerical value. Even if the outcome is not numeric we could assign some numeric value to the outcome. So given an experiment when we assign a numerical value to the outcome of the experiment, the numerical value is called the <strong>value of random variable</strong> and the function which takes outcome of an experiment and produces a numerical value if called the <strong>random variable</strong>. Diagram below will illustrate the concept of random variable.</p>
+<h1 id="Discrete-Random-Variables">Discrete Random Variables<a class="anchor-link" href="#Discrete-Random-Variables">¶</a></h1><p>In many probabilities models the outcome of every experiment is some numerical value. Even if the outcome is not numeric we could assign some numeric value to the outcome. So given an experiment when we assign a numerical value to the outcome of the experiment, the numerical value is called the <strong>value of random variable</strong> and the function which takes outcome of an experiment and produces a numerical value if called the <strong>random variable</strong>. Diagram below will illustrate the concept of random variable.</p>
 <p><img alt="Random Variable Concept" src="/notes/static/img/notes/mathematics/intro-probability/random_variable_concept.png"/></p>
 <p>For example, suppose that our experiment consists of tossing $3$ fair coin. If we let $Y$ denote the number of heads that appear, the $Y$ is a random variable taking on one of the values $0, 1, 2$ and $3$ with respective probabilities.</p>
 $$
@@ -13555,7 +13555,151 @@ $$
 1 = P \left ( \bigcup\limits_{i=0}^{3} \{ Y = i \} \right ) = \sum\limits_{i=0}^{3} P\{ Y = i \}
 $$<p>which, of course, is in accord with the preceding probabilities.</p>
 <p>Random variables are also of two types discrete random variable which return a discrete value for each outcome and continuous random variable which is a continuous function.</p>
-<h2 id="Probability-Mass-Function">Probability Mass Function<a class="anchor-link" href="#Probability-Mass-Function">¶</a></h2>
+<h2 id="Probability-Mass-Function">Probability Mass Function<a class="anchor-link" href="#Probability-Mass-Function">¶</a></h2><p>For a discrete random variable $X$ the probability mass function $(PMF)$ of $X$ is denoted by $P_X$. For example if $x$ is any possible value of $X$, then the $PMF$ is the probability of the event $\{ X = x\}$, consisting of all the outcome that give rise to a value of $X$ equal to $x$.</p>
+<p>For example suppose we have following sample space $\Omega$ and some random variable $X$.</p>
+<p><img alt="Discrete PMF" src="/notes/static/img/notes/mathematics/intro-probability/discrete_pmf.png"/></p>
+<p>Here the $P_X(1)=\frac{5}{9}$, because in original sample space we have event $A$ which produce $X=1$ and $P(A)=\frac{5}{9}$. Thus $PMF$ of $X$ or $P_{X}=\frac{5}{9}$. So we can define.</p>
+$$
+P_X(x)=P(\{X = x\})
+$$<p>So, to calculate the $PMF$ of a random variable $X$ we do the following.</p>
+<p>For each possible value $x$ of $X$.</p>
+<ol>
+<li>Collect all the possible outcomes that give rise to event $\{ X = x\}$, from original sample space.</li>
+<li>Add their probability to obtain $P_X(x)$</li>
+</ol>
+<h3 id="Properties-of-$PMF$">Properties of $PMF$<a class="anchor-link" href="#Properties-of-$PMF$">¶</a></h3><ol>
+<li>Since random variable $X$ iterates over every possible value of $x$, the total sum of $PMF$ of $X$ will always be $1$.</li>
+<li>$PMF$ of $X$ will always be.
+$$
+O \leqslant P_X(x) \leqslant 1
+$$
+because of non-negative and normalization axiom of probability.</li>
+<li>Function of a random variable is a also a random variable.
+$$
+Y = aX + b
+$$
+Since value of $Y$ indirectly depends on outcome of experiment (ie. value of $X$). $Y$ is also a random variable.</li>
+</ol>
+<h2 id="Expectation-/-Expected-Value-(Mean)">Expectation / Expected Value (Mean)<a class="anchor-link" href="#Expectation-/-Expected-Value-(Mean)">¶</a></h2><p>The $PMF$ of a random variable $X$ provides us with several numbers, the probability of all the possible values of $X$. Using this we can compute the average (weighted average) or the <strong>expected value</strong> of $X$ when we do large number of experiment. This weighted average of the values of $X$ is called the expectation of $X$ and is calculated by,</p>
+$$
+E[X] = \sum x.p_X(x)
+$$<p>It is the average of values of "$x$" weighted with its probability.</p>
+<p>For example, consider a game where you take the minimum of some amount on every turn. So we calculate the expected value of random variable as follow.</p>
+<p>In this case our random variable is a function which return the minimum amount for a turn. So we can assume a $PMF$ as follows.</p>
+$$
+P_X(k) = \begin{cases} 
+\frac{1}{5} &amp; \text{Probability of wining 2€} \\
+\frac{3}{2} &amp; \text{Probability of wining 3€} \\
+\frac{1}{5} &amp; \text{Probability of wining 4€}
+\end{cases}
+$$<p>Then,</p>
+$$
+E[X] = 2 * \frac{1}{5} + 3 * \frac{3}{2} + 4 * \frac{1}{5} = 3.7\text{€}
+$$<p>Thus $3.7$€ is the average income if played for a long time.</p>
+<h3 id="Property-of-Expectation.">Property of Expectation.<a class="anchor-link" href="#Property-of-Expectation.">¶</a></h3><p>Let $X$ be a random variable and let,</p>
+$$
+Y = aX + b
+$$<p>then,</p>
+$$
+E[Y] = aE[X] + b
+$$<p>Because adding a constant "$b$" to every value will only add "$b$" to the average. And similarly multiplying "$a$" constant to every value will only multiple "$a$" to the average.</p>
+<h3 id="Expectation-of-a-function-of-random-variable.">Expectation of a function of random variable.<a class="anchor-link" href="#Expectation-of-a-function-of-random-variable.">¶</a></h3><p>Let $X$ be a random variable and $Y$ be a function of the random variable $Y = g(X)$, then</p>
+$$
+E[Y] = \sum_{x} g(X) P_X(x)
+$$<p>We can prove this preposition as follows.</p>
+$$
+\begin{align}
+\sum_i g(x_i)p(x_i) &amp;= \sum_j \sum_{i:g(x_i)=y_j} g(x_i)p(x_i) \\
+&amp;= \sum_j \sum_{i:g(x_i)=y_j} y_jp(x_i) \tag{Y = g(x)} \\
+&amp;= \sum_j y_j \sum_{i:g(x_i)=y_j} p(x_i) \\
+&amp;= \sum_j y_j P\{g(X) = y_j\} \\
+&amp;= E[g(X)]
+\end{align}
+$$<p>Another way to look at it as follow,</p>
+<p><img alt="Expected value of function" src="/notes/static/img/notes/mathematics/intro-probability/function_expected_value.png"/></p>
+<p>Which means when calculating $E[Y]$ we can treat $E[X]$ as new new sample space.</p>
+<h2 id="Variance">Variance<a class="anchor-link" href="#Variance">¶</a></h2><p>Another property of $PMF$ is variance, or how far the values are spread from the mean of the $PMF$. We could find the average spread of data from mean by following formula.</p>
+$$
+E[X - E[X]]
+$$<p>where $E[X]$ is our mean and $X$ are all values of random variable and we take average of all of them.</p>
+<p>But our difference could be both positive or negative depending on weather it is to right or left of our mean. And adding one positive and one negative will tamper our average value. To solve this we take square of the distance. We also cloud have taken absolute value of the difference but squaring also has one more advantage, it gives more weight to values farther away from mean. So new formula becomes,</p>
+$$
+E[(X - E[X])^2]
+$$<p>Thus formula for variance of $X$ is denoted by $Var(X)$ is given by.</p>
+$$
+\begin{align}
+Var(X) &amp;= E[(X - E[X])^2] \\
+&amp;\text{OR} \\
+Var(X) &amp;= E[X^2] - E[X]^2
+\end{align}
+$$<h3 id="Properties-of-Variance.">Properties of Variance.<a class="anchor-link" href="#Properties-of-Variance.">¶</a></h3><ol>
+<li>$Var(X) \geqslant 0$, as square areas are positive.</li>
+<li>$Var(aX + b) = a^2 Var(X)$, because adding "$b$" only sifts values to either side but doesn't changes spread. and multiplication increases the spread.</li>
+</ol>
+<h2 id="Standard-Deviation">Standard Deviation<a class="anchor-link" href="#Standard-Deviation">¶</a></h2><p>Another measure of dispersion is standard deviation of $X$,, which is defined as square root of the variance denoted by</p>
+$$
+\sigma X = \sqrt{Var(X)}
+$$<p></p>
+<p>The standard deviation is easier to interpret because it has same unit as $X$. For example if $X$ is in meters, variance will be in meters<sup>2</sup> but standard deviation will be in meters.</p>
+<h2 id="Example-of-Random-variables.">Example of Random variables.<a class="anchor-link" href="#Example-of-Random-variables.">¶</a></h2><h3 id="Bernoulli-Random-Variable">Bernoulli Random Variable<a class="anchor-link" href="#Bernoulli-Random-Variable">¶</a></h3><p>The Bernoulli random variable takes two values $1$ or $0$. For example.</p>
+$$
+X = \begin{cases}
+1 &amp; \text{if x is head} \\
+2 &amp; \text{if x is tail}
+\end{cases}
+$$<p>It's $PMF$ is</p>
+$$
+P_X(x) = \begin{cases}
+P &amp; \text{if x = 1} \\
+1-P &amp; \text{if x = 0}
+\end{cases}
+$$<p>where $P =$ probability of getting heads.</p>
+<h3 id="Binomial-Random-Variable">Binomial Random Variable<a class="anchor-link" href="#Binomial-Random-Variable">¶</a></h3><p>A coin is tossed $n$ times. At each toss, the coin has a probability of $P$ of getting heads. Then $X$ be the number of heads in the $n$-toss. Then binomial random variable is given as.</p>
+$$
+P_X(k) = P(X = k) = \binom{n}{k} p^k(1 - p)^{n - k}  \; \;\; k=0,1,2,...,n
+$$<h4 id="Properties-of-Binomial-Random-Variable.">Properties of Binomial Random Variable.<a class="anchor-link" href="#Properties-of-Binomial-Random-Variable.">¶</a></h4><p>Suppose we have a binomial random variable with parameters $n$ and $p$. We can calculate the expected value as such.</p>
+$$
+\begin{align}
+E[X^k] = \sum\limits_{i=0}{n} i^k \binom{n}{i} p^i(1 - p)^{n - i} \\
+&amp;= \sum\limits_{i=1}{n} i^k \binom{n}{i} p^i(1 - p)^{n - i}
+\end{align}
+$$<p>Using the identity</p>
+$$
+i\binom{n}{i} = n \binom{n-1}{i-1}
+$$<p>gives</p>
+$$
+\begin{align}
+E[X^k] &amp;= np \sum\limits_{i=1}{n} i^{k-1} \binom{n-1}{i-1} p^{i-1}(1 -p)^{n-i} \\
+&amp;= np \sum\limits_{j=0}{n-1}(j + 1)^{k -1}\binom{n - 1}{j} p^j(1-p)^{n-1-j} \tag{by letting j=i-1} \\
+&amp;= npE[(Y + 1)^{k - 1}]
+\end{align}
+$$<p>where $Y$ is a binomial random variable with parameters $n-1, p$. Setting $k = 1$ in the preceding equation yields.</p>
+$$
+E[X] = np
+$$<p>That is, the expected number of successes that occur in $n$ independent trials when each is a success with probability $p$ is equal to $np$. Setting $k=2$ on the preceding equation and using the preceding formula for the expected value of a binomial random variable yields</p>
+$$
+\begin{align}
+E[X^2] &amp;= npE[Y + 1] \\
+&amp;= np[(n - 1)p + 1]
+\end{align}
+$$<p>Since $E[X]=np$ we obtain</p>
+$$
+\begin{align}
+Var(X) &amp;= E[X^2] - (E[X])^2 \\
+&amp;= np[(n - 1)p + 1] - (np)^2 \\
+&amp;= np(1 -p)
+\end{align}
+$$<p>Summing up, we have shown the following:</p>
+<p>If $X$ is a binomial random variable with parameters $n$ and $p$, then</p>
+$$
+\begin{align}
+E[X] &amp;= np \\
+Var(X) &amp;= np(1 - p)
+\end{align}
+$$<h3 id="Poisson-Random-Variable">Poisson Random Variable<a class="anchor-link" href="#Poisson-Random-Variable">¶</a></h3><p>A random variable $X$ takes on one of the following values $0, 1, 2$ is said to be a Poisson random variable with parameter $\lambda$ if, for some $\lambda &gt; 0$,</p>
+$$
+p(i) = P\{ X = i \} = e^{-\lambda}\frac{\lambda^{i}}{i!} \;\;\;\; i = 0,1,2,...
+$$
 </div>
 </div>
 </div>
