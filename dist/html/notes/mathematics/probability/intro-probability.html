@@ -13699,7 +13699,36 @@ Var(X) &amp;= np(1 - p)
 $$<h3 id="Poisson-Random-Variable">Poisson Random Variable<a class="anchor-link" href="#Poisson-Random-Variable">¶</a></h3><p>A random variable $X$ takes on one of the following values $0, 1, 2$ is said to be a Poisson random variable with parameter $\lambda$ if, for some $\lambda &gt; 0$,</p>
 $$
 p(i) = P\{ X = i \} = e^{-\lambda}\frac{\lambda^{i}}{i!} \;\;\;\; i = 0,1,2,...
+$$<h1 id="Continuous-Random-Variable">Continuous Random Variable<a class="anchor-link" href="#Continuous-Random-Variable">¶</a></h1><p>Some random variables can be a continuous function of sample space. For example, a random variable $X$ which chooses a value between $0 \leqslant X \leqslant 1$ with infinite precision. To model such continuous random variable we need a model and some notations. So we can define a random variable $X$ is called as continuous if there is a non-negative function $f_X$, called the probability density function of $X$, such that.</p>
 $$
+P(X \subset B) = \int_{B} f_X(x) \; dx
+$$<p>or, the probability that $X$ falls in a particular range is given by.</p>
+$$
+P(a \leqslant X \leqslant b) = \int_{a}^{b} f_X(x) \; dx
+$$<h2 id="Probability-Density-Function">Probability Density Function<a class="anchor-link" href="#Probability-Density-Function">¶</a></h2><p>$PDF$ (Probability density function) can be thought as same as $PMF$. But instead of adding all discrete value of $X$, we deal with continuous value of $X$.</p>
+<p><img alt="PDF Continuous Random Variable" src="/notes/static/img/notes/mathematics/intro-probability/pmf_continuous_variable.png"/></p>
+<p>We can interpret the $PDF$ same as $PMF$ by considering an interval $x$ and $x + \Delta$ where $\Delta$ is a very small number.</p>
+<p><img alt="PDF Continuous Variable" src="/notes/static/img/notes/mathematics/intro-probability/continous_pmf_function.png"/></p>
+<p>Here, we have a $PDF$ $f_X(x)$ and the probability of $X$ in the interval $x$ and $x + \Delta$ can be calculated as</p>
+$$
+P( x \leqslant X  \leqslant x + \Delta) = \int_{x}^{x + \Delta} f_X(t) dt \approx f_X(x) * \Delta
+$$<p>As $\Delta$ is very small number it become a linear function at the edge of the curve and the area between the interval can be thought as a rectangle with length $f_X(x)$ and width $\Delta$. Thus giving above equality, which is same as $PMF$ of discrete variable $X$, if $X$ was not continuous.</p>
+<p><strong>Note:</strong> The graph $f_X(x)$ doesn't gives probability of $X$. It is the area under the curve which gives the likelihood of $X$ not the value of function $f_X(x)$.</p>
+<p><img alt="PDF Comparison" src="/notes/static/img/notes/mathematics/intro-probability/pdf_comparision.png"/></p>
+<p>Here, $P(a_1 \leqslant X \leqslant a_2)$ is more likely than $P(b_1 \leqslant X \leqslant b_2)$ because of the area under it and not the value of function.</p>
+<h3 id="Properties-of-PDF">Properties of PDF<a class="anchor-link" href="#Properties-of-PDF">¶</a></h3><ol>
+<li>$f_X(x) \geqslant 0$ for all $x$ (Positive Property)</li>
+<li>$\int_{-\infty}^{\infty} f_X(x) dx = 1$ (Normalization Property)</li>
+<li>For any subset $B$ of the real line (number line)
+$$
+\begin{align}
+P(X \subset B) &amp;= \int_{B} f_X(x) \\
+&amp;\text{OR} \\
+P(a \leqslant X \leqslant b) &amp;= \int_{a}^{b} f_X(x) dx
+\end{align}
+$$</li>
+<li>$\int_{a}^{a} f_X(x) dx = 0$ Probability with infinite precision is Zero.</li>
+</ol>
 </div>
 </div>
 </div>
