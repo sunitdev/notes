@@ -13303,504 +13303,90 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h1><p>Many events cant be predicted with total certainty. The best we can say is how <strong><em>likely</em></strong> they are to happen using the idea of probability. Probability can be thought as a mathematical framework for reasoning about uncertainty and developing approaches to inference problems.</p>
-<h1 id="Combinator-Analysis">Combinator Analysis<a class="anchor-link" href="#Combinator-Analysis">¶</a></h1><p>Probability is all about likeness of an event to occur. Hence it would be useful to have an effective method for counting the number of ways a thing can occur. The mathematical theory of counting is formally knows as the combinatorial analysis.</p>
-<h2 id="The-Basic-Principle-of-Counting">The Basic Principle of Counting<a class="anchor-link" href="#The-Basic-Principle-of-Counting">¶</a></h2><p>The basic principle of counting will be fundamental to all the theories in probability. Loosely put, it states that if one experiment can result in any of $m$ possible outcomes and if other experiment can result in any $n$ possible outcomes, then there are $mn$ possible outcomes of the two experiments.</p>
-<p>We can generalize the formula as such.</p>
-<div class="alert alert-block alert-success">
-If $r$ experiments that are to be performed such that the first one may result in any of $n_1$ possible outcomes; and if, for each of there $n_1$ possible outcomes, there are $n_2$ possible outcomes of the second experiment; and if, for each of the possible outcomes of the first two experiment, there are $n_3$ possible outcomes of the third experiment; then there is a total of $n_1 * n_2 ... n_r$ possible outcomes of the $r$ experiments.
-</div><h2 id="Permutations">Permutations<a class="anchor-link" href="#Permutations">¶</a></h2><p>Permutation is number of ways we can arrange objects. Suppose we have three letters $a, b$ and $c$, how many different ordered arrangements of the letters are possible? In this case we can simply list it down and count. $abc, acb, bac, bca, cab$ and $cba$ as we can see there are $6$ possible arrangements. But we could have calculated it without listing it down. Since the first object in the permutation can be any of the $3$, second can be any of the $2$ and the third object is the remaining one. So the total possible permutations would have been $3 * 2 * 1 = 6$. Thus we can generalize this as follows.</p>
-<div class="alert alert-block alert-success">
-Suppose we have $n$ objects. We can have following number of permutations for it. <br/><br/>
+<h1 id="Probability-Models-and-Axioms">Probability Models and Axioms<a class="anchor-link" href="#Probability-Models-and-Axioms">¶</a></h1><p>Many events cant be predicted with total certainty. The best we say is how <strong>likely</strong> there are to happen using the idea of probability. Probability can be thought as a mathematical framework for reasoning about uncertainty and developing approaches to inference problem.</p>
+<h2 id="Probabilities-Model">Probabilities Model<a class="anchor-link" href="#Probabilities-Model">¶</a></h2><p>A probabilities model is a mathematical description of a random phenomenon. It is defined by its <strong>sample space</strong>, <strong>events</strong> within the sample space, and <strong>probabilities</strong> associated with each event.</p>
+<p>The sample space ( $S$ or $\Omega$) for a probability model is the set of all possible outcomes.</p>
+<p>An event $A$ is a subset of the sample space $S$.</p>
+<p>A probability is a numerical value assigned to a given event $A$. The probability of an event is written $P(A)$, and describes the long-run relative frequency of the event. Probability is assigned using a probability law, which is defined according to the experiment.</p>
+<p>Every probabilistic model involves an underlying process, called the <strong>experiment</strong>. An experiment will produce exactly one and only one element of several possible outcomes.</p>
+<h2 id="Sample-Space">Sample Space<a class="anchor-link" href="#Sample-Space">¶</a></h2><p>Sample space is a list (set) of all possible outcomes for an experiment. Sample is denoted by capital $S$ or $\Omega$. Example of sample space for experiment of flipping a coin onces is ${H, T}$ which was two possible outcomes, either flip will result in heads ($H$) or tails $(T)$.</p>
+<h3 id="Rules-for-sample-space">Rules for sample space<a class="anchor-link" href="#Rules-for-sample-space">¶</a></h3><p>Not all sets can be termed as sample space. For a set to be consider as sample space it must obey the following rules.</p>
+<h4 id="Mutually-Exclusive">Mutually Exclusive<a class="anchor-link" href="#Mutually-Exclusive">¶</a></h4><p>Every outcome (element) in the sample space set must be mutually exclusive. Which means when are experiment is perform the outcome must belong to one and only one element of the set, no two outcomes of the set can occur at a same time.</p>
+<h4 id="Collectively-Exhaustive">Collectively Exhaustive<a class="anchor-link" href="#Collectively-Exhaustive">¶</a></h4><p>Sample set must contains every possible outcome of an experiment. There should not be any outcome of an experiment which does not belongs to sample space.</p>
+<h3 id="Representation">Representation<a class="anchor-link" href="#Representation">¶</a></h3><p>There are multiple ways to represent sample space.</p>
+<h4 id="List-of-outcomes">List of outcomes<a class="anchor-link" href="#List-of-outcomes">¶</a></h4><p>One way if representing sample space is to list all possible outcomes for the experiment.</p>
+<p>For example, suppose our experiment involves flipping a coin twice. Then our sample space will be as follows.</p>
 $$
-n(n-1)(n-2)......3.2.1 = n!
+S = \Omega = \{ HH, HT, TH, TT \}
+$$<h4 id="Tree-based-sequential-description">Tree based sequential description<a class="anchor-link" href="#Tree-based-sequential-description">¶</a></h4><p>Another way of representing sample space is to sequentially represent events in the sample space as branches of a tree and thus each branch represent a possible outcome of an experiment and the leaf of the tree represents the sample space for the experiment.</p>
+<p>For example, suppose our experiment involves flipping a coin twice. Then our sample space will be as follows.</p>
+<p><img alt="Tree Sample Space" src="/notesstatic/img/notes/mathematics/intro-probability/sample_space_tree.png"/></p>
+<h3 id="Discrete-Sample-Space">Discrete Sample Space<a class="anchor-link" href="#Discrete-Sample-Space">¶</a></h3><p>A sample space is said to be discrete sample space if the sample space ($\Omega$) is a finite set or countable infinity.</p>
+<p>Example of discrete sample space are flipping a coin, rolling a dice etc.</p>
+<h3 id="Continuous-Sample-Space">Continuous Sample Space<a class="anchor-link" href="#Continuous-Sample-Space">¶</a></h3><p>Sample space is called as continuous if the sample space ($\Omega$) contains uncountable infinite set of possible outcomes.</p>
+<p>Consider the example below, let see our experiment in to see the where the dart lands in the area marked by the rectangle at $x=1$ and $y=1$.</p>
+<p><img alt="Continuous Sample Space" src="/notesstatic/img/notes/mathematics/intro-probability/continous_sample_space.png"/></p>
+<p>Here our sample space is all the infinite set of rational points in the square reason. So our sample space is defined as follows,</p>
 $$
-</div><p>Consider another case, how many permutation can be formed from the letter $PEPPER$?</p>
-<p>Since there are $6$ letter then total $6!$ combinations. But it is only true if we consider each $E$ and $P$ as separate letter. What if we consider all $P$ and all $E$ as single letter. The the permutation will be total permutation divided by the permutation possible for all $P's$ and all $E's$. Since there are three $P's$ possible permutation are $3!$ and for $E$ it is $2!$. So by basic principle of counting, the total permutation of $P's$ and $E's$ is $3! * 2!$ and the total permutation of all letter will be $\frac{6!}{3!2!}$.</p>
-<div class="alert alert-block alert-success">
-In general, for $n$ objects the total permutation are. <br/><br/>
+S = \Omega = \{ (x, y) | 0 \leqslant x, y \leqslant 1 \}
+$$<p><strong>Note:</strong></p>
+<p>Continuous sample spaces are interesting because we have a sample space with infinite outcomes in it. In the above example, the probability of hitting a point let say $(\frac{1}{2}, \frac{1}{3})$ with infinite precession is <strong>zero</strong>. But the collective probability is $1$, because the dart will definitely land somewhere in the 1 by 1 area. So to overcome this when we calculate probability we calculate probability of <strong>event</strong>, which is collection of many individual point (subset of sample space) instead of calculating probability of individual point. Even in discrete case we work with events, to be consistent.</p>
+<h2 id="Probability-Axioms">Probability Axioms<a class="anchor-link" href="#Probability-Axioms">¶</a></h2><p>Every probabilistic model must follow these three rules called the axioms of probability.</p>
+<h3 id="Nonnegativity">Nonnegativity<a class="anchor-link" href="#Nonnegativity">¶</a></h3><p>This axiom states that probability of an event cannot be negative.</p>
+<p>Let $A$ be any event,</p>
 $$
-\frac{n!}{n_1! * n_2! ... n_r!}
+P(A) \geqslant 0
+$$<h3 id="Normalization">Normalization<a class="anchor-link" href="#Normalization">¶</a></h3><p>Normalization axiom states that the probability of sample space is always $1$</p>
 $$
-<br/>
-Where $n_1$ is alike and $n_2$ is alike and so on.
-</div><h2 id="Combinations">Combinations<a class="anchor-link" href="#Combinations">¶</a></h2><p>We are often interested in determining the number of different groups of $r$ objects that could be formed form total of $n$ objects. For example, how many group of $3$ can we select from following $5$ items $A, B, C, D$ and $E$?. Since there are $5$ item the total permutation will be $5!$, however since we have group of $3$ same group of three items eg ABC will be counted $3!$ times (ABC, ACB, BCA, BAC, CAB, CBA). So to get the total number of group we different by number of repetition, thus giving $\frac{5!}{3!}$ or $\frac{5.4.3}{3.2.1}$</p>
-<p>In general, as $n(n-1)...(n-r+1)$ represents the number of different ways that a group of $r$ items could be selected from $n$ items when the order of selection is relevant, and each group of $r$ items will be counted $r!$ times in the count. So the final formula will be.</p>
+P(\Omega) = 1
+$$<h3 id="Additivity">Additivity<a class="anchor-link" href="#Additivity">¶</a></h3><p>Additivity axioms states that the probability of two event occurring together is sum of there individual probability.</p>
+<p>Let $A$ and $B$ be two events,</p>
 $$
-\frac{n(n-1)...(n-r+1)}{r!} = \frac{n!}{(n-r)!r!}
-$$<p>Combinations are generally denoted as $\binom{n}{r}$ and read as "n choose r"</p>
-<h2 id="Multinomial-Coefficients">Multinomial Coefficients<a class="anchor-link" href="#Multinomial-Coefficients">¶</a></h2><p>Suppose a set of $n$ distinct items is to be divided into $r$ distinct groups of respective sizes $n_1, n_2, ...,n_r$, where $\sum_{i=1}^{r} n_i = n$. Then the number of possible group can be calculated as follows.</p>
-<p>We note that there are $\binom{n}{n_1}$ possible choices for first group, $\binom{n-n_1}{n_2}$ possible choices for second group, $\binom{n-n_1-n_2}{n_3}$ for third group and so on. Thus by basic counting principle we can calculate total group count.</p>
-$$
-\begin{align}
-\binom{n}{n_1} \binom{n-n_1}{n_2} ... \binom{n-n_1-n_2 - ... n_{r-1}}{n_r} &amp;=  \\
-&amp;= \frac{n!}{(n-n_1)!n_1!} \frac{(n - n_1)!}{(n-n_1 -n_2)!n_2!} ... \frac{(n - n_1 - ... - n_{r-1})!}{0!n_r!} \\
-&amp;= \frac{n!}{n_1!n_2!...n_r!}
-\end{align}
-$$<p>Thus,</p>
-<div class="alert alert-block alert-success">
-If $n_1+n_2+ .... +n_r = n$, we define $\binom{n}{n_1, n_2, ..., n_r}$ by <br/><br/>
-$$
-\binom{n}{n_1, n_2, ..., n_r} = \frac{n!}{n_1! * n_2! ... n_r!}
-$$
-<br/>
-Thus $\binom{n}{n_1, n_2, ..., n_r}$ represents the number of possible divisions of $n$ distinct objects into $r$ distinct groups of respective sizes $n_1, n_2,..., n_r$
-</div><h1 id="Probability-Axioms">Probability Axioms<a class="anchor-link" href="#Probability-Axioms">¶</a></h1><h2 id="Sample-Space">Sample Space<a class="anchor-link" href="#Sample-Space">¶</a></h2><p>A probabilistic model is a mathematical description of an uncertain situation. Every probabilistic model must have two main ingredients.</p>
-<p>1) <strong>Sample Space</strong>: Which is the set of all possible outcomes of an experiment.</p>
-<p>2) The <strong>Probability law</strong>, which assigns the set $A$ of possible outcomes, a non-negative number $P(A)$ (called the probability of A) that encodes our knowledge or belief about the collective <em>likelihood</em> of the elements of $A$.</p>
-<p>Every probabilities model involves an underlying process, called the experiment, that will produce exactly one and only one element of several possible outcome. The set of all possible outcome is called the sample space of the experiment. For eg:</p>
-<p>1) Sample space for two coin toss (Discrete)</p>
-<p>$S = \Omega = \{HH, TT, HT, TH\}$</p>
-<p>2) Sample space of dart landing in a particular area as show below. (Continuous)</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
-
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-
-
-<span class="c1"># Get subplot</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plot1</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># Plot Square</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="n">Y</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">plot1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span><span class="p">,</span> <span class="n">X</span>
-<span class="n">plot1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
-
-<span class="c1"># Set figure size</span>
-<span class="n">plot1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plot1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-
-<span class="c1"># Show grid</span>
-<span class="n">plot1</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plot1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
-<span class="n">plot1</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area">
-<div class="prompt"></div>
-<div class="output_png output_subarea">
-<img src="data:image/png;base64,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
-"/>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>So the sample space of dart landing any where between the shown square is.</p>
-$$
-S = \Omega = \{(x, y) \; | \; 0 \leqslant x, y \leqslant 1\}
-$$<p>The second example is interesting because we have sample space with infinite points in it. So theoretically, the probability of hitting at a point $(X)$ in the sample space with infinite precession is <strong>Zero</strong>. But since we know that dart is always land in that area the total probability is $100%$ $( P(S) = P(\Omega) =  1)$. Hence, to solve this paradox we measure probability of an <strong>Event</strong> which is collection of many individual points (subset) of sample space. So in continuous sample space we measure probability of event containing a set of points in a area $A(X)$ and in discrete sample, we still measure probability of an event but here event only contains a single element.</p>
-<h3 id="Representation">Representation<a class="anchor-link" href="#Representation">¶</a></h3><p>Sample space can be represented in two ways.</p>
-<h4 id="Listing-down-all-elements.">Listing down all elements.<a class="anchor-link" href="#Listing-down-all-elements.">¶</a></h4><p>As seen above, the sample space can be represented by listing down all the elements in it. For example, sample space of two coin toss can be represented as.</p>
-$$
-S = \Omega = \{HH, TT, HT, TH\}
-$$<h4 id="Tree-based-sequential-representation.">Tree based sequential representation.<a class="anchor-link" href="#Tree-based-sequential-representation.">¶</a></h4><p>Another way is to represent it as a tree. As shown below.</p>
-<p><img alt="Sample Space Tree Representation" src="/notes/static/img/notes/mathematics/intro-probability/sample_space_tree.png"/></p>
-<p>Here the root is the start of the experiment and branches being all possible outcome at that stage.</p>
-<h2 id="Probability-Axioms">Probability Axioms<a class="anchor-link" href="#Probability-Axioms">¶</a></h2><p>There are three main axioms in probability theory from which other axioms are derived.</p>
-<h3 id="Non-Negativity-:-$P(A)-\geqslant-0$">Non Negativity : $P(A) \geqslant 0$<a class="anchor-link" href="#Non-Negativity-:-$P(A)-\geqslant-0$">¶</a></h3><p>Fore every event $A$ its probability should be positive or Zero.</p>
-<h3 id="Normalization-:--$P(S)-=-P(\Omega)-=-1$">Normalization :  $P(S) = P(\Omega) = 1$<a class="anchor-link" href="#Normalization-:--$P(S)-=-P(\Omega)-=-1$">¶</a></h3><p>The probability of the entire sample space $(\Omega)$ is equal to $1$.</p>
-<h3 id="Additivity-:-$P(A-\cup-B)-=-P(A)-+-P(B)$">Additivity : $P(A \cup B) = P(A) + P(B)$<a class="anchor-link" href="#Additivity-:-$P(A-\cup-B)-=-P(A)-+-P(B)$">¶</a></h3><p>If $A$ and $B$ are two distinct events then the probability of their union satisfies.</p>
-$$
-P(A \cup B) = P(A) + P(B)
-$$<p>We can even prove additivity for $N$ numbers of disjoint events. Such as follows.</p>
-<p>Let $A, B$ and $C$ be disjoint events, then</p>
+\text{If} A \cap B \ne \phi \; \text{then} \; P(A \cup B) = P(A) + P(B)
+$$<h2 id="Uniform-Law">Uniform Law<a class="anchor-link" href="#Uniform-Law">¶</a></h2><h3 id="Discrete-Case">Discrete Case<a class="anchor-link" href="#Discrete-Case">¶</a></h3><p>Let $X$ and $Y$ be two event of rolling a fair die. Then we can find out probabilities as follows.</p>
+<p>The probability of $X = 1 \; \text{and} \; Y = 1$ or $X = 1 \; \text{and} \; Y = 2$ is ,</p>
+<p>Le $A$ be the event where $X=1 \; \text{and} \; Y=1$ and $B$ be the event where $X=1 \; \text{and} \; Y=2$, then</p>
 $$
 \begin{align}
-P(A \cup B \cup C) &amp;= P(A \cup B) + P(C) \tag{using additivity} \\
-P(A \cup B \cup C) &amp;= P(A) + P(B) + P(C) \tag{using additivity on first term}
+P(A \cup B) &amp;= P(A) + P(B) \tag{Additivity} \\
+&amp;= \frac{1}{36} + \frac{1}{36} \tag{Each outcome is equally likely} \\
+&amp;= \frac{2}{36} \\
+&amp;= \frac{1}{18} \\
 \end{align}
-$$<div class="alert alert-block alert-success">
-So more generally, if the sample space has an infinite numbers of elements and $A_1, A_2, A_3, ...$ is sequence of all disjoint events then <br/><br/>
+$$<p>The probability of $X = 1 \; \text{and} \; Y = 1$ or $X = 1 \; \text{and} \; Y = 2$ is $\frac{1}{18}$.</p>
+<p>Another way of looking at the problem is listing down all the possible outcomes (Sample Space) and then counting the number of outcome we are interested in.</p>
+<p>So our sample space would be,</p>
 $$
-P(A_1 \cup A_2 \cup A_3 \cup ...) = P(A_1) + P(A_2) + P(A_3) + ...
+S = \Omega = \{ (1,1), (1,2), (1,3), ....., (6,6) \}
+$$<p>In that we are interested in two outcomes, one is $(1, 1)$ and $(1,2)$. So the probability will be number of interested event upon the total number of possible events which is $\frac{2}{36}$ or $\frac{1}{18}$. This is called the <strong>Discrete uniform law</strong>.</p>
+<p>It states that, If all outcomes are equally likely and let $A$ be some event. Then</p>
 $$
-</div><h2 id="Discrete-uniform-law.">Discrete uniform law.<a class="anchor-link" href="#Discrete-uniform-law.">¶</a></h2><p>Lets take an example. For an experiment of three coin toss, what is the probability of exactly 2 heads occurring.</p>
-<p>Here our sample space will be.</p>
+P(A) = \frac{\text{Number of element of A}}{\text{total number of element in sample space}}
+$$<h3 id="Continuous-Case">Continuous Case<a class="anchor-link" href="#Continuous-Case">¶</a></h3><p>For the case of continuous sample space the uniform law is simply the area under the event.</p>
+<p>For example.</p>
+<p><img alt="Continuous Sample Space Example" src="/notesstatic/img/notes/mathematics/intro-probability/continous_sample_space_example.png"/></p>
+<p>To calculate the probability of shaded reason where $X \leqslant \frac{1}{2}$ and $Y \leqslant \frac{1}{2}$. We calculate the area of the shaded reason, generally using integrals. But here since it forms a simple triangle we can use the area of triangle formula to calculate the area. So the probability of the event is,</p>
 $$
-S = \Omega = \{ HHH, HHT, HTH, HTT, THH, THT, TTH, TTT \}
-$$<p>And let $A$ be the event of exactly $2$ heads.</p>
+P(A) = \frac{1}{2} * \frac{1}{2} * \frac{1}{2} = \frac{1}{8}
+$$<h2 id="Countable-Additivity-Axiom">Countable Additivity Axiom<a class="anchor-link" href="#Countable-Additivity-Axiom">¶</a></h2><p>We can extend the additivity axiom to countable infinite set. As follows,</p>
+<p>Suppose we have countable infinite sample space $S$ and let $A_1, A_2, A_3, ....$ are disjoint events, then.</p>
 $$
-A = \{ HHT, HTH, THH \}
-$$<p>So,</p>
+P(A_1 \cup A_2 \cup A_3 \cup ... ) = P(A_1) + P(A_2) + P(A_3) + ...
+$$<p>For example.</p>
+<p>Let our experiment be flipping coin until we get a head. So our sample space becomes the number of flips (Countable Infinity).</p>
+$$
+S = \Omega = \{1, 2, 3, ... \}
+$$<p>Now the probability if each event is a simple geometric series.</p>
+$$
+P(1) = \frac{1}{2}, P(2) = \frac{1}{4}, P(3) = \frac{1}{8}, ...
+$$<p>Now lets say we want to find out probability of event where number of tosses are even. Thus</p>
 $$
 \begin{align}
-P(A) &amp;= P(\{ HHT, HTH, THH \}) \\
-&amp;= P(\{HHT\}) + P(\{ HTH \}) + P(\{THH\}) \tag{using additivity} \\
-&amp;= \frac{1}{8} + \frac{1}{8} + \frac{1}{8} \\
-P(A) &amp;= \frac{3}{8}
+P({2, 4, ...}) &amp;= P(2) + P(4) + ... \tag{Countable Additivity Axiom} \\
+&amp;= \frac{1}{2^2} + \frac{1}{2^4} + ... \\
+&amp;= \frac{1}{3} \tag{Sum of geometric progression}
 \end{align}
-$$<p>Here since every outcome had equal probability or <em>likelihood</em> we could add their individual probability.</p>
-<p>We can generalize this as discrete uniform law as follows, if a sample space consists of $n$ possible outcomes which are equally likely (ie. all single element have the same probability), then the probability of any event $A$ is given by</p>
-$$
-P(A) = \frac{\text{number of elements of A}}{n}
-$$<h2 id="Properties-of-Probability-laws">Properties of Probability laws<a class="anchor-link" href="#Properties-of-Probability-laws">¶</a></h2><p>Following relations can be derived using the axioms.</p>
-<ol>
-<li>If $A \subset B$, then $P(A) \leqslant P(B)$.</li>
-<li>$P(A \cup B) = P(A) + P(B) - P(A \cap B)$</li>
-<li>$P(A \cup B \cup C) = P(A) + P(A^c \cap B) + P(A^c \cap B^c \cap C^c)$</li>
-<li>De Morgan law
-$$
-\left ( \bigcup\limits_{i=1}^{n} A_{i}^{c} \right )^c = \bigcap\limits_{i=1}^{n} \left ( A_{i}^{c} \right )^c
-$$
-and vice versa.</li>
-</ol>
-<h1 id="Conditional-Probability">Conditional Probability<a class="anchor-link" href="#Conditional-Probability">¶</a></h1><p>Conditional probability provides us with a way to reason about the outcome of an experiment based on <strong>partial information</strong>.</p>
-<p>For example, if in an experiment of two successive rolls of die, we are told that sum of the two rolls is $9$. How likely it is that the first roll was a $6$?</p>
-<p>In more precise terms, given an experiment, a corresponding sample space and a probability law, suppose that we know that the outcome is within some given event B. We wish to quantify the likelihood that the outcome also belongs to some other given event $A$. We thus seek to construct a new probability law that takes into account the available knowledge. A probability law that for any event $A$ specifies the conditional probability of $A$ given $B$ is denoted by $P(A|B)$.</p>
-<p><img alt="Conditional Probability Example" src="/notes/static/img/notes/mathematics/intro-probability/conditional_probability.png"/></p>
-<p>In such situations we are given that event $B$ has occurred. So now event $B$ becomes are new sample space and thus $P(A|B)$ can be calculated by,</p>
-$$
-P(A|B) = \frac{P(A \cap B)}{P(B)}
-$$<p><strong>NOTE:</strong> $P(A|B)$ is undefined when $P(B) = 0$.</p>
-<h2 id="Conditional-Probability-Tools">Conditional Probability Tools<a class="anchor-link" href="#Conditional-Probability-Tools">¶</a></h2><h3 id="Multiplication-Rule">Multiplication Rule<a class="anchor-link" href="#Multiplication-Rule">¶</a></h3><p>Let's suppose we have three events $A, B$ and $C$ in sequence, then the we can draw a tree representation something like this.</p>
-<p><img alt="Conditional Multiplication Tree" src="/notes/static/img/notes/mathematics/intro-probability/conditional_multiplication_rule.png"/></p>
-<p>Then the multiplication rule states that.</p>
-$$
-P(A \cap B \cap C) = P(A) * P(B | A) * P(C | A \cap B)
-$$<p>we get this formula by following the leaf through the root and multiplying every probability along the way.</p>
-<p>More generally we can write</p>
-$$
-P \left ( \bigcap\limits_{i=1}^{n} A_i \right ) = P(A_1)*P(A_2 | A_1)*P(A_3 | A_1 \cap A_2) ...
-$$<p>or,</p>
-$$
-\begin{align}
-P(A | B) &amp;= \frac{P(A \cap B)}{P(B)} \\
-P(A | B) * P(B) &amp;= P(A \cap B)
-\end{align}
-$$<p>Thus giving us the multiplication rule. $P(A \cap B) = P(A | B) * P(B)$</p>
-<h3 id="Total-Probability-Theorem">Total Probability Theorem<a class="anchor-link" href="#Total-Probability-Theorem">¶</a></h3><p><img alt="Conditional Total Probability" src="/notes/static/img/notes/mathematics/intro-probability/conditional_total_probability.png"/></p>
-<p>Here the event $B$ is divided into partition by subsets of sample space $A_1, A_2$ and $A_3$. So the total probability of $B$ can be computed by.</p>
-$$
-P(B) = P(A_1) * P(B|A_1) + P(A_2) * P(B|A_2) + P(A_3) * P(B | A_3)
-$$<p>where $P(B|A_1)$ is same as $P(P_1)$, $P(B|A_2)$ is same as $P(P_2)$ and $P(B|A_3)$ is same as $P(P_3)$.</p>
-<p>The probability of event $B$ is calculated by taking weighted average of each individual piece of $B$ depending upon the probability of each partition.</p>
-<p>We can generalize this into total probability theorem as follows.</p>
-$$
-\begin{align}
-P(B) &amp;= P(A_1 \cap B) + P(A_2 \cap B)+ ... + P(A_n \cap B) \\
-&amp;= P(A_1) * P(B|A_1) + P(A_2) * P(B|A_2) + ... + P(A_n) * P(B | A_n)
-\end{align}
-$$<h3 id="Bayes-Rule">Bayes Rule<a class="anchor-link" href="#Bayes-Rule">¶</a></h3><p>In the same diagram as that of total probability theorem, if we know the $P(B)$ and we know $P(B|A_i)$ and we need to compute $P(A_i|B)$ then,</p>
-$$
-\begin{align}
-P(A_i | B) &amp;= \frac{P(A_i \cap B)}{P(B)} \tag{By definition} \\
-&amp;= \frac{P(A_i) P(B | A_i)}{P(B)} \tag{Multiplication rule} \\
-P(A_i | B) &amp;= \frac{P(A_i) P(B | A_i)}{\sum_j P(A_j)P(B | A_j)} \tag{Total Probability Theorem}
-\end{align}
-$$<p>Thus Baye's rule states that,</p>
-<div class="alert alert-block alert-success">
-Let $A_1, A_2, ..., A_n$ be disjoint events which partition event $B$, then <br/><br/>
-$$
-P(A_i | B) = \frac{P(A_i) P(B | A_i)}{P(A_1) P(B|A_1) + ... + P(A_n) P(B|A_n)}
-$$
-</div><h2 id="Independence">Independence<a class="anchor-link" href="#Independence">¶</a></h2><p>Two events are said to be independent when occurrence of one event does not affects or tell anything more about occurrence of other events. More conceptually we can say.</p>
-$$ 
-P(A | B) = P(A) 
-$$<p>Which means knowing event $B$ has occurred doesn't change our believes of event $A$, such events are called <strong>independent events</strong>.</p>
-<p>By above definition following equality  holds,</p>
-$$
-\begin{align}
-P(A | B) &amp;= \frac{P(A \cap B)}{P(B)} \\
-P(A) &amp;= \frac{P(A \cap B)}{P(B)} \\
-\text{therefore,} \\
-P(A \cap B) &amp;= P(A)*P(B)
-\end{align}
-$$<p>Or more generally,</p>
-$$
-P(A_1...A_n) = \sum\limits_{i=1}^{n} P(A_i)
-$$<p>We adopt this relation to test independence because it can be used even when $P(B)=0$. And, the symmetry of this relation also implies that independence is a symmetric property, if $A$ is independent to $B$, then $B$ is also independent to $A$.</p>
-<p><strong>Note:</strong></p>
-<p>Independence is not similar to disjoint of a set. For example.</p>
-<p><img alt="Disjoint Sets" src="/notes/static/img/notes/mathematics/intro-probability/disjoint_sets.png"/></p>
-<p>Here two events $A$ and $B$ are not independent because if somehow we know that event $A$ has occurred $(P(A) = 1)$ then event $B$ can't occur $P(B) = 0$. Thus both are dependent on each other, or more precisely, the probability or likelihood is dependent on each other</p>
-<h3 id="Conditional-Independence">Conditional Independence<a class="anchor-link" href="#Conditional-Independence">¶</a></h3><p>We can modify the definition of independence to incorporate conditioning as follows.</p>
-$$
-P(A \cap B | C) = P(A|C) * P(B|C)
-$$<p>where $A$ and $B$ are independent events, conditioned on $C$.</p>
-<p><strong>Note:</strong> Independence does not imply conditional independence, both are different.</p>
-<h1 id="Discrete-Random-Variables">Discrete Random Variables<a class="anchor-link" href="#Discrete-Random-Variables">¶</a></h1><p>In many probabilities models the outcome of every experiment is some numerical value. Even if the outcome is not numeric we could assign some numeric value to the outcome. So given an experiment when we assign a numerical value to the outcome of the experiment, the numerical value is called the <strong>value of random variable</strong> and the function which takes outcome of an experiment and produces a numerical value if called the <strong>random variable</strong>. Diagram below will illustrate the concept of random variable.</p>
-<p><img alt="Random Variable Concept" src="/notes/static/img/notes/mathematics/intro-probability/random_variable_concept.png"/></p>
-<p>For example, suppose that our experiment consists of tossing $3$ fair coin. If we let $Y$ denote the number of heads that appear, the $Y$ is a random variable taking on one of the values $0, 1, 2$ and $3$ with respective probabilities.</p>
-$$
-\begin{align}
-P\{Y = 0\} &amp;= P\{(TTT)\} = \frac{1}{8} \\
-P\{Y = 1\} &amp;= P\{(TTH, THT, HTT)\} = \frac{3}{8} \\
-P\{Y = 2\} &amp;= P\{(THH, HTH, HHT)\} = \frac{3}{8} \\
-P\{Y = 3\} &amp;= P\{(HHH)\} = \frac{1}{8} \\
-\end{align}
-$$<p>Since $Y$ must take on one of the value $0$ through $3$, we must have</p>
-$$
-1 = P \left ( \bigcup\limits_{i=0}^{3} \{ Y = i \} \right ) = \sum\limits_{i=0}^{3} P\{ Y = i \}
-$$<p>which, of course, is in accord with the preceding probabilities.</p>
-<p>Random variables are also of two types discrete random variable which return a discrete value for each outcome and continuous random variable which is a continuous function.</p>
-<h2 id="Probability-Mass-Function">Probability Mass Function<a class="anchor-link" href="#Probability-Mass-Function">¶</a></h2><p>For a discrete random variable $X$ the probability mass function $(PMF)$ of $X$ is denoted by $P_X$. For example if $x$ is any possible value of $X$, then the $PMF$ is the probability of the event $\{ X = x\}$, consisting of all the outcome that give rise to a value of $X$ equal to $x$.</p>
-<p>For example suppose we have following sample space $\Omega$ and some random variable $X$.</p>
-<p><img alt="Discrete PMF" src="/notes/static/img/notes/mathematics/intro-probability/discrete_pmf.png"/></p>
-<p>Here the $P_X(1)=\frac{5}{9}$, because in original sample space we have event $A$ which produce $X=1$ and $P(A)=\frac{5}{9}$. Thus $PMF$ of $X$ or $P_{X}=\frac{5}{9}$. So we can define.</p>
-$$
-P_X(x)=P(\{X = x\})
-$$<p>So, to calculate the $PMF$ of a random variable $X$ we do the following.</p>
-<p>For each possible value $x$ of $X$.</p>
-<ol>
-<li>Collect all the possible outcomes that give rise to event $\{ X = x\}$, from original sample space.</li>
-<li>Add their probability to obtain $P_X(x)$</li>
-</ol>
-<h3 id="Properties-of-$PMF$">Properties of $PMF$<a class="anchor-link" href="#Properties-of-$PMF$">¶</a></h3><ol>
-<li>Since random variable $X$ iterates over every possible value of $x$, the total sum of $PMF$ of $X$ will always be $1$.</li>
-<li>$PMF$ of $X$ will always be.
-$$
-O \leqslant P_X(x) \leqslant 1
-$$
-because of non-negative and normalization axiom of probability.</li>
-<li>Function of a random variable is a also a random variable.
-$$
-Y = aX + b
-$$
-Since value of $Y$ indirectly depends on outcome of experiment (ie. value of $X$). $Y$ is also a random variable.</li>
-</ol>
-<h2 id="Expectation-/-Expected-Value-(Mean)">Expectation / Expected Value (Mean)<a class="anchor-link" href="#Expectation-/-Expected-Value-(Mean)">¶</a></h2><p>The $PMF$ of a random variable $X$ provides us with several numbers, the probability of all the possible values of $X$. Using this we can compute the average (weighted average) or the <strong>expected value</strong> of $X$ when we do large number of experiment. This weighted average of the values of $X$ is called the expectation of $X$ and is calculated by,</p>
-$$
-E[X] = \sum x.p_X(x)
-$$<p>It is the average of values of "$x$" weighted with its probability.</p>
-<p>For example, consider a game where you take the minimum of some amount on every turn. So we calculate the expected value of random variable as follow.</p>
-<p>In this case our random variable is a function which return the minimum amount for a turn. So we can assume a $PMF$ as follows.</p>
-$$
-P_X(k) = \begin{cases} 
-\frac{1}{5} &amp; \text{Probability of wining 2€} \\
-\frac{3}{2} &amp; \text{Probability of wining 3€} \\
-\frac{1}{5} &amp; \text{Probability of wining 4€}
-\end{cases}
-$$<p>Then,</p>
-$$
-E[X] = 2 * \frac{1}{5} + 3 * \frac{3}{2} + 4 * \frac{1}{5} = 3.7\text{€}
-$$<p>Thus $3.7$€ is the average income if played for a long time.</p>
-<h3 id="Property-of-Expectation.">Property of Expectation.<a class="anchor-link" href="#Property-of-Expectation.">¶</a></h3><p>Let $X$ be a random variable and let,</p>
-$$
-Y = aX + b
-$$<p>then,</p>
-$$
-E[Y] = aE[X] + b
-$$<p>Because adding a constant "$b$" to every value will only add "$b$" to the average. And similarly multiplying "$a$" constant to every value will only multiple "$a$" to the average.</p>
-<h3 id="Expectation-of-a-function-of-random-variable.">Expectation of a function of random variable.<a class="anchor-link" href="#Expectation-of-a-function-of-random-variable.">¶</a></h3><p>Let $X$ be a random variable and $Y$ be a function of the random variable $Y = g(X)$, then</p>
-$$
-E[Y] = \sum_{x} g(X) P_X(x)
-$$<p>We can prove this preposition as follows.</p>
-$$
-\begin{align}
-\sum_i g(x_i)p(x_i) &amp;= \sum_j \sum_{i:g(x_i)=y_j} g(x_i)p(x_i) \\
-&amp;= \sum_j \sum_{i:g(x_i)=y_j} y_jp(x_i) \tag{Y = g(x)} \\
-&amp;= \sum_j y_j \sum_{i:g(x_i)=y_j} p(x_i) \\
-&amp;= \sum_j y_j P\{g(X) = y_j\} \\
-&amp;= E[g(X)]
-\end{align}
-$$<p>Another way to look at it as follow,</p>
-<p><img alt="Expected value of function" src="/notes/static/img/notes/mathematics/intro-probability/function_expected_value.png"/></p>
-<p>Which means when calculating $E[Y]$ we can treat $E[X]$ as new new sample space.</p>
-<h2 id="Variance">Variance<a class="anchor-link" href="#Variance">¶</a></h2><p>Another property of $PMF$ is variance, or how far the values are spread from the mean of the $PMF$. We could find the average spread of data from mean by following formula.</p>
-$$
-E[X - E[X]]
-$$<p>where $E[X]$ is our mean and $X$ are all values of random variable and we take average of all of them.</p>
-<p>But our difference could be both positive or negative depending on weather it is to right or left of our mean. And adding one positive and one negative will tamper our average value. To solve this we take square of the distance. We also cloud have taken absolute value of the difference but squaring also has one more advantage, it gives more weight to values farther away from mean. So new formula becomes,</p>
-$$
-E[(X - E[X])^2]
-$$<p>Thus formula for variance of $X$ is denoted by $Var(X)$ is given by.</p>
-$$
-\begin{align}
-Var(X) &amp;= E[(X - E[X])^2] \\
-&amp;\text{OR} \\
-Var(X) &amp;= E[X^2] - E[X]^2
-\end{align}
-$$<h3 id="Properties-of-Variance.">Properties of Variance.<a class="anchor-link" href="#Properties-of-Variance.">¶</a></h3><ol>
-<li>$Var(X) \geqslant 0$, as square areas are positive.</li>
-<li>$Var(aX + b) = a^2 Var(X)$, because adding "$b$" only sifts values to either side but doesn't changes spread. and multiplication increases the spread.</li>
-</ol>
-<h2 id="Standard-Deviation">Standard Deviation<a class="anchor-link" href="#Standard-Deviation">¶</a></h2><p>Another measure of dispersion is standard deviation of $X$,, which is defined as square root of the variance denoted by</p>
-$$
-\sigma X = \sqrt{Var(X)}
-$$<p></p>
-<p>The standard deviation is easier to interpret because it has same unit as $X$. For example if $X$ is in meters, variance will be in meters<sup>2</sup> but standard deviation will be in meters.</p>
-<h2 id="Example-of-Random-variables.">Example of Random variables.<a class="anchor-link" href="#Example-of-Random-variables.">¶</a></h2><h3 id="Bernoulli-Random-Variable">Bernoulli Random Variable<a class="anchor-link" href="#Bernoulli-Random-Variable">¶</a></h3><p>The Bernoulli random variable takes two values $1$ or $0$. For example.</p>
-$$
-X = \begin{cases}
-1 &amp; \text{if x is head} \\
-2 &amp; \text{if x is tail}
-\end{cases}
-$$<p>It's $PMF$ is</p>
-$$
-P_X(x) = \begin{cases}
-P &amp; \text{if x = 1} \\
-1-P &amp; \text{if x = 0}
-\end{cases}
-$$<p>where $P =$ probability of getting heads.</p>
-<h3 id="Binomial-Random-Variable">Binomial Random Variable<a class="anchor-link" href="#Binomial-Random-Variable">¶</a></h3><p>A coin is tossed $n$ times. At each toss, the coin has a probability of $P$ of getting heads. Then $X$ be the number of heads in the $n$-toss. Then binomial random variable is given as.</p>
-$$
-P_X(k) = P(X = k) = \binom{n}{k} p^k(1 - p)^{n - k}  \; \;\; k=0,1,2,...,n
-$$<h4 id="Properties-of-Binomial-Random-Variable.">Properties of Binomial Random Variable.<a class="anchor-link" href="#Properties-of-Binomial-Random-Variable.">¶</a></h4><p>Suppose we have a binomial random variable with parameters $n$ and $p$. We can calculate the expected value as such.</p>
-$$
-\begin{align}
-E[X^k] = \sum\limits_{i=0}{n} i^k \binom{n}{i} p^i(1 - p)^{n - i} \\
-&amp;= \sum\limits_{i=1}{n} i^k \binom{n}{i} p^i(1 - p)^{n - i}
-\end{align}
-$$<p>Using the identity</p>
-$$
-i\binom{n}{i} = n \binom{n-1}{i-1}
-$$<p>gives</p>
-$$
-\begin{align}
-E[X^k] &amp;= np \sum\limits_{i=1}{n} i^{k-1} \binom{n-1}{i-1} p^{i-1}(1 -p)^{n-i} \\
-&amp;= np \sum\limits_{j=0}{n-1}(j + 1)^{k -1}\binom{n - 1}{j} p^j(1-p)^{n-1-j} \tag{by letting j=i-1} \\
-&amp;= npE[(Y + 1)^{k - 1}]
-\end{align}
-$$<p>where $Y$ is a binomial random variable with parameters $n-1, p$. Setting $k = 1$ in the preceding equation yields.</p>
-$$
-E[X] = np
-$$<p>That is, the expected number of successes that occur in $n$ independent trials when each is a success with probability $p$ is equal to $np$. Setting $k=2$ on the preceding equation and using the preceding formula for the expected value of a binomial random variable yields</p>
-$$
-\begin{align}
-E[X^2] &amp;= npE[Y + 1] \\
-&amp;= np[(n - 1)p + 1]
-\end{align}
-$$<p>Since $E[X]=np$ we obtain</p>
-$$
-\begin{align}
-Var(X) &amp;= E[X^2] - (E[X])^2 \\
-&amp;= np[(n - 1)p + 1] - (np)^2 \\
-&amp;= np(1 -p)
-\end{align}
-$$<p>Summing up, we have shown the following:</p>
-<p>If $X$ is a binomial random variable with parameters $n$ and $p$, then</p>
-$$
-\begin{align}
-E[X] &amp;= np \\
-Var(X) &amp;= np(1 - p)
-\end{align}
-$$<h3 id="Poisson-Random-Variable">Poisson Random Variable<a class="anchor-link" href="#Poisson-Random-Variable">¶</a></h3><p>A random variable $X$ takes on one of the following values $0, 1, 2$ is said to be a Poisson random variable with parameter $\lambda$ if, for some $\lambda &gt; 0$,</p>
-$$
-p(i) = P\{ X = i \} = e^{-\lambda}\frac{\lambda^{i}}{i!} \;\;\;\; i = 0,1,2,...
-$$<h1 id="Continuous-Random-Variable">Continuous Random Variable<a class="anchor-link" href="#Continuous-Random-Variable">¶</a></h1><p>Some random variables can be a continuous function of sample space. For example, a random variable $X$ which chooses a value between $0 \leqslant X \leqslant 1$ with infinite precision. To model such continuous random variable we need a model and some notations. So we can define a random variable $X$ is called as continuous if there is a non-negative function $f_X$, called the probability density function of $X$, such that.</p>
-$$
-P(X \subset B) = \int_{B} f_X(x) \; dx
-$$<p>or, the probability that $X$ falls in a particular range is given by.</p>
-$$
-P(a \leqslant X \leqslant b) = \int_{a}^{b} f_X(x) \; dx
-$$<h2 id="Probability-Density-Function">Probability Density Function<a class="anchor-link" href="#Probability-Density-Function">¶</a></h2><p>$PDF$ (Probability density function) can be thought as same as $PMF$. But instead of adding all discrete value of $X$, we deal with continuous value of $X$.</p>
-<p><img alt="PDF Continuous Random Variable" src="/notes/static/img/notes/mathematics/intro-probability/pmf_continuous_variable.png"/></p>
-<p>We can interpret the $PDF$ same as $PMF$ by considering an interval $x$ and $x + \Delta$ where $\Delta$ is a very small number.</p>
-<p><img alt="PDF Continuous Variable" src="/notes/static/img/notes/mathematics/intro-probability/continous_pmf_function.png"/></p>
-<p>Here, we have a $PDF$ $f_X(x)$ and the probability of $X$ in the interval $x$ and $x + \Delta$ can be calculated as</p>
-$$
-P( x \leqslant X  \leqslant x + \Delta) = \int_{x}^{x + \Delta} f_X(t) dt \approx f_X(x) * \Delta
-$$<p>As $\Delta$ is very small number it become a linear function at the edge of the curve and the area between the interval can be thought as a rectangle with length $f_X(x)$ and width $\Delta$. Thus giving above equality, which is same as $PMF$ of discrete variable $X$, if $X$ was not continuous.</p>
-<p><strong>Note:</strong> The graph $f_X(x)$ doesn't gives probability of $X$. It is the area under the curve which gives the likelihood of $X$ not the value of function $f_X(x)$.</p>
-<p><img alt="PDF Comparison" src="/notes/static/img/notes/mathematics/intro-probability/pdf_comparision.png"/></p>
-<p>Here, $P(a_1 \leqslant X \leqslant a_2)$ is more likely than $P(b_1 \leqslant X \leqslant b_2)$ because of the area under it and not the value of function.</p>
-<h3 id="Properties-of-PDF">Properties of PDF<a class="anchor-link" href="#Properties-of-PDF">¶</a></h3><ol>
-<li>$f_X(x) \geqslant 0$ for all $x$ (Positive Property)</li>
-<li>$\int_{-\infty}^{\infty} f_X(x) dx = 1$ (Normalization Property)</li>
-<li>For any subset $B$ of the real line (number line)
-$$
-\begin{align}
-P(X \subset B) &amp;= \int_{B} f_X(x) \\
-&amp;\text{OR} \\
-P(a \leqslant X \leqslant b) &amp;= \int_{a}^{b} f_X(x) dx
-\end{align}
-$$</li>
-<li>$\int_{a}^{a} f_X(x) dx = 0$ Probability with infinite precision is Zero.</li>
-</ol>
-<h2 id="Expectation">Expectation<a class="anchor-link" href="#Expectation">¶</a></h2><p>Expectation of $PDF$ is similar to expectation of $PMF$ as both are conceptually same.</p>
-<p>Thus, if $X$ is a continuous Random variable then</p>
-$$
-E[X] = \int_{-\infty}^{\infty} x \; f_X(x) dx
-$$<p>and let $Y=g(X)$, then</p>
-$$
-E[g(X)] = \int_{\infty}^{\infty} g(x) \; f_X(x) dx.
-$$<h2 id="Variance">Variance<a class="anchor-link" href="#Variance">¶</a></h2><p>Variance can be defined as follows.</p>
-$$
-\begin{align}
-Var(X) &amp;= E[(X - E[X])^2] \\
-&amp;= \int_{-\infty}^{\infty} (x - E(X))^2 f_X(x) dx
-\end{align}
-$$<p>OR</p>
-$$
-Var(X) = E[X^2] - E[X]^2
-$$<p>Similarly,</p>
-$$
-E[Y] = aE[X] + b \text{and} Var(Y)=a^2 Var(X)
-$$<p>For example, If in a game you have a chance of winning anything between $a$ and $b$ with continuous probability then following holds,</p>
-<p>The $PDF$ will be,</p>
-$$
-f_X(x) = \begin{cases}
-\frac{1}{b-a} &amp; \text{if } a \leqslant X \leqslant b \text{...uniform distribution} \\
-0 &amp; \text{otherwise}
-\end{cases}
-$$$$
-\begin{align}
-E[X] &amp;= \int_{a}^{b} x \frac{1}{b-a} dx \\
-&amp;= \frac{1}{b-a} \left[ \frac{x^2}{2} \right ]_{a}^{b} \\
-&amp;= \frac{1}{b-a} \frac{b^2 - a^2}{2} \\
-E[X] &amp;= \frac{a+b}{2}
-\end{align}
-$$<p></p>
-<p>Which make perfect sense as mean is average.</p>
-$$
-\begin{align}
-E[X^2] &amp;= \int_{a}^{b} \frac{x^2}{b-a} dx \\
-&amp;= \frac{1}{b-a} \int_{a}^{b} x^2 dx \\
-&amp;= \frac{1}{b-a} \left [ \frac{x^3}{3} \right ]_{a}^{b}
-&amp;= \frac{1}{b-a} * \frac{b^3 - a^3}{3} \\
-&amp;= \frac{b^3 - a^3}{3(b-a)}
-&amp;= \frac{a^2 + ab + b^2}{3}
-\end{align}
-$$<p>Therefore,</p>
-$$
-\begin{align}
-Var(X) &amp;= E[X^2] - E[X]^2 \\
-&amp;= \frac{a^2 + ab + b^2}{3} - \frac{(a+b)^2}{4} \\
-Var(X) &amp;= \frac{(b-a)^2}{12}
-\end{align}
-$$<h2 id="Example-of-Random-Variable">Example of Random Variable<a class="anchor-link" href="#Example-of-Random-Variable">¶</a></h2><h3 id="Uniform-Random-Variable">Uniform Random Variable<a class="anchor-link" href="#Uniform-Random-Variable">¶</a></h3><p>A random variable is said to be uniformly distributed over the interval $(a, b)$ if its probability density function is given by,</p>
-$$
-f(x) = \begin{cases}
-\frac{1}{b-a} &amp; a &lt; x &lt; b \\
-0 &amp; \text{otherwise}
-\end{cases}
-$$<p>And from the example above we can see.</p>
-$$
-\begin{align}
-E[X] &amp;= \frac{b+a}{2} \\
-&amp;\text{AND}
-Var(X) &amp;= \frac{(b-a)^2}{12}
-\end{align}
-$$<h3 id="Normal-Random-variable">Normal Random variable<a class="anchor-link" href="#Normal-Random-variable">¶</a></h3><p>A normal random variable is a one which produces a normal curve of a given sample space. The $PDF$ is given by.</p>
-$$
-F_X(x) = \frac{1}{\sqrt{2\pi}\delta} e^{-\frac{(x - \mu)^2}{2 \delta^2}}
-$$<p>Where $\mu$ and $\delta$ are scaling parameter.</p>
-<p>We can calculate mean and variance using the formula.</p>
-$$
-E[X] = \mu \;\; \text{AND} \;\; Var(X) = \delta^2
-$$
+$$<p>Thus there is $\frac{1}{3}$ or $33%$ probability there heads will turn up in even number of chances</p>
 </div>
 </div>
 </div>
