@@ -13387,6 +13387,89 @@ P({2, 4, ...}) &amp;= P(2) + P(4) + ... \tag{Countable Additivity Axiom} \\
 &amp;= \frac{1}{3} \tag{Sum of geometric progression}
 \end{align}
 $$<p>Thus there is $\frac{1}{3}$ or $33%$ probability there heads will turn up in even number of chances</p>
+<h1 id="Conditional-Probability">Conditional Probability<a class="anchor-link" href="#Conditional-Probability">¶</a></h1><p>Conditional probability is used to calculate the probability of two dependent events. For example consider the following sample space.</p>
+<p><img alt="Conditional Probability" src="/notes/static/img/notes/mathematics/intro-probability/conditional_probability.png"/></p>
+<p>As we can see there are two events A and B. With probabilities gives in the diagram. Finding probability of individual event is matter of adding the number for example,</p>
+$$
+\begin{align*}
+P(A) &amp;= \frac{3}{6} + \frac{2}{6} = \frac{5}{6} \\
+P(B) &amp;= \frac{2}{6} + \frac{1}{6} = \frac{3}{6}
+\end{align*}
+$$<p>But suppose we have told that event $B$ has occurred and now what is the probability of event $A$ occurring. Such probabilities where we know a certain event has happened and we want to find out the probability of another event based on our new believes we used conditional probability return as $P(A|B)$, read as <em>"Probability of event A given that B occurred"</em>.</p>
+<p>Intuitively, if we consider the above sample space. We know for sure that event $B$ has occurred so we can assume event $B$ as our new sample space and then finding out what is the probability of event $A$. As seen from the diagram, if event $B$ becomes our new sample space then $P(B) =  1$. But we must keep the ratio between the parts of event $B$ consistent. As we can say from the diagram event $B$ is divided into a ratio of $2:1$ so if $P(B) = 1$ and we keep the ratio consistent, then event $B$ must be divided into two parts of $\frac{2}{3}$ and $\frac{1}{3}$. So the probability of event $A$ occurring given that $B$ has occurred is $\frac{2}{3}$.</p>
+<p>More formally, we can define conditional probability as follows.</p>
+$$
+\begin{align*}
+P(A|B) &amp;= \frac{P(A \cup B)}{P(B)} \tag{Assuming P(B) is not zero}
+\end{align*}
+$$<p>So in our above example.</p>
+$$
+\begin{align*}
+P(A|B) &amp;= \frac{P(A \cup B)}{P(B)} \\
+&amp;= \frac{\frac{2}{6}}{\frac{3}{6}} \\
+P(A |B) &amp;= \frac{2}{3}
+\end{align*}
+$$<h2 id="Multiplication-Rule">Multiplication Rule<a class="anchor-link" href="#Multiplication-Rule">¶</a></h2><p>Now let's consider following example.</p>
+<p><img alt="Multiplication Rule Example" src="/notes/static/img/notes/mathematics/intro-probability/multiplication_rule_example.png"/></p>
+<p>Suppose we have a radar installed in our premises which decided if an airplane is flying above the ground. Now consider two event.</p>
+<p>Event $A$ is airplane is flying above.</p>
+<p>Event $B$ is something is registered on the radar.</p>
+<p>And the probability of combination of each events is given in the diagram above.</p>
+<p>Now suppose we are to find following probabilities. 1) $P(A \cap B)$: Probability of event is flying above and radar has registered something. 2) $P(B)$: Probability of something is registered on the radar both if actual plan is detected and false alarm. 3) $P(A|B)$: Probability of air plane is actually flying above the ground, given that something is registered on the radar.</p>
+<p>For first case, $P(A \cap B)$ is probability of event $A$ occurring and probability of event $B$ occurring together. We can find it using the definition of condition probability which is $P(B|A) = \frac{P(B \cap A)}{P(A)} = \frac{P(A \cap B)}{P(A)}$ because $A \cap B = B \cap A$</p>
+$$
+\begin{align*}
+P(A \cap B) &amp;= P(B|A) \; P(A) \\
+&amp;= 0.99 * 0.05 \\
+P(A \cap B) &amp;= 0.0495
+\end{align*}
+$$<p>For the second case $P(B)$ we have two events where $B$ will happen $P(B|A)$ or $P(B|A^c)$. So the total probability of $B$ is addition of two properties by additivity axiom.</p>
+$$
+\begin{align*}
+P(B) &amp;= P(B|A) + P(B|A^c) \\
+&amp;= 0.05 * 0.99 + 0.95 * 0.10 \tag{calculated as same as first case} \\ 
+P(B) &amp;= 0.1445
+\end{align*}
+$$<p>Now for the last case $P(A|B)$ is start forward.</p>
+$$
+\begin{align*}
+P(A|B) &amp;= \frac{P(A \cap B)}{P(B)} \\
+&amp;= \frac{0.0495}{0.1445} \\
+P(A|B) &amp;= 0.342
+\end{align*}
+$$<p>We can generalize this calculation as follows. Suppose we have probability model as such.</p>
+<p><img alt="Multiplication Rule Example" src="/notes/static/img/notes/mathematics/intro-probability/multiplication_rule_general.png"/></p>
+<p>Then finding probability of any leaf node event is as simple as multiplying each each probability on the way from the root to the node. For example,</p>
+$$
+P(A \cap B \cap C) = P(A) \; P(B|A) \; P(C |A \cap B) 
+$$<p>And this is called the multiplication rule, we can even formally derive this rule.</p>
+$$
+\begin{align*}
+P(A \cap B \cap C) &amp;= P(A \cap B) \; P(C| A \cap B) \tag{conditional probability definition} \\
+P(A \cap B \cap C) &amp;= P(A) \; P(B|A) \; P(C | A \cap B) \tag{conditional probability definition}
+\end{align*}
+$$<h2 id="Total-Probability-Theorem">Total Probability Theorem<a class="anchor-link" href="#Total-Probability-Theorem">¶</a></h2><p>Suppose we have following sample space with event $B$ divided into different parts of sample space, namely $A1, A2$ and $A3$. And we want to find the probability of event $B$.</p>
+<p><img alt="Total Probability Theorem" src="/notes/static/img/notes/mathematics/intro-probability/total_probability_example.png"/></p>
+<p>We can compute the probability of event B by taking condition probability of each event with respect to $B$ and then taking weighted average for each probability. So that event (for example $A1$) which is more likely to occur get more probability. Thus total probability states the following.</p>
+<p>For every partition $A_i$ we do the following, (in the above case three)</p>
+$$
+P(B) = P(A_1) \; P(B|A_1) \\
+    + P(A_2) \; P(B | A_2) \\
+    + P(A_3) \; P(B | A_3)
+$$<h2 id="Bayes-Rule">Bayes Rule<a class="anchor-link" href="#Bayes-Rule">¶</a></h2><p>Our condition probability theorem and rules were based on initial believes. But using Bayes rule we can inference about an event. For example in the same diagram above if we know that event $B$ has occurred what is the probability that event $A_1$ has occurred, or in other words what is $P(A_1 | B)$</p>
+<p>We can derive it as follows</p>
+$$
+\begin{align*}
+P(A_1 | B) &amp;= \frac{P(A_1 \cap B)}{P(B)} \tag{by definition} \\
+&amp;= \frac{P(A_1) P(A_1 | B)}{P(B)} \tag{conditional definition} \\
+&amp;= \frac{P(A_1) P(A_1 | B)}{\sum_{i=N} P(A_i) \; P(B | A_i)} \tag{total probability theorem} \\ 
+\end{align*}
+$$<p>thus we can generalize this formula for any $A_i$ as follows,</p>
+$$
+\begin{align*}
+P(A_i | B) &amp;= \frac{P(A_i) P(A_i | B)}{\sum_{j=N} P(A_j) \; P(B | A_j)} \\ 
+\end{align*}
+$$<p>thus giving us the Bayes rule, which is foundation for inference probability.</p>
 </div>
 </div>
 </div>
