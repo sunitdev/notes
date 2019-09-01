@@ -13461,7 +13461,7 @@ $$<h2 id="Bayes-Rule">Bayes Rule<a class="anchor-link" href="#Bayes-Rule">¶</a>
 $$
 \begin{align*}
 P(A_1 | B) &amp;= \frac{P(A_1 \cap B)}{P(B)} \tag{by definition} \\
-&amp;= \frac{P(A_1) P(A_1 | B)}{P(B)} \tag{conditional definition} \\
+&amp;= \frac{P(A_1) P(A_1 | B)}{P(B)} \tag{Multiplication Rule} \\
 &amp;= \frac{P(A_1) P(A_1 | B)}{\sum_{i=N} P(A_i) \; P(B | A_i)} \tag{total probability theorem} \\ 
 \end{align*}
 $$<p>thus we can generalize this formula for any $A_i$ as follows,</p>
@@ -13470,6 +13470,41 @@ $$
 P(A_i | B) &amp;= \frac{P(A_i) P(A_i | B)}{\sum_{j=N} P(A_j) \; P(B | A_j)} \\ 
 \end{align*}
 $$<p>thus giving us the Bayes rule, which is foundation for inference probability.</p>
+<h1 id="Independence">Independence<a class="anchor-link" href="#Independence">¶</a></h1><p>Two events are said to be independent if occurring of one event doesn't change our believes for the other event. Suppose there are two events $A$ and $B$ and we are told that event $B$ has occurred then it doesn't affects our initial believe about event $A$. More formally we can write.</p>
+$$
+P(A|B) = P(A)
+$$<p>thus occurring of event $B$ has no effect on event $A$. But the above definition is not used frequently because it is undefined where $P(B)=0$. So more accurate definition is.</p>
+$$
+P(A \cap B) = P(A) \; P(B) \tag{multiplication rule}
+$$<p>If the above identity holds for any events then the events are said to be independent. Following identity also work on a sequence of independent events.</p>
+$$
+P(A_1 \cap A_2 \cap A_3 \cap A_4) = P(A_1) \; P(A_2) \; P(A_3) \; P(A_4)
+$$<h2 id="Independence-vs-Disjoint-events.">Independence vs Disjoint events.<a class="anchor-link" href="#Independence-vs-Disjoint-events.">¶</a></h2><p><img alt="Independence vs Disjoint" src="/notes/static/img/notes/mathematics/intro-probability/independence_vs_disjoint.png"/></p>
+<p>Consider the above events, are these events independent?</p>
+<p>These events are disjoint but not independent because if we know that event $A$ has occurred then we are for sure that event $B$ has not occurred so both of the events are dependent on each other. Thus disjoint sets are not same as independent sets.</p>
+<h2 id="Conditional-independence.">Conditional independence.<a class="anchor-link" href="#Conditional-independence.">¶</a></h2><p>Some events may become independent upon conditioning and some independent events might not remain independent after conditioning. Conditional independence is similar to that of normal independence with conditioning.</p>
+$$
+P(A \cap B | C) = P(A|C) \; P(B|C)
+$$<p>So to verify if a set of events is still independent after conditioning we should find the probability of each event after conditioning and the verify if the independence identity stills holds.</p>
+<h2 id="Independence-vs-Pairwise-independence">Independence vs Pairwise independence<a class="anchor-link" href="#Independence-vs-Pairwise-independence">¶</a></h2><p>When more than two events are in consideration, then the event can be either all together independent of pair wise independent. For example,</p>
+<p>Let say we have an experiment of flipping a fair coin twice. And let there be three events as follows.</p>
+<p><strong>Event $A$</strong>: First toss is head.</p>
+<p><strong>Event $B$</strong>: Second toss is head.</p>
+<p><strong>Event $C$</strong>: First and second toss gives same result.</p>
+<p>Now in this case our sample space is $\{ HH, HT, TH, TT \}$. So, here event $A$ and $B$ are pair wise independent, i.e knowing event $A$ has occurred doest changes our believe of event $B$. Similarly, event $A$ and $C$ are pair wise independent and event $B$ and $C$ are pair wise independent. But if we take all the three event together then these went are not independent because if we know that event $A$ and event $B$ has occurred then we are sure that event $C$ has occurred i.e $P(C) = 1$.</p>
+<p>We can prove that mathematically as follows.</p>
+$$
+\begin{align*}
+P(C) &amp;= \frac{1}{2} \\
+P(C \cap A) &amp;= \frac{1}{4} \\
+P(A \cap B \cap C)  &amp;= \frac{1}{4} \\
+P(C | A \cap B) &amp;= 1 \\
+\therefore P(C) &amp;\neq P(C | A \cap B)
+\end{align*}
+$$<p>Thus following independence identity doesn't hold true.</p>
+$$
+P(A \cap B \cap C) \neq P(A) \; P(B) \; P(C)
+$$<p>Thus pair wise independence doesn't imply independent event, pair wise independent events must be independent together.</p>
 </div>
 </div>
 </div>
