@@ -13305,6 +13305,30 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Logarithms">Logarithms<a class="anchor-link" href="#Logarithms">¶</a></h1><p>We all know that exponent is something raise to something. For example $5^3=5*5*5=125$ or $5^{-2}=\frac{1}{5^2}=\frac{1}{25}=0.04$. Exponent is generally written as $x^a=y$. Where $x$ is called the <strong>base</strong> and <strong>a</strong> is called the exponent.</p>
 <p>Logarithms or simply <strong>log</strong> is opposite of exponent. Continuing the above definition, log will be defined as follows $log_x(y)=a$. Read as "log of $y$ to the base $x$ is $a$". So basically the question we are asking with logarithm is, for what number if i raise $x$ to will give me $y$. To complete our definition we show the log of the examples we took. $log_5(125)=3$ and $log_5(0.04)=-2$.</p>
+<h2 id="Some-Axioms">Some Axioms<a class="anchor-link" href="#Some-Axioms">¶</a></h2><p>1) <strong>The logarithm of a nonzero and nonnegative number wherein the base is the number itself is always equal to $1$.</strong></p>
+$$log_b(b)=1$$<p>Which make sense as log of any number will itself will result in $1$.</p>
+<p>2) <strong>The logarithm of $1$ with any values of $b$ ( $b$ is a positive number but $b \neq 1$) is always equal to zero.</strong></p>
+$$log_b(1)=0$$<p>Because any number raise to zero will yield $1$ so $log$ of any $base$ with $1$ is $0$.</p>
+<p>3) <strong>The logarithm of a negative number to any base is undefined.</strong></p>
+$$log_b(-x)=\text{undefined}$$<p>As exponent will never yield a negative number.</p>
+<p>4) <strong>The logarithm of zero to any base is undefined.</strong></p>
+$$log_b(0)=\text{undefined}$$<p>Because no exponent and result in $0$ as the answer.</p>
+<h2 id="Rules-of-logarithm.">Rules of logarithm.<a class="anchor-link" href="#Rules-of-logarithm.">¶</a></h2><h3 id="Product-Rule.">Product Rule.<a class="anchor-link" href="#Product-Rule.">¶</a></h3><p>The logarithm of product of numbers is the sum of logarithm of individual numbers.</p>
+$$
+log_b(M.N) = log_b(M) + log_b(N)
+$$<h3 id="Quotient-Rule">Quotient Rule<a class="anchor-link" href="#Quotient-Rule">¶</a></h3><p>The logarithm of the quotient of numbers is the difference of the logarithm of individual numbers.</p>
+$$
+log_b\left (\frac{M}{N} \right ) = log_b(M) - log_b(N)
+$$<h3 id="Power-Rule">Power Rule<a class="anchor-link" href="#Power-Rule">¶</a></h3><p>The logarithm of an exponential number is the exponent times the logarithm of the base.</p>
+$$
+log_b(M^k) = k \; log_b(M)
+$$<h3 id="Log-of-Exponent-Rule">Log of Exponent Rule<a class="anchor-link" href="#Log-of-Exponent-Rule">¶</a></h3><p>The logarithm of an exponential number where its base is the same as the base of the log equals the exponent.</p>
+$$
+log_b(b^k) = k
+$$<h3 id="Exponent-of-Log-Rule">Exponent of Log Rule<a class="anchor-link" href="#Exponent-of-Log-Rule">¶</a></h3><p>Raising the logarithm of a number by its base equals the number.</p>
+$$
+b^{log_b(k)} = k
+$$
 </div>
 </div>
 </div>
