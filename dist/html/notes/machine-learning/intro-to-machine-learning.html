@@ -13397,7 +13397,20 @@ ul.typeahead-list  > li > a.pull-right {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As we can see from the data there is strong correlation between the data. I data almost follows a linear pattern. If we could fit a line through the data we can predict the price of stock price of Google given stock price of Amazon.</p>
-<p>So the equation of line is given by $y=mx+c$ were $m$ is the slope of the line and $c$ is the y intercept of the line. Using this equation we can draw any line a 2D plane. And our data is also two dimensional (Amazon and Google price). To be consistent with machine learning algorithm we will write the equation as follows, $y=\theta_0 + x\theta_1$ where $\theta_0$ and $\theta_1$ are our parameters. So the goal of the linear regression algorithm is to find the best possible value for $\theta_0$ and $\theta_1$ such that we get a line which perfectly fits the data.</p>
+<p>So the equation of line is given by $y=mx+c$ were $m$ is the slope of the line and $c$ is the y intercept of the line. Using this equation we can draw any line a 2D plane. And our data is also two dimensional (Amazon and Google price). To be consistent with machine learning algorithm we will write the equation as follows, $y=\theta_0 + x\theta_1$ where $\theta_0$ and $\theta_1$ are our parameters. So the goal of the linear regression algorithm is to find the best possible value for $\theta_0$ and $\theta_1$ such that we get a line which perfectly fits the data. Thus our hypothesis in this example can be written as.</p>
+$$
+h(x) = h_\theta(x) = \theta_0 + x \theta_1
+$$<p>The above definition get a little big and complex when we start working with multiple parameters and features. So we can reduce the definition using some vector notions.</p>
+<p>We can denote the parameters of the algorithm as vector of $M$ rows (also called as parameter vector) where $M$ denotes the number of training data (number of rows in csv for this example). And let $N$ denote the total number of features. Then</p>
+$$
+\theta = \begin{bmatrix} \theta_0 \\ \theta_1 \\ - \\ - \\ \theta_N \end{bmatrix}
+$$<p>And if we can denote features such $x_1, x_2, x_3, ... , x_N$ and let $x_0=1$ then we can write the feature as a vector of $N$ rows (also called as feature vector) as follows.</p>
+$$
+X = \begin{bmatrix} x_0 \\ x_1 \\ - \\ - \\ x_N \end{bmatrix}
+$$<p>Thus our Hypothesis function becomes.</p>
+$$
+h(x) = \begin{bmatrix} \theta_0, \;  \theta_1, \;  -, \;  -, \;  \theta_N \end{bmatrix} * \begin{bmatrix} x_0 \\ x_1 \\ - \\ - \\ x_N \end{bmatrix} = \theta^T X
+$$
 </div>
 </div>
 </div>
