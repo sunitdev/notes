@@ -13570,6 +13570,78 @@ $$<p>Choosing the learning rate must be done properly, because if the learning r
 <h4 id="Stochastic-Gradient-Descent.">Stochastic Gradient Descent.<a class="anchor-link" href="#Stochastic-Gradient-Descent.">¶</a></h4><p>To work on drawback of batch gradient descent. Stochastic take one instance of training data at a time and adjusts the parameter based on the outcome of a single training instance. It will not result in an accurate parameter value but it will be quicker as only one iteration over training set is required.</p>
 <h4 id="Mini-Batch-Gradient-Descent">Mini Batch Gradient Descent<a class="anchor-link" href="#Mini-Batch-Gradient-Descent">¶</a></h4><p>Mini Batch algorithm is a combination of batch and stochastic gradient descent. Initially the training data is divided into multiple smaller sets generally between 50 to 200 instances. And for each iteration we choose and random set from the sets of training data we partition earlier. Mini batch algorithm is more faster but less accurate than batch gradient decent and less faster but more accurate than stochastic gradient descent.</p>
 <h4 id="Coordinate-Gradient-Descent.">Coordinate Gradient Descent.<a class="anchor-link" href="#Coordinate-Gradient-Descent.">¶</a></h4><p>Another variation of gradient descent is Coordinate. In this algorithm instead of computing gradient decent on each feature we choose only one feature at a time for a single iteration. The and move in the direction of slope for that feature. The choose of feature can be round robin or random. But the idea behind it is that if we choose single feature at a time we will eventually reach the global minium of all the feature.</p>
+<h2 id="Closed---Form-solution">Closed - Form solution<a class="anchor-link" href="#Closed---Form-solution">¶</a></h2><p>Another way to minimize the cost function is to take the derivative of the cost function and set it to zero. Because the function will have a zero derivative at local minimum. And then we can use that derivative to compute the value of parameters which minimizes the cost function.</p>
+<p>To calculate the derivative of cost function we will introduce some notions.</p>
+<p>Let $X$ denote matrix ($X \rightarrow \real^{NxM}$). Where $N$ is the number of feature and $M$ be the number of training samples. $X$ contains all training samples.</p>
+<p>Let $\theta$ be a vector of parameters and $y$ be a vector of target values.</p>
+<p>Then we can write cost function as follows.</p>
+$$
+J(\theta) = \frac{1}{2m} (X\theta - y)^T (X\theta - y)
+$$<p>We take square of difference as before by using inner product of the difference.</p>
+<p>We can simplify the equation as follows.</p>
+$$
+\begin{aligned}
+J(\theta) &amp;= \frac{1}{2m} (X\theta - y)^T (X\theta - y) \\
+&amp;= \frac{1}{2m} ( \; ( \; (X\theta)^T - y^T \; ) (X\theta - y) \; ) \\
+J(\theta) &amp;= \frac{1}{2m} (\; (X\theta)^TX\theta - (X\theta)^T y - y^TX\theta -y^Ty  \;) \\
+\end{aligned}
+$$<p>Now here $X\theta$ and $y$ are vectors so it doesn't matter in which order we multiple them as long as the dimension matches. So $(X\theta)^Ty = y^TX\theta$. Thus our equation becomes,</p>
+$$
+J(\theta) = \frac{1}{2m} (\; (X\theta)^TX\theta - 2(X\theta)^T y -y^Ty  \;)
+$$<p>Now we take partial derivative of the function with respect to $\theta$. Derivate of a matrix/vector is similar to that of scalar quantity.That is when we take derivative of a vector/matrix we take derivative of each individual element of the matrix.</p>
+$$
+\begin{aligned}
+\frac{\partial J}{\partial\theta}  &amp;= \frac{\partial}{\partial\theta} \frac{1}{2m} (\; (X\theta)^TX\theta - 2(X\theta)^T y -y^Ty  \;) \\
+&amp;= \frac{1}{2m} \frac{\partial}{\partial\theta} (\; (X\theta)^TX\theta - 2(X\theta)^T y -y^Ty  \;) \\
+&amp;= \frac{1}{2m} (\;
+\frac{\partial}{\partial\theta}( (X\theta)^TX\theta ) -  \frac{\partial}{\partial\theta} 2(X\theta)^T y - \frac{\partial}{\partial\theta} y^Ty  \;) \\
+&amp;= \frac{1}{2m} (\;
+\frac{\partial}{\partial\theta}( (X\theta)^TX\theta ) -  \frac{\partial}{\partial\theta} 2(X\theta)^T y  \;) \\
+\frac{\partial J}{\partial\theta}  &amp;= \frac{1}{2m} (\;
+\frac{\partial}{\partial\theta}( X^T\theta^TX\theta ) -  2X^T y  \;) \\
+\end{aligned}
+$$<p>We if we consider the first equation.</p>
+$$
+\begin{aligned}
+\frac{\partial}{\partial\theta}( X^T\theta^TX\theta ) &amp;= X^T X \frac{\partial}{\partial\theta} (\theta^T \theta)
+\end{aligned}
+$$<p>We have a rule of derivate of vectors.</p>
+$$
+\frac{\partial x^Tx}{\partial x} = 2 x
+$$<p>We can understand the intuition behind the rule as follows,</p>
+$$
+\begin{aligned}
+x &amp;= \begin{bmatrix} x_1 \\ x_2 \\ - \\ - \\ x_n \end{bmatrix}\\
+x x^T &amp;= \begin{bmatrix} (x_1)^2 \\ (x_2)^2 \\ - \\ - \\ (x_n)^2 \end{bmatrix} \\
+\frac{\partial x x^T}{\partial x} &amp;= \begin{bmatrix} 2x_1 \\ 2x_2 \\ - \\ - \\ 2x_n \end{bmatrix} \\
+\frac{\partial x x^T}{\partial x} &amp;= 2\begin{bmatrix} x_1 \\ x_2 \\ - \\ - \\ x_n \end{bmatrix} \\
+\end{aligned}
+$$<p>Thus our derivation becomes.</p>
+$$
+\begin{aligned}
+\frac{\partial}{\partial\theta}( X^T\theta^TX\theta ) &amp;= X^T X \frac{\partial}{\partial\theta} (\theta^T \theta) \\
+&amp;= X^T X 2 \theta
+\end{aligned}
+$$<p>Substituting the above value in derivative of $J(\theta)$ we get.</p>
+$$
+\begin{aligned}
+\frac{\partial J}{\partial\theta} &amp;= \frac{1}{2m} (\;
+X^T X 2 \theta -  2X^T y  \;) \\
+&amp;= \frac{1}{2m} (\; 2X^T X \theta -  2X^T y  \;)
+\end{aligned}
+$$<p>Now to find the local minimum of the function we set derivate to zero.</p>
+$$
+\begin{aligned}
+\frac{\partial J}{\partial\theta} = \frac{1}{2m} (\; 2X^T X \theta -  2X^T y  \;) &amp;= 0 \\
+2X^T X \theta -  2X^T y &amp;= 0 \\
+2X^T X \theta &amp;=  2X^T y \\
+X^T X \theta &amp;=  X^T y \\
+\end{aligned}
+$$<p>Now assuming that $(X^TX)$ is invertible. We can write.</p>
+$$
+\theta = (X^TX)^{-1}X^Ty
+$$<p>The above equation is called "normal equation" or the "closed form equation". Which can be used to directly compute the value of the parameters.</p>
+<p>Closed form linear regression is only useful if number of samples is less than $1000$ because it involves matrix multiplication which is an $O(n^3)$ costly operation. For bigger data the normal iterative gradient descent is preferred.</p>
 </div>
 </div>
 </div>
