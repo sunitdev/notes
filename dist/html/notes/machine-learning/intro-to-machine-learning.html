@@ -13512,6 +13512,64 @@ $$
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>In the above diagram we have plotted the cost function of our data with linear hypothesis. As we can see the cost the function is near zero when $\theta_0 = 0.5$ and $\theta_1 = -1.5$.</p>
+<h2 id="Gradient-Descent">Gradient Descent<a class="anchor-link" href="#Gradient-Descent">¶</a></h2><p>We have seen how the we can compute the ideal value of the parameters from plotting data. But how do we compute the value of the parameters algorithmically?</p>
+<p>There are multiple ways of doing so but the most common way of doing it is "Gradient Descent".</p>
+<p>The idea of gradient descent is simple, we select some random point on our cost function plot and then check our surrounding in 360 degree to see going in which direction will help us reduce the value of function.</p>
+<p><img alt="Gradient Descent" src="/notesstatic/img/notes/machine-learning/intro-to-machine-learning/gradent_decent.png"/></p>
+<p>In the above diagram we can see that we start from a random point uphill and then we check in which direction should we go down hill and then move it in that direction and continue the steps until we reach a local minimum where there is no place to go. And that becomes our value of parameters.</p>
+<p>So lets say we are at some random point on the function, how do we decide in which direction should be go to minimize the function. One way to do this is to take derivative of the function.</p>
+<p><img alt="Gradient Descent Derivative" src="/notesstatic/img/notes/machine-learning/intro-to-machine-learning/gradient_descent_derivative.png"/></p>
+<p>As shown in above diagram, if we take derivate of a function at a particular point it would give us the slope of the line which is tangent to the function at that point. Because derivate is given as rate of change which is called as $\frac{f(x+h) - f(x)}{\Delta h}$ where $\Delta h$ represents small change in $x$. When $\Delta h$ is very small the value of derivate is same as the slope of the tangent of the point $\frac{\Delta y}{\Delta x}$. Also the slope of the line gives us the direction of the steepness. As seen from the diagram if the slope is positive then we must decrease the value of parameter and if it is negative then we need to increase the value of our function to minimize the cost function.</p>
+<p>Thus to calculate our next value of $\theta$ we can use the following formulae.</p>
+$$
+\theta := \theta - \frac{\partial}{\partial\theta} J(\theta)
+$$<p>Derivation of partial derivative of the cost function goes as follows.</p>
+<p>Lets find derivate for $\theta = \theta_0$</p>
+$$
+\begin{align*}
+\frac{\partial}{\partial\theta_0} J(\theta) &amp;= \frac{\partial}{\partial\theta_0} \frac{1}{2m} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)})^2 \\
+&amp;= \frac{1}{2m} \frac{\partial}{\partial\theta_0} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)})^2 \tag{Scalar multiplication} \\
+&amp;= \frac{1}{2m} \sum_{i=0}^{m} \frac{\partial}{\partial\theta_0} (h_{\theta}^{(i)} - y^{(i)})^2  \tag{Sum Rule} \\
+&amp;= \frac{1}{2m} \sum_{i=0}^{m} 2 (h_{\theta}^{(i)} - y^{(i)})  \frac{\partial}{\partial\theta_0} (h_{\theta}^{(i)} - y^{(i)}) \tag{Chain Rule} \\
+&amp;= \frac{2}{2m} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)})  \frac{\partial}{\partial\theta_0} (\theta_0 + x^{(i)}\theta_1 + ... + x^{(n)} \theta_n - y^{(i)}) \tag{By definition}  \\
+\frac{\partial}{\partial\theta_0} J(\theta) &amp;= \frac{1}{m} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)}) \\
+\end{align*}
+$$<p>In the last step as we are taking derivate with respect to $\theta_0$ everything is constant expect $\theta_0$ and $\frac{\partial}{\partial\theta_0} \theta_0 = 1$. Thus giving the value of derivate as $1$.</p>
+<p>Now for some other value of $\theta_j$ expect $\theta_0$.</p>
+$$
+\begin{align*}
+\frac{\partial}{\partial\theta_j} J(\theta) &amp;= \frac{\partial}{\partial\theta_j} \frac{1}{2m} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)})^2 \\
+&amp;= \frac{1}{2m} \frac{\partial}{\partial\theta_j} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)})^2  \\
+&amp;= \frac{1}{2m} \sum_{i=0}^{m} \frac{\partial}{\partial\theta_j} (h_{\theta}^{(i)} - y^{(i)})^2  \\
+&amp;= \frac{1}{2m} \sum_{i=0}^{m} 2 (h_{\theta}^{(i)} - y^{(i)})  \frac{\partial}{\partial\theta_j} (h_{\theta}^{(i)} - y^{(i)})  \\
+&amp;= \frac{2}{2m} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)})  \frac{\partial}{\partial\theta_j} (\theta_0 + x^{(1)}\theta_1 + ... + x^{(n)} \theta_n - y^{(i)})  \\
+\frac{\partial}{\partial\theta_j} J(\theta) &amp;= \frac{1}{m} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)}) x^{(j)} \\
+\end{align*}
+$$<p>In the last step as we are taking derivate with respect to $\theta_i$ everything is constant expect $\theta_i$. Thus the equation becomes $\frac{\partial}{\partial\theta_i} \theta_ix^{(i)} = x^{(i)}$.</p>
+<p>Thus our final equation for calculation the next value of $\theta$ becomes.</p>
+$$
+\begin{aligned}
+\theta_0 &amp;:= \theta_0 - \frac{1}{m} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)}) \\
+\theta_j &amp;:= \theta_j - \frac{1}{m} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)}) x^{(j)}
+\end{aligned}
+$$<p>To give a manual control over the step size given by the slope of the line (derivative). We generally multiply the derivate by a number called as learning rate and denoted by $\alpha$. By increasing the $\alpha$ we can increase the number of step the next $\theta$ jumps to and opposite if we reduce alpha. So the final equation that is generally used in practice is as follows.</p>
+$$
+\begin{aligned}
+\theta_0 &amp;:= \theta_0 - \frac{\alpha}{m} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)}) \\
+\theta_j &amp;:= \theta_j - \frac{\alpha}{m} \sum_{i=0}^{m} (h_{\theta}^{(i)} - y^{(i)}) x^{(j)}
+\end{aligned}
+$$<p>Choosing the learning rate must be done properly, because if the learning rate is chosen very high the the algorithm will take forever to reach the local minimum. And if the learning rate is chosen very high the algorithm will keep jumping from positive to negative slope and never reach the local minimum. Best idea to check cost function by starting with learning rate as $0.5, 0.1, 0.01, 0.001$ etc.</p>
+<h3 id="Types-of-gradient-descent.">Types of gradient descent.<a class="anchor-link" href="#Types-of-gradient-descent.">¶</a></h3><p>When using gradient descent in practical scenario there are computational challenges. Which include the time it take to calculate the next value of $\theta$ or the amount of data which can used for computing at a single instances of time. So to overcome such challenges there variation of the algorithm have been developed.</p>
+<ul>
+<li>Batch Gradient descent.</li>
+<li>Stochastic Gradient Descent.</li>
+<li>Mini Batch Gradient Descent</li>
+<li>Coordinate Gradient Descent.</li>
+</ul>
+<h4 id="Batch-Gradient-descent.">Batch Gradient descent.<a class="anchor-link" href="#Batch-Gradient-descent.">¶</a></h4><p>The algorithm we saw above is the batch gradient descent. In which to find the next value of parameters the entire training set is needed. Then for next iteration again the parameters are updated and entire training data is used to calculate the next value of the parameter. Each such iteration is generally called to <em>epoch</em>. This will result in accurate values for our parameter but is very slow as we iterate over our entire training set.</p>
+<h4 id="Stochastic-Gradient-Descent.">Stochastic Gradient Descent.<a class="anchor-link" href="#Stochastic-Gradient-Descent.">¶</a></h4><p>To work on drawback of batch gradient descent. Stochastic take one instance of training data at a time and adjusts the parameter based on the outcome of a single training instance. It will not result in an accurate parameter value but it will be quicker as only one iteration over training set is required.</p>
+<h4 id="Mini-Batch-Gradient-Descent">Mini Batch Gradient Descent<a class="anchor-link" href="#Mini-Batch-Gradient-Descent">¶</a></h4><p>Mini Batch algorithm is a combination of batch and stochastic gradient descent. Initially the training data is divided into multiple smaller sets generally between 50 to 200 instances. And for each iteration we choose and random set from the sets of training data we partition earlier. Mini batch algorithm is more faster but less accurate than batch gradient decent and less faster but more accurate than stochastic gradient descent.</p>
+<h4 id="Coordinate-Gradient-Descent.">Coordinate Gradient Descent.<a class="anchor-link" href="#Coordinate-Gradient-Descent.">¶</a></h4><p>Another variation of gradient descent is Coordinate. In this algorithm instead of computing gradient decent on each feature we choose only one feature at a time for a single iteration. The and move in the direction of slope for that feature. The choose of feature can be round robin or random. But the idea behind it is that if we choose single feature at a time we will eventually reach the global minium of all the feature.</p>
 </div>
 </div>
 </div>
