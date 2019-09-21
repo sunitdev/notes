@@ -13515,10 +13515,10 @@ $$
 <h2 id="Gradient-Descent">Gradient Descent<a class="anchor-link" href="#Gradient-Descent">¶</a></h2><p>We have seen how the we can compute the ideal value of the parameters from plotting data. But how do we compute the value of the parameters algorithmically?</p>
 <p>There are multiple ways of doing so but the most common way of doing it is "Gradient Descent".</p>
 <p>The idea of gradient descent is simple, we select some random point on our cost function plot and then check our surrounding in 360 degree to see going in which direction will help us reduce the value of function.</p>
-<p><img alt="Gradient Descent" src="/notesstatic/img/notes/machine-learning/intro-to-machine-learning/gradent_decent.png"/></p>
+<p><img alt="Gradient Descent" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/gradent_decent.png"/></p>
 <p>In the above diagram we can see that we start from a random point uphill and then we check in which direction should we go down hill and then move it in that direction and continue the steps until we reach a local minimum where there is no place to go. And that becomes our value of parameters.</p>
 <p>So lets say we are at some random point on the function, how do we decide in which direction should be go to minimize the function. One way to do this is to take derivative of the function.</p>
-<p><img alt="Gradient Descent Derivative" src="/notesstatic/img/notes/machine-learning/intro-to-machine-learning/gradient_descent_derivative.png"/></p>
+<p><img alt="Gradient Descent Derivative" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/gradient_descent_derivative.png"/></p>
 <p>As shown in above diagram, if we take derivate of a function at a particular point it would give us the slope of the line which is tangent to the function at that point. Because derivate is given as rate of change which is called as $\frac{f(x+h) - f(x)}{\Delta h}$ where $\Delta h$ represents small change in $x$. When $\Delta h$ is very small the value of derivate is same as the slope of the tangent of the point $\frac{\Delta y}{\Delta x}$. Also the slope of the line gives us the direction of the steepness. As seen from the diagram if the slope is positive then we must decrease the value of parameter and if it is negative then we need to increase the value of our function to minimize the cost function.</p>
 <p>Thus to calculate our next value of $\theta$ we can use the following formulae.</p>
 $$
