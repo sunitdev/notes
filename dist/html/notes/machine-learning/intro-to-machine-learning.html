@@ -13511,7 +13511,7 @@ $$
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In the above diagram we have plotted the cost function of our data with linear hypothesis. As we can see the cost the function is near zero when $\theta_0 = 0.5$ and $\theta_1 = -1.5$.</p>
+<p>In the above diagram we have plotted the cost function of our data with linear hypothesis. As we can see the cost the function is near zero when $\theta_0$ is between $0.5$ and $1.0$ and $\theta_1$ between $-1$ and $-0.5$.</p>
 <h2 id="Gradient-Descent">Gradient Descent<a class="anchor-link" href="#Gradient-Descent">¶</a></h2><p>We have seen how the we can compute the ideal value of the parameters from plotting data. But how do we compute the value of the parameters algorithmically?</p>
 <p>There are multiple ways of doing so but the most common way of doing it is "Gradient Descent".</p>
 <p>The idea of gradient descent is simple, we select some random point on our cost function plot and then check our surrounding in 360 degree to see going in which direction will help us reduce the value of function.</p>
@@ -13642,6 +13642,64 @@ $$
 \theta = (X^TX)^{-1}X^Ty
 $$<p>The above equation is called "normal equation" or the "closed form equation". Which can be used to directly compute the value of the parameters.</p>
 <p>Closed form linear regression is only useful if number of samples is less than $1000$ because it involves matrix multiplication which is an $O(n^3)$ costly operation. For bigger data the normal iterative gradient descent is preferred.</p>
+<h2 id="Computing-Linear-Regression">Computing Linear Regression<a class="anchor-link" href="#Computing-Linear-Regression">¶</a></h2><h3 id="Scikit-Learn">Scikit Learn<a class="anchor-link" href="#Scikit-Learn">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
+
+<span class="n">CSV_FILE_PATH</span> <span class="o">=</span> <span class="s1">'../../static/raw/notes/machine-learning/intro-to-machine-learning/stockprices.csv'</span>
+
+<span class="n">values_to_predict</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">400</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mf">512.35</span><span class="p">,</span> <span class="mf">650.12</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Read CSV</span>
+<span class="n">training_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">CSV_FILE_PATH</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">'</span><span class="se">\t</span><span class="s1">'</span><span class="p">)</span>
+
+<span class="c1"># Arrange data as required by scikit learn</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">training_data</span><span class="o">.</span><span class="n">amazon</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">training_data</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Train model (No test data :P)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">LinearRegression</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Model Information...'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Theta 0 / Slope = {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Theta 1/ Intercept = {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="c1"># Predict Value</span>
+<span class="n">predicted_values</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">values_to_predict</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'Predictions....'</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">value</span><span class="p">,</span> <span class="n">prediction</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">values_to_predict</span><span class="p">,</span> <span class="n">predicted_values</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s1">'{} -&gt; {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">prediction</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model Information...
+Theta 0 / Slope = 0.7759610940600332
+Theta 1/ Intercept = 230.37023456964909
+
+Predictions....
+400.0 -&gt; 540.7546721936624
+600.0 -&gt; 695.9468910056689
+512.35 -&gt; 627.9339011113071
+650.12 -&gt; 734.8380610399579
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
