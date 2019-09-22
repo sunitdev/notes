@@ -13505,6 +13505,32 @@ $$<p>Thus following independence identity doesn't hold true.</p>
 $$
 P(A \cap B \cap C) \neq P(A) \; P(B) \; P(C)
 $$<p>Thus pair wise independence doesn't imply independent event, pair wise independent events must be independent together.</p>
+<h1 id="Combinatorics">Combinatorics<a class="anchor-link" href="#Combinatorics">¶</a></h1><p>Combinatorics is an area of mathematics primarily concerned with counting. Sometimes finding out the probability of an event is skimpily as matter of counting the number of possibilities.</p>
+<h2 id="Permutation">Permutation<a class="anchor-link" href="#Permutation">¶</a></h2><p>Imagine a list of alphabets from A-Z, which are in total 26 characters. And we are to selected 5 characters from the list. Permutation gives us the total number of combination of 5 characters that we can make from the list of all 26 characters. Permutation can be defined as picking up the number of item from a large pool of items where the position of the item doesn't matter.</p>
+<p>There are two formulae depending upon where we are allow the repeat the selected items while choosing new item or not.</p>
+<h3 id="With-Repetition">With Repetition<a class="anchor-link" href="#With-Repetition">¶</a></h3><p>If repetition is allowed then we can that we have 26 chooses for our first character and 26 for our second and so and so forth. So the total number of permutation possible with repetition can be given as.</p>
+$$
+26 * 26 * 26 * 26 * 26
+$$<p>We can formularize the definition as follows. Let $n$ be the total number of items available for selection and let $r$ be the number of items we want to make combinations of, so the formulae can be written as.</p>
+$$
+n^r
+$$<h3 id="Without-Repetition">Without Repetition<a class="anchor-link" href="#Without-Repetition">¶</a></h3><p>If repetition is not allowed. Then for our first character we have 26 choices and then 25 for second and 24 for third etc. So number of permutation without repetition is.</p>
+$$
+26 * 25 * 24 * 23 * 22
+$$<p>Formula for the same can be written as follows.</p>
+$$
+\frac{n!}{(n - r)!}
+$$<h2 id="Combinations">Combinations<a class="anchor-link" href="#Combinations">¶</a></h2><p>Combination is same as permutation but here the position of the element matter. For example there "ABCD" is difference from "BACD" because position of "A" and "B" are different.</p>
+<h3 id="Without-Repetition">Without Repetition<a class="anchor-link" href="#Without-Repetition">¶</a></h3><p>Without repetition the formula for combination is given as follows.</p>
+$$
+\frac{n!}{r! (n-r)!}
+$$<p>Combination is denoted by $\binom{n}{r}$. Thus,</p>
+$$
+\binom{n}{r} = \frac{n!}{r! (n-r)!}
+$$<h3 id="With-Repetition">With Repetition<a class="anchor-link" href="#With-Repetition">¶</a></h3><p>If repetition is allowed then we use the following formula.</p>
+$$
+\frac{(r + n - 1)}{r!(n - 1)!}
+$$
 </div>
 </div>
 </div>
