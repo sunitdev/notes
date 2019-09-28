@@ -27,7 +27,7 @@
 - [About The Project](#about-the-project)
   - [Built With](#built-with)
 - [Project Structure](#project-structure)
-- [Creating Notes¶](#creating-notes%c2%b6)
+- [Creating Notes](#creating-notes%c2%b6)
 - [Getting Started](#getting-started)
   - [Installation](#installation)
   - [Building Static site.](#building-static-site)
