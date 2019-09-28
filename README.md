@@ -116,13 +116,13 @@ Project Link: [https://github.com/sunitdeshpande/notes](https://github.com/sunit
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/sunitdeshpande/sunitdeshpande.github.io.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/sunitdeshpande/notes.svg?style=flat-square
 [contributors-url]: https://github.com/sunitdeshpande/notes/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/sunitdeshpande/sunitdeshpande.github.io.svg?style=flat-square
+[forks-shield]: https://img.shields.io/github/forks/sunitdeshpande/notes.svg?style=flat-square
 [forks-url]: https://github.com/sunitdeshpande/notes/network/members
-[stars-shield]: https://img.shields.io/github/stars/sunitdeshpande/sunitdeshpande.github.io.svg?style=flat-square
+[stars-shield]: https://img.shields.io/github/stars/sunitdeshpande/notes.svg?style=flat-square
 [stars-url]: https://github.com/sunitdeshpande/notes/stargazers
-[issues-shield]: https://img.shields.io/github/issues/sunitdeshpande/sunitdeshpande.github.io.svg?style=flat-square
+[issues-shield]: https://img.shields.io/github/issues/sunitdeshpande/notes.svg?style=flat-square
 [issues-url]: https://github.com/sunitdeshpande/notes/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/sunitdeshpande/
