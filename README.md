@@ -65,7 +65,7 @@ Following Frameworks, Libraries and tools are used in building this website.
 - index.html - Auto generate index page of the website.
 
 
-## Creating Notes¶
+## Creating Notes
 
 Notes must be created under notes directory. Under notes directory any folder structure can be followed. The final HTML file to be generate will be created with same parents folder. So the folder structure must match the URL pattern that is expected for the note. The code below will find any `.ipynb` file and use it as a candidate to convert to HTML.
 
