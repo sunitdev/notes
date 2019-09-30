@@ -13505,6 +13505,112 @@ $$<p>Thus following independence identity doesn't hold true.</p>
 $$
 P(A \cap B \cap C) \neq P(A) \; P(B) \; P(C)
 $$<p>Thus pair wise independence doesn't imply independent event, pair wise independent events must be independent together.</p>
+<h1 id="Discrete-Random-Variable">Discrete Random Variable<a class="anchor-link" href="#Discrete-Random-Variable">¶</a></h1><p>Random variable are mathematical way to describe the outcome of experiment.</p>
+<p><img alt="Random Variable Explained" src="/notes/static/img/notes/mathematics/intro-probability/random_variable_explain.png"/></p>
+<p>Lets suppose we want to carry out experiment of selecting a random person from our sample space $(\Omega)$ and record their height in feet. As shown in the figure, we pickup one random person from the sample space and then assign it to the number line $x$ based on it high. This assignment/conversion of a person (instance) to a real number is done by a function $H$ which take an outcome of an experiment and coverts it to a real number (height in our case). This function is called a <strong>Random Variable</strong>.</p>
+<p>Thus a random variable is a function which takes outcome of an experiment and converts it to a real number $(\text{outcome} \rightarrow \real)$.</p>
+<p>More formally we can define random variable as, a function from the sample space $\Omega$ to the real number $\real$.</p>
+<p>We generally used capital letter to denote random variable $(H)$ and small letter $(x)$ to denote the actual numerical value mapped by the random variable.</p>
+<p>An experiment can have multiple random variables associated with. For example we can pick a person and assign it to two real number line one for height and one for weight.</p>
+<p>A random variable can also take other random variable as input. For example in image above, $H$ can denote the height of the person in feet. And random variable $M$ can denote the height of person in meters which is $H * 0.3$.</p>
+<h2 id="Probability-Mass-Function">Probability Mass Function<a class="anchor-link" href="#Probability-Mass-Function">¶</a></h2><p>As we know the definition of random variable we can get create a predict what will be value of the random variable using its probability mass function.</p>
+<p>Let's take an example. Suppose we have experiment of picking up to random numbers between $1$ and $4$. And Let $F$ be the random variable denoting the outcome of first experiment and $S$ be the random variable denoting the outcome of second experiment. And let $X$ be random variable which return minimum of first and second outcome. $X = min(F, S)$.</p>
+<p>Now suppose we want to find out what is probability that $X$ will be $2$. We can count all the possible outcome which make $X=2$ and then the sum of probabilities of each individual outcome will be equal to the probability of $X=2$. So the possible outcome are.</p>
+$$
+(2,2), (2,3), (2,4), (3,2), (4,2)
+$$<p>And each one has $\frac{1}{16}$ probability or Probability Mass function (PMF) of $X=2$ written as $p_X(2)$ is.</p>
+$$
+p_X(2) = \frac{5}{16}
+$$<p>Thus probability mass function give the probability of random variable taking a particular value. And the way to calculate the probability is to sum up all the outcomes from the sample space which make random value take the expected value.</p>
+<p>We can plot the PMF graph for X as follows.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Get sample space</span>
+<span class="n">values_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">sample_space</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">product</span><span class="p">(</span><span class="n">values_list</span><span class="p">,</span> <span class="n">values_list</span><span class="p">))</span>
+
+<span class="c1"># Calculate PMF</span>
+<span class="n">pmf</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">values_list</span><span class="p">:</span>
+    <span class="n">pmf</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">([</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sample_space</span> <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">==</span> <span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample_space</span><span class="p">))</span>
+
+
+<span class="c1"># Plot bar chart</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">values_list</span><span class="p">,</span> <span class="n">pmf</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">values_list</span><span class="p">,</span> <span class="n">values_list</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea">
+<img src="data:image/png;base64,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
+"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we can see that the PMF of a random variable is equal to the probability of outcomes from sample space the following will be true. $\sum_i p_X(x_i) = 1$, that is the sum of PMF for a random variable will always be equal to one.</p>
+<h2 id="Expectation">Expectation<a class="anchor-link" href="#Expectation">¶</a></h2><p>One more property of random variable is called the Expected value of the random variable. Expected value of average of outcome of random variable if the experiment is carried out multiple times. For example suppose in our above example we picked up two random values multiple time then will be the average or the expected value of our random variable $X$.</p>
+<p>We can calculate that as follows. As the PMF gives use the probability of the random variable taking a particular value we can take a sum of the probability and the values of the random variable. Thus giving us the expected value of the random variable.</p>
+$$
+E[X] = \sum_x x\;p_X(x)
+$$<p>So in our above example we can calculate the expected value of $X$ as follows.</p>
+$$
+\begin{aligned}
+E[X] &amp;= \sum_x x\;p_X(x) \\
+&amp;= 1 \; p_X(1) + 2 \; p_X(1) + 3 \; p_X(1) + 4 \; p_X(1) \\
+&amp; = 1 * \frac{7}{16} + 2 * \frac{5}{16} + 3 * \frac{3}{16} + 4 * \frac{1}{16} \\
+E[X] &amp;= 1.87
+\end{aligned}
+$$<p>Thus if we repeat the above experiment multiple time we can expect the value of $X$ somewhat near $1.87$.</p>
+<h3 id="Properties-of-Expectation">Properties of Expectation<a class="anchor-link" href="#Properties-of-Expectation">¶</a></h3><h4 id="Expectation-of-Constant">Expectation of Constant<a class="anchor-link" href="#Expectation-of-Constant">¶</a></h4>$$
+E[\alpha] = \alpha
+$$<p>where $\alpha$ is a constant.</p>
+<p>This property is intuitive. We can thing of $\alpha$ as an experiment which always returns a constant then no matter how many times we carry out the experiment the average/expected value of the experiment will always be the same constant.</p>
+<h4 id="Scalar-Multiplication">Scalar Multiplication<a class="anchor-link" href="#Scalar-Multiplication">¶</a></h4>$$
+E[\alpha X] = \alpha E[X]
+$$<p>Multiplying every number by same constant is same as multiplying the average with that constant.</p>
+<h4 id="Linear-function">Linear function<a class="anchor-link" href="#Linear-function">¶</a></h4>$$
+E[\alpha X + \beta] = \alpha E[X] + \beta
+$$<p>Adding a constant value to every value of random variable is sample as adding the same value to the average of the random variable.</p>
+<h2 id="Variance">Variance<a class="anchor-link" href="#Variance">¶</a></h2><p>Variance $(\sigma^2)$ lets us how far values of the random variables are spread from the expectation. We can calculate the same by taking the sum of square of difference between from the expected value and individual value of the random variable. Thus giving us the formula as follows.</p>
+$$
+\begin{aligned}
+var(X) &amp;= E[\; [X - E[X]]^2 \;] \\
+&amp;= E[ \; [X^2 - 2XE[X] + E[X]^2] \;] \\
+&amp;= E[X^2] - E[2XE[X]] + E[X]^2 \\
+&amp;= E[X^2] - 2E[XE[X]] + E[X]^2 \\
+&amp;= E[X^2] -2 E[X]E[X] + E[X]^2 \\
+&amp;= E[X^2] - 2E[X]^2 + E[X]^2 \\
+var(X) &amp;= E[X^2] - E[X]^2
+\end{aligned}
+$$<p>Thus the variance of a random variable is given by.</p>
+$$
+var(X) = \sigma^2 = E[X^2] - E[X]^2
+$$<h3 id="Properties-of-Variance.">Properties of Variance.<a class="anchor-link" href="#Properties-of-Variance.">¶</a></h3><h4 id="Variance-if-always-positive.">Variance if always positive.<a class="anchor-link" href="#Variance-if-always-positive.">¶</a></h4>$$
+var(X) \geq 0
+$$<p>As variance is sum of positive number (squares). Variance will always be positive.</p>
+<h4 id="Linear-Equation">Linear Equation<a class="anchor-link" href="#Linear-Equation">¶</a></h4>$$
+var(\alpha X + \beta) = \alpha^2 var(X)
+$$<p>Variance measures the spread of the value from the expected value. Adding a constant $(\beta)$ just shift the data to left or right on the number line but does not change the spread. And multiplying the variable by a scalar constant $(\alpha)$, the constant becomes square when substituted inside the equation of variance.</p>
 </div>
 </div>
 </div>
