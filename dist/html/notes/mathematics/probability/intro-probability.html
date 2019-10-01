@@ -13591,6 +13591,9 @@ $$<p>Multiplying every number by same constant is same as multiplying the averag
 <h4 id="Linear-function">Linear function<a class="anchor-link" href="#Linear-function">¶</a></h4>$$
 E[\alpha X + \beta] = \alpha E[X] + \beta
 $$<p>Adding a constant value to every value of random variable is sample as adding the same value to the average of the random variable.</p>
+<h4 id="Variance-of-a-function-of-random-variable">Variance of a function of random variable<a class="anchor-link" href="#Variance-of-a-function-of-random-variable">¶</a></h4>$$
+E[g(X)] = \sum_x g(x) p_X(x)
+$$<p>Which is say the say as the function of some random variable is the probability of the outcomes that give rise to a particular value of $g(X)$, as $g(X)$ depends on $X$ which depends on the outcome.</p>
 <h2 id="Variance">Variance<a class="anchor-link" href="#Variance">¶</a></h2><p>Variance $(\sigma^2)$ lets us how far values of the random variables are spread from the expectation. We can calculate the same by taking the sum of square of difference between from the expected value and individual value of the random variable. Thus giving us the formula as follows.</p>
 $$
 \begin{aligned}
@@ -13611,6 +13614,75 @@ $$<p>As variance is sum of positive number (squares). Variance will always be po
 <h4 id="Linear-Equation">Linear Equation<a class="anchor-link" href="#Linear-Equation">¶</a></h4>$$
 var(\alpha X + \beta) = \alpha^2 var(X)
 $$<p>Variance measures the spread of the value from the expected value. Adding a constant $(\beta)$ just shift the data to left or right on the number line but does not change the spread. And multiplying the variable by a scalar constant $(\alpha)$, the constant becomes square when substituted inside the equation of variance.</p>
+<h1 id="Multiple-Discrete-Random-Variable">Multiple Discrete Random Variable<a class="anchor-link" href="#Multiple-Discrete-Random-Variable">¶</a></h1><p>When dealing with multiple random variables in the same experiment we have to deal with same concepts of independence and conditional independence of probability with respect to random variable.</p>
+<h2 id="Conditional-PMF">Conditional PMF<a class="anchor-link" href="#Conditional-PMF">¶</a></h2><p>Conditional PMF as similar to that of normal PMF but our initial believe/model changes based on the condition.</p>
+<p>Consider the following example.</p>
+<p><img alt="Conditional PMF example" src="/notes/static/img/notes/mathematics/intro-probability/conditional_pmf_example.png"/></p>
+<p>Suppose we have a random variable $X with the above PMF.</p>
+<p>And let suppose we have an event $A$ where $A = {X \geq 2}$. And we are total that event $A$ has occurred. Then we denote the conditional PMF of $X$ with respected to $A$ as follows. $p_{X|A}(x)$.</p>
+<p>Similar to that of conditional probability the conditional PMF must sum up to $1$. Thus in our case the sum of conditional probability of all $x$ with respect to $A$ must sum up to $1$.</p>
+$$
+\sum_x p_{X|A}(x) = 1
+$$<p>Thus,</p>
+$$
+\begin{aligned}
+p_{X|A}(2) &amp;= \frac{1}{3} \\
+p_{X|A}(3) &amp;= \frac{1}{3} \\
+p_{X|A}(4) &amp;= \frac{1}{3} \\
+\sum_{x=2}^3 p_{X|A}(x) &amp;= 1
+\end{aligned}
+$$<h2 id="Conditional-Expectation">Conditional Expectation<a class="anchor-link" href="#Conditional-Expectation">¶</a></h2><p>Similarly we can denote conditional expectation. We know the formula for expectation.</p>
+$$
+E[X] = \sum_x p_X(x) * x
+$$<p>Thus conditional expectation would be.</p>
+$$
+E[X | A] = \sum_x p_{X|A}(x) * x
+$$<p>The only change is converting PMF to conditional PMF as the average/expectation will only scale based on the conditional model. So in our example.</p>
+$$
+E[X | A] = \frac{1}{3} * 2 + \frac{1}{3} * 3 + \frac{1}{3} * 4 = 3
+$$<p>Which makes sense as $3$ is the average of all the values of random variable so we can expect $3$ be the final outcome if we repeat the same experiment multiple times.</p>
+<h2 id="Total-Expectation-Theorem">Total Expectation Theorem<a class="anchor-link" href="#Total-Expectation-Theorem">¶</a></h2><p>We have seen earlier the <em>Total Probability Theorem</em> which is denoted as follows.</p>
+$$
+P(B) = P(A_1)P(B | A_1) + P(A_2)P(B | A_2) + ... + P(A_n)P(B | A_n)
+$$<p>Where $B$ is a combination of $A_n$ disjoint events.</p>
+<p>We can express the same formula in terms of PMF.</p>
+$$
+p_X(x) = P(A_1)p_{X|A_1}(x) + ... + P(A_n)p_{X|A_n}(x)
+$$<p>We are just replacing probability with PMF values of random variable. Now if we multiple $\sum_x x$ on both side of the equation we get.</p>
+$$
+\sum_x x \; p_X(x) = \sum_x x \; p_{X|A_1}(x) P(A_1) + ... + \sum_x x \; p_{X|A_n}(x) P(A_n)
+$$<p>By definition $E[X] = \sum_x x \; p_X(x)$ and $E[X | A] = \sum_x x \; p_{X|A}(x)$ we get.</p>
+$$
+E[X|A] = P(A_1)E[X | A_1] + ... + P(A_n)E[X|A_n]
+$$<p>Thus giving us the <em>Total Expectation Theorem</em>.</p>
+<h2 id="Joint-PMF">Joint PMF<a class="anchor-link" href="#Joint-PMF">¶</a></h2><p>Generally we need to find the association or relationship between two random variables. We do that using <em>Joint PMF</em>.</p>
+<p>Joint PMF is denoted as $p_{X, Y}(x, y)$ where each individual PMF is the sum of probability of $X$ and $Y$ event, that is $p_{X, Y}(x, y) = P(X = x \; \text{and} \; Y = y )$.</p>
+<p>Example is shown below.</p>
+<p><img alt="Joint PMF Example" src="/notes/static/img/notes/mathematics/intro-probability/joint_pmf_example.png"/></p>
+<p>In the above example, if we need PMF of $X=2$ and $Y=3$ we can see the figure and let.</p>
+$$
+p_{X, Y}(2, 3) = \frac{4}{20}
+$$<p>Joint PMF can be thought of as join probability so the sum of total probability must be one.</p>
+$$
+\sum_x \sum_y p_{X, Y} (x, y) = 1
+$$<h2 id="Marginal-PMF">Marginal PMF<a class="anchor-link" href="#Marginal-PMF">¶</a></h2><p>We can use Joint PMF to find the PMF of individual value for a particular random variable. For example in the above diagram if we need to find the PMF of $X=3$ we can get add the value of the column where $X=3$.</p>
+$$
+p_X(3) = \frac{2}{20} + \frac{1}{20} + \frac{3}{20} = \frac{5}{20}
+$$<p>In other word what we did was in the formula of joint PMF we kept value of $X$ constant and then sum up all values of $Y$. We can formulate this as follows.</p>
+$$
+p_X(x) = \sum_y p_{X, Y}(x, y)
+$$<p>Similarly for PMF of $Y$ we can write.</p>
+$$
+p_Y(y) = \sum_x p_{X, Y}(x, y)
+$$<h2 id="Conditional-joint-PMF">Conditional joint PMF<a class="anchor-link" href="#Conditional-joint-PMF">¶</a></h2><p>Conditional joint PMF is denoted by $p_{X|Y}(x|y)$. A conditional Joint PMF is defined as suppose we fixed value of one random variable we can calculate the PMF of the second random variable in our new model.</p>
+<p>For example suppose we know that $Y=2$ has occurred and we need to find the conditional PMF of $X$. Now our believe must stay between the second row as we know for sure that $Y=2$ has occurred. And the sum of probability must equal to $1$ so we can calculate the new PMF as follows, we must maintain the original proportion of the probability just scale them to sum up to $1$.</p>
+$$
+\sum_x p_{X|Y}(x | y) = 1  \; \text{or} \; \sum_y p_{Y|X}(y | x) = 1
+$$<p>So our new probability wil become $\frac{0}{5}, \frac{1}{5}, \frac{3}{5}, \frac{1}{5}$.</p>
+<p>We can formulate this as follows.</p>
+$$
+p_{X|Y}(x|y) = P(X = x | Y = y) = \frac{p_{X, Y}(x, y)}{p_Y(y)}
+$$<p>The above definition is same as that of conditional probability we are just scaling the existing probability based on conditional probability.</p>
 </div>
 </div>
 </div>
