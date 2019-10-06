@@ -13703,6 +13703,147 @@ Predictions....
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Decision-Tree">Decision Tree<a class="anchor-link" href="#Decision-Tree">¶</a></h1><p>Decision tree are one of the simplest and most useful machine learning algorithm. The good of decision tree is it ability to represent the learned knowledge in a human understandable manner.</p>
+<p>Decision tree can we used for classification as well as regression.</p>
+<p>Suppose we have following dataset. - <a href="static/raw/notes/machine-learning/intro-to-machine-learning/decision_tree_golf.csv">Link</a></p>
+<table>
+<thead><tr>
+<th>Outlook</th>
+<th>Temp</th>
+<th>Humidity</th>
+<th>Windy</th>
+<th>Play Golf</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Rainy</td>
+<td>Hot</td>
+<td>High</td>
+<td>False</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rainy</td>
+<td>Hot</td>
+<td>High</td>
+<td>True</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Overcast</td>
+<td>Hot</td>
+<td>High</td>
+<td>False</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Sunny</td>
+<td>Mild</td>
+<td>High</td>
+<td>False</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Sunny</td>
+<td>Cool</td>
+<td>Normal</td>
+<td>False</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Sunny</td>
+<td>Cool</td>
+<td>Normal</td>
+<td>True</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Overcast</td>
+<td>Cool</td>
+<td>Normal</td>
+<td>True</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Rainy</td>
+<td>Mild</td>
+<td>High</td>
+<td>False</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Rainy</td>
+<td>Cool</td>
+<td>Normal</td>
+<td>False</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Sunny</td>
+<td>Mild</td>
+<td>Normal</td>
+<td>False</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Rainy</td>
+<td>Mild</td>
+<td>Normal</td>
+<td>True</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Overcast</td>
+<td>Mild</td>
+<td>High</td>
+<td>True</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Overcast</td>
+<td>Hot</td>
+<td>Normal</td>
+<td>False</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Sunny</td>
+<td>Mild</td>
+<td>High</td>
+<td>True</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p>And our goal is to predict wether we will play golf based on the weather condition. To do so we can build a decision tree as follows.</p>
+<p><img alt="Decision Tree Example" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/decision_tree_example.png"/></p>
+<p>Here we drill down the decision tree starting from the root node (Outlook) and follow the tree until we reach the leaf node which gives out decision (target value). For example, for the first row in our dataset, we look at the Outlook column/feature. It is Rainy and then we go down the branch from root to the branch which is marked as Rainy. Then we check the Humidity column/feature, is it normal or high?. In our case it is High so we go down the branch and reach our leaf node denoted in yellow Play (No). This is how we can use decision tree for classification.</p>
+<p>To more formally define decision tree. A decision tree is a tree where each node represents a feature(attribute), each link(branch) represents a decision(rule) and each leaf represents an outcome(categorical or continues value).</p>
+<p>There internal nodes are called the Decision nodes and the leaf nodes are called the prediction nodes.</p>
+<p>We have seen how to use decision tree, but how do we build it given a dataset. We can write a pseudocode which outlines the process of building a decision tree. The code is as follows.</p>
+<pre><code>Algorithm BuildSubtree
+Require: Node n, and Data D.
+
+n-&gt;split, DataLeft, DataRight = FindBestSplit(D)
+
+if StoppingCriteria(DataLeft) is True then:
+    n -&gt; left = FindPrediction(DataLeft)
+else:
+    BuildSubtree(n.left, DataLeft)
+
+if StoppingCriteria(DataRight) is True then:
+    n -&gt; right = FindPrediction(DataRight)
+else:
+    BuildSubtree(n.right, DataRight)</code></pre>
+<p>In the algorithm <strong>BuildSubtree</strong> we start with with a root Node $n$ and data $D$. Then we find the best rule which will help us split the data which can help us prefect the target value better with the function <strong>FindBestSplit</strong>. It returns the splitting rule and left and right data.</p>
+<p>Then how we do decide that when should we stop splitting the node into more child nodes and make a decision. For that we use <strong>StoppingCriteria</strong> function. If we have meet the criteria we make a prediction/leaf node with function <strong>FindPrediction</strong> function or else we recursively build the tree.</p>
+</div>
+</div>
+</div>
 </div>
 <a class="floating-icon-button" data-toggle="tooltip" href="" title="Scroll Top">
 <i class="fa fa-arrow-up"></i>
