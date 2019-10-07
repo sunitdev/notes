@@ -13114,6 +13114,7 @@ ul.typeahead-list  > li > a.pull-right {
             .notes-content h5,
             .notes-content h6 {
                 font-size: 150%;
+                text-decoration: underline;
             }
 
             .note-title {
@@ -13890,7 +13891,15 @@ H(X, Y) &amp;= - \sum_{x \in X} \sum_{y \in Y} p(x, y) log(\; p(X, Y) \; ) \\
 &amp;= - \sum_{x \in X} p(x) log(\; p(x) \; ) - \sum_{x \in X} \sum_{y \in Y} p(x, y) log(\; p(y|x) \; ) \tag{definition of marginal probability} \\
 H(X, Y) &amp;= H(X) + H(Y|X)
 \end{align}
+$$<h5 id="Gain">Gain<a class="anchor-link" href="#Gain">¶</a></h5><p>Now we have a measure of information/impurity of a dataset we can use this to decide which feature to use to split the dataset. We choose the feature which give us more information of the data. To do so we use the following equation.</p>
 $$
+\begin{aligned}
+\text{Information Gain}(X) &amp;= Entropy(D) - Entropy(D, X) \\
+&amp;= H(D) - H(D, X) \\
+I(X) &amp;= H(D) - H(D | X)
+\end{aligned}
+$$<p>This equation is called the information gain. We simply find the difference between the entropy of the dataset and the entropy of the dataset after the split. And our goal is to maximize the information gain.</p>
+<p>So we calculate the information gain for all the feature and choose the feature which gives us the maximum information gain.</p>
 </div>
 </div>
 </div>
