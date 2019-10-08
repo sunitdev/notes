@@ -13349,6 +13349,73 @@ $$<p>As we can see $Y$ has very high variance as it is spread a lot.</p>
 $$
 \delta = \sqrt{\delta^2}
 $$<p>If the data has a normal distribution. $68\%$ of data will lie between $\bar{X} \pm \delta$, $95\%$ of data will lie between $\bar{X} \pm 2\delta$ and $99.7\%$ of data will lie between $\bar{X} \pm 3\delta$.</p>
+<h1 id="Hypothesis-Testing">Hypothesis Testing<a class="anchor-link" href="#Hypothesis-Testing">¶</a></h1><h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h2><p>In statistics we generally have access to the sample statistics (Mean, Mode etc) and we make prediction of population parameters. But when predicting the prediction of population parameter how do we make sure that we are making the right prediction?.</p>
+<p>One way of proving this can be that we make sure that whenever someone else repeats the same experiment that we have done they will get the same result as ours. And they way we do it is by using <em>Hypothesis Testing</em>.</p>
+<p>Hypothesis testing in statistics is a way to test the results of a survey or experiment to see if you have meaningful results. We are basically testing whether our results are valid by figuring out the odds that our results have happened by chance. If our results may have happened by chance, the experiment won't be repeatable and so has little use.</p>
+<p>In hypothesis testing we follow a set of simple steps as follows.</p>
+<ol>
+<li>State out null hypothesis.</li>
+<li>State alternate hypothesis.</li>
+<li>Perform analysis on sample data.</li>
+<li>Either support or reject the null hypothesis based on result from step 3.</li>
+</ol>
+<h3 id="Null-hypothesis">Null hypothesis<a class="anchor-link" href="#Null-hypothesis">¶</a></h3><p>A hypothesis is a statement we make about the data. For example the "average hight of people is around $6$ feet".</p>
+<p>To understand a null hypothesis we take following example. Suppose A researcher thinks that if knee surgery patients go to physical therapy twice a week (instead of 3 times), their recovery period will be longer. Average recovery times for knee surgery patients is 8.2 weeks. And we need to carry out experiment and verify this claim.</p>
+<p>Our first step to carry out the experiment we need to derive two hypothesis. A null hypothesis and a alternate hypothesis.</p>
+<p>A null hypothesi is the one which states the fact that we already know about the data. Or the universally expected facts. It is denoted by $H_0$.</p>
+<p>In our case our null hypothesis is $H_0 = 8.2$. Because it a know fact that our experiment is trying to challenge.</p>
+<h3 id="Alternate-hypothesis">Alternate hypothesis<a class="anchor-link" href="#Alternate-hypothesis">¶</a></h3><p>Alternative hypothesis is the hypothesis that we are trying to proof. It is generally denoted by $H_a$ or $H_1$.</p>
+<p>In the example above the alternative hypothesis will be $H_a &lt; 8.2$.</p>
+<h3 id="Performing-analysis">Performing analysis<a class="anchor-link" href="#Performing-analysis">¶</a></h3><p>There are multiple analysis techniques are listed below which can be used depending upon the hypothesis and the data we are using in our experiment.</p>
+<p><strong>Variable Distribution Type Tests (Gaussian)</strong></p>
+<ul>
+<li>Shapiro-Wilk Test</li>
+<li>D’Agostino’s K^2 Test</li>
+<li>Anderson-Darling Test</li>
+</ul>
+<p><strong>Variable Relationship Tests (correlation)</strong></p>
+<ul>
+<li>Pearson’s Correlation Coefficient</li>
+<li>Spearman’s Rank Correlation</li>
+<li>Kendall’s Rank Correlation</li>
+<li>Chi-Squared Test</li>
+</ul>
+<p><strong>Compare Sample Means (parametric)</strong></p>
+<ul>
+<li>Student’s t-test</li>
+<li>Paired Student’s t-test</li>
+<li>Analysis of Variance Test (ANOVA)</li>
+<li>Repeated Measures ANOVA Test</li>
+</ul>
+<p><strong>Compare Sample Means (nonparametric)</strong></p>
+<ul>
+<li>Mann-Whitney U Test</li>
+<li>Wilcoxon Signed-Rank Test</li>
+<li>Kruskal-Wallis H Test</li>
+<li>Friedman Test</li>
+</ul>
+<h3 id="Analyzing-result-of-analysis">Analyzing result of analysis<a class="anchor-link" href="#Analyzing-result-of-analysis">¶</a></h3><p>Depending upon the type of analysis technique we use. We would get back either a <strong>p-value</strong> or the <strong>critical values</strong></p>
+<h4 id="P-values">P-values<a class="anchor-link" href="#P-values">¶</a></h4><p>A statistical hypothesis test may return a value called <strong>p</strong> or the <strong>p-value</strong>. This is a quantity we can use to interpret or quantify the result of the test and either reject or fail to reject the null hypothesis. This is done by comparing the p-value to a threshold value chosen beforehand called the <strong>significance level</strong>.</p>
+<p>The significance level is often referred to by the Greek lower case letter alpha $(\alpha)$.</p>
+<p>A common value used for alpha is $5\%$ or $0.05$. A smaller $\alpha$ value suggests a more robust interpretation of the null hypothesis, such as $1\%$ or $0.1\%$.</p>
+<p>For example, if we perform the experiment on the above example and we calculate a p-value of $0.07$. Then we could say that as the p-value is above the significant level we fail to reject the null hypothesis or we fail to accept the alternate hypothesis. So our null hypothesis still holds and thus the claim made by the researcher is falls.</p>
+<p>The significance level can be inverted by subtracting it from $1$ to give a confidence level of the hypothesis given the observed sample data.</p>
+$$
+confidence = 1 - \text{significance level}
+$$<p>Continuing our example, we can state that the claim made by the researcher is falls by $93\%$ confidence level.</p>
+<h4 id="Critical-Value">Critical Value<a class="anchor-link" href="#Critical-Value">¶</a></h4><p>In critical value also we choose a level of significance $(\alpha)$. And we based on the critical value and level of significance we either reject or accept the null hypothesis.</p>
+<p><img alt="critical value example" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/critical_value_example.png"/></p>
+<p>As seen from the above graph we have choose our significant value to be $\alpha = 0.05$. Which in the distribution chosen evaluates to $1.645$ so any output of analysis which is create than $1.645$ is accepted and null hypothesis is rejected or we failed to reject null hypothesis and the $1.645$ is called the critical value.</p>
+<h4 id="One-tailed-vs-two-tailed-test.">One-tailed vs two-tailed test.<a class="anchor-link" href="#One-tailed-vs-two-tailed-test.">¶</a></h4><p>A test of a statistical hypothesis, where the region of rejection is on only one side of the sampling distribution, is called a one-tailed test. For example, suppose the null hypothesis states that the mean is less than or equal to 10. The alternative hypothesis would be that the mean is greater than 10. The region of rejection would consist of a range of numbers located on the right side of sampling distribution; that is, a set of numbers greater than 10.</p>
+<p>A test of a statistical hypothesis, where the region of rejection is on both sides of the sampling distribution, is called a two-tailed test. For example, suppose the null hypothesis states that the mean is equal to 10. The alternative hypothesis would be that the mean is less than 10 or greater than 10. The region of rejection would consist of a range of numbers located on both sides of sampling distribution; that is, the region of rejection would consist partly of numbers that were less than 10 and partly of numbers that were greater than 10.</p>
+<h4 id='"Rejecting"-vs-"Failure-to-Reject"'>"Rejecting" vs "Failure to Reject"<a class="anchor-link" href='#"Rejecting"-vs-"Failure-to-Reject"'>¶</a></h4><p>The p-value or the critical value is probabilistic.</p>
+<p>This means that when we interpret the result of a statistical test, we do not know what is true or false, only what is likely.</p>
+<p>Rejecting the null hypothesis means that there is sufficient statistical evidence that the null hypothesis does not look likely. Otherwise, it means that there is not sufficient statistical evidence to reject the null hypothesis.</p>
+<p>We may think about the statistical test in terms of the dichotomy of rejecting and accepting the null hypothesis. The danger is that if we say that we “accept” the null hypothesis, the language suggests that the null hypothesis is true. Instead, it is safer to say that we “fail to reject” the null hypothesis, as in, there is insufficient statistical evidence to reject it.</p>
+<h3 id="Types-of-Errors">Types of Errors<a class="anchor-link" href="#Types-of-Errors">¶</a></h3><p>The interpretation of a statistical hypothesis test is probabilistic.</p>
+<p>That means that the evidence of the test may suggest an outcome and be mistaken. There are two types of error in hypothesis testing.</p>
+<h4 id="Type-one-error-(Rejecting-true-null-hypothesis)">Type one error (Rejecting true null hypothesis)<a class="anchor-link" href="#Type-one-error-(Rejecting-true-null-hypothesis)">¶</a></h4><p>When we reject the null hypothesis, although that hypothesis was true.</p>
+<h4 id="Type-two-error-(Accept-false-null-hypothesis)">Type two error (Accept false null hypothesis)<a class="anchor-link" href="#Type-two-error-(Accept-false-null-hypothesis)">¶</a></h4><p>When we accept the null hypothesis but it is false.</p>
 </div>
 </div>
 </div>
