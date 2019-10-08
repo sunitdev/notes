@@ -13900,6 +13900,46 @@ I(X) &amp;= H(D) - H(D | X)
 \end{aligned}
 $$<p>This equation is called the information gain. We simply find the difference between the entropy of the dataset and the entropy of the dataset after the split. And our goal is to maximize the information gain.</p>
 <p>So we calculate the information gain for all the feature and choose the feature which gives us the maximum information gain.</p>
+<h4 id="Gini-Index-/-Gini-Coefficient-/-Gini-Ratio">Gini Index / Gini Coefficient / Gini Ratio<a class="anchor-link" href="#Gini-Index-/-Gini-Coefficient-/-Gini-Ratio">¶</a></h4><p>Another way to thinking about split the data is thinking of making the data pure. A pure dataset is a dataset where all the element belong to a single class. One way of computing the impurity of the dataset is to calculate the <strong>Gini index</strong>. Gini index gives us a value between $0$ and $1$ where $0$ means all the element belong to a single class and $1$ means all elements belong to different classes.</p>
+<p>The formula for Gini index is given as follows.</p>
+$$
+\text{Gini Index} = 1 - \sum_x p(X)^2
+$$<p>Where $X$ denotes every class/target that we are trying to classify and $p(x)$ denotes the probability that if we pick a random element from the dataset it will belong to that class/target $x$.</p>
+<p>The above equation will give $0$ when only one class has the highest probability $(1)$ and others have zero probability. And otherwise Gini Index will be greater than $0$.</p>
+<p>To understand the derivate we need to look at an example. Suppose we have an experiment of picking up two binary variable whose values can be either $0$ or $1$. And let $p(X=0)$ be the probability fo variable being $1$ and let $p(X=1)$ be the probability of variable being $0$. And each event of picking the variable is independent. Then we have following equation.</p>
+$$
+\begin{aligned}
+p(X=0)p(X=0)+ p(X=0)p(X=1) + p(X=1)p(X=0) + p(X=1)p(X=1) &amp;= 1 //
+\end{aligned}
+$$<p>Now in the above equation if we consider $X=1$ as one class and $X=0$ as other class. Then $p(X=0)p(X=1)$ and $p(X=1)p(X=0)$ is impure data and $p(X=0)p(X=0)$ and $p(X=1)p(X=1)$ is pure dataset as they belong to single class $0$ or $1$. So to calculate the probability of impure data we can do the following.</p>
+$$
+\begin{aligned}
+p(X=0)p(X=1) +  p(X=1)p(X=0) &amp;= 1 - p(X=0)p(X=0) - p(X=1)p(X=1) \\
+&amp;= 1 - p(X=0)^2 - p(X=1)^2 \\
+&amp;= 1 - \sum_x p(X=x)^2
+\end{aligned}
+$$<p>Thus giving us the formula of Gini index which measure the probability of impurities in a given dataset.</p>
+<p>We can use Gini index to split the dataset. We find the feature which gives the least Gini index and then use that feature to split the dataset.</p>
+<h3 id="Stopping-Criteria">Stopping Criteria<a class="anchor-link" href="#Stopping-Criteria">¶</a></h3><p>Now we know how to split the tree using information gain or the gini index. But when should be decided to stop splitting the tree into further nodes. There are multiple options, two of them are listed below.</p>
+<h4 id="When-the-leaf-is-pure">When the leaf is pure<a class="anchor-link" href="#When-the-leaf-is-pure">¶</a></h4><p>We can stop splitting the tree when after the last split we have reached a dataset which is pure (every element belong to the same classes/target value). We can calculate the purity of the dataset using the Gini Index.</p>
+<h4 id="When-we-have-#-number-of-samples.">When we have # number of samples.<a class="anchor-link" href="#When-we-have-#-number-of-samples.">¶</a></h4><p>Other stopping criteria could be we keep splitting the tree until a only a certain number of element are left in the final split dataset.</p>
+<p>In practice the combination of both is used. Purity check to save commutation and number of samples check to prevent overfitting.</p>
+<h3 id="Finding-prediction-for-leaf-node.">Finding prediction for leaf node.<a class="anchor-link" href="#Finding-prediction-for-leaf-node.">¶</a></h3><p>Make predication/leaf node is as easy as finding the most common class/target value in the sample and create a leaf node out of it. So whenever a new sample reaches the leaf node the predicate class will be used to make predication of the unseen data.</p>
+<h2 id="Algorithms">Algorithms<a class="anchor-link" href="#Algorithms">¶</a></h2><p>There are multiple algorithm which uses the concepts we discussed above to build a decision tree.</p>
+<h3 id="ID3-Algorithm">ID3 Algorithm<a class="anchor-link" href="#ID3-Algorithm">¶</a></h3><p>ID3 (Iterative Dichotomiser 3) algorithm was developed by J.R Quinlan. It follows a top down greedy search approach to build a decision tree. ID3 uses Entropy and information gain to build the tree.</p>
+<p>The algorithm is simple for each parent node, including the root node. Calculate the entropy for each feature and then choose the feature which give the highest information gain. And the split using that feature. The parent will have same number of child as the number of unique classes in the selected feature. Repeat this for the subtree as well. And stop when we there are no feature to select from or one on the above stopping criteria is met.</p>
+<p>For above dataset the algorithm will follow setps something like this.</p>
+<p>1) Calculate the Entropy of the dataset.</p>
+<p><img alt="ID3 algo 1" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/idr_algo_1.png"/></p>
+<p>2) Calculate entropy of single feature. Example of outlook feature is given below.</p>
+<p><img alt="ID3 algo 2" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/idr_algo_2.png"/></p>
+<p>3) Then calculate information gain for each feature $E(S) - E(T,X)$ and choose the feature with highest information gain. Outlook in this case.</p>
+<p><img alt="ID3 algo 3" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/idr_algo_3.png"/></p>
+<p>4) Split the tree using the best feature</p>
+<p><img alt="ID3 algo 4" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/idr_algo_4.png"/></p>
+<p>5) Stop if dataset is pure of minimum number of samples has reached.</p>
+<p><img alt="ID3 algo 5" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/idr_algo_5.png"/></p>
+<h3 id="CART-Algorithm-/-Gini-Index-Algorithm">CART Algorithm / Gini Index Algorithm<a class="anchor-link" href="#CART-Algorithm-/-Gini-Index-Algorithm">¶</a></h3><p>CART or Gini index algorithm is same as that of ID3 algorithm. But instead of using information gain for choosing the best feature to split we use Gini index.</p>
 </div>
 </div>
 </div>
