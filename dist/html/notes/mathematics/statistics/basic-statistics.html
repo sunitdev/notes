@@ -13313,7 +13313,42 @@ ul.typeahead-list  > li > a.pull-right {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Average,-Median,-Mode">Average, Median, Mode<a class="anchor-link" href="#Average,-Median,-Mode">¶</a></h1><h1 id="Chi-Square-Test">Chi Square Test<a class="anchor-link" href="#Chi-Square-Test">¶</a></h1>
+<h1 id="Average/-Median-/-Mode">Average/ Median / Mode<a class="anchor-link" href="#Average/-Median-/-Mode">¶</a></h1><p>Given a dataset we can calculate some charactheris of the dataset which act as an indicator of the dataset givining us the idea of the entire dataset.</p>
+<h2 id="Average">Average<a class="anchor-link" href="#Average">¶</a></h2><p>Technically average is defined as follows.</p>
+<blockquote><p>Average is a number which when replaced with with other number in a dataset yields the same sum as the sum of the original dataset.</p>
+</blockquote>
+<p>Suppose we have following set $X=\{1,2,3,4,5\}$ of $n$ number where $n=5$ in this case, then the average or mean denoted by $\bar{X}$, is a number where the following holds.</p>
+$$
+\begin{aligned}
+1 + 2 + 3 + 4 + 5 &amp;= \bar{X} + \bar{X} +\bar{X} +\bar{X} +\bar{X} \\
+\sum_{x=i}^n x_i &amp;= \sum_{x=i}^n \bar{X} \\
+\sum_{x=i}^n x_i &amp;= n * \bar{X} \\
+\bar{X} &amp;= \frac{\sum x_i}{n} \\
+\end{aligned}
+$$<p>Thus giving us the formula for the average. Which is the sum of number of elements divided by the number of elements.</p>
+<h2 id="Median">Median<a class="anchor-link" href="#Median">¶</a></h2><p>Median of the dataset is the kind of center point or the center of gravity of the dataset. For the set $X=\{1,2,3,4,5\}$. The median would be $3$ as it is in between the set. If the number of element in the dataset are even we take the average of the midpoint.</p>
+<p>So more formally,</p>
+$$
+\text{Median Index} =\begin{cases}
+\frac{n+1}{2} &amp; \text{if n is odd} \\
+\frac{\frac{n}{2} + \frac{n+1}{2}}{2} &amp; \text{if n is even} \\
+\end{cases}
+$$<h2 id="Mode">Mode<a class="anchor-link" href="#Mode">¶</a></h2><p>Mode is the most frequently occurring element in the dataset. For example in the set $X=\{1,2,2,2,3,3,4\}$. "$2$" is the mode as the has the most frequency of occurrence.</p>
+<h1 id="Variance-and-Standard-deviation">Variance and Standard deviation<a class="anchor-link" href="#Variance-and-Standard-deviation">¶</a></h1><h2 id="Variance">Variance<a class="anchor-link" href="#Variance">¶</a></h2><p>Average gives us the central tendency of the data. But it does not tells us how far the data is spread in the dataset. Consider following two sets. $X=\{ 21, 22, 23, 24, 25 \}$ and $Y=\{1, 5, 9, 17, 83\}$ both of the have the same average $\bar{X}=23$ and $\bar{Y}=23$. But $X$ is very less spread out then $Y$.</p>
+<p>To calculate how spread the data is from the mean we use variance denoted by $(\delta^2)$. Variance is calculate by taking the sum of square of difference between each item and the mean divided by the total number of elements.</p>
+$$
+\delta^2 = \frac{1}{n} \sum_{i=1}^n (x_i - \bar{X})^2
+$$<p>Thus for our example variance of $X$ is.</p>
+$$
+\delta^2 = \frac{1}{5} \left ( (21 - 23) ^2 + (22 - 23)^2 + (23 - 23)^2 + (24 - 23)^2 + (25 - 23)^2 \right ) = 2
+$$<p>Similarly of $Y$.</p>
+$$
+\delta^2 = \frac{1}{5} \left ( (1 - 23) ^2 + (5 - 23)^2 + (9 - 23)^2 + (17 - 23)^2 + (83 - 23)^2 \right ) = 928
+$$<p>As we can see $Y$ has very high variance as it is spread a lot.</p>
+<h2 id="Standard-Deviation">Standard Deviation<a class="anchor-link" href="#Standard-Deviation">¶</a></h2><p>Variance is good for finding the spread, but in calculating the variance we square the terms thus converting unit to square units (cm to cm<sup>2</sup>). Thus we take square root of variance to get what is called is standard deviation (denoted by $\delta$) which is in the same unit as that of original data.</p>
+$$
+\delta = \sqrt{\delta^2}
+$$<p>If the data has a normal distribution. $68\%$ of data will lie between $\bar{X} \pm \delta$, $95\%$ of data will lie between $\bar{X} \pm 2\delta$ and $99.7\%$ of data will lie between $\bar{X} \pm 3\delta$.</p>
 </div>
 </div>
 </div>
