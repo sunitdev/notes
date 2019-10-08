@@ -13416,6 +13416,63 @@ $$<p>Continuing our example, we can state that the claim made by the researcher 
 <p>That means that the evidence of the test may suggest an outcome and be mistaken. There are two types of error in hypothesis testing.</p>
 <h4 id="Type-one-error-(Rejecting-true-null-hypothesis)">Type one error (Rejecting true null hypothesis)<a class="anchor-link" href="#Type-one-error-(Rejecting-true-null-hypothesis)">¶</a></h4><p>When we reject the null hypothesis, although that hypothesis was true.</p>
 <h4 id="Type-two-error-(Accept-false-null-hypothesis)">Type two error (Accept false null hypothesis)<a class="anchor-link" href="#Type-two-error-(Accept-false-null-hypothesis)">¶</a></h4><p>When we accept the null hypothesis but it is false.</p>
+<h2 id="Chi-Square-Test-of-independence">Chi Square Test of independence<a class="anchor-link" href="#Chi-Square-Test-of-independence">¶</a></h2><p>Chi square test of independence is an analysis method which is used to predict correlation between two categorical (Nominal) variables from a dataset.</p>
+<p>It is used to determine whether there is a significant association between two nominal variables.</p>
+<p>Chi square is usually denoted by $\chi^2$ and pronounced as "ki square" from "kite".</p>
+<p>The idea of chi square independence test is simple. If there is no correlation between the variables (null hypothesis is true) then the frequency of the data must be normally distributed across the data. So we first calculate the frequency of the category in our sample dataset and then find the difference between it and expected frequency. Then we find the probability of getting a difference greater than one we found. If the probability is very low then it means that categories are not normally distributed and are not independent of each other.</p>
+<h3 id="When-to-use.">When to use.<a class="anchor-link" href="#When-to-use.">¶</a></h3><p>Chi square is appropriate when the following conditions are met.</p>
+<ul>
+<li>The sampling method is simple random sampling.</li>
+<li>The variables under study are each categorical.</li>
+<li>If sample data are displayed in a contingency table, the expected frequency count for each cell of the table is at least 5.</li>
+</ul>
+<h3 id="Analysis">Analysis<a class="anchor-link" href="#Analysis">¶</a></h3><p>Suppose we have following dataset of $300$ people, which is $n=300$.</p>
+<p><img alt="Chai Square 1" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chi-square-1.png"/></p>
+<p>And we want to find out wether there is association/correlation between education and marriage status.</p>
+<h4 id="Setup-hypothesis-and-alpha">Setup hypothesis and alpha<a class="anchor-link" href="#Setup-hypothesis-and-alpha">¶</a></h4><p>In chi square test null hypothesis is always is that the two variable are independent of each other.</p>
+$$
+H_0 = \text{education and marriage are independent}
+$$<p>And the alternative hypothesis is always that there is a correlation between them.</p>
+$$
+H_a = \text{education and marriage are not independent}
+$$<p>We will use the $\alpha = 0.05$ for this experiment.</p>
+<h4 id="Calculate-observed-frequency.">Calculate observed frequency.<a class="anchor-link" href="#Calculate-observed-frequency.">¶</a></h4><p>The first step we do is to calculate the observed frequency/count of the category from the dataset. And then create a table with column as categories of one variable and row as categories of other variable.</p>
+<p><img alt="Chai Square 2" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chi-square-2.png"/></p>
+<p>Let $i$ denote the row index and $j$ denoted the column index then we can denoted observed frequency as $O_{i,j}$</p>
+<h4 id="Calculate-the-expected-frequency.">Calculate the expected frequency.<a class="anchor-link" href="#Calculate-the-expected-frequency.">¶</a></h4><p>Next thing we do is calculate the expected frequency for each $(i, j)$. We do this by using the following formula.</p>
+$$
+E_{i,j} = \frac{T_i - T_j}{n}
+$$<p>Where $E_{i, j}$ is the expected frequencey, $T_i$ is the row total and $T_j$ is the column total.</p>
+<p><img alt="Chai Square 3" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chi-square-3.png"/></p>
+<h4 id="Residual">Residual<a class="anchor-link" href="#Residual">¶</a></h4><p>Next we calculate the difference between observed frequency and the expected frequency.</p>
+$$
+R_{i, j} = O_{i, j} - E_{i, j}
+$$<p>Where $R_{i, j}$ is the residual.</p>
+<p><img alt="Chai Square 4" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chi-square-4.png"/></p>
+<h4 id="Calculate-Chi-square-$\chi^2$">Calculate Chi square $\chi^2$<a class="anchor-link" href="#Calculate-Chi-square-$\chi^2$">¶</a></h4><p>Next we calculate the chi square by taking the sum of ratio of residual and expected frequencies.</p>
+$$
+\chi^2 = \sum_{i,j} \frac{R_{i,j}}{E_{i,j}} = \sum_{i,j} \frac{O_{i,j} - E_{i,j}}{E_{i,j}}
+$$<p>For the above example $\chi^2 = 23.57$.</p>
+<h4 id="Degree-of-freedom">Degree of freedom<a class="anchor-link" href="#Degree-of-freedom">¶</a></h4><p>Degrees of Freedom refers to the maximum number of logically independent values, which are values that have the freedom to vary, in the data sample.</p>
+<p>Consider a data sample consisting of five positive integers. The values could be any number with no known relationship between them. This data sample would, theoretically, have five degrees of freedom.</p>
+<p>Four of the numbers in the sample are {3, 8, 5, and 4} and the average of the entire data sample is revealed to be 6. This must mean that the fifth number has to be 10. It can be nothing else. It does not have the freedom to vary. So the Degrees of Freedom for this data sample is 4.</p>
+<p>The formula for Degrees of Freedom equals the size of the data sample minus one.</p>
+$$
+Df = N -1
+$$<p>For chi square tests, degrees of freedom is utilized to determine if a certain null hypothesis can be rejected based on the total number of variables and samples within the experiment. For example, when considering students and course choice, a sample size of 30 or 40 students is likely not large enough to generate significant data. Getting the same or similar results from a study using a sample size of 400 or 500 students is more valid.</p>
+<p>Below is a chart of degree of freedom for chi square distribution.</p>
+<p><img alt="Chai Square 5" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chi-square-5.png"/></p>
+<p>As we can see the more the dregree of freedom more the graph becomes close to normal distribution and thus more better prediction.</p>
+<p>So in chi square test the degree of freedom is given by</p>
+$$
+Df = (i - 1)(j -1)
+$$<p>So in our case of $5$ rows and $4$ columns the degree of freedom becomes $(5 -1) (4 -1) = 12$.</p>
+<h4 id="Find-p-value">Find p-value<a class="anchor-link" href="#Find-p-value">¶</a></h4><p>So using the graph of degree of freedom and our $\chi^2$ we can find the p-value.</p>
+<p>In practice a chi probability table in used. <a href="https://www.medcalc.org/manual/chi-square-table.php">Link</a></p>
+<p>Using the table we found out that the value with $Df=12$ the probability of $\chi^2 \geq 23.57 \approx 0.02$.</p>
+<p>We did this by looking at the row of $Df=12$ and finding a value which is greater than or close to $23.57$, which gave us the probability.</p>
+<h3 id="Interpretation">Interpretation<a class="anchor-link" href="#Interpretation">¶</a></h3><p>We got the p-value of $0.02$ or $2\%$. And our significant level was $0.05\%$ that is $5\%$. Thus our p-value is smaller than our significant level so we "failed to reject" the null hypothesis or in other words we accept the alternate hypothesis.</p>
+<p>The institutive meaning of this is that we have a very small chance for getting a sample which support our null hypothesis so we reject it.</p>
 </div>
 </div>
 </div>
