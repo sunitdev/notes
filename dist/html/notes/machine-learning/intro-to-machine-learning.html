@@ -13920,6 +13920,7 @@ p(X=0)p(X=1) +  p(X=1)p(X=0) &amp;= 1 - p(X=0)p(X=0) - p(X=1)p(X=1) \\
 \end{aligned}
 $$<p>Thus giving us the formula of Gini index which measure the probability of impurities in a given dataset.</p>
 <p>We can use Gini index to split the dataset. We find the feature which gives the least Gini index and then use that feature to split the dataset.</p>
+<h4 id="Chai-Square">Chai Square<a class="anchor-link" href="#Chai-Square">¶</a></h4><p>Another way of finding the best split is to use the Chi test of independence to find the best feature to split the data with. We choose the feature which have a high correlation with the target variable. So in other words we choose the feature which have a high dependency on the target variable.</p>
 <h3 id="Stopping-Criteria">Stopping Criteria<a class="anchor-link" href="#Stopping-Criteria">¶</a></h3><p>Now we know how to split the tree using information gain or the gini index. But when should be decided to stop splitting the tree into further nodes. There are multiple options, two of them are listed below.</p>
 <h4 id="When-the-leaf-is-pure">When the leaf is pure<a class="anchor-link" href="#When-the-leaf-is-pure">¶</a></h4><p>We can stop splitting the tree when after the last split we have reached a dataset which is pure (every element belong to the same classes/target value). We can calculate the purity of the dataset using the Gini Index.</p>
 <h4 id="When-we-have-#-number-of-samples.">When we have # number of samples.<a class="anchor-link" href="#When-we-have-#-number-of-samples.">¶</a></h4><p>Other stopping criteria could be we keep splitting the tree until a only a certain number of element are left in the final split dataset.</p>
@@ -13940,6 +13941,40 @@ $$<p>Thus giving us the formula of Gini index which measure the probability of i
 <p>5) Stop if dataset is pure of minimum number of samples has reached.</p>
 <p><img alt="ID3 algo 5" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/idr_algo_5.png"/></p>
 <h3 id="CART-Algorithm-/-Gini-Index-Algorithm">CART Algorithm / Gini Index Algorithm<a class="anchor-link" href="#CART-Algorithm-/-Gini-Index-Algorithm">¶</a></h3><p>CART or Gini index algorithm is same as that of ID3 algorithm. But instead of using information gain for choosing the best feature to split we use Gini index.</p>
+<h3 id="CHAID-Algorithm">CHAID Algorithm<a class="anchor-link" href="#CHAID-Algorithm">¶</a></h3><p>CHAID (Chi-square Automatic Interaction Detector) is a common algorithm used to build a decision tree by finding the most correlated feature with respect to the target variable. It uses the Chi-square test of independence to find the most correlated feature with respect to the target variable.</p>
+<p>The steps of the algorithm is simple.</p>
+<p>1) Pick a level of significant $(\alpha)$.
+2) Pick on feature from the dataset.
+3) Find the chi square for combination of values of the feature with respect to the target variable.
+4) Pick the combination with the largest p-value and merge the values.
+5) Repeat steps 3 to 4 until there are no more combination or chi-square value of every combination is smaller than $\alpha$.
+6) Repeat step 2 to 5 for every feature.
+7) Select the feature with the smallest p-value as the feature to split on.</p>
+<p>Lets take an example, suppose we have a dataset with two nominal features $X1$ and $X2$ and a target nominal variable $Y$.</p>
+<p>And lets suppose we have following frequency count data with respect to the feature.</p>
+<p><img alt="Chaid 1" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chaid-1.png"/></p>
+<p><img alt="Chaid 2" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chaid-2.png"/></p>
+<p>Now first we select the first feature $X1$ and find chi-square for every combinations of values of $X1$ with respect to $Y$.</p>
+<p><img alt="Chaid 3" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chaid-3.png"/></p>
+<p><img alt="Chaid 4" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chaid-4.png"/></p>
+<p>The algorithm then identifies the pair of categories of $X1 with largest p-value above and compares this p-value to the $\approx$ (0.05 in our case).</p>
+<p>In this example, this is the pair defined by categories $3$ and $4$ of $X1$. Since the p-value for this pair (0.2143) is greater than $\alpha$, the two categories are merged to form a single compound category. As a result, a new set of categories of $X1$ is formed, and the same analysis is repeated for the new merged category.</p>
+<p><img alt="Chaid 5" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chaid-5.png"/></p>
+<p><img alt="Chaid 6" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chaid-6.png"/></p>
+<p>Again, the pair that results in the largest p-value greater than $\alpha = 0.05$ is merged. Here this corresponds to merging category 2 with the compound category 3,4. If further mergers were possible, this process would continue. However, since there are now only two (merged) categories remaining for $X1$, the merging process stops.</p>
+<p>The algorithm now calculates an adjusted p-value for the set of merged categories of X1 and the categories of Y using a <strong>Bonferroni adjustment</strong>.</p>
+<p>The Bonferroni method is a simple technique for controlling the overall probability of a false significant result when multiple comparisons are to be carried out. When conducting multiple analyses on the same dependent variable, the chance of committing a Type I error increases, thus increasing the likelihood of coming about a significant result by pure chance. To correct for this, or protect from Type I error, a Bonferroni correction is conducted.To get the Bonferroni corrected/adjusted p value, divide the original α-value by the number of analyses on the dependent variable.</p>
+<p>Thus the formula for Bonferroni adjustment is given as follows.</p>
+$$
+B = \sum_{i=0}^{r-1} (-1)^i \frac{(r-i)^c}{i!(r-i)!}
+$$<p>where $c$ is the number of original categories and $r$ is the number of categories left after merging.</p>
+<p><img alt="Chaid 7" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chaid-7.png"/></p>
+<p>After multiplying the Bonferroni correction we get a adjusted p-value of $0.0311 (= 0.00448843 × 7)$</p>
+<p>Now we repeat the same step for $X2$.</p>
+<p><img alt="Chaid 8" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chaid-8.png"/></p>
+<p>The adjusted p-value in this case is $1$ (since $0.5985587 × 3$ is greater than $1$).</p>
+<p>The final step is to split the node on the basis of that “merged explanator with smallest adjusted p-value less than $\alpha = 0.05$. Here this means we split the root node into two subnodes on the basis of the merged categories of $X1$. That is, one subnode contains the $35$ cases with $X1 = 1$ while the other contains the remaining $65$ cases with $X1 = 2, 3 , 4$.</p>
+<p>We continue building the tree until we reach a stopping criteria.</p>
 </div>
 </div>
 </div>
