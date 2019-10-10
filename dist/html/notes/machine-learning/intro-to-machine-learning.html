@@ -13330,7 +13330,7 @@ ul.typeahead-list  > li > a.pull-right {
 <ul>
 <li>Whether or not they are trained with human supervision (supervised, unsupervised, semisupervised, and Reinforcement Learning)</li>
 <li>Whether or not they can learn incrementally on the fly (online versus batch learning)</li>
-<li>Whether they work by simply comparing new data points to known data points, or instead detect patterns in the training data and build a predictive model, much like scientists do (instance-based versus model-based learning)</li>
+<li>Whether they work by simply comparing new data points to known data points, or instead detect patterns in the training data and build a predictive model, much like scientists do (instance-based versus model-based learning or parametric versus non-parametric algorithm) </li>
 </ul>
 <h3 id="Supervised-and-Unsupervised-Learning">Supervised and Unsupervised Learning<a class="anchor-link" href="#Supervised-and-Unsupervised-Learning">¶</a></h3><p>Machine learning algorithms can be classified on the type of supervision required during the training phase.</p>
 <h4 id="Supervised-Learning">Supervised Learning<a class="anchor-link" href="#Supervised-Learning">¶</a></h4><p>In Supervised Learning, the data is supplied with label for training the algorithm.</p>
@@ -13343,15 +13343,17 @@ ul.typeahead-list  > li > a.pull-right {
 <p>Example is a game placing agent. For a chess playing agent the algorithm will play multiple games with itself and learn from the moves which result in higher score. Thus improving the moves as training improves over time.</p>
 <h3 id="Online-Vs-Batch-Learning">Online Vs Batch Learning<a class="anchor-link" href="#Online-Vs-Batch-Learning">¶</a></h3><p>Other category is how the system learning. Some algorithms keeps learning continuously as the data is feed into the system. Example would be stock market prediction algo. The data stream is continuous for the algorithm and the learning of the system never stops. Such system is called Online system.</p>
 <p>For some system the learning is incremental. Example can be Google speech recognition algorithm. Onces the model is trained the model is updated on the Android phones. And the team at Google would record more audios from different language and accents and the train the model and then later update the model again from the Android devices.</p>
-<h3 id="Instance-Vs-Model-Based-Learning">Instance Vs Model Based Learning<a class="anchor-link" href="#Instance-Vs-Model-Based-Learning">¶</a></h3><p>Other way is how the algorithm learns from the data. One method is Instance based. In this method the algorithm has access to all the data and whenever a new instance is to categorized or predicted it check the other instances in the data which are similarly to that of new instance and assign the new instance to the same group of data or predict the value of new instance based on value of similar instance. Example would be spam detection, if a new email is 95% similar to existing spam email then possibility the email is spam.</p>
-<p>Another way is that system build a model (equation) from the data and then use that model to predict the value for new instance. Example would be linear regression which tries to fit a line through the data and whenever a new instance is to be predicted it check where on the line the new instance fits and then predicts the value accordingly.</p>
+<h3 id="Instance/Non-parametric-Vs-Model-Based/Parametric-Learning">Instance/Non-parametric Vs Model Based/Parametric Learning<a class="anchor-link" href="#Instance/Non-parametric-Vs-Model-Based/Parametric-Learning">¶</a></h3><p>Other way is how the algorithm learns from the data. One method is Instance based also called as non-parametric. In this method the algorithm has access to all the data and whenever a new instance is to categorized or predicted it check the other instances in the data which are similarly to that of new instance and assign the new instance to the same group of data or predict the value of new instance based on value of similar instance. Example would be spam detection, if a new email is 95% similar to existing spam email then possibility the email is spam.</p>
+<p>Another way is that system build a model (equation) from the data and then use that model to predict the value for new instance. Example would be linear regression which tries to fit a line through the data and whenever a new instance is to be predicted it check where on the line the new instance fits and then predicts the value accordingly. This type of algorithms are called model based or parametric based learning algorithm.</p>
 <h2 id="Challenges-in-Machine-Learning">Challenges in Machine Learning<a class="anchor-link" href="#Challenges-in-Machine-Learning">¶</a></h2><p>There are some challenges with applying machine learning to get the right desire outcome from the data. Some of them are given below.</p>
 <h3 id="Insufficient-Quantity-of-Training-Data.">Insufficient Quantity of Training Data.<a class="anchor-link" href="#Insufficient-Quantity-of-Training-Data.">¶</a></h3><p>When there is less data to train data the model would not fit to the ideal production data and thus the outcome would not be that accurate. It is sample as taking a small sample space and predicting the parameters of the population.</p>
 <h3 id="Nonrepresentative-Training-Data.">Nonrepresentative Training Data.<a class="anchor-link" href="#Nonrepresentative-Training-Data.">¶</a></h3><p>Training data much be a good representative of future unknown instance. But the algorithm see a new data which is nothing similar to what it has seen in the training phase then the outcome is uncertain.</p>
 <h3 id="Poor-quality-data.">Poor quality data.<a class="anchor-link" href="#Poor-quality-data.">¶</a></h3><p>Missing or bad data in training can also affect the outcome of the algorithm on live data.</p>
 <h3 id="Irrelevant-Features.">Irrelevant Features.<a class="anchor-link" href="#Irrelevant-Features.">¶</a></h3><p>Not choosing a proper or relevant feature to predict the outcome will surely degrade the performance of the system. For example, will detecting spam email taking consideration whether it is raining will give curtain result.</p>
 <h3 id="Overfitting-Training-Data.">Overfitting Training Data.<a class="anchor-link" href="#Overfitting-Training-Data.">¶</a></h3><p>Ever data has some noise in it, even training data. So creating a model which predicts the exact value for training data set is not a good idea that it has selected parameters which are too closely related to training data. Such model will performance badly on production data as the noise level will vary in production data.</p>
+<p>One example would be trying to fit a function to every point in linear regression by creating a model of same degree as that of number of training sample. Then the model would also fit to the noise in the data and thus perform very poorly on the real dataset.</p>
 <h3 id="Underfitting-Training-Data.">Underfitting Training Data.<a class="anchor-link" href="#Underfitting-Training-Data.">¶</a></h3><p>Underfitting occurs when the model is too simple to learn the underlying structure of the data. For example using linear regression on a quadratic data.</p>
+<p>One example is suppose the dataset graph is following a quadratic trace and we use linear regression and try to fit a straight line through the data. Which will lead into bad prediction of the data.</p>
 <h2 id="Testing-and-Validation">Testing and Validation<a class="anchor-link" href="#Testing-and-Validation">¶</a></h2><p>Onces training of the machine learning model is done how can we be sure that the model/algorithm will work on new unseen data inputs. The only way to make sure of this is to split the data into two sets. One set for training the model and the other to test the model. Usually the percentage is 80% as training data and 20% test data.</p>
 <p>But there is a problem with this method. The problem is we use training data to train our system and then if the performance on test data fail we might over fit the model to the training data set. So another common practice is to divide the data into three sets training, validation and test.</p>
 <p>We train the model on training set so the model fits to the training dataset. Then we give it an unseen data set (validation set) and allow the model to change its parameter to based on validation set. And then we finally calculate the actual performance on the final test set.</p>
@@ -13710,6 +13712,37 @@ Predictions....
 </pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Locally-weighted-regression.-(Loess-/-Lowess)">Locally weighted regression. (Loess / Lowess)<a class="anchor-link" href="#Locally-weighted-regression.-(Loess-/-Lowess)">¶</a></h2><p>Locally weighted regression is a non-parametric, supervised, batch based learning algorithm. The idea behind locally weighted regression model is simple.</p>
+<p>Consider a dataset as follows are we are trying to use linear regression model to bit the data.</p>
+<p><img alt="Locally Weighted 1" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/locally_weighted_regression_explain_1.png"/></p>
+<p>As we can see the linear model wont fit the data perfectly. Event if we use a quadratic function the curve would only fit the first hump but it wont fit the straight line after that. We would have to use some combination of other mathematical function.</p>
+<p>Another way to make a prediction for this type of dataset is as follows.</p>
+<p><img alt="Locally Weighted 2" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/locally_weighted_regression_explain_2.png"/></p>
+<p>Instead of fitting the model to the entire dataset. We keep the training set always with us. And whenever we want to predict the target value for a given $x$. We take only the neighboring value of $Y$ from the training dataset and fit a linear model to it and then use it to predict the value to value of unknown $x$.</p>
+<p>Thus fitting the model in the perfect way possible, but the downside is that we need access to all the training set when making prediction. So it is not considered a good algorithm for to work with large dataset.</p>
+<p>Now we will look at how to do that mathematically.</p>
+<p>We already now the cost function for simple linear regression.</p>
+$$
+J(\theta) = \sum_{i=1}^m ( \; h_\theta(x^{(i)} - y^{(i)}) \; )^2
+$$<p>Now for locally weighted regression what we do is add a weight $(w)$ to the cost function. The points are which are further way from the point we are trying to predict get weight close to zero and the points close the the point we are trying to predict get a weight closer to 1. Thus our new cost function becomes as follows.</p>
+$$
+J(\theta) = \sum_{i=1}^m w^{(i)} \; ( \; h_\theta(x^{(i)} - y^{(i)}) \; )^2
+$$<p>Now we can choose any mathematical function for the weight but the general choose is of using a gaussian distribution or normal distribution. So the formula for weight becomes.</p>
+$$
+w^{(i)} = exp \left ( - \frac{(x^{(i)} - x)^2}{2\tau^2}  \right )
+$$<p>Which is same as that of normal distribution. If we look at this function if the difference $(x^{(i)} - x)$ is small then the value of factor is close to zero, the value of $exp$ is close to $1$. And if the difference is larger the value of $exp$ will be close to $0$. Giving the local points higher weight then the further away points.</p>
+<p>The graph of the weight function in our example will look something like this.</p>
+<p><img alt="Locally Weighted 3" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/locally_weighted_regression_explain_3.png"/></p>
+<p>Where the red curve shows the weight function.</p>
+<p>The Tau $(\tau)$ in the formula is a parameter we use to control the bandwidth of the weights. Following graph shows the weight function for different values of $(\tau)$.</p>
+<p><img alt="Locally Weighted 4" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/locally_weighted_regression_explain_4.png"/></p>
+<p>The algorithm remains same as that of linear regression and we minimize the new cost function.</p>
 </div>
 </div>
 </div>
