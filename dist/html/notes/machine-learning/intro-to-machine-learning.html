@@ -13807,13 +13807,12 @@ h_{\theta}(X) \in \{0, 1\}
 $$<h4 id="Sigmoid-or-Logistic-function.">Sigmoid or Logistic function.<a class="anchor-link" href="#Sigmoid-or-Logistic-function.">¶</a></h4><p>To convert a continuos prediction of a linear equation into a value between $0$ and $1$ we use the following function.</p>
 $$
 g(z) = \frac{1}{1-e^{-z}}
-$$<p>The above function is called the <strong>Signoid function</strong> or the <strong>Logistic function</strong>. Given a real number $z \; (z \in \R)$ it return a value close to $0$ if $z$ is small and return a value close to $1$ if $z$ is large. As seen from the graph of the function below.</p>
+$$<p>The above function is called the <strong>Signoid function</strong> or the <strong>Logistic function</strong>. Given a real number $z \; (z \in \mathbb{R})$ it return a value close to $0$ if $z$ is small and return a value close to $1$ if $z$ is large. As seen from the graph of the function below.</p>
 <p><img alt="Logistic Regression 2" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/logistic_regression_explain_2.png"/></p>
 <p>Thus we represent our hypothesis as sigmoid function of the feature.</p>
 $$
 h_{\theta}(X) = g(\theta^TX) = \frac{1}{1-e^{- \theta^TX}}
-$$<p>Generally we define threshold for the sigmoid function as if $g(z) \geq 0.5 = 1$ and $g(z) \leq 0.5 = 0$.</p>
-<h4 id="Cost-function">Cost function<a class="anchor-link" href="#Cost-function">¶</a></h4><p>Now we can derive the cost function of the hypothesis.If we look it probabilistically, we know that the outcome of the hypothesis will be either $0$ or $1$. So we can write the probability as follows.</p>
+$$<h4 id="Cost-function">Cost function<a class="anchor-link" href="#Cost-function">¶</a></h4><p>Now we can derive the cost function of the hypothesis.If we look it probabilistically, we know that the outcome of the hypothesis will be either $0$ or $1$. So we can write the probability as follows.</p>
 $$
 \begin{aligned}
 P(y=1 | X; \theta) &amp;= h_{\theta}(X) \\
@@ -13907,6 +13906,33 @@ Prediction of classes: [0 0 1 2 1]
 </pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Regularization-of-model">Regularization of model<a class="anchor-link" href="#Regularization-of-model">¶</a></h2><p>When we use linear regression method to fit our training dataset there usually two before arises.</p>
+<ul>
+<li>Overfitting training dataset.</li>
+<li>If multiple parameters are present then the model becomes complex.</li>
+</ul>
+<p>Other name of the above problems is <strong>bias</strong> (overfitting) and <strong>variance</strong> (using features which are correlated to each other, thus adding noise without adding information). The diagram below give an idea about it.</p>
+<p><img alt="Bias versus variance" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/bias_varianace.png"/></p>
+<p>As we can see we need to reduce bias and variance. To solve these two problem we add a penalty to the cost function. This prevents gradient decent from optimizing the $(\theta)$ to much to add bias and variance.</p>
+<h3 id="Lasso-Regression-/-Variance-Regularization-/-L1-Regularization.">Lasso Regression / Variance Regularization / L1 Regularization.<a class="anchor-link" href="#Lasso-Regression-/-Variance-Regularization-/-L1-Regularization.">¶</a></h3><p>One way of controlling the variance is to add the following to the cost function of the linear regression.</p>
+$$
+J(\theta) = \frac{1}{2M} \sum_{i=0}^M (h_{\theta}(x^{(i)}) - y^{(i)})^2 + \lambda \sum_{i=0}^M |\theta^{(i)}|
+$$<p>The penalty added to the cost function is the absolute sum of all the $\theta$. And $(\lambda)$ is the controlling factor. If $(\lambda)$ is zero then the equation is same as that of linear regression. The higher we make the $(\lambda)$ the higher the cost function get and the gradient decent algorithm tries to make the $\theta$ close to zero. So my controlling the value of $\theta$ we can control how many variable/feature can contribute in the model.</p>
+<p>The name <em>L1 Regularization</em> comes from linear algebra (L1 Norm and L2 Norm). They are different ways of measure the length of the vector. $L1$ norm or also called <em>Manhattan Distance</em> is a way of calculating the length of the vector by taking absolute sum of its component . For example for vector $\bar{V}=[3,-4]$ magnitude will be $|3|+|-4|=7$. And <em>L2 Regularization</em> (seen below) also called as Euclidean norm is a way of calculating magnitude of vector by taking square root of sum of square of components $\sqrt{(3)^2 + (-4)} = \sqrt{25} = 5$.</p>
+<h3 id="Ridge-Regression-/-Bias-Regularization-/-L2-Regularization.">Ridge Regression / Bias Regularization / L2 Regularization.<a class="anchor-link" href="#Ridge-Regression-/-Bias-Regularization-/-L2-Regularization.">¶</a></h3><p>One way of controlling bias is to add following to the cost function.</p>
+$$
+J(\theta) = \frac{1}{2M} \sum_{i=0}^M (h_{\theta}(x^{(i)}) - y^{(i)})^2 + \lambda \sum_{i=0}^M (\theta^{(i)})^2
+$$<p>Same as lasso regression we can control the bias by controlling the $(\lambda)$. This constraint results in minimized coefficients (aka shrinkage) that trend towards zero the larger the value of $\lambda$. Shrinking the coefficients leads to a lower variance and in turn a lower error value. Therefore Ridge regression decreases the complexity of a model but does not reduce the number of variables, it rather just shrinks their effect.</p>
+<h3 id="Elastic-Net">Elastic Net<a class="anchor-link" href="#Elastic-Net">¶</a></h3><p>We can combine both of the regularization withing one regularization named as Elastic Net, which gives the cost function as follows.</p>
+$$
+J(\theta) = \frac{1}{2M} \sum_{i=0}^M (h_{\theta}(x^{(i)}) - y^{(i)})^2 + \lambda \left ( \frac{1-\alpha}{2}\sum_{i=0}^M (\theta^{(i)})^2 + \alpha \sum_{i=0}^M |\theta^{(i)}| \right )
+$$<p>In addition to setting and choosing a $\lambda$ value elastic net also allows us to tune the $\alpha$ parameter where $\alpha = 0$ corresponds to ridge and $\alpha = 1$ to lasso. Simply put, if you plug in 0 for $\alpha$, the penalty function reduces to the L1 (ridge) term and if we set $\alpha$ to 1 we get the L2 (lasso) term. Therefore we can choose an alpha value between 0 and 1 to optimize the elastic net. Effectively this will shrink some coefficients and set some to 0 for sparse selection.</p>
 </div>
 </div>
 </div>
