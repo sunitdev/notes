@@ -13654,6 +13654,47 @@ $$
 \theta = (X^TX)^{-1}X^Ty
 $$<p>The above equation is called "normal equation" or the "closed form equation". Which can be used to directly compute the value of the parameters.</p>
 <p>Closed form linear regression is only useful if number of samples is less than $1000$ because it involves matrix multiplication which is an $O(n^3)$ costly operation. For bigger data the normal iterative gradient descent is preferred.</p>
+<h3 id="Probabilistic-interpretation-of-linear-regression">Probabilistic interpretation of linear regression<a class="anchor-link" href="#Probabilistic-interpretation-of-linear-regression">¶</a></h3><p>Earlier we have seen linear regression form an analytical perspective. We also used sum of error square without understand why did we square it or not used absolute value of the difference raise to some other number for example $4$.</p>
+<p>Here we will look at linear regression from probabilistic point of view which is show us by square of difference gives us the most likely hood that the prediction we do is closer to the actual value.</p>
+<p>There are multiple probabilistic models which we can use to proof sum of square error, this is one of theme. In this probabilistic model we assume that our target/independent variable $Y$ is normally distributed, which would be true in multiple scenarios by the central limit theorem. Thus</p>
+$$
+Y \sim \mathcal{N}(\mu, \delta^2)
+$$<p>where $\sim$ is a symbol to states distributed at and $\mathcal{N}(\mu, \delta^2)$ is symbol for normal distribution with mean $(\mu)$ and standard deviation $(\delta^2)$.</p>
+<h4 id="Maximizing-likelihood.">Maximizing likelihood.<a class="anchor-link" href="#Maximizing-likelihood.">¶</a></h4><p>Now Consider that we have $n$ points, each of which is drawn in an independent and identically distributed way from the normal distribution from the above equation. For a given, $(\mu, \delta^2)$ the probability of those $n$ points being drawn define the likelihood function, which are just the multiplication of n normal probability density functions (PDF) because they are independent. Giving us the formula</p>
+$$
+\mathcal{L}(\mu|Y) = \sum_{i=1}^n P_Y(y_i|\mu, \delta^2) = \sum_{i=1}^m \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}}
+$$<p>Because in our probabilistic model we have assume $Y$ to be normally distributed thus PMF for each $y^(i)$ would be same as the equation of normal curve.</p>
+<p>Now our goal is to choose the unknown parameter $\mu$ (or $\delta^2$) which maximizes the likely hood. So we maximize the function $\mathcal{L}(\mu|Y)$ over the parameter $\mu$.</p>
+$$
+\begin{aligned}
+\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \mathcal{L}(\mu|Y) = \underset{\mu}{\operatorname{arg}\,\operatorname{max}} \sum_{i=1}^m \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}}
+\end{aligned}
+$$<p>Now maximizing the function is same as maximizing the log of the function. So,</p>
+$$
+\begin{aligned}
+\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \mathcal{L}(\mu|Y) &amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; log \left ( \sum_{i=1}^m \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right ) \\
+&amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}}  \sum_{i=1}^m log \left (\frac{1}{\delta\sqrt{2\pi}}\right ) + log \left( e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right )
+\end{aligned}
+$$<p>The first term is constant so it wont have an effect in maximizing the outcome. So we can ignore the constant.</p>
+$$
+\begin{aligned}
+\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \mathcal{L}(\mu|Y) &amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}}  \sum_{i=1}^m log \left (\frac{1}{\delta\sqrt{2\pi}}\right ) + log \left( e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right ) \\
+&amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \sum_{i=1}^m log \left( e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right ) \\
+\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \mathcal{L}(\mu|Y) &amp;=  \sum_{i=1}^m -\frac{(y_i - \mu)^2}{2\delta^2}
+\end{aligned}
+$$<p>The right side of the equation is a negative number so the problem is same as minimizing the right side. So we can can write the following.</p>
+$$
+\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \mathcal{L}(\mu|Y) = \underset{\mu}{\operatorname{arg}\,\operatorname{min}} \sum_{i=1}^m (y_i - \mu)^2
+$$<p>We can extend this further to our model of linear equation. Instead of assuming $Y$ to a normal distribution of mean $\mu$ we can write it as $Y$ being normally distributed with the means as a linear function of independent variable. With parameter $\theta$ that we are trying to find.</p>
+$$
+Y \sim \mathcal{N}(\theta_0 + \theta_1X_1 + ... + \theta_mX_m,  \; \delta^2)
+$$<p>Thus giving us the final equation as</p>
+$$
+\begin{aligned}
+&amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{min}} \sum_{i=1}^m (y_i - (\theta_0 + \theta_1X_1 + ... + \theta_mX_m))^2 \\
+&amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{min}} \sum_{i=1}^m (y_i - h_{\theta}(x))^2
+\end{aligned}
+$$<p>Thus proving that difference of square will give us most maximum likely hood when predicting $Y$ from a given set of independent variable.</p>
 <h3 id="Computing-Linear-Regression">Computing Linear Regression<a class="anchor-link" href="#Computing-Linear-Regression">¶</a></h3><h4 id="Scikit-Learn">Scikit Learn<a class="anchor-link" href="#Scikit-Learn">¶</a></h4>
 </div>
 </div>
