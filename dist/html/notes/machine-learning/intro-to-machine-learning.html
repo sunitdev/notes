@@ -13859,6 +13859,54 @@ $$
 \end{aligned}
 $$<p>Thus giving us the derivative for the cost function of logistic regression. The derivate is symbolically similar to that of linear regression but the difference is the formula for the $h_{\theta}(X)$. The similarly is explore more in the concept of generalized linear regression model.</p>
 <p>Rest of the algorithm is same as linear regression.</p>
+<h3 id="Computing-Logistics-Regression">Computing Logistics Regression<a class="anchor-link" href="#Computing-Logistics-Regression">¶</a></h3><h4 id="Scikit-learn">Scikit learn<a class="anchor-link" href="#Scikit-learn">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+
+<span class="c1"># Get iris data</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># Create model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">'lbfgs'</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s1">'multinomial'</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+
+<span class="c1"># make prediction - From test only :P</span>
+<span class="n">test_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choices</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Test Data: '</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">test_data</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s1">'Prediction of classes: {}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">predictions</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Test Data: 
+[[5.4 3.4 1.5 0.4]
+ [5.  3.3 1.4 0.2]
+ [5.8 2.7 4.1 1. ]
+ [5.8 2.7 5.1 1.9]
+ [5.6 3.  4.5 1.5]]
+
+Prediction of classes: [0 0 1 2 1]
+</pre>
+</div>
+</div>
 </div>
 </div>
 </div>
