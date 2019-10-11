@@ -13790,6 +13790,81 @@ $$<p>Which is same as that of normal distribution. If we look at this function i
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Logistic-Regression">Logistic Regression<a class="anchor-link" href="#Logistic-Regression">¶</a></h2><p>Logistics regression is a regression algorithm used in classification. Instead of predicting a continuous value given a set of independent feature it return a probability of class the given unknown input instance can belong to.</p>
+<h3 id="Types-of-Logistics-Regression">Types of Logistics Regression<a class="anchor-link" href="#Types-of-Logistics-Regression">¶</a></h3><p>There are three types of logistic regression algorithm, based on the value it predict.</p>
+<ul>
+<li>Binary (yes/no)</li>
+<li>Multi (Cat, Dog, Sheep)</li>
+<li>Ordinal (low, medium, high)</li>
+</ul>
+<h3 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">¶</a></h3><p>Suppose we have following dataset.</p>
+<p><img alt="Logistic Regression 1" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/logistic_regression_explain_1.png"/></p>
+<p>And we are trying to predict if $Y=0$ or $Y=1$ given a value of $X$. And if we perform a simple linear regression, as shown in figure, we would get a very bad prediction.</p>
+<p>To solve such kind of classification problem we need to change our hypothesis from prediction value to classifying if a target value belong to a particular class ($0$ or $1$ in our case).</p>
+<p>So our target variable or our prediction must be either $0$ or $1$.</p>
+$$
+h_{\theta}(X) \in \{0, 1\}
+$$<h4 id="Sigmoid-or-Logistic-function.">Sigmoid or Logistic function.<a class="anchor-link" href="#Sigmoid-or-Logistic-function.">¶</a></h4><p>To convert a continuos prediction of a linear equation into a value between $0$ and $1$ we use the following function.</p>
+$$
+g(z) = \frac{1}{1-e^{-z}}
+$$<p>The above function is called the <strong>Signoid function</strong> or the <strong>Logistic function</strong>. Given a real number $z \; (z \in \R)$ it return a value close to $0$ if $z$ is small and return a value close to $1$ if $z$ is large. As seen from the graph of the function below.</p>
+<p><img alt="Logistic Regression 2" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/logistic_regression_explain_2.png"/></p>
+<p>Thus we represent our hypothesis as sigmoid function of the feature.</p>
+$$
+h_{\theta}(X) = g(\theta^TX) = \frac{1}{1-e^{- \theta^TX}}
+$$<p>Generally we define threshold for the sigmoid function as if $g(z) \geq 0.5 = 1$ and $g(z) \leq 0.5 = 0$.</p>
+<h4 id="Cost-function">Cost function<a class="anchor-link" href="#Cost-function">¶</a></h4><p>Now we can derive the cost function of the hypothesis.If we look it probabilistically, we know that the outcome of the hypothesis will be either $0$ or $1$. So we can write the probability as follows.</p>
+$$
+\begin{aligned}
+P(y=1 | X; \theta) &amp;= h_{\theta}(X) \\
+P(y=0 | X; \theta) &amp;= 1 - h_{\theta}(X) \\
+\end{aligned}
+$$<p>Which states that the probability of $Y=1$ given $X$ parametrized on $\theta$ is $h_{\theta}(X)$ and by property of normalization of probability the probability of $Y=0$ is $1-h_{\theta}(X)$.</p>
+<p>We can combine the above equation into a single equation as follows.</p>
+$$
+P(Y|X;\theta) = h_{\theta}(x)^y \;\; (1 -h_{\theta}(x))^{1-y}
+$$<p>The above equation is same as the first one because when $y=1$, then the second equation become raise to $0$ which is one and the equation becomes $h_{\theta}(x)$. And when y=0 the first equation becomes raise to zero and becomes $1$ and the equation become $1 -h_{\theta}(x)$.</p>
+<p>Now if we take the likely hood of the hypothesis to get value of $Y$ we get.</p>
+$$
+\begin{aligned}
+\mathcal{L}(\theta) &amp;= \sum_i P(y^{(i)}|x^{(i)};\theta) \\
+&amp;= \sum_i  h_{\theta}(x^{(i)})^{y^{(i)}} \;\; (1 -h_{\theta}(x^{(i)}))^{1-y^{(i)}}
+\end{aligned}
+$$<p>Now maximizing the function is same as maximizing the log of the function of we take log on the right and we get.</p>
+$$
+\mathcal{L}(\theta) = \sum_i  y^{(i)} \; log( h_{\theta}(x^{(i)}))  + (1-y^{(i)}) \; log(1 -h_{\theta}(x^{(i)}))
+$$<p>So the function becomes our cost function and we want to maximize the likely hood of by choosing parameter $(\theta)$.</p>
+<h4 id="Gradient-Accent">Gradient Accent<a class="anchor-link" href="#Gradient-Accent">¶</a></h4><p>We use the same gradient descent algorithm as the one we used in linear regression but our goal here is not to decrease the cost function, we need to increase the cost function (likely hood). Instead of subtracting the derivative of the cost function with $\theta$ we add the derivative to it. This approach is also called as gradient accent. Thus our gradient accent formula will become.</p>
+$$
+\theta := \theta + \alpha \frac{\delta}{\delta \theta} \mathcal{L}(\theta)
+$$<p>Where $\alpha$ is our learning rate similar to the linear regression.</p>
+<p>Now we find the partial derivative of the likely hood function.</p>
+$$
+\begin{aligned}
+\frac{\delta}{\delta \theta} \mathcal{L}(\theta) &amp;= \frac{\delta}{\delta \theta} \sum_i y^{(i)} \; log( h_{\theta}(x^{(i)}))  + (1-y^{(i)}) \; log(1 -h_{\theta}(x^{(i)})) \\
+\end{aligned}
+$$<p>By chain rule.</p>
+$$
+\begin{aligned}
+&amp;=  \sum_i y^{(i)} \; \frac{1}{h_{\theta}(x^{(i)})} \; ( \; h_{\theta}(x^{(i)}) \; (1 - h_{\theta}(x^{(i)})) \; ) x^{(i)} \\ &amp;+ (1-y^{(i)}) \; \frac{1}{(1 -h_{\theta}(x^{(i)})} \; (-1) \; ( \; (h_{\theta}(x^{(i)}) \; (1 - h_{\theta}(x^{(i)})\;) \; x^{(i)}) \\
+
+&amp;= \sum_i y^{(i)} \;  (1 - h_{\theta}(x^{(i)}) ) \; x^{(i)} + (1-y^{(i)}) \; (-1) \;  h_{\theta}(x^{(i)})  \; x^{(i)} \\
+
+&amp;= \sum_i  y^{(i)} x^{(i)} - y^{(i)} h_{\theta}(x^{(i)}) x^{(i)} - h_{\theta}(x^{(i)}) x^{(i)} + y^{(i)} h_{\theta}(x^{(i)}) x^{(i)} \\
+
+&amp;= \sum_i y^{(i)} x^{(i)} -  h_{\theta}(x^{(i)}) x^{(i)} \\
+
+\frac{\delta}{\delta \theta} \mathcal{L}(\theta) &amp;= \sum_i ( \; y^{(i)} -  h_{\theta}(x^{(i)}) \; ) x^{(i)} \\
+
+\end{aligned}
+$$<p>Thus giving us the derivative for the cost function of logistic regression. The derivate is symbolically similar to that of linear regression but the difference is the formula for the $h_{\theta}(X)$. The similarly is explore more in the concept of generalized linear regression model.</p>
+<p>Rest of the algorithm is same as linear regression.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Decision-Tree">Decision Tree<a class="anchor-link" href="#Decision-Tree">¶</a></h1><p>Decision tree are one of the simplest and most useful machine learning algorithm. The good of decision tree is it ability to represent the learned knowledge in a human understandable manner.</p>
 <p>Decision tree can we used for classification as well as regression.</p>
 <p>Suppose we have following dataset. - <a href="static/raw/notes/machine-learning/intro-to-machine-learning/decision_tree_golf.csv">Link</a></p>
