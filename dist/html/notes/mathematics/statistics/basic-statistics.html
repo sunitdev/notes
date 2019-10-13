@@ -13398,7 +13398,9 @@ $$<p>If the data has a normal distribution. $68\%$ of data will lie between $\ba
 <h4 id="P-values">P-values<a class="anchor-link" href="#P-values">¶</a></h4><p>A statistical hypothesis test may return a value called <strong>p</strong> or the <strong>p-value</strong>. This is a quantity we can use to interpret or quantify the result of the test and either reject or fail to reject the null hypothesis. This is done by comparing the p-value to a threshold value chosen beforehand called the <strong>significance level</strong>.</p>
 <p>The significance level is often referred to by the Greek lower case letter alpha $(\alpha)$.</p>
 <p>A common value used for alpha is $5\%$ or $0.05$. A smaller $\alpha$ value suggests a more robust interpretation of the null hypothesis, such as $1\%$ or $0.1\%$.</p>
-<p>For example, if we perform the experiment on the above example and we calculate a p-value of $0.07$. Then we could say that as the p-value is above the significant level we fail to reject the null hypothesis or we fail to accept the alternate hypothesis. So our null hypothesis still holds and thus the claim made by the researcher is falls.</p>
+<p>For example, if we perform the experiment on the above example and we calculate a p-value of $0.07$. Then we could say that as the p-value is above the significant level we fail to reject the null hypothesis or we fail to accept the alternate hypothesis. So our null hypothesis still holds and thus the claim made by the researcher is false.</p>
+<p>In other words if we select another random sample form the population assuming that null hypothesis is true, then p-value gives the probability that same outcome will appear again. Or to rephrase it, the the smaller the p-value, the more extreme or rare the observed data are, given the null hypothesis to be true.</p>
+<p>So we accept null hypothesis is p-value is greater than significant level and accept alternate hypothesis if p-value is smaller.</p>
 <p>The significance level can be inverted by subtracting it from $1$ to give a confidence level of the hypothesis given the observed sample data.</p>
 $$
 confidence = 1 - \text{significance level}
