@@ -13473,8 +13473,56 @@ $$<p>So in our case of $5$ rows and $4$ columns the degree of freedom becomes $(
 <p>In practice a chi probability table in used. <a href="https://www.medcalc.org/manual/chi-square-table.php">Link</a></p>
 <p>Using the table we found out that the value with $Df=12$ the probability of $\chi^2 \geq 23.57 \approx 0.02$.</p>
 <p>We did this by looking at the row of $Df=12$ and finding a value which is greater than or close to $23.57$, which gave us the probability.</p>
-<h3 id="Interpretation">Interpretation<a class="anchor-link" href="#Interpretation">¶</a></h3><p>We got the p-value of $0.02$ or $2\%$. And our significant level was $0.05\%$ that is $5\%$. Thus our p-value is smaller than our significant level so we "failed to reject" the null hypothesis or in other words we accept the alternate hypothesis.</p>
+<h3 id="Interpretation">Interpretation<a class="anchor-link" href="#Interpretation">¶</a></h3><p>We got the p-value of $0.02$ or $2\%$. And our significant level was $0.05\%$ that is $5\%$. Thus our p-value is smaller than our significant level so we accept the alternate hypothesis.</p>
 <p>The institutive meaning of this is that we have a very small chance for getting a sample which support our null hypothesis so we reject it.</p>
+<h2 id="Students-T-test">Students T test<a class="anchor-link" href="#Students-T-test">¶</a></h2><p>Student T test is a hypothesis test used to compare the mean of two sample, given that the sample size is small and the population follows a normal distribution. Essentially, a t-test allows to compare the average values of the two data sets and determine if they came from the same population. In other words it lets us know if those differences (measured in means/averages) could have happened by chance.</p>
+<p>The t-statistic was introduced in 1908 by "William Sealy Gosset", a chemist working for the Guinness brewery in Dublin, Ireland. "Student" was his pen name. Company policy at Guinness forbade its chemists from publishing their findings, so Gosset published his statistical work under the pseudonym "Student".</p>
+<p>After performing student t test we get a t-score which is a ratio between the difference between two groups and the difference within the groups.The larger the t-score, the more difference there is between groups. The smaller the t-score, the more similarity there is between groups. A t-score of 3 means that the groups are three times as different from each other as they are within each other.</p>
+<p>There are mainly three types of t tests.</p>
+<ul>
+<li>One Sample T-Test (Sample mean vs Population Mean)</li>
+<li>Unpaired two sample T-test (Mean of two independent samples)</li>
+<li>Paired T-test (Mean of two related samples)</li>
+</ul>
+<h3 id="One-Sample-T-test">One Sample T-test<a class="anchor-link" href="#One-Sample-T-test">¶</a></h3><p>The goal of one sample t test is to compare the mean of a random sample with a known mean of the population. This test is used the we know the mean of the population, but the standard deviation is unknown and we need to find out if a given sample belong to same population.</p>
+<p>First we formulate our null and alternate hypothesis. Our null hypothesis is that the mean of sample and population are same. And alternative hypothesis is that the means are different and the difference in numbers is due to chance.</p>
+<p>To evaluate our hypothesis we calculate the T-score using the following formula.</p>
+<p>Let $X$ sample represent a set of value with size $n$, with mean $\bar{X}$ and standard deviation $S$. And let the mean of the population be $\mu$.</p>
+$$
+t= \frac{\bar{X} - \mu}{S / \sqrt{n}}
+$$<p>Then we find the degree of freedom using the formulae</p>
+$$
+Df = 1 - n
+$$<p>And assuming we have a significance level $\alpha = 0.05 \; (5\%)$. Then we can use the <a href="http://math.mit.edu/~vebrunel/Additional%20lecture%20notes/t%20(Student%27s">t-table</a>%20table.pdf) to find p-value.</p>
+<p>If the p-value is less than the significant level we reject the null hypothesis and accept the alternate hypothesis and if p-value is greater than we accept the null hypothesis.</p>
+<h3 id="Unpaired-/-Independent-two-sample-t-test">Unpaired / Independent two sample t-test<a class="anchor-link" href="#Unpaired-/-Independent-two-sample-t-test">¶</a></h3><p>Independent (or unpaired two sample) t-test is used to compare the means of two unrelated groups of samples. As an example, we have a data of 100 individuals (50 women and 50 men). The question is to test whether the average weight of women is significantly different from that of men?</p>
+<p>In this case, we have two independents groups of samples and unpaired t-test can be used to test whether the means are different.</p>
+<p>We follow the same steps as we did for one sample t-test but only the formula for the t-score and degree of freedom changes.</p>
+$$
+t= \frac{\bar{X_a - \bar{X_b}}}{\sqrt{\frac{S_c^2}{n_a} + \frac{S_c^2}{n_b}}}
+$$<p>Where $\bar{X_a}$ and $\bar{X_b}$ are means of two independent samples $A$ and $B$ with size $n_a$ and $n_b$. And $S_c^2$ represents an estimator of the common variance of the two samples. Which is calculated by.</p>
+$$
+S_c^2 = \frac{\sum (x - \bar{X_a})^2 + \sum (x - \bar{X_b})^2}{n_a + n_b - 2}
+$$<p>And the degree of freedom is given by.</p>
+$$
+Df = n_a + n_b - 2
+$$<h3 id="Paired-sample-t-test">Paired sample t-test<a class="anchor-link" href="#Paired-sample-t-test">¶</a></h3><p>Paired Student’s t-test is used to compare the means of two related samples. That is when we have two values (pair of values) for the same samples.</p>
+<p>For example, 20 mice received a treatment X for 3 months. The question is to test whether the treatment X has an impact on the weight of the mice at the end of the 3 months treatment. The weight of the 20 mice has been measured before and after the treatment. This gives us 20 sets of values before treatment and 20 sets of values after treatment from measuring twice the weight of the same mice.</p>
+<p>In this case, paired t-test can be used as the two sets of values being compared are related. We have a pair of values for each mouse (one before and the other after treatment).</p>
+<p>Let $D^{(i)}$ be difference between each sample $X_a^{(i)}$ for first sample and $X_b^{(i)}$ or second sample, where $i$ is the row index. And let $n$ be the number of item in the sample.</p>
+<p>So the mean fo the difference can be calculated as</p>
+$$
+\bar{X_D} = \frac{\sum_i D}{n}
+$$<p>And the standard of difference can be calculated as/</p>
+$$
+S_D = \sqrt{\frac{1}{n} \; \sum_{i=1}^n (D^{(i)} - \bar{X_D})}
+$$<p>Then formula or t-score in paired t-test is given as.</p>
+$$
+t = \frac{\bar{X_D}}{S_D / \sqrt{n}}
+$$<p>And the degree of freedom is given by.</p>
+$$
+Df = n -1
+$$
 </div>
 </div>
 </div>
