@@ -13356,7 +13356,7 @@ $$<p>If the data has a normal distribution. $68\%$ of data will lie between $\ba
 <ol>
 <li>State out null hypothesis.</li>
 <li>State alternate hypothesis.</li>
-<li>Perform analysis on sample data.</li>
+<li>Perform analysis on sample data assuming null hypothesis is true.</li>
 <li>Either support or reject the null hypothesis based on result from step 3.</li>
 </ol>
 <h3 id="Null-hypothesis">Null hypothesis<a class="anchor-link" href="#Null-hypothesis">¶</a></h3><p>A hypothesis is a statement we make about the data. For example the "average hight of people is around $6$ feet".</p>
@@ -13366,7 +13366,8 @@ $$<p>If the data has a normal distribution. $68\%$ of data will lie between $\ba
 <p>In our case our null hypothesis is $H_0 = 8.2$. Because it a know fact that our experiment is trying to challenge.</p>
 <h3 id="Alternate-hypothesis">Alternate hypothesis<a class="anchor-link" href="#Alternate-hypothesis">¶</a></h3><p>Alternative hypothesis is the hypothesis that we are trying to proof. It is generally denoted by $H_a$ or $H_1$.</p>
 <p>In the example above the alternative hypothesis will be $H_a &lt; 8.2$.</p>
-<h3 id="Performing-analysis">Performing analysis<a class="anchor-link" href="#Performing-analysis">¶</a></h3><p>There are multiple analysis techniques are listed below which can be used depending upon the hypothesis and the data we are using in our experiment.</p>
+<h3 id="Performing-analysis">Performing analysis<a class="anchor-link" href="#Performing-analysis">¶</a></h3><p>After stating our null hypothesis and alternate hypothesis. We assume that the null hypothesis is true and we perform analysis on the data. Our goal of analysis is to find the probability of get the result that we got assuming the null hypothesis is true. If the probability (p-value) is small we reject our assumption of null hypothesis being correct is false and accept the alternate hypothesis and if probability is big then our assumption of null hypothesis is correct so we accept null hypothesis.</p>
+<p>There are multiple analysis techniques are listed below which can be used depending upon the hypothesis and the data we are using in our experiment.</p>
 <p><strong>Variable Distribution Type Tests (Gaussian)</strong></p>
 <ul>
 <li>Shapiro-Wilk Test</li>
@@ -13499,7 +13500,7 @@ $$<p>And assuming we have a significance level $\alpha = 0.05 \; (5\%)$. Then we
 <p>In this case, we have two independents groups of samples and unpaired t-test can be used to test whether the means are different.</p>
 <p>We follow the same steps as we did for one sample t-test but only the formula for the t-score and degree of freedom changes.</p>
 $$
-t= \frac{\bar{X_a - \bar{X_b}}}{\sqrt{\frac{S_c^2}{n_a} + \frac{S_c^2}{n_b}}}
+t= \frac{\bar{X_a} - \bar{X_b}}{\sqrt{\frac{S_c^2}{n_a} + \frac{S_c^2}{n_b}}}
 $$<p>Where $\bar{X_a}$ and $\bar{X_b}$ are means of two independent samples $A$ and $B$ with size $n_a$ and $n_b$. And $S_c^2$ represents an estimator of the common variance of the two samples. Which is calculated by.</p>
 $$
 S_c^2 = \frac{\sum (x - \bar{X_a})^2 + \sum (x - \bar{X_b})^2}{n_a + n_b - 2}
@@ -13522,7 +13523,122 @@ t = \frac{\bar{X_D}}{S_D / \sqrt{n}}
 $$<p>And the degree of freedom is given by.</p>
 $$
 Df = n -1
+$$<h3 id="Effect-Size">Effect Size<a class="anchor-link" href="#Effect-Size">¶</a></h3><p>After performing t-test we can conclude if there is a significant difference between the mean of two sample. But we can also calculate how big is the difference between the means.</p>
+<p>There are multiple ways of calculating the effect size.</p>
+<h4 id="Cohen's-D">Cohen's D<a class="anchor-link" href="#Cohen's-D">¶</a></h4><p>Cohen's D formula is as follows.</p>
 $$
+\text{Cohen's D} = \frac{\bar{X_a} - \bar{X_b}}{\sqrt{SD_{pool}}}
+$$<p>Where $\bar{X_a}$ and $\bar{X_b}$ are the mean of individual samples. And $SD_{pool}$ is the average of standard deviation of difference within the sample.</p>
+$$
+SD_{pool} = \frac{SD_a + SD_b}{2}
+$$<p>The interpretation of $Cohen's D$ is as follows.</p>
+<p>If $D \leq 0.2$ then effect is small, if $0.2 \leq D \leq 0.5$ then effect is medium and if $D \geq 0.8$ the effect is large.</p>
+<h4 id="R-Squared">R Squared<a class="anchor-link" href="#R-Squared">¶</a></h4><p>$r^2$ is called as follows.</p>
+$$
+r^2 = \frac{t^2}{t^2 + Df}
+$$<p>The interpretation of $r^2$  as follows.</p>
+<p>If $r^2 \leq 0.01$ then effect is small, if $0.01 \leq r^2 \leq 0.09$ then effect is medium and if $r^2 \geq 0.25$ the effect is large.</p>
+<h2 id="ANOVA">ANOVA<a class="anchor-link" href="#ANOVA">¶</a></h2><p>Analysis of variance (ANOVA) is a statistical technique that is used to check if the means of two or more groups are significantly different from each other. ANOVA checks the impact of one or more factors by comparing the means of different samples. It does that by comparing the variance between the group and between the group, thus the name.</p>
+<p>ANOVA is similar to t-test but t-test can only check variance between two datasets (samples), whereas ANOVA works with multiple datasets.</p>
+<p>There are two type of ANOVA test based on the number of factors/group we are comparing variance with.</p>
+<ul>
+<li>One-way ANOVA</li>
+<li>Two-way ANOVA</li>
+</ul>
+<h3 id="One-way-ANOVA">One-way ANOVA<a class="anchor-link" href="#One-way-ANOVA">¶</a></h3><p>To understand one ANOVA lets take an example.</p>
+<p>Suppose we have following data.</p>
+<table>
+<thead><tr>
+<th>Group1</th>
+<th>Group2</th>
+<th>Group3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>3</td>
+<td>5</td>
+<td>5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>3</td>
+<td>6</td>
+</tr>
+<tr>
+<td>1</td>
+<td>4</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>And we need to find out if there is a difference between the means of the three datasets.</p>
+<p>We will use $n$ to denote the number of datasets/rows and $m$ to denote the number of groups we have.</p>
+<h4 id="Grand-Mean.">Grand Mean.<a class="anchor-link" href="#Grand-Mean.">¶</a></h4><p>First we need to calculate means of individual dataset and a total means or also called as grand mean of the entire dataset.</p>
+<p>First we will calculate mean of individual dataset.</p>
+$$
+\begin{aligned}
+\bar{X_{G1}} &amp;= \frac{3+2+1}{3} = 2 \\
+\bar{X_{G2}} &amp;= \frac{5+3+4}{3} = 4 \\
+\bar{X_{G3}} &amp;= \frac{5+6+7}{3} = 6 \\
+\end{aligned}
+$$<p>Now to calculate <strong>grand mean</strong> we can either take the sum of all dataset or we can take the average of all the individual means.</p>
+$$
+\begin{aligned}
+\bar{X} &amp;= \frac{\bar{X_{G1}} + \bar{X_{G2}} + \bar{X_{G3}}}{3} = 4 \\
+\bar{X} &amp;= \frac{3+2+1+5+3+4+5+6+7}{9} = 4
+\end{aligned}
+$$<p>Thus or grand means $\bar{X}$ is $4$.</p>
+<h4 id="Total-sum-of-square-$(SST)$">Total sum of square $(SST)$<a class="anchor-link" href="#Total-sum-of-square-$(SST)$">¶</a></h4><p>First we calculate the total variance between the data. We do this by taking sum of difference between each individual items and the grand mean.</p>
+$$
+\begin{aligned}
+SST &amp;= \sum_{m} \sum_{n} (x_{(m,n)} - \bar{X})^2 \\
+&amp;= (3-4)^2 + (2-4)^2 + (1-4)^2 + (5-4)^2 + (3-4)^2  \\
+&amp;+ (4-4)^2 + (5-4)^2 + (6-4)^2 + (7-4)^2 \\
+SST &amp;= 30
+\end{aligned}
+$$<p>So the total sum of square $(SST)$ is $30$ for this set of data. And the degree of freedom if $(m*n -1)$ because we are using $m*n$ number of items for calculating $SST$. In our case the degree of freedom for $SST$ will be $8$.</p>
+<h4 id="Variance-within-the-group-$(SSW)$">Variance within the group $(SSW)$<a class="anchor-link" href="#Variance-within-the-group-$(SSW)$">¶</a></h4><p>Now we calculate how far is data spread within from the individual means for each group. We do this by adding the variance of each individual group. In other words, for each group we take the sum of square of difference between its means and individual items and then take the sum of result for each group.</p>
+$$
+\begin{aligned}
+SSW &amp;= \sum_m \sum_n (x_{(m,n)} - \bar{X}_{m}) \\
+&amp;= (3-2)^2 + (2-2)^2 + (1-2)^2 \\
+&amp;+ (5-4)^2 + (3-4)^2 + (4-4)^2 \\
+&amp;+ (5-6)^2 + (6-6)^2 + (7-6)^2 \\
+SSW &amp;= 6
+\end{aligned}
+$$<p>Here the degree of freedom is $m*(n-1)$ because we have $m$ groups and for each group the degree of freedom is $n-1$. For or example it will be $6$.</p>
+<p>To find the mean $SSW$ $(MSW)$ we divide the $SSW$ with the degree of freedom.</p>
+$$
+MSW = \frac{SSW}{m(n-1)} = \frac{6}{6} = 1
+$$<h4 id="Variance-between-the-groups-$(SSB)$">Variance between the groups $(SSB)$<a class="anchor-link" href="#Variance-between-the-groups-$(SSB)$">¶</a></h4><p>Then we calculate how far groups spread from each other. To do this we take the sum of weighted difference between th mean of each group and the grand mean.</p>
+$$
+\begin{aligned}
+SSB &amp;= \sum_m n_m (\bar{X_m} - \bar{X}) \\
+&amp;= 3 (2 - 4)^2 + 3(4-4)^2 + 3(6-4)^2 \\
+SSB &amp;= 24
+\end{aligned}
+$$<p>The degree of freedom of $(SSB)$ is given by $m-1$ because we have $m$ number of unique groups. So we get degree of freedom of $2$ for our example.</p>
+<p>To find the means $SSB$ $(MSB)$ we do divide the $SSB$ with the degree of freedom.</p>
+$$
+MSB = \frac{SSB}{m-1} = \frac{24}{2} = 12
+$$<p>The image below given a good idea of variance between the group and variance within the group.</p>
+<p><img alt="Variance Between VS Variance Within" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/variance_between_vs_within_group.png"/>.</p>
+<h4 id="SST-=-SSB-+-SSW">SST = SSB + SSW<a class="anchor-link" href="#SST-=-SSB-+-SSW">¶</a></h4><p>As we can see from example, there is a relation between $SST$ and $SSB$ and $SSW$.</p>
+$$
+\begin{aligned}
+SST &amp;= SSB + SSW \\
+30 &amp;= 24 + 6
+\end{aligned}
+$$<p>In other words the total variance in the data is sum of variance between the groups and the variance within the group.</p>
+<h4 id="F-Value">F-Value<a class="anchor-link" href="#F-Value">¶</a></h4><p>Now we calculate the f-value using the following ratio.</p>
+$$
+\text{f-value} = \frac{MSB}{MSW} = \frac{12}{1} = 12.
+$$<p>This ratio is very intuitive. The numerator $MSB$ represents the variance between group, and denominator $MSW$ represents the variance within the group. If the numerator is higher than denominator (higher f-value) then there is bigger difference between the groups compare to variance within the group thus groups are different. And viz versa.</p>
+<h4 id="p-value">p-value<a class="anchor-link" href="#p-value">¶</a></h4><p>As always we define a significant level $(\alpha)$ and for ANOVA we use the F distribution for finding the p-value. <a href="http://www.socr.ucla.edu/Applets.dir/F_Table.html">Link</a>.</p>
+<h4 id="Interpretation.">Interpretation.<a class="anchor-link" href="#Interpretation.">¶</a></h4><p>Interpretation is same as other hypothesis tests. If the p-value is smaller than the significant level we accept the alternative hypothesis and if p-value if greater then we accept the null hypothesis.</p>
+<p>The drawback of ANOVA is that it only tells us if there is any difference between the groups it does not tells there which groups have the difference.</p>
+<h3 id="Two-way-ANOVA">Two-way ANOVA<a class="anchor-link" href="#Two-way-ANOVA">¶</a></h3><p>Two way anova is using one-way anova by making multiple combination of two datasets from a given dataset. For more info - <a href="https://stepupanalytics.com/two-way-anova-calculation-by-hand-analysis-of-variance/">Link</a></p>
 </div>
 </div>
 </div>
