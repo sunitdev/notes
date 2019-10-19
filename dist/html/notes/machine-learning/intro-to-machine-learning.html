@@ -13806,12 +13806,12 @@ $$
 h_{\theta}(X) \in \{0, 1\}
 $$<h4 id="Sigmoid-or-Logistic-function.">Sigmoid or Logistic function.<a class="anchor-link" href="#Sigmoid-or-Logistic-function.">¶</a></h4><p>To convert a continuos prediction of a linear equation into a value between $0$ and $1$ we use the following function.</p>
 $$
-g(z) = \frac{1}{1-e^{-z}}
+g(z) = \frac{1}{1+e^{-z}}
 $$<p>The above function is called the <strong>Signoid function</strong> or the <strong>Logistic function</strong>. Given a real number $z \; (z \in \mathbb{R})$ it return a value close to $0$ if $z$ is small and return a value close to $1$ if $z$ is large. As seen from the graph of the function below.</p>
 <p><img alt="Logistic Regression 2" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/logistic_regression_explain_2.png"/></p>
 <p>Thus we represent our hypothesis as sigmoid function of the feature.</p>
 $$
-h_{\theta}(X) = g(\theta^TX) = \frac{1}{1-e^{- \theta^TX}}
+h_{\theta}(X) = g(\theta^TX) = \frac{1}{1+e^{- \theta^TX}}
 $$<h4 id="Cost-function">Cost function<a class="anchor-link" href="#Cost-function">¶</a></h4><p>Now we can derive the cost function of the hypothesis.If we look it probabilistically, we know that the outcome of the hypothesis will be either $0$ or $1$. So we can write the probability as follows.</p>
 $$
 \begin{aligned}
