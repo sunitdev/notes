@@ -13655,12 +13655,50 @@ $$
 $$<p>The above equation is called "normal equation" or the "closed form equation". Which can be used to directly compute the value of the parameters.</p>
 <p>Closed form linear regression is only useful if number of samples is less than $1000$ because it involves matrix multiplication which is an $O(n^3)$ costly operation. For bigger data the normal iterative gradient descent is preferred.</p>
 <h3 id="Probabilistic-interpretation-of-linear-regression">Probabilistic interpretation of linear regression<a class="anchor-link" href="#Probabilistic-interpretation-of-linear-regression">¶</a></h3><p>Earlier we have seen linear regression form an analytical perspective. We also used sum of error square without understand why did we square it or not used absolute value of the difference raise to some other number for example $4$.</p>
-<p>Here we will look at linear regression from probabilistic point of view which is show us by square of difference gives us the most likely hood that the prediction we do is closer to the actual value.</p>
+<h4 id="Maximizing-likelihood-function.">Maximizing likelihood function.<a class="anchor-link" href="#Maximizing-likelihood-function.">¶</a></h4><p>In machine learning we are generally given a set of know $X$ features and $Y$ target value we try to build a model. We can look this from another perspective of probability.</p>
+<p>In general theory of probability we usually have a probability distribution form a particular dataset and then given an input $x$ we can tell what is the probability of getting $x$ when we do a particular experiment. The most common probability distribution is a gaussian distribution also called as normal distribution. Show below.</p>
+<p><img alt="Normal Distribution" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/normal_distribution.png"/></p>
+<p>Here is we know value of $x$ let say $x=0$ and we have the normal distribution above with mean $\mu=0$ and standard deviation $\delta^2=1$ we can tell the probability of $x=0$ as $P(x=0)=0.4$.</p>
+<p>In machine learning contest, we are generally given the $x$ and the $y$ and we need to find a distribution which fits the given $x$ and $y$. In other words we are have value of $x$ and it probability $P(x)$ and we need to find a value for the parameter of distribution $\mu$ and $\delta^2$ such that the distribution matches the value perfectly.</p>
+<p>Shown below is number of distribution with different values of mean and standard deviation and data.</p>
+<p><img alt="Normal Distribution with Data" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/normal_distribution_with_data.png"/></p>
+<p>We denote this operation as the likelihood function of $y$ given $\mu$ and $\delta$. Denoted by $\mathcal{L}(y|\mu,\theta)$ is state that what is the likelihood of getting the $y$ we have observed in the data for a given $\mu$ and $\delta^2$. And in machine learning our goal is to find the $\mu$ and the $\delta^2$ which gives the maximum value for the likelihood of the function. To this we maximize the function $\mathcal{L}(y|\mu, \theta)$ with respect to $\mu$.</p>
+<p>Let take an example. We have following dataset with us $Y = (9, 9.5, 11)$ and our goal is to find a distribution which fit the our distribution correctly. And let assume that the dataset follows a normal distribution with following probability function given $\mu$ and $\delta^2$.</p>
+$$
+P(x;\mu,\delta^2) = \frac{1}{\delta\sqrt{2\pi}} exp \left ( - \frac{(x - \mu)^2}{2\delta^2} \right )
+$$<p>Now to find the likelihood of the dataset we take the joint probability of the function.</p>
+$$
+\begin{aligned}
+\mathcal{L}(y;\mu,\delta^2) &amp;= \frac{1}{\delta\sqrt{2\pi}} exp \left ( - \frac{(9 - \mu)^2}{2\delta^2} \right )  \\
+\times&amp; \; \frac{1}{\delta\sqrt{2\pi}} exp \left ( - \frac{(9.5 - \mu)^2}{2\delta^2} \right )  \\
+\times&amp; \; \frac{1}{\delta\sqrt{2\pi}} exp \left ( - \frac{(11 - \mu)^2}{2\delta^2} \right )
+\end{aligned}
+$$<p>Now since the normal distribution is a convex function, we find the maximum of the likelihood of the function by taking derivative with respect to $\mu$ and substituting it as zero. But taking derivate of multiplication of distribution function is a difficult, so we take the derivative of the $\log$ of the likelihood function because $\log$ is a monotonic function if $x$ increase $\log(x)$ increases and viz versa. Thus taking log of the function it comes as follows.</p>
+$$
+\begin{aligned}
+\mathcal{L}(y;\mu,\delta^2) &amp;= \log \left ( \frac{1}{\delta\sqrt{2\pi}} exp \left ( - \frac{(9 - \mu)^2}{2\delta^2} \right ) \right ) \\
+\times&amp; \log \left ( \; \frac{1}{\delta\sqrt{2\pi}} exp \left ( - \frac{(9.5 - \mu)^2}{2\delta^2} \right )  \right ) \\
+\times&amp; \log \left ( \; \frac{1}{\delta\sqrt{2\pi}} exp \left ( - \frac{(11 - \mu)^2}{2\delta^2} \right ) \right ) \\
+&amp;= \log \left ( \frac{1}{\delta\sqrt{2\pi}} \right )  - \frac{(9 - \mu)^2}{2\delta^2}   \\
++&amp; \log \left ( \; \frac{1}{\delta\sqrt{2\pi}} \right )  - \frac{(9.5 - \mu)^2}{2\delta^2} \\
++&amp; \log \left ( \; \frac{1}{\delta\sqrt{2\pi}} \right )  - \frac{(11 - \mu)^2}{2\delta^2} \\
+\mathcal{L}(y;\mu,\delta^2) &amp;= -3 \log(\delta) - \frac{3}{2} \log(2\pi) - \frac{1}{2\delta^2} \left [ (9-\mu)^2 +  (9.5-\mu)^2 + (11-\mu)^2 \right]
+\end{aligned}
+$$<p>Now if we take derivate of the above equation with respect to $\mu$ and set the equation value to zero then we get the value of $\mu$ which gives us the maximum value of likelihood function.</p>
+$$
+\begin{aligned}
+\frac{1}{\delta^2} [9 + 9.5 + 11 - 3\mu] &amp;= 0 \\
+\mu &amp;= \frac{9+9.5+11}{3} \\
+\mu &amp;= 9.833
+\end{aligned}
+$$<p>Which fits our intuition of fitting a normal distribution to a dataset aligned with the average of the dataset.</p>
+<p>Thus maximizing the likelihood function gives us the distribution parameter which fits the given data perfectly.</p>
+<h4 id="Maximizing-likelihood-in-linear-regression.">Maximizing likelihood in linear regression.<a class="anchor-link" href="#Maximizing-likelihood-in-linear-regression.">¶</a></h4><p>Here we will look at linear regression from probabilistic point of view which is show us by square of difference gives us the most likely hood that the prediction we do is closer to the actual value.</p>
 <p>There are multiple probabilistic models which we can use to proof sum of square error, this is one of theme. In this probabilistic model we assume that our target/independent variable $Y$ is normally distributed, which would be true in multiple scenarios by the central limit theorem. Thus</p>
 $$
 Y \sim \mathcal{N}(\mu, \delta^2)
 $$<p>where $\sim$ is a symbol to states distributed at and $\mathcal{N}(\mu, \delta^2)$ is symbol for normal distribution with mean $(\mu)$ and standard deviation $(\delta^2)$.</p>
-<h4 id="Maximizing-likelihood.">Maximizing likelihood.<a class="anchor-link" href="#Maximizing-likelihood.">¶</a></h4><p>Now Consider that we have $n$ points, each of which is drawn in an independent and identically distributed way from the normal distribution from the above equation. For a given, $(\mu, \delta^2)$ the probability of those $n$ points being drawn define the likelihood function, which are just the multiplication of n normal probability density functions (PDF) because they are independent. Giving us the formula</p>
+<p>Now Consider that we have $n$ points, each of which is drawn in an independent and identically distributed way from the normal distribution from the above equation. For a given, $(\mu, \delta^2)$ the probability of those $n$ points being drawn define the likelihood function, which are just the multiplication of n normal probability density functions (PDF) because they are independent. Giving us the formula</p>
 $$
 \mathcal{L}(\mu|Y) = \sum_{i=1}^n P_Y(y_i|\mu, \delta^2) = \sum_{i=1}^m \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}}
 $$<p>Because in our probabilistic model we have assume $Y$ to be normally distributed thus PMF for each $y^(i)$ would be same as the equation of normal curve.</p>
