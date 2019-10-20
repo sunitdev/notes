@@ -13896,6 +13896,32 @@ $$
 \end{aligned}
 $$<p>Thus giving us the derivative for the cost function of logistic regression. The derivate is symbolically similar to that of linear regression but the difference is the formula for the $h_{\theta}(X)$. The similarly is explore more in the concept of generalized linear regression model.</p>
 <p>Rest of the algorithm is same as linear regression.</p>
+<h3 id="Newton's-method">Newton's method<a class="anchor-link" href="#Newton's-method">¶</a></h3><p>Another way of solving logistic regression is by using newtons method. To understand this method we will first understand newton's method on a normal function.</p>
+<p><img alt="Newton method logistic regression" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/netwon_method_logistic_regression.png"/></p>
+<p>Suppose we have a function $f(x)$ as shown in image above and we want to find the value of $x$ where $f(x)=0$. We can find the value of $x$ by following the algorithm stated below.</p>
+<p>First we choose a random value of $x$, $X0$ in our example/figure. And we find the value of the function at $X0$ i.e $f(X0)$. Then we take derivative at $f(X0)$ to get the tangent to the function at the point $f(X0)$. The tangent will touch our $x$-axis at some point let's name it $X1$. Then we can define the slop of the tangent with following equation.</p>
+$$
+f\prime(X0) = \frac{f(X0)}{\Delta}
+$$<p>where $f\prime(X0)$ is the derivative of function $f(x)$ at $X0$. And since the slop of the line is given by $\frac{rise}{step}$. We get the above equation.</p>
+<p>We can rearrange the equation to get the value of delta.</p>
+$$
+\Delta = \frac{f\prime(X0)}{f(X0)}
+$$<p>We can generalize this equation for any $x_i$.</p>
+$$
+\Delta = \frac{f\prime(x_i)}{f(x_i)}
+$$<p>Thus the next value of any $x_{i+1}$ can be computed by following equation.</p>
+$$
+x_{i+1} = x_i - \frac{f\prime(x_i)}{f(x_i)}
+$$<h4 id="Newton's-method-for-logistic-regression">Newton's method for logistic regression<a class="anchor-link" href="#Newton's-method-for-logistic-regression">¶</a></h4><p>We can use the above equation for logistic regression. In logistic regression we want to maximize the likelihood function $\mathcal{L}(\theta)$ which is same as substituting the value of value of its derivative to zero $\mathcal{L}\prime(\theta) = 0$. Thus to find the value of $\theta$ where $\mathcal{L}\prime(\theta)=0$ we use the newton's method. Where our $f(x)$ equals to $\mathcal{L}\prime(\theta)$. Thus our equation for finding the next best possible value for $\theta$ is given as.</p>
+$$
+\theta_{i+1} = \theta_i - \frac{\mathcal{L}\prime(\theta)}{\mathcal{L}\prime\prime(\theta)}
+$$<p>The above equation works only for one parameter $\theta_i$ but if we have multiple parameter we use the vector $\theta$ and the equation becomes.</p>
+$$
+\theta^{(t+1)} = \theta^{(t)} - H^{-1} \Delta_{\theta}\mathcal{L}(\theta)
+$$<p>Where $\Delta_{\theta}\mathcal{L}(\theta)$ is the derivate of the likelihood function. And the $H$ is the matrix called as <strong>Hession Matrix</strong> where,</p>
+$$
+H_{i,j} = \frac{\delta^2 \mathcal{L}}{\delta\theta_i\delta\theta_j}
+$$<p>Newton's method for logistic regression converse really faster than the normal gradient descent. But the downside is the we need to first commute the hession matrix with is of $n\times n$ matrix where $n$ is the number of feature and every iterator we need to calculate the matrix and then take the inverse of it which is really a costly operation. So newton's method work really well on smaller dataset.</p>
 <h3 id="Computing-Logistics-Regression">Computing Logistics Regression<a class="anchor-link" href="#Computing-Logistics-Regression">¶</a></h3><h4 id="Scikit-learn">Scikit learn<a class="anchor-link" href="#Scikit-learn">¶</a></h4>
 </div>
 </div>
