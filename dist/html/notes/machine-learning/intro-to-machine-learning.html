@@ -14236,6 +14236,326 @@ $$<p>where $c$ is the number of original categories and $r$ is the number of cat
 <p>The adjusted p-value in this case is $1$ (since $0.5985587 × 3$ is greater than $1$).</p>
 <p>The final step is to split the node on the basis of that “merged explanator with smallest adjusted p-value less than $\alpha = 0.05$. Here this means we split the root node into two subnodes on the basis of the merged categories of $X1$. That is, one subnode contains the $35$ cases with $X1 = 1$ while the other contains the remaining $65$ cases with $X1 = 2, 3 , 4$.</p>
 <p>We continue building the tree until we reach a stopping criteria.</p>
+<h2 id="Computing-Decision-Tree">Computing Decision Tree<a class="anchor-link" href="#Computing-Decision-Tree">¶</a></h2><h3 id="scikit-learn">scikit learn<a class="anchor-link" href="#scikit-learn">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="inner_cell">
+<div class="input_area">
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">export_graphviz</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OrdinalEncoder</span><span class="p">,</span> <span class="n">LabelEncoder</span>
+<span class="kn">from</span> <span class="nn">graphviz</span> <span class="kn">import</span> <span class="n">Source</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">SVG</span><span class="p">,</span> <span class="n">display</span>
+
+<span class="c1"># Read Data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../../static/raw/notes/machine-learning/intro-to-machine-learning/decision_tree_golf.csv'</span><span class="p">)</span>
+
+<span class="c1"># Get features and target variable</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">'Play Golf'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">classes</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">'Play Golf'</span><span class="p">]</span>
+
+<span class="c1"># Enocde nomimal features</span>
+<span class="n">feature_encoder</span> <span class="o">=</span> <span class="n">OrdinalEncoder</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">feature_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+
+<span class="n">classes_encoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">Y</span> <span class="o">=</span> <span class="n">classes_encoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">classes</span><span class="p">)</span>
+
+<span class="c1"># Split data intro traning and test</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">,</span> <span class="n">Y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Build the tree</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">()</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">Y_train</span><span class="p">)</span>
+
+<span class="c1"># Classify using the tree</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Test Dataset: {Y_test}'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">f</span><span class="s1">'Predictions: {predictions}'</span><span class="p">)</span>
+<span class="k">print</span><span class="p">()</span>
+
+<span class="c1"># Display Tree</span>
+<span class="n">tree_display</span> <span class="o">=</span> <span class="n">Source</span><span class="p">(</span><span class="n">export_graphviz</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">out_file</span><span class="o">=</span><span class="bp">None</span>
+   <span class="p">,</span> <span class="n">feature_names</span><span class="o">=</span><span class="p">[</span><span class="s1">'Outlook'</span><span class="p">,</span><span class="s1">'Temp'</span><span class="p">,</span><span class="s1">'Humidity'</span><span class="p">,</span><span class="s1">'Windy'</span><span class="p">],</span> <span class="n">class_names</span><span class="o">=</span><span class="p">[</span><span class="s1">'Yes'</span><span class="p">,</span> <span class="s1">'No'</span><span class="p">]</span> 
+   <span class="p">,</span> <span class="n">filled</span> <span class="o">=</span> <span class="bp">True</span><span class="p">))</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s1">'Tree.'</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">SVG</span><span class="p">(</span><span class="n">tree_display</span><span class="o">.</span><span class="n">pipe</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s1">'svg'</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Test Dataset: [1 1 0]
+Predictions: [1 1 0]
+
+Tree.
+</pre>
+</div>
+</div>
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_svg output_subarea">
+<svg height="552pt" viewbox="0.00 0.00 489.00 552.00" width="489pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(4 548)">
+<title>Tree</title>
+<polygon fill="#ffffff" points="-4,4 -4,-548 485,-548 485,4 -4,4" stroke="transparent"></polygon>
+<!-- 0 -->
+<g class="node" id="node1">
+<title>0</title>
+<polygon fill="#aad5f4" points="205,-544 103,-544 103,-461 205,-461 205,-544" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="154" y="-528.8">Outlook &lt;= 0.5</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="154" y="-513.8">gini = 0.463</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="154" y="-498.8">samples = 11</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="154" y="-483.8">value = [4, 7]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="154" y="-468.8">class = No</text>
+</g>
+<!-- 1 -->
+<g class="node" id="node2">
+<title>1</title>
+<polygon fill="#399de5" points="141,-417.5 49,-417.5 49,-349.5 141,-349.5 141,-417.5" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="95" y="-402.3">gini = 0.0</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="95" y="-387.3">samples = 3</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="95" y="-372.3">value = [0, 3]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="95" y="-357.3">class = No</text>
+</g>
+<!-- 0&#45;&gt;1 -->
+<g class="edge" id="edge1">
+<title>0-&gt;1</title>
+<path d="M133.3647,-460.8796C127.9128,-449.8835 122.0157,-437.9893 116.5184,-426.9015" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="119.5911,-425.2195 112.0133,-417.8149 113.3196,-428.3289 119.5911,-425.2195" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="104.0278" y="-437.8053">True</text>
+</g>
+<!-- 2 -->
+<g class="node" id="node3">
+<title>2</title>
+<polygon fill="#ffffff" points="269,-425 159,-425 159,-342 269,-342 269,-425" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="214" y="-409.8">Humidity &lt;= 0.5</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="214" y="-394.8">gini = 0.5</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="214" y="-379.8">samples = 8</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="214" y="-364.8">value = [4, 4]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="214" y="-349.8">class = Yes</text>
+</g>
+<!-- 0&#45;&gt;2 -->
+<g class="edge" id="edge2">
+<title>0-&gt;2</title>
+<path d="M174.9851,-460.8796C179.299,-452.3236 183.8872,-443.2238 188.3446,-434.3833" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="191.5484,-435.8031 192.9253,-425.2981 185.2979,-432.6515 191.5484,-435.8031" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="200.7514" y="-445.3416">False</text>
+</g>
+<!-- 3 -->
+<g class="node" id="node4">
+<title>3</title>
+<polygon fill="#eeab7b" points="207,-306 105,-306 105,-223 207,-223 207,-306" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="156" y="-290.8">Outlook &lt;= 1.5</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="156" y="-275.8">gini = 0.375</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="156" y="-260.8">samples = 4</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="156" y="-245.8">value = [3, 1]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="156" y="-230.8">class = Yes</text>
+</g>
+<!-- 2&#45;&gt;3 -->
+<g class="edge" id="edge3">
+<title>2-&gt;3</title>
+<path d="M193.7144,-341.8796C189.5443,-333.3236 185.1091,-324.2238 180.8003,-315.3833" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="183.8997,-313.7538 176.3722,-306.2981 177.6073,-316.8207 183.8997,-313.7538" stroke="#000000"></polygon>
+</g>
+<!-- 8 -->
+<g class="node" id="node9">
+<title>8</title>
+<polygon fill="#7bbeee" points="320.5,-306 225.5,-306 225.5,-223 320.5,-223 320.5,-306" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="273" y="-290.8">Windy &lt;= 0.5</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="273" y="-275.8">gini = 0.375</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="273" y="-260.8">samples = 4</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="273" y="-245.8">value = [1, 3]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="273" y="-230.8">class = No</text>
+</g>
+<!-- 2&#45;&gt;8 -->
+<g class="edge" id="edge8">
+<title>2-&gt;8</title>
+<path d="M234.6353,-341.8796C238.8774,-333.3236 243.389,-324.2238 247.7721,-315.3833" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="250.9703,-316.8121 252.2766,-306.2981 244.6988,-313.7026 250.9703,-316.8121" stroke="#000000"></polygon>
+</g>
+<!-- 4 -->
+<g class="node" id="node5">
+<title>4</title>
+<polygon fill="#e58139" points="92,-179.5 0,-179.5 0,-111.5 92,-111.5 92,-179.5" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="46" y="-164.3">gini = 0.0</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="46" y="-149.3">samples = 2</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="46" y="-134.3">value = [2, 0]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="46" y="-119.3">class = Yes</text>
+</g>
+<!-- 3&#45;&gt;4 -->
+<g class="edge" id="edge4">
+<title>3-&gt;4</title>
+<path d="M117.5273,-222.8796C106.8547,-211.3337 95.2667,-198.7976 84.5875,-187.2446" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="87.0778,-184.7825 77.7197,-179.8149 81.9375,-189.534 87.0778,-184.7825" stroke="#000000"></polygon>
+</g>
+<!-- 5 -->
+<g class="node" id="node6">
+<title>5</title>
+<polygon fill="#ffffff" points="205.5,-187 110.5,-187 110.5,-104 205.5,-104 205.5,-187" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="158" y="-171.8">Windy &lt;= 0.5</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="158" y="-156.8">gini = 0.5</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="158" y="-141.8">samples = 2</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="158" y="-126.8">value = [1, 1]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="158" y="-111.8">class = Yes</text>
+</g>
+<!-- 3&#45;&gt;5 -->
+<g class="edge" id="edge5">
+<title>3-&gt;5</title>
+<path d="M156.6995,-222.8796C156.8372,-214.6838 156.9834,-205.9891 157.126,-197.5013" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="160.6289,-197.3555 157.2975,-187.2981 153.6299,-197.2378 160.6289,-197.3555" stroke="#000000"></polygon>
+</g>
+<!-- 6 -->
+<g class="node" id="node7">
+<title>6</title>
+<polygon fill="#399de5" points="150,-68 58,-68 58,0 150,0 150,-68" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="104" y="-52.8">gini = 0.0</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="104" y="-37.8">samples = 1</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="104" y="-22.8">value = [0, 1]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="104" y="-7.8">class = No</text>
+</g>
+<!-- 5&#45;&gt;6 -->
+<g class="edge" id="edge6">
+<title>5-&gt;6</title>
+<path d="M137.8924,-103.9815C133.7084,-95.3423 129.2877,-86.2144 125.0701,-77.5059" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="128.1029,-75.7382 120.5941,-68.2637 121.8029,-78.7893 128.1029,-75.7382" stroke="#000000"></polygon>
+</g>
+<!-- 7 -->
+<g class="node" id="node8">
+<title>7</title>
+<polygon fill="#e58139" points="260,-68 168,-68 168,0 260,0 260,-68" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="214" y="-52.8">gini = 0.0</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="214" y="-37.8">samples = 1</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="214" y="-22.8">value = [1, 0]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="214" y="-7.8">class = Yes</text>
+</g>
+<!-- 5&#45;&gt;7 -->
+<g class="edge" id="edge7">
+<title>5-&gt;7</title>
+<path d="M178.8523,-103.9815C183.2375,-95.2504 187.8733,-86.0202 192.289,-77.2281" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="195.4308,-78.7708 196.7913,-68.2637 189.1754,-75.6291 195.4308,-78.7708" stroke="#000000"></polygon>
+</g>
+<!-- 9 -->
+<g class="node" id="node10">
+<title>9</title>
+<polygon fill="#399de5" points="318,-179.5 226,-179.5 226,-111.5 318,-111.5 318,-179.5" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="272" y="-164.3">gini = 0.0</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="272" y="-149.3">samples = 2</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="272" y="-134.3">value = [0, 2]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="272" y="-119.3">class = No</text>
+</g>
+<!-- 8&#45;&gt;9 -->
+<g class="edge" id="edge9">
+<title>8-&gt;9</title>
+<path d="M272.6502,-222.8796C272.5606,-212.2134 272.4639,-200.7021 272.3731,-189.9015" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="275.8724,-189.7851 272.2884,-179.8149 268.8726,-189.844 275.8724,-189.7851" stroke="#000000"></polygon>
+</g>
+<!-- 10 -->
+<g class="node" id="node11">
+<title>10</title>
+<polygon fill="#ffffff" points="428,-187 336,-187 336,-104 428,-104 428,-187" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="382" y="-171.8">Temp &lt;= 1.0</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="382" y="-156.8">gini = 0.5</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="382" y="-141.8">samples = 2</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="382" y="-126.8">value = [1, 1]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="382" y="-111.8">class = Yes</text>
+</g>
+<!-- 8&#45;&gt;10 -->
+<g class="edge" id="edge10">
+<title>8-&gt;10</title>
+<path d="M311.1229,-222.8796C319.4549,-213.7832 328.3498,-204.0722 336.9239,-194.7116" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="339.5408,-197.0363 343.7144,-187.2981 334.3789,-192.3081 339.5408,-197.0363" stroke="#000000"></polygon>
+</g>
+<!-- 11 -->
+<g class="node" id="node12">
+<title>11</title>
+<polygon fill="#e58139" points="371,-68 279,-68 279,0 371,0 371,-68" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="325" y="-52.8">gini = 0.0</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="325" y="-37.8">samples = 1</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="325" y="-22.8">value = [1, 0]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="325" y="-7.8">class = Yes</text>
+</g>
+<!-- 10&#45;&gt;11 -->
+<g class="edge" id="edge11">
+<title>10-&gt;11</title>
+<path d="M360.7753,-103.9815C356.3119,-95.2504 351.5933,-86.0202 347.0987,-77.2281" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="350.1842,-75.5745 342.516,-68.2637 343.9514,-78.7608 350.1842,-75.5745" stroke="#000000"></polygon>
+</g>
+<!-- 12 -->
+<g class="node" id="node13">
+<title>12</title>
+<polygon fill="#399de5" points="481,-68 389,-68 389,0 481,0 481,-68" stroke="#000000"></polygon>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="435" y="-52.8">gini = 0.0</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="435" y="-37.8">samples = 1</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="435" y="-22.8">value = [0, 1]</text>
+<text fill="#000000" font-family="Times,serif" font-size="14.00" text-anchor="middle" x="435" y="-7.8">class = No</text>
+</g>
+<!-- 10&#45;&gt;12 -->
+<g class="edge" id="edge12">
+<title>10-&gt;12</title>
+<path d="M401.7352,-103.9815C405.8418,-95.3423 410.1806,-86.2144 414.3201,-77.5059" fill="none" stroke="#000000"></path>
+<polygon fill="#000000" points="417.5812,-78.7979 418.7132,-68.2637 411.2591,-75.7927 417.5812,-78.7979" stroke="#000000"></polygon>
+</g>
+</g>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Regression-Tree">Regression Tree<a class="anchor-link" href="#Regression-Tree">¶</a></h1><p>We have seen the use of decision tree to build a tree which can be used in building a classification tree. The output of decision tree was discrete class for a given set of unknown features. We can use regression tree for predicting continuous variables as well.</p>
+<p>The algorithm of building the tree is same as we did in that of decision tree. We choose the node and splitting criteria such that related node will be grouped together. At the leave node we make prediction for the target variable by either taking the average of the dataset at the nodes or by building a linear regression model to the dataset at the leaf nodes.</p>
+<h2 id="Regression-tree-vs-Linear-Regression">Regression tree vs Linear Regression<a class="anchor-link" href="#Regression-tree-vs-Linear-Regression">¶</a></h2><h3 id="Benefits-of-regression-tree.">Benefits of regression tree.<a class="anchor-link" href="#Benefits-of-regression-tree.">¶</a></h3><ul>
+<li>Making Prediction is faster as no calculations are involved.</li>
+<li>Easy to understand which parameter are important for making the prediction by visualizing the parameter hierarchy.</li>
+<li>If some data is missing and we reach only to subpart of tree, we make take average of all leaf under that subtree to give a approx prediction.</li>
+<li>Can work with both categorical and continuos data.</li>
+</ul>
+<h3 id="Disadvantage-of-regression-tree.">Disadvantage of regression tree.<a class="anchor-link" href="#Disadvantage-of-regression-tree.">¶</a></h3><ul>
+<li>Single regression trees have high variance, resulting in unstable predictions (an alternative subsample of training data can significantly change the terminal nodes). Due to the high variance single regression trees have poor predictive accuracy.</li>
+</ul>
+<h2 id="Algorithm">Algorithm<a class="anchor-link" href="#Algorithm">¶</a></h2><p>The same algorithm that we used to building a decision tree can be used for building the regression tree. Here are some extra algorithms that we can use.</p>
+<h3 id="Standard-Deviation-Reduction">Standard Deviation Reduction<a class="anchor-link" href="#Standard-Deviation-Reduction">¶</a></h3><p>Suppose we have to following data. And our goal is to find the best estimate of our target value.</p>
+<p><img alt="Regression Tree Example 1" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/regression_tree_example_1.png"/></p>
+<p>Then we split our dataset such that the standard deviation in the dataset reduces and hence the name. So do that first we need to calculate the standard deviation of the target variable.</p>
+<p><img alt="Regression Tree Example 2" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/regression_tree_example_2.png"/></p>
+<p>We can see total number of items are $n=14$. Means and standard deviation for our target variable are $\bar{x}=39.8$ and $S=9.32$ respectively.</p>
+<p>We also calculate the <strong>Coefficient of Variation</strong> which is the percentage of standard deviation and mean. It gives how much data is spread from the means for a given dataset. We used coefficient of variance as stopping criteria to prevent tree from overfitting, one example of stopping criteria would be to stop spilting if the coefficient of variation is below $10\%$.</p>
+<p>Now we calculate the standard deviation of the target variable with respect to every other attribute. We do that by using the following formulate.</p>
+$$
+S(T, X) = \sum_{c \in X} P(c)S(c)
+$$<p>Where $T$ is the target variable, $X$ is a feature and $P(c)$ is the probability of the value in that feature and $S(C)$ is the standard deviation of the feature.</p>
+<p>For example to calculate the standard deviation between the target value and the feature outlook we do the following calculation.</p>
+<p><img alt="Regression Tree Example 3" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/regression_tree_example_3.png"/></p>
+<p>Then we find the <strong>Standard Deviation Reduction</strong> by subtracting the original standard deviation between the feature and the target. In our example the standard deviation reduction for the outlook feature will be.</p>
+$$
+\begin{aligned}
+SDR(T, X) &amp;= S(T) - S(T, X) \\
+SDR(Hours, Outlook) &amp;= 9.32 - 7.66 \\
+SDR(Hours, Outlook) &amp;= 1.66
+\end{aligned}
+$$<p>We do this for every feature and find the feature which gives the greatest reduction in standard deviation.</p>
+<p><img alt="Regression Tree Example 4" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/regression_tree_example_4.png"/></p>
+<p>As we can see the outlook feature given the most reduction. So we choose the outlook feature and split the tree.</p>
+<p><img alt="Regression Tree Example 5" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/regression_tree_example_5.png"/></p>
+<p>We repeat the same for sub dataset in the tree. We calculate the coefficient of variation on the dataset and see if we have reached the stopping point in splitting.</p>
+<p><img alt="Regression Tree Example 6" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/regression_tree_example_6.png"/></p>
+<p>As we can see for the outcast branch we have reached our threshold of $10\%$ coefficient of variation. Then we create a leaf node under outcast branch and make a prediction of the target variable by taking the average of the target variable.</p>
+<p>We continue this to build the entire tree.</p>
+<p><img alt="Regression Tree Example 7" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/regression_tree_example_7.png"/></p>
 </div>
 </div>
 </div>

@@ -128,6 +128,7 @@ dependencies:
     - pyarrow==0.12.1
     - pydot==1.4.1
     - pydotplus==2.0.2
+    - python-graphviz==0.13
     - pytz==2018.9
     - pyyaml==5.1
     - sos==0.19.2
