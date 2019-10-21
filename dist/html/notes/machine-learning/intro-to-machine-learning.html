@@ -13976,6 +13976,101 @@ Prediction of classes: [0 0 1 2 1]
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Generalized-Linear-Model">Generalized Linear Model<a class="anchor-link" href="#Generalized-Linear-Model">¶</a></h2><p>If we look at all the regression algorithm the flow of the algorithm is simple we have a hypothesis function for the the algorithm then we compute the cost function for the hypothesis and find the value of parameters using the gradient descent.</p>
+<p>But one thing we haven't looked at it yet is where the hypothesis function originated from. Here we will look at generalized linear model which will help understand how hypothesis function for various algorithm were derived.</p>
+<p>Let take example of linear and logistic regression.</p>
+<p>For both of this algorithm we wanted to find the value of $y$ for a given value of $x$ and some parameter $\theta$. That is we want to find the following probability $P(y\mid x;\theta)$.</p>
+<p>Then for linear regression we had our $y$ which was normally distributed and we used the least square method to find the $\theta$</p>
+$$
+y \in \mathbb{R}: \text{Normal Dist} \rightarrow \text{Least Square}
+$$<p>For logistic regression we have $y$ which followed bernoulli's distribution and we used logistic regression.</p>
+$$
+y \in \{0, 1\}: \text{Bernoulli's} \rightarrow \text{Logistic Regression}
+$$<h3 id="Exponential-Family-Distribution">Exponential Family Distribution<a class="anchor-link" href="#Exponential-Family-Distribution">¶</a></h3><p>The normal distribution $\mathcal{N}(\mu, \delta^2)$ and the bernoulli's distribution are a case of a larger family of distribution called the <strong>Exponential Family Distribution</strong>.</p>
+<p>We say that any distribution is an exponential family distribution if the distribution can be written in the following form.</p>
+$$
+P(y \mid \eta) = b(y) \exp \left ( \eta \; T(y)^T - a(\eta) \right )
+$$<p>Where $\eta$ pronounced as "eta" is called the natural parameter which is nothing but the parameter of the distribution using which we can get multiple variance of the distribution.</p>
+<p>And $T(y)$ is the <em>sufficient statistics</em>. Sufficient statistics in more informal way is the sample statistics which when used gives us the same prediction as the of using the population parameter. In most cases $T(y)=y$ for regression algorithms.</p>
+<p>Where as $b(y)$ and $a(\eta)$ are some normal function.</p>
+<h4 id="Bernoulli-Distribution-as-exponential.">Bernoulli Distribution as exponential.<a class="anchor-link" href="#Bernoulli-Distribution-as-exponential.">¶</a></h4><p>We can represent bernoulli's distribution in the form of above equation.</p>
+<p>In bernoulli's distribution has a binary probability $y \in \{1, 0\}$. And the parameter of the distribution is the probability of $y=1$. Written as follows.</p>
+$$
+Ber(\phi) \qquad P(y=1;\phi) = \phi
+$$<p>We can write the probability of $y=0$ and $y=1$ as single equation given the value of $\phi$ as follows.</p>
+$$
+P(y;\phi) = \phi^y (1-\phi)^{1-y}
+$$<p>Same as we did in logistic regression. If $y=0$ the first term disappears and if $y=1$ the the second term disappears, giving use the probability in bernoulli's distribution.</p>
+<p>Now we take the $\exp$ and $\log$ of the equation of right which has no effect as they are opposite of each other.</p>
+$$
+\begin{aligned}
+P(y;\phi) &amp;= \exp \left ( \log \left (  \phi^y (1-\phi)^{1-y} \right ) \right ) \\
+&amp;= \exp \left ( \log \left (  \phi^y \right ) + \log \left ( (1-\phi)^{1-y} \right ) \right )   \\
+&amp;= \exp \left ( y\log \left (  \phi \right ) + (1-y) \log (1-\phi)  \right )  \\
+&amp;= \exp \left ( y\log \left (  \phi \right ) +  \log (1-\phi) - y \log (1-\phi) \right )  \\
+&amp;= \exp \left ( y\log \left (  \phi \right ) + y \log \left ( \frac{1}{1-\phi} \right ) +  \log (1-\phi)  \right )  \\
+P(y;\phi) &amp;= \exp \left (  \log \left ( \frac{\phi}{1-\phi} \right ) y  +  \log (1-\phi)  \right )  \\
+\end{aligned}
+$$<p>Now if we compare the above equation with the equation of exponential distribution we get the following.</p>
+$$
+\begin{aligned}
+\eta &amp;= \log \left ( \frac{\phi}{1-\phi} \right) \\
+a(\eta) &amp;= - log(1-\phi) \\
+T(y) &amp;= y \\
+b(y) &amp;= 1
+\end{aligned}
+$$<p>We can we rearrange the equation of $\eta$ in terms of $\phi$.</p>
+$$
+\begin{aligned}
+\eta &amp;= \log \left ( \frac{\phi}{1-\phi} \right) \\
+- \eta &amp;= \log \left ( \frac{1- \phi}{\phi} \right) \\
+- \eta &amp;= \log \left ( \frac{1}{\phi} - 1 \right) \\
+e^{- \eta} &amp;=  \frac{1}{\phi} - 1 \\
+e^{- \eta} &amp; + 1=  \frac{1}{\phi}  \\
+\phi &amp;=  \frac{1}{ 1 + e^{- \eta} }  \\
+\end{aligned}
+$$<p>Which is nothing but hypothesis function for logistic regression but we will see more detail on this in generalized linear model. Now we substitute the value $\phi$ in $a(\eta)$.</p>
+$$
+\begin{aligned}
+a(\eta) &amp;= - log(1-\phi) \\
+a(\eta) &amp;= - log(1- \frac{1}{ 1 + e^{- \eta} }) \\
+a(\eta) &amp;= - log \left ( \frac{1 + e^{- \eta}}{ 1 + e^{- \eta} } - \frac{1}{ 1 + e^{- \eta} } \right ) \\
+a(\eta) &amp;= - log \left ( \frac{ e^{- \eta}}{ 1 + e^{- \eta} }  \right ) \\
+a(\eta) &amp;= log \left ( \frac{ 1 + e^{- \eta} }{ e^{- \eta}}  \right ) \\
+a(\eta) &amp;= log \left ( \frac{ 1  }{ e^{- \eta}} + 1 \right ) \\
+a(\eta) &amp;= log \left ( 1 +  e^{\eta}  \right ) \\
+\end{aligned}
+$$<p>Thus bernoulli distribution is the is a part of exponential distribution. Simillarly there are many distribution which we can be represented as above including, Gaussian (Normal), Multinominal, Gamma, Poisson, Laplace, Beta, Dirichlet etc.</p>
+<h3 id="The-Algorithm">The Algorithm<a class="anchor-link" href="#The-Algorithm">¶</a></h3><p>Now we can use the definition of the exponential family we can define an general algorithm to find the hypothesis of any distribution of data.</p>
+<p>When using Generalized Linear Model (GLM) we assume following thing.</p>
+<p>1) For our target variable $y \mid x;\theta$ is distributed over some distribution in the exponential family of distribution $ExpFamily(\eta)$ where $\eta$ is parameter of the distribution.
+2) Given x, our goal is to output $E[\;T(y)\mid x \;]$. In other words we want our hypothesis as $h(x) = E[\;T(y)\mid x \;]$.
+3) We assume that there is a linear relationship between the parameter $\eta$ and input feature. $\eta = \theta^TX$.</p>
+<p>For example, let's assume we have some dataset and we saw that the target variable $y$ is following a bernoulli's distribution (and we dont know logistic regression :P). Then using generalized linear model algorithm we do the following.</p>
+<p>We have,
+$$
+y \mid x;\theta \qquad Bernoulli(\eta)
+$$</p>
+<p>So my hypothesis (assumption number 2) will become.</p>
+$$
+h(x) = E[y \mid x ;\theta] = P(y=1\mid x;\theta)
+$$<p>As the expectation in bernoulli's distribution is just the probability where $y=1$. Which is same as the parameter $\phi$ of bernoulli's distribution.</p>
+$$
+h(x) = \phi
+$$<p>From our derivation of bernoulli's as exponential distribution we take the value of $\phi$.</p>
+$$
+h(x) = \frac{1}{ 1 + e^{- \eta} }
+$$<p>Using our assumtion number $3$, we substitute the value of $\eta=\theta^TX$</p>
+$$
+h(x) = \frac{1}{ 1 + e^{- \theta^TX} }
+$$<p>Thus giving us the hypothesis function of our algorithm in this case logistic regression. After getting hypothesis we can calculate the cost function as usual and follow gradient descent to solve for $\theta$.</p>
+<p>Thus given a target variable $y$ we only need to decide which distribution to follow and then we can find the appropriate algorithm for it.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Regularization-of-model">Regularization of model<a class="anchor-link" href="#Regularization-of-model">¶</a></h2><p>When we use linear regression method to fit our training dataset there usually two before arises.</p>
 <ul>
 <li>Overfitting training dataset.</li>
