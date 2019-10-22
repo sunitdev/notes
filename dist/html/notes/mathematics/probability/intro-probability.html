@@ -13470,14 +13470,14 @@ $$<h2 id="Bayes-Rule">Bayes Rule<a class="anchor-link" href="#Bayes-Rule">¶</a>
 <p>We can derive it as follows</p>
 $$
 \begin{align*}
-P(A_1 | B) &amp;= \frac{P(A_1 \cap B)}{P(B)} \tag{by definition} \\
-&amp;= \frac{P(A_1) P(A_1 | B)}{P(B)} \tag{Multiplication Rule} \\
-&amp;= \frac{P(A_1) P(A_1 | B)}{\sum_{i=N} P(A_i) \; P(B | A_i)} \tag{total probability theorem} \\ 
+P(A_1 \mid B) &amp;= \frac{P(A_1 \cap B)}{P(B)} \tag{by definition} \\
+&amp;= \frac{P(A_1) P(B \mid A_1)}{P(B)} \tag{Multiplication Rule} \\
+&amp;= \frac{P(A_1) P(B \mid A_1)}{\sum_{i=N} P(A_i) \; P(B \mid A_i)} \tag{total probability theorem} \\ 
 \end{align*}
 $$<p>thus we can generalize this formula for any $A_i$ as follows,</p>
 $$
 \begin{align*}
-P(A_i | B) &amp;= \frac{P(A_i) P(A_i | B)}{\sum_{j=N} P(A_j) \; P(B | A_j)} \\ 
+P(A_i \mid B) &amp;= \frac{P(A_i) P(B \mid A_i)}{\sum_{j=N} P(A_j) \; P(B | A_j)} \\ 
 \end{align*}
 $$<p>thus giving us the Bayes rule, which is foundation for inference probability.</p>
 <h1 id="Independence">Independence<a class="anchor-link" href="#Independence">¶</a></h1><p>Two events are said to be independent if occurring of one event doesn't change our believes for the other event. Suppose there are two events $A$ and $B$ and we are told that event $B$ has occurred then it doesn't affects our initial believe about event $A$. More formally we can write.</p>

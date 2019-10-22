@@ -13700,27 +13700,23 @@ Y \sim \mathcal{N}(\mu, \delta^2)
 $$<p>where $\sim$ is a symbol to states distributed at and $\mathcal{N}(\mu, \delta^2)$ is symbol for normal distribution with mean $(\mu)$ and standard deviation $(\delta^2)$.</p>
 <p>Now Consider that we have $n$ points, each of which is drawn in an independent and identically distributed way from the normal distribution from the above equation. For a given, $(\mu, \delta^2)$ the probability of those $n$ points being drawn define the likelihood function, which are just the multiplication of n normal probability density functions (PDF) because they are independent. Giving us the formula</p>
 $$
-\mathcal{L}(\mu|Y) = \sum_{i=1}^n P_Y(y_i|\mu, \delta^2) = \sum_{i=1}^m \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}}
+\mathcal{L}(\mu|Y) = \prod_{i=1}^n P_Y(y_i|\mu, \delta^2) = \prod_{i=1}^m \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}}
 $$<p>Because in our probabilistic model we have assume $Y$ to be normally distributed thus PMF for each $y^(i)$ would be same as the equation of normal curve.</p>
 <p>Now our goal is to choose the unknown parameter $\mu$ (or $\delta^2$) which maximizes the likely hood. So we maximize the function $\mathcal{L}(\mu|Y)$ over the parameter $\mu$.</p>
 $$
 \begin{aligned}
-\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \mathcal{L}(\mu|Y) = \underset{\mu}{\operatorname{arg}\,\operatorname{max}} \sum_{i=1}^m \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}}
+\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \mathcal{L}(\mu|Y) = \underset{\mu}{\operatorname{arg}\,\operatorname{max}} \prod_{i=1}^m \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}}
 \end{aligned}
 $$<p>Now maximizing the function is same as maximizing the log of the function. So,</p>
 $$
 \begin{aligned}
-\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \mathcal{L}(\mu|Y) &amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; log \left ( \sum_{i=1}^m \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right ) \\
-&amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}}  \sum_{i=1}^m log \left (\frac{1}{\delta\sqrt{2\pi}}\right ) + log \left( e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right )
+\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \mathcal{L}(\mu|Y) &amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \log \left ( \prod_{i=1}^m \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right ) \\
+&amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \sum_{i=1}^m \log \left (  \frac{1}{\delta\sqrt{2\pi}} e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right ) \\
+&amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}}  \sum_{i=1}^m \log \left (\frac{1}{\delta\sqrt{2\pi}}\right ) + \sum_{i=1}^m \log \left( e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right ) \\
+&amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}}  \; m \times \log \left (\frac{1}{\delta\sqrt{2\pi}}\right ) + \sum_{i=1}^m \log \left( e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right ) \\
+\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \mathcal{L}(\mu|Y) &amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}}  \; m \times \log \left (\frac{1}{\delta\sqrt{2\pi}}\right ) + \sum_{i=1}^m  -\frac{(y_i - \mu)^2}{2\delta^2} \\
 \end{aligned}
-$$<p>The first term is constant so it wont have an effect in maximizing the outcome. So we can ignore the constant.</p>
-$$
-\begin{aligned}
-\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \mathcal{L}(\mu|Y) &amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}}  \sum_{i=1}^m log \left (\frac{1}{\delta\sqrt{2\pi}}\right ) + log \left( e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right ) \\
-&amp;= \underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \sum_{i=1}^m log \left( e^{-\frac{(y_i - \mu)^2}{2\delta^2}} \right ) \\
-\underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \mathcal{L}(\mu|Y) &amp;=  \sum_{i=1}^m -\frac{(y_i - \mu)^2}{2\delta^2}
-\end{aligned}
-$$<p>The right side of the equation is a negative number so the problem is same as minimizing the right side. So we can can write the following.</p>
+$$<p>In the equation above the first term is a constant and the right term is a negative term. So maximizing the equation is same as minimizing the negative term.</p>
 $$
 \underset{\mu}{\operatorname{arg}\,\operatorname{max}} \; \mathcal{L}(\mu|Y) = \underset{\mu}{\operatorname{arg}\,\operatorname{min}} \sum_{i=1}^m (y_i - \mu)^2
 $$<p>We can extend this further to our model of linear equation. Instead of assuming $Y$ to a normal distribution of mean $\mu$ we can write it as $Y$ being normally distributed with the means as a linear function of independent variable. With parameter $\theta$ that we are trying to find.</p>
@@ -13741,7 +13737,21 @@ $$<p>Thus proving that difference of square will give us most maximum likely hoo
 <div class="input">
 <div class="inner_cell">
 <div class="input_area">
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<div class="highlight"><pre><span></span><span class="err">$$</span>
+\<span class="n">begin</span><span class="p">{</span><span class="n">aligned</span><span class="p">}</span>
+\<span class="n">underset</span><span class="p">{</span>\<span class="n">mu</span><span class="p">}{</span>\<span class="n">operatorname</span><span class="p">{</span><span class="n">arg</span><span class="p">}</span>\<span class="p">,</span>\<span class="n">operatorname</span><span class="p">{</span><span class="nb">max</span><span class="p">}}</span> \<span class="p">;</span> \<span class="n">mathcal</span><span class="p">{</span><span class="n">L</span><span class="p">}(</span>\<span class="n">mu</span><span class="o">|</span><span class="n">Y</span><span class="p">)</span> <span class="o">&amp;=</span> \<span class="n">underset</span><span class="p">{</span>\<span class="n">mu</span><span class="p">}{</span>\<span class="n">operatorname</span><span class="p">{</span><span class="n">arg</span><span class="p">}</span>\<span class="p">,</span>\<span class="n">operatorname</span><span class="p">{</span><span class="nb">max</span><span class="p">}}</span> \<span class="p">;</span> <span class="n">log</span> \<span class="n">left</span> <span class="p">(</span> \<span class="n">prod_</span><span class="p">{</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span><span class="o">^</span><span class="n">m</span> \<span class="n">frac</span><span class="p">{</span><span class="mi">1</span><span class="p">}{</span>\<span class="n">delta</span>\<span class="n">sqrt</span><span class="p">{</span><span class="mi">2</span>\<span class="n">pi</span><span class="p">}}</span> <span class="n">e</span><span class="o">^</span><span class="p">{</span><span class="o">-</span>\<span class="n">frac</span><span class="p">{(</span><span class="n">y_i</span> <span class="o">-</span> \<span class="n">mu</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">}{</span><span class="mi">2</span>\<span class="n">delta</span><span class="o">^</span><span class="mi">2</span><span class="p">}}</span> \<span class="n">right</span> <span class="p">)</span> \\
+<span class="o">&amp;=</span> \<span class="n">underset</span><span class="p">{</span>\<span class="n">mu</span><span class="p">}{</span>\<span class="n">operatorname</span><span class="p">{</span><span class="n">arg</span><span class="p">}</span>\<span class="p">,</span>\<span class="n">operatorname</span><span class="p">{</span><span class="nb">max</span><span class="p">}}</span> \<span class="p">;</span> \<span class="n">sum_</span><span class="p">{</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span><span class="o">^</span><span class="n">m</span> <span class="n">log</span> \<span class="n">left</span> <span class="p">(</span>  \<span class="n">frac</span><span class="p">{</span><span class="mi">1</span><span class="p">}{</span>\<span class="n">delta</span>\<span class="n">sqrt</span><span class="p">{</span><span class="mi">2</span>\<span class="n">pi</span><span class="p">}}</span> <span class="n">e</span><span class="o">^</span><span class="p">{</span><span class="o">-</span>\<span class="n">frac</span><span class="p">{(</span><span class="n">y_i</span> <span class="o">-</span> \<span class="n">mu</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">}{</span><span class="mi">2</span>\<span class="n">delta</span><span class="o">^</span><span class="mi">2</span><span class="p">}}</span> \<span class="n">right</span> <span class="p">)</span> \\
+<span class="o">&amp;=</span> \<span class="n">underset</span><span class="p">{</span>\<span class="n">mu</span><span class="p">}{</span>\<span class="n">operatorname</span><span class="p">{</span><span class="n">arg</span><span class="p">}</span>\<span class="p">,</span>\<span class="n">operatorname</span><span class="p">{</span><span class="nb">max</span><span class="p">}}</span>  \<span class="n">sum_</span><span class="p">{</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span><span class="o">^</span><span class="n">m</span> <span class="n">log</span> \<span class="n">left</span> <span class="p">(</span>\<span class="n">frac</span><span class="p">{</span><span class="mi">1</span><span class="p">}{</span>\<span class="n">delta</span>\<span class="n">sqrt</span><span class="p">{</span><span class="mi">2</span>\<span class="n">pi</span><span class="p">}}</span>\<span class="n">right</span> <span class="p">)</span> <span class="o">+</span> <span class="n">log</span> \<span class="n">left</span><span class="p">(</span> <span class="n">e</span><span class="o">^</span><span class="p">{</span><span class="o">-</span>\<span class="n">frac</span><span class="p">{(</span><span class="n">y_i</span> <span class="o">-</span> \<span class="n">mu</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">}{</span><span class="mi">2</span>\<span class="n">delta</span><span class="o">^</span><span class="mi">2</span><span class="p">}}</span> \<span class="n">right</span> <span class="p">)</span>
+\<span class="n">end</span><span class="p">{</span><span class="n">aligned</span><span class="p">}</span>
+<span class="err">$$</span>
+<span class="err">$$</span>
+\<span class="n">begin</span><span class="p">{</span><span class="n">aligned</span><span class="p">}</span>
+\<span class="n">underset</span><span class="p">{</span>\<span class="n">mu</span><span class="p">}{</span>\<span class="n">operatorname</span><span class="p">{</span><span class="n">arg</span><span class="p">}</span>\<span class="p">,</span>\<span class="n">operatorname</span><span class="p">{</span><span class="nb">max</span><span class="p">}}</span> \<span class="p">;</span> \<span class="n">mathcal</span><span class="p">{</span><span class="n">L</span><span class="p">}(</span>\<span class="n">mu</span><span class="o">|</span><span class="n">Y</span><span class="p">)</span> <span class="o">&amp;=</span> \<span class="n">underset</span><span class="p">{</span>\<span class="n">mu</span><span class="p">}{</span>\<span class="n">operatorname</span><span class="p">{</span><span class="n">arg</span><span class="p">}</span>\<span class="p">,</span>\<span class="n">operatorname</span><span class="p">{</span><span class="nb">max</span><span class="p">}}</span> \<span class="p">;</span> <span class="n">log</span> \<span class="n">left</span> <span class="p">(</span> \<span class="n">prod_</span><span class="p">{</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span><span class="o">^</span><span class="n">m</span> \<span class="n">frac</span><span class="p">{</span><span class="mi">1</span><span class="p">}{</span>\<span class="n">delta</span>\<span class="n">sqrt</span><span class="p">{</span><span class="mi">2</span>\<span class="n">pi</span><span class="p">}}</span> <span class="n">e</span><span class="o">^</span><span class="p">{</span><span class="o">-</span>\<span class="n">frac</span><span class="p">{(</span><span class="n">y_i</span> <span class="o">-</span> \<span class="n">mu</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">}{</span><span class="mi">2</span>\<span class="n">delta</span><span class="o">^</span><span class="mi">2</span><span class="p">}}</span> \<span class="n">right</span> <span class="p">)</span> \\
+<span class="o">&amp;=</span> \<span class="n">underset</span><span class="p">{</span>\<span class="n">mu</span><span class="p">}{</span>\<span class="n">operatorname</span><span class="p">{</span><span class="n">arg</span><span class="p">}</span>\<span class="p">,</span>\<span class="n">operatorname</span><span class="p">{</span><span class="nb">max</span><span class="p">}}</span> \<span class="p">;</span> \<span class="n">sum_</span><span class="p">{</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span><span class="o">^</span><span class="n">m</span> <span class="n">log</span> \<span class="n">left</span> <span class="p">(</span>  \<span class="n">frac</span><span class="p">{</span><span class="mi">1</span><span class="p">}{</span>\<span class="n">delta</span>\<span class="n">sqrt</span><span class="p">{</span><span class="mi">2</span>\<span class="n">pi</span><span class="p">}}</span> <span class="n">e</span><span class="o">^</span><span class="p">{</span><span class="o">-</span>\<span class="n">frac</span><span class="p">{(</span><span class="n">y_i</span> <span class="o">-</span> \<span class="n">mu</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">}{</span><span class="mi">2</span>\<span class="n">delta</span><span class="o">^</span><span class="mi">2</span><span class="p">}}</span> \<span class="n">right</span> <span class="p">)</span> \\
+<span class="o">&amp;=</span> \<span class="n">underset</span><span class="p">{</span>\<span class="n">mu</span><span class="p">}{</span>\<span class="n">operatorname</span><span class="p">{</span><span class="n">arg</span><span class="p">}</span>\<span class="p">,</span>\<span class="n">operatorname</span><span class="p">{</span><span class="nb">max</span><span class="p">}}</span>  \<span class="n">sum_</span><span class="p">{</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">}</span><span class="o">^</span><span class="n">m</span> <span class="n">log</span> \<span class="n">left</span> <span class="p">(</span>\<span class="n">frac</span><span class="p">{</span><span class="mi">1</span><span class="p">}{</span>\<span class="n">delta</span>\<span class="n">sqrt</span><span class="p">{</span><span class="mi">2</span>\<span class="n">pi</span><span class="p">}}</span>\<span class="n">right</span> <span class="p">)</span> <span class="o">+</span> <span class="n">log</span> \<span class="n">left</span><span class="p">(</span> <span class="n">e</span><span class="o">^</span><span class="p">{</span><span class="o">-</span>\<span class="n">frac</span><span class="p">{(</span><span class="n">y_i</span> <span class="o">-</span> \<span class="n">mu</span><span class="p">)</span><span class="o">^</span><span class="mi">2</span><span class="p">}{</span><span class="mi">2</span>\<span class="n">delta</span><span class="o">^</span><span class="mi">2</span><span class="p">}}</span> \<span class="n">right</span> <span class="p">)</span>
+\<span class="n">end</span><span class="p">{</span><span class="n">aligned</span><span class="p">}</span>
+<span class="err">$$</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">linear_model</span>
 
@@ -13864,10 +13874,10 @@ $$<p>The above equation is same as the first one because when $y=1$, then the se
 <p>Now if we take the likely hood of the hypothesis to get value of $Y$ we get.</p>
 $$
 \begin{aligned}
-\mathcal{L}(\theta) &amp;= \sum_i P(y^{(i)}|x^{(i)};\theta) \\
-&amp;= \sum_i  h_{\theta}(x^{(i)})^{y^{(i)}} \;\; (1 -h_{\theta}(x^{(i)}))^{1-y^{(i)}}
+\mathcal{L}(\theta) &amp;= \prod_i P(y^{(i)}|x^{(i)};\theta) \\
+&amp;= \prod_i  h_{\theta}(x^{(i)})^{y^{(i)}} \;\; (1 -h_{\theta}(x^{(i)}))^{1-y^{(i)}}
 \end{aligned}
-$$<p>Now maximizing the function is same as maximizing the log of the function of we take log on the right and we get.</p>
+$$<p>Now maximizing the function is same as maximizing the log of the function so we take log of the right hand side and we get the following equation.</p>
 $$
 \mathcal{L}(\theta) = \sum_i  y^{(i)} \; log( h_{\theta}(x^{(i)}))  + (1-y^{(i)}) \; log(1 -h_{\theta}(x^{(i)}))
 $$<p>So the function becomes our cost function and we want to maximize the likely hood of by choosing parameter $(\theta)$.</p>
@@ -14043,9 +14053,11 @@ a(\eta) &amp;= log \left ( 1 +  e^{\eta}  \right ) \\
 $$<p>Thus bernoulli distribution is the is a part of exponential distribution. Simillarly there are many distribution which we can be represented as above including, Gaussian (Normal), Multinominal, Gamma, Poisson, Laplace, Beta, Dirichlet etc.</p>
 <h3 id="The-Algorithm">The Algorithm<a class="anchor-link" href="#The-Algorithm">¶</a></h3><p>Now we can use the definition of the exponential family we can define an general algorithm to find the hypothesis of any distribution of data.</p>
 <p>When using Generalized Linear Model (GLM) we assume following thing.</p>
-<p>1) For our target variable $y \mid x;\theta$ is distributed over some distribution in the exponential family of distribution $ExpFamily(\eta)$ where $\eta$ is parameter of the distribution.
-2) Given x, our goal is to output $E[\;T(y)\mid x \;]$. In other words we want our hypothesis as $h(x) = E[\;T(y)\mid x \;]$.
-3) We assume that there is a linear relationship between the parameter $\eta$ and input feature. $\eta = \theta^TX$.</p>
+<ol>
+<li>For our target variable $y \mid x;\theta$ is distributed over some distribution in the exponential family of distribution $ExpFamily(\eta)$ where $\eta$ is parameter of the distribution.</li>
+<li>Given x, our goal is to output $E[\;T(y)\mid x \;]$. In other words we want our hypothesis as $h(x) = E[\;T(y)\mid x \;]$.</li>
+<li>We assume that there is a linear relationship between the parameter $\eta$ and input feature. $\eta = \theta^TX$.</li>
+</ol>
 <p>For example, let's assume we have some dataset and we saw that the target variable $y$ is following a bernoulli's distribution (and we dont know logistic regression :P). Then using generalized linear model algorithm we do the following.</p>
 <p>We have,
 $$
@@ -14092,6 +14104,138 @@ $$<p>Same as lasso regression we can control the bias by controlling the $(\lamb
 $$
 J(\theta) = \frac{1}{2M} \sum_{i=0}^M (h_{\theta}(x^{(i)}) - y^{(i)})^2 + \lambda \left ( \frac{1-\alpha}{2}\sum_{i=0}^M (\theta^{(i)})^2 + \alpha \sum_{i=0}^M |\theta^{(i)}| \right )
 $$<p>In addition to setting and choosing a $\lambda$ value elastic net also allows us to tune the $\alpha$ parameter where $\alpha = 0$ corresponds to ridge and $\alpha = 1$ to lasso. Simply put, if you plug in 0 for $\alpha$, the penalty function reduces to the L1 (ridge) term and if we set $\alpha$ to 1 we get the L2 (lasso) term. Therefore we can choose an alpha value between 0 and 1 to optimize the elastic net. Effectively this will shrink some coefficients and set some to 0 for sparse selection.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Generative-Learning-Algorithms">Generative Learning Algorithms<a class="anchor-link" href="#Generative-Learning-Algorithms">¶</a></h1><p>We have seen a regression algorithm called the logistic regression algorithm were the algorithm tries to fit a straight line through the dataset which partitions the dataset into two subset. And when we need to predict the class of the new unknown instance we see on which side of the line does the new instance lies and predict the class accordingly.</p>
+<p>There is another set of algorithms where instead of drawing a line through the dataset. We find separate model for each class. Lets take an example, suppose given a person height and weight we need to predict if he can run a 5km marathon. Then we can get our training dataset and two probability distribution models, one for persons who can run 5km marathon and other for person who cannot run the marathon. To predict for a new instance we simply see to which of the model does our new instance fit properly and the predict the class of the instance as per the distribution to which it matches more.</p>
+<p><img alt="Generative Learning Algorithm" src="/notes/static/img/notes/machine-learning/intro-to-machine-learning/generative_learning_algorithm.png"/></p>
+<p>As seen from the image above. Give a training set we build a probabilistic model for $P(y=0 \mid X)$ and $P(y=1 \mid X)$. Then to predict the class of any new instance we just find the probability of the $y$ for both of the distribution and we select the distribution which has the maximum probability.</p>
+<h2 id="Discriminative-vs-Generalized-learning-algorithms.">Discriminative vs Generalized learning algorithms.<a class="anchor-link" href="#Discriminative-vs-Generalized-learning-algorithms.">¶</a></h2><p>The learning algorithm which we saw earlier like linear, logistic, lasso etc. They either of the two thing. Given a set of features $X$ and a target variable $Y$. The either learn $P(y\mid X)$ i.e given a set of feature we find a model which helps predict the target variable $y$. Or learn some hypothesis $h_{\theta}(X) \in \{ 0, 1\}$ which output $1$ or $0$ given the value of features.</p>
+<p>In generative learning algorithm we do the opposite. Given a training data we try to find a probability model which best fits the target value. That is we are trying to find $P(x \mid y)$. Here we are interested in the distribution and parameter for the feature of the value of $y$. In simple words we trying to find out how our features look like a target value $y$.</p>
+<h2 id="Algorithm">Algorithm<a class="anchor-link" href="#Algorithm">¶</a></h2><p>Given $P(y)$ and goal of finding $P(x \mid y)$ we can do the following.</p>
+<p>By Bayes rule we can define.</p>
+$$
+P(y=1 \mid x) = \frac{P(x \mid y = 1) P(x)}{P(x)}
+$$<p>Where by total probability theorem.</p>
+$$
+P(x) = P(y=0 \mid x)P(x) + P(y=1 \mid x) P(x)
+$$<h3 id="Gaussian-Discriminant-Algorithm">Gaussian Discriminant Algorithm<a class="anchor-link" href="#Gaussian-Discriminant-Algorithm">¶</a></h3><p>For gaussian discriminant algorithm we will be assuming that the feature $X$ is a vector of real number with size $n$. $(X \in \mathbb{R}^n)$</p>
+<p>And we will assume that the probability of the feature follows a multivariate gaussian distribution. That is $X \sim \mathcal{N}(\vec{\mu}, \Sigma)$. Where $\vec{\mu}$ is the mean vector and the $\Sigma$ is the covariance for normal distribution with multiple parameters.</p>
+<p>Thus the probability of a feature $X$ can be expressed in terms of the equation of the multivariate normal distribution.</p>
+$$
+P(x;\mu, \Sigma) = \frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp \left ( - \frac{1}{2} (x-\mu)^T \Sigma^{-1} (x-\mu) \right )
+$$<p>Now given that our target variable follows a bernoulli's  distribution we know that.</p>
+$$
+P(y) = \phi^{y} (1 - \phi)^{1-y}
+$$<p>And we can write the following using the normal distribution equation.</p>
+$$
+\begin{aligned}
+P(x\mid y=0) &amp;= \frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp \left ( - \frac{1}{2} (x-\mu_0)^T \Sigma\; ^{-1} (x-\mu_0) \right ) \\
+P(x \mid y=1) &amp;= \frac{1}{(2\pi)^{n/2} |\Sigma|^{1/2}} \exp \left ( - \frac{1}{2} (x-\mu_1)^T \Sigma\; ^{-1} (x-\mu_1) \right ) \\
+\end{aligned}
+$$<p>Thus the parameters of this model are $\phi, \mu_0, \mu_1$ and $\Sigma$. Now we can write the log likelihood function for these parameters as follows.</p>
+$$
+\begin{aligned}
+\mathcal{L}(\phi, \mu_0, \mu_1, \Sigma) &amp;= \log \left ( \prod_{i=1}^m P(x^{(i)}, y^{(i)}) \right)
+\end{aligned}
+$$<p>Which is the product of probabilities for given $x^{(i)}$ and $y^{(i)}$ training example. And by the multiplication rule can be written as.</p>
+$$
+\begin{aligned}
+\mathcal{L}(\phi, \mu_0, \mu_1, \Sigma) &amp;= \log \left ( \prod_{i=1}^m P(x^{(i)} \mid y^{(i)}) \; P(y^{(i)}) \right)
+\end{aligned}
+$$<p>Now we follow the same steps we did to find the maximum likelihood parameters. We substitute the value $P(x\mid y=0)$ and $P(x\mid y=1)$ in the equation and take the partial derivative with respect to $\phi, \mu_0, \mu_1$ and $\Sigma$ and equate each of them to zero to find the value that maximizes the likelihood of the function.</p>
+$$
+\begin{aligned}
+\frac{\delta }{\delta \phi} \mathcal{L}(\phi, \mu_0, \mu_1, \Sigma) &amp;= 0 \\
+\frac{\delta }{\delta \mu_0} \mathcal{L}(\phi, \mu_0, \mu_1, \Sigma) &amp;= 0 \\
+\frac{\delta }{\delta \mu_1} \mathcal{L}(\phi, \mu_0, \mu_1, \Sigma) &amp;= 0 \\
+\frac{\delta }{\delta \Sigma} \mathcal{L}(\phi, \mu_0, \mu_1, \Sigma) &amp;= 0 \\
+\end{aligned}
+$$<p>After solving this equations we get the following.</p>
+$$
+\begin{aligned}
+\phi &amp;= \frac{\sum_i^m y^{(i)}}{m} = \frac{\sum_i^m \mathbb{1}\{ y^{(i)}  = 1\}}{m} \\
+\mu_0 &amp;= \frac{\sum_i^m \mathbb{1} \{ y^{(i)} = 0 \} x^{(i)} }{\sum_i^m \mathbb{1} \{ y^{(i)} = 0 \} } \\
+\mu_1 &amp;= \frac{\sum_i^m \mathbb{1} \{ y^{(i)} = 1 \} x^{(i)} }{\sum_i^m \mathbb{1} \{ y^{(i)} = 1 \} } \\
+\end{aligned}
+$$<p>Where $\mathbb{1}\{\}$ is called as an <strong>indicator function</strong>. The output of the function is $1$ if the condition inside the function is true or else the output is $0$. For example $\mathbb{1}\{ 1+1=3\} = 0$ and $\mathbb{1}\{ 1 + 1 = 2\}=1$.</p>
+<p>Thus the $\phi$ is just the total number of training dataset where $y=1$ divided by the total number of training example $m$. And the means if the sum of $x^{(i)}$ where $y=0$ or $\mu_0$ by the total number of training example where $y=0$ for $\mu_0$. For in other words $\mu_0$ is just the average of all $x^{(i)}$ where the value of $y$ is $0$.</p>
+<p>Now given a instance and we want to predict the probability of $y$ we can do that by using the equation we saw at the start (Bayes rule).</p>
+$$
+\underset{y}{\operatorname{arg}\,\operatorname{max}} \; P(y \mid x) =  \underset{y}{\operatorname{arg}\,\operatorname{max}} \frac{P(x \mid y) \; P(y)}{P(x)}
+$$<p>Since the denominator doesn't play any role in maximizing for $y$ we can write the equation as</p>
+$$
+\underset{y}{\operatorname{arg}\,\operatorname{max}} \; P(y \mid x) =  \underset{y}{\operatorname{arg}\,\operatorname{max}} \; P(x \mid y) \; P(y)
+$$<p>And if $P(y)$ is uniformly distributed we can write.</p>
+$$
+\underset{y}{\operatorname{arg}\,\operatorname{max}} \; P(y \mid x) =  \underset{y}{\operatorname{arg}\,\operatorname{max}} \; P(x \mid y)
+$$<p>Thus we choose the probability distribution which gives the maximum value for $y$ and predict the class of $y$ accordingly.</p>
+<h3 id="Naive-Bayes">Naive Bayes<a class="anchor-link" href="#Naive-Bayes">¶</a></h3><p>Now we will look at another generative learning algorithm called the <strong>Naive Bayes</strong> algorithm. This algorithm works really well in problem of classifying textual documents and checking if an email is spam or not.</p>
+<p>Lets take example of classifying if an email is spam or not. Our target variable here is $y \in \{ 0, 1\}$. $0$ for not spam and $1$ for spam.</p>
+<p>Then let's assume we use the feature as the words used in the email to classify the email as spam or not spam. So we have a feature vector $X$ which of $n$ dimension where $n$ dimension can be all the words in the dictionary or all the words in the email of our training emails.</p>
+$$
+X = \begin{bmatrix}
+1 \\ 0 \\ 0 \\ .. \\ .. \\ 0
+\end{bmatrix} \begin{bmatrix}a \\ ability \\able \\ .. \\ .. \\ zoo
+\end{bmatrix}
+$$<p>So here the value of feature vector is $1$ if the email contains the word associate with that row. Where let say $n = 50,000$.</p>
+<p>Then as we did in gaussian discrimination algorithm we will find $P(x \mid y)$ with $n-1$ parameters.</p>
+<p>Now if we assume $x^{(i)}$ are conditionally independent for a given $y$. Then,</p>
+$$
+\begin{aligned}
+P(x_1, x_2, ..., x_n \mid y) = P(x_1 \mid y) \; P(x_2 \mid y, x_1)\;P(x_3 \mid y, x_1, x_2) \; ...
+\end{aligned}
+$$<p>As we have assume that $x^{(i)}$ are conditionally independent, then we can write the above equation as.</p>
+$$
+\begin{aligned}
+P(x_1, x_2, ..., x_n \mid y) &amp;= P(x_1 \mid y) \; P(x_2 \mid y)\;P(x_3 \mid y) \; ... \; P(x_n \mid y) \\
+&amp;= \prod_{i=1}^n P(x_i \mid y)
+\end{aligned}
+$$<p>So for the above model our parameter are as follows.</p>
+$$
+\begin{aligned}
+\phi_{i\mid y=1} &amp;= P(x_i = 1 \mid y = 1) \\
+\phi_{i\mid y=0} &amp;= P(x_i = 1 \mid y = 0) \\
+\phi_y &amp;= P(y=1)
+\end{aligned}
+$$<p>And we can find the maximum likelihood for the function.</p>
+$$
+\mathcal{L}(\phi_y, \phi_{i\mid y=1}, \phi_{i\mid y=0}) = \prod_{i=1}^m P(x^{(i)}, y^{(i)})
+$$<p>After solving this by taking log likelihood and maximizing the function for the parameters we get.</p>
+$$
+\begin{aligned}
+\phi_{j\mid y=1} &amp;= \frac{\sum_i^m \mathbb{1}\{ x_j^{(i)} = 1, y^{(i)} = 1 \}}{\sum_i^m \mathbb{1}\{ y^{(i)} = 1\}}
+\end{aligned}
+$$<p>The intuitive meaning of the equation is simple. For every $j^{th}$ word in the feature $X$, the numerator is the count of all training email where the $j^{th}$ word appeared and the email were marked as spam. And the denominator give the total count of spam email. So this equation is more like a fraction of spam email where $j^{th}$ word appeared. Thus words like buy will appear more frequently in the spam email so the $\phi$ for the word buy will be very high.</p>
+<p>And for $\phi_y$.</p>
+$$
+\begin{aligned}
+\phi_y = \frac{\sum_{i=1}^m \mathbb{1}\{y^{(i)} = 1 \}}{m}
+\end{aligned}
+$$<p>Which is just the ratio of spam email by total number or email.</p>
+<p>Thus using the above parameters we can build the probability distribution which will help me to classify the email.</p>
+<h3 id="Laplace-Smoothing">Laplace Smoothing<a class="anchor-link" href="#Laplace-Smoothing">¶</a></h3><p>There is one problem with Naive Bayes. Suppose we build our feature vector $X$ from $n=50,000$ emails and all of these email the word <em>space</em> never occurred. And after building the probabilistic distribution we start using the distribution to make prediction and we see the word <em>space</em> for the first time. Then our model will give us zero as the probability.</p>
+$$
+\begin{aligned}
+P(X_i \mid y=1) &amp;= 0 \\
+P(X_i \mid y=0) &amp;= 0 \\
+\end{aligned}
+$$<p>And then for the equation.</p>
+$$
+P(y=1 \mid X) = \frac{P(X\mid y=1) P(y=1)}{P(X \mid y=1) P(y=1) + P(X\mid y=0)P(y=0)}
+$$<p>While become $\frac{0}{0}$ which is undefined.</p>
+<p>To solve this we use laplace smoothing. The idea behind laplace smoothing is if an event is not seen every it doesn't mean there is no probability of the event for occurring $P(A)=0$. There is very less probability but certainly not $0$ (never occurring).</p>
+<p>So to overcome this we add $1$ to every element in the equation. So the equation becomes.</p>
+$$
+\begin{aligned}
+P(y=1 \mid X) &amp;= \frac{P(X\mid y=1) P(y=1) + 1}{P(X \mid y=1) P(y=1) + 1+ P(X\mid y=0)P(y=0) + 1} \\
+P(y=1 \mid X) &amp;= \frac{P(X\mid y=1) P(y=1) + 1}{P(X \mid y=1) P(y=1) + P(X\mid y=0)P(y=0) + 2} \\
+\end{aligned}
+$$
 </div>
 </div>
 </div>
