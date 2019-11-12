@@ -13444,19 +13444,16 @@ $$<p>We will use the $\alpha = 0.05$ for this experiment.</p>
 <p>Let $i$ denote the row index and $j$ denoted the column index then we can denoted observed frequency as $O_{i,j}$</p>
 <h4 id="Calculate-the-expected-frequency.">Calculate the expected frequency.<a class="anchor-link" href="#Calculate-the-expected-frequency.">¶</a></h4><p>Next thing we do is calculate the expected frequency for each $(i, j)$. We do this by using the following formula.</p>
 $$
-E_{i,j} = \frac{T_i - T_j}{n}
-$$<p>Where $E_{i, j}$ is the expected frequencey, $T_i$ is the row total and $T_j$ is the column total.</p>
-<p><img alt="Chai Square 3" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chi-square-3.png"/></p>
-<h4 id="Residual">Residual<a class="anchor-link" href="#Residual">¶</a></h4><p>Next we calculate the difference between observed frequency and the expected frequency.</p>
+E_{i,j} = \frac{T_i \times T_j}{n}
+$$<p>Where $E_{i, j}$ is the expected frequency, $T_i$ is the row total and $T_j$ is the column total.</p>
+<h4 id="Residual">Residual<a class="anchor-link" href="#Residual">¶</a></h4><p>Next we calculate the residual using the following formula.</p>
 $$
-R_{i, j} = O_{i, j} - E_{i, j}
+R_{i, j} = \frac{(O_{i, j} - E_{i, j})^2}{E_{i,j}}
 $$<p>Where $R_{i, j}$ is the residual.</p>
-<p><img alt="Chai Square 4" src="/notes/static/img/notes/mathematics/statistics/basic-statistics/chi-square-4.png"/></p>
 <h4 id="Calculate-Chi-square-$\chi^2$">Calculate Chi square $\chi^2$<a class="anchor-link" href="#Calculate-Chi-square-$\chi^2$">¶</a></h4><p>Next we calculate the chi square by taking the sum of ratio of residual and expected frequencies.</p>
 $$
-\chi^2 = \sum_{i,j} \frac{R_{i,j}}{E_{i,j}} = \sum_{i,j} \frac{O_{i,j} - E_{i,j}}{E_{i,j}}
-$$<p>For the above example $\chi^2 = 23.57$.</p>
-<h4 id="Degree-of-freedom">Degree of freedom<a class="anchor-link" href="#Degree-of-freedom">¶</a></h4><p>Degrees of Freedom refers to the maximum number of logically independent values, which are values that have the freedom to vary, in the data sample.</p>
+\chi^2 = \sum_{i,j} R_{i,j}
+$$<h4 id="Degree-of-freedom">Degree of freedom<a class="anchor-link" href="#Degree-of-freedom">¶</a></h4><p>Degrees of Freedom refers to the maximum number of logically independent values, which are values that have the freedom to vary, in the data sample.</p>
 <p>Consider a data sample consisting of five positive integers. The values could be any number with no known relationship between them. This data sample would, theoretically, have five degrees of freedom.</p>
 <p>Four of the numbers in the sample are {3, 8, 5, and 4} and the average of the entire data sample is revealed to be 6. This must mean that the fifth number has to be 10. It can be nothing else. It does not have the freedom to vary. So the Degrees of Freedom for this data sample is 4.</p>
 <p>The formula for Degrees of Freedom equals the size of the data sample minus one.</p>
@@ -13472,9 +13469,7 @@ Df = (i - 1)(j -1)
 $$<p>So in our case of $5$ rows and $4$ columns the degree of freedom becomes $(5 -1) (4 -1) = 12$.</p>
 <h4 id="Find-p-value">Find p-value<a class="anchor-link" href="#Find-p-value">¶</a></h4><p>So using the graph of degree of freedom and our $\chi^2$ we can find the p-value.</p>
 <p>In practice a chi probability table in used. <a href="https://www.medcalc.org/manual/chi-square-table.php">Link</a></p>
-<p>Using the table we found out that the value with $Df=12$ the probability of $\chi^2 \geq 23.57 \approx 0.02$.</p>
-<p>We did this by looking at the row of $Df=12$ and finding a value which is greater than or close to $23.57$, which gave us the probability.</p>
-<h3 id="Interpretation">Interpretation<a class="anchor-link" href="#Interpretation">¶</a></h3><p>We got the p-value of $0.02$ or $2\%$. And our significant level was $0.05\%$ that is $5\%$. Thus our p-value is smaller than our significant level so we accept the alternate hypothesis.</p>
+<h3 id="Interpretation">Interpretation<a class="anchor-link" href="#Interpretation">¶</a></h3><p>If We get a p-value less than our significant level $0.05$ that is $5\%$, then we accept the alternate hypothesis.</p>
 <p>The institutive meaning of this is that we have a very small chance for getting a sample which support our null hypothesis so we reject it.</p>
 <h2 id="Students-T-test">Students T test<a class="anchor-link" href="#Students-T-test">¶</a></h2><p>Student T test is a hypothesis test used to compare the mean of two sample, given that the sample size is small and the population follows a normal distribution. Essentially, a t-test allows to compare the average values of the two data sets and determine if they came from the same population. In other words it lets us know if those differences (measured in means/averages) could have happened by chance.</p>
 <p>The t-statistic was introduced in 1908 by "William Sealy Gosset", a chemist working for the Guinness brewery in Dublin, Ireland. "Student" was his pen name. Company policy at Guinness forbade its chemists from publishing their findings, so Gosset published his statistical work under the pseudonym "Student".</p>
