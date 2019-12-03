@@ -2,10 +2,12 @@ const App = (function($){
 
     function init(){
         initTableOfContent();
-        
+
         initFloatingButton();
 
         initToolTip();
+
+        removeContainerFromMobile();
     }
 
     function initTableOfContent(){
@@ -37,7 +39,14 @@ const App = (function($){
     }
 
     function initToolTip(){
-        $('[data-toggle="tooltip"]').tooltip(); 
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+
+    function removeContainerFromMobile(){
+        // Remove container class from mobile devices
+        if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+            $('.notes-content').removeClass('container');
+        }
     }
 
     return {
