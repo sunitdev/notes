@@ -20,7 +20,7 @@ install:
   - conda activate notes-prod
   - pip install graphviz pyyaml
 
-before_deploy:
+script:
     - runipy make.ipynb
 
 deploy:
