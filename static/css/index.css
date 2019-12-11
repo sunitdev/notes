@@ -5,11 +5,11 @@ html, body {
 
 @font-face {
     font-family: 'Chalk';
-    src: url('/notes/static/fonts/SqueakyChalkSound.ttf');
+    src: url('/static/fonts/SqueakyChalkSound.ttf');
 }
 
 body {
-    background: url('/notes/static/img/chalkboard_background.jpg');
+    background: url('/static/img/chalkboard_background.jpg');
 
     color: white;
 }
@@ -48,7 +48,7 @@ header{
     padding: 1em .5em;
 
     border: 15px solid rgba(255,255,255,.8);
-    border-image: url('/notes/static/img/chalk-border.png') 20;
+    border-image: url('/static/img/chalk-border.png') 20;
 }
 
 
