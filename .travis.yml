@@ -18,6 +18,7 @@ install:
   # Create Environment
   - conda env create --name notes-prod --file=environment.yml
   - conda activate notes-prod
+  - pip install graphviz pyyaml
 
 before_deploy:
     - runipy make.ipynb
