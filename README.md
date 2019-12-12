@@ -1,6 +1,4 @@
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
+[![Build Status](https://travis-ci.com/sunitdeshpande/notes.svg?branch=master)](https://travis-ci.com/sunitdeshpande/notes)
 [![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
