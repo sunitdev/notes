@@ -1,4 +1,4 @@
-// Requires jstree https://www.jstree.com/
+// Requires bootstrap treeview - https://github.com/jonmiles/bootstrap-treeview
 
 const TOC = function(target){
 
@@ -11,7 +11,7 @@ const TOC = function(target){
     const recentNodes = {
         'H0': rootNode
     };
-    
+
     function getNavigationTree(){
 
         // Assuming H1 H2 H3 H4 H5 H6 will be in sequence
@@ -32,7 +32,7 @@ const TOC = function(target){
 
         return rootNode;
     }
-    
+
     function getNodeFromHeader(element){
         return {
             'element': element,
@@ -64,6 +64,16 @@ const TOC = function(target){
         emptyIcon: null,
 
         highlightSelected: false,
+
+        nodeExpanded(event, node){
+            // Render mathjax
+            MathJax.Hub.Queue(['Typeset', MathJax.Hub, target]);
+        }
+
+        nodeCollapsed(event, node){
+            // Render mathjax
+            MathJax.Hub.Queue(['Typeset', MathJax.Hub, target]);
+        }
 
         onNodeSelected(event, node){
             navigateToNode(node);
