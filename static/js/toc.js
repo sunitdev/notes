@@ -55,6 +55,12 @@ const TOC = function(target){
         $('html,body').animate({scrollTop: node.element.offset().top},'slow');
     }
 
+    function renderMathJax(){
+        setTimeout(function(){
+            MathJax.Hub.Typeset();
+        }, 0);
+    }
+
     // Create TOC tree
     $(target).treeview({
         data: [getNavigationTree()],
@@ -65,19 +71,11 @@ const TOC = function(target){
 
         highlightSelected: false,
 
-        onNodeExpanded(event, node){
-            // Render mathjax
-            MathJax.Hub.Queue(['Typeset', MathJax.Hub, target]);
-        },
+        onNodeExpanded(event, node){ renderMathJax() },
 
-        onNodeCollapsed(event, node){
-            // Render mathjax
-            MathJax.Hub.Queue(['Typeset', MathJax.Hub, target]);
-        },
+        onNodeCollapsed(event, node){ renderMathJax() },
 
-        onNodeSelected(event, node){
-            navigateToNode(node);
-        }
+        onNodeSelected(event, node){ navigateToNode(node); renderMathJax() }
     });
 
     // By deafult everythoing is collapsed
