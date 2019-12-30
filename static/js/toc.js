@@ -65,12 +65,12 @@ const TOC = function(target){
 
         highlightSelected: false,
 
-        nodeExpanded(event, node){
+        onNodeExpanded(event, node){
             // Render mathjax
             MathJax.Hub.Queue(['Typeset', MathJax.Hub, target]);
         },
 
-        nodeCollapsed(event, node){
+        onNodeCollapsed(event, node){
             // Render mathjax
             MathJax.Hub.Queue(['Typeset', MathJax.Hub, target]);
         },
