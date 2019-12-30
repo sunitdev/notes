@@ -68,12 +68,12 @@ const TOC = function(target){
         nodeExpanded(event, node){
             // Render mathjax
             MathJax.Hub.Queue(['Typeset', MathJax.Hub, target]);
-        }
+        },
 
         nodeCollapsed(event, node){
             // Render mathjax
             MathJax.Hub.Queue(['Typeset', MathJax.Hub, target]);
-        }
+        },
 
         onNodeSelected(event, node){
             navigateToNode(node);
