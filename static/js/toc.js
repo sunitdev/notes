@@ -37,7 +37,7 @@ const TOC = function(target){
         return {
             'element': element,
             'type': element.prop('tagName'),
-            'text': element.text().replace(/[^\x20-\x7E]/g, ''), // Remove non printable chars
+            'text': element.text().replace(/[^\x20-\x7E]|\$/g, ''), // Remove non printable chars
         }
     }
 
@@ -55,12 +55,6 @@ const TOC = function(target){
         $('html,body').animate({scrollTop: node.element.offset().top},'slow');
     }
 
-    function renderMathJax(){
-        setTimeout(function(){
-            MathJax.Hub.Typeset();
-        }, 0);
-    }
-
     // Create TOC tree
     $(target).treeview({
         data: [getNavigationTree()],
@@ -71,11 +65,7 @@ const TOC = function(target){
 
         highlightSelected: false,
 
-        onNodeExpanded(event, node){ renderMathJax() },
-
-        onNodeCollapsed(event, node){ renderMathJax() },
-
-        onNodeSelected(event, node){ navigateToNode(node); renderMathJax() }
+        onNodeSelected(event, node){ navigateToNode(node) }
     });
 
     // By deafult everythoing is collapsed
