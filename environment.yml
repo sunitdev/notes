@@ -145,6 +145,8 @@ dependencies:
     - pydotplus==2.0.2
     - pytz==2018.9
     - sos==0.19.2
+    - sos-java==0.1.0
+    - sos-javascript==0.18.0
     - sos-notebook==0.19.1
     - sos-r==0.18.0
     - tabulate==0.8.3

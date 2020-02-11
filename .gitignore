@@ -6,3 +6,6 @@
 
 # Dist folder
 dist/
+
+# IDE
+.idea/

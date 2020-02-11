@@ -19,6 +19,7 @@ install:
   - conda env create --name notes-prod --file=environment.yml
   - conda activate notes-prod
   - pip install graphviz pyyaml
+  - python -m sos_notebook.install
 
 script:
     - runipy make.ipynb
