@@ -6,12 +6,6 @@
     <a href="https://github.com/sunitdev/notes">
     <img src="docs/images/logo.png" alt="Logo" width="250" height="80">
   </a>
-
-  <p align="center">
-    Repository of personal notes.
-    <br />
-    <a href="https://sunitdev.github.io/notes/">View Demo</a>
-  </p>
 </p>
 
 
