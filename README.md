@@ -1,18 +1,16 @@
-[![Build Status](https://travis-ci.com/sunitdeshpande/notes.svg?branch=master)](https://travis-ci.com/sunitdeshpande/notes)
-[![Issues][issues-shield]][issues-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 <br />
 <p align="center">
-    <a href="https://github.com/sunitdeshpande/notes">
+    <a href="https://github.com/sunitdev/notes">
     <img src="docs/images/logo.png" alt="Logo" width="250" height="80">
   </a>
 
   <p align="center">
     Repository of personal notes.
     <br />
-    <a href="https://sunitdeshpande.github.io/notes/">View Demo</a>
+    <a href="https://sunitdev.github.io/notes/">View Demo</a>
   </p>
 </p>
 
@@ -35,7 +33,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://sunitdeshpande.github.io/)
+[![Product Name Screen Shot][product-screenshot]](https://sunitdev.github.io/)
 
 
 Notes is a static site generator created using [Jupyter Notebook](https://jupyter.org/). The projects aimed to provide an easy way to digitalize my notes and to make it easily accessible.
@@ -90,7 +88,7 @@ Conda is needed to be installed before setting up this project.
 
 1. Clone the repo
 ```sh
-git clone git@github.com:sunitdeshpande/notes.git
+git clone git@github.com:sunitdev/notes.git
 ```
 2. Create environment and install dependencies
 ```sh
@@ -108,20 +106,10 @@ To build the static site run every cell in `main.ipynb`.
 <!-- CONTACT -->
 ## Contact
 
-Sunit Deshpande  - sunitdeshpande1234@gmail.com
-
-Project Link: [https://github.com/sunitdeshpande/notes](https://github.com/sunitdeshpande/notes)
+Project Link: [https://github.com/sunitdev/notes](https://github.com/sunitdev/notes)
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/sunitdeshpande/notes.svg?style=flat-square
-[contributors-url]: https://github.com/sunitdeshpande/notes/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/sunitdeshpande/notes.svg?style=flat-square
-[forks-url]: https://github.com/sunitdeshpande/notes/network/members
-[stars-shield]: https://img.shields.io/github/stars/sunitdeshpande/notes.svg?style=flat-square
-[stars-url]: https://github.com/sunitdeshpande/notes/stargazers
-[issues-shield]: https://img.shields.io/github/issues/sunitdeshpande/notes.svg?style=flat-square
-[issues-url]: https://github.com/sunitdeshpande/notes/issues
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/sunitdeshpande/
 [product-screenshot]: docs/images/screenshot_landing_page.png
