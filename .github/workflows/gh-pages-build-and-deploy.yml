@@ -25,6 +25,7 @@ jobs:
           pip install graphviz pyyaml
           python -m sos_notebook.install
           conda init bash
+          ls -la
           source ~/.bachrc
 
       - name: 🔧 Build
