@@ -17,6 +17,8 @@ jobs:
           conda config --set always_yes yes --set changeps1 no
           conda update -q conda
           conda info -a
+          pwd
+          ls
           conda create --name notes-prod --file=environment.yml
           conda activate notes-prod
           pip install graphviz pyyaml
