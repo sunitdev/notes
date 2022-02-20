@@ -27,6 +27,7 @@ jobs:
 
       - name: 🔧 Build
         run: |
+          conda activate notes-prod
           runipy make.ipynb
 
       - name: 🚀 Deploy
