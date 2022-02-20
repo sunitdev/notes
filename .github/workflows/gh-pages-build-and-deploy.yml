@@ -1,0 +1,36 @@
+name: Build and Deploy
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🐍 Setup Python
+        run: |
+          sudo apt-get update
+          wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
+          bash miniconda.sh -b -p $HOME/miniconda
+          source "$HOME/miniconda/etc/profile.d/conda.sh"
+          hash -r
+          conda config --set always_yes yes --set changeps1 no
+          conda update -q conda
+          conda info -a
+          conda env create --name notes-prod --file=environment.yml
+          conda activate notes-prod
+          pip install graphviz pyyaml
+          python -m sos_notebook.install
+
+      - name: 🛎 Checkout
+        uses: actions/checkout@v2
+
+      - name: 🔧 Build
+        run: |
+          runipy make.ipynb
+
+      - name: 🚀 Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
+        with:
+          branch: gh-pages
+          folder: dist
