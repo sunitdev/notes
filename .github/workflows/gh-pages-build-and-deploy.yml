@@ -10,7 +10,7 @@ jobs:
       - name: 🛎 Checkout
         uses: actions/checkout@v2
 
-      - name: 🐍 Setup Python
+      - name: 🐍 Setup and Build
         run: |
           sudo apt-get update
           wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
@@ -24,11 +24,6 @@ jobs:
           conda activate notes-prod
           pip install graphviz pyyaml
           python -m sos_notebook.install
-          conda init bash
-          source ~/.bashrc
-
-      - name: 🔧 Build
-        run: |
           conda activate notes-prod
           runipy make.ipynb
 
