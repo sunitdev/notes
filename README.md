@@ -1,9 +1,5 @@
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-
-<br />
 <p align="center">
-    <a href="https://github.com/sunitdev/notes">
+    <a href="https://sunitdev.github.io/notes/">
     <img src="docs/images/logo.png" alt="Logo" width="250" height="80">
   </a>
 </p>
@@ -27,7 +23,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://sunitdev.github.io/)
+[![Product Name Screen Shot][product-screenshot]](https://sunitdev.github.io/notes/)
 
 
 Notes is a static site generator created using [Jupyter Notebook](https://jupyter.org/). The projects aimed to provide an easy way to digitalize my notes and to make it easily accessible.
@@ -104,6 +100,4 @@ Project Link: [https://github.com/sunitdev/notes](https://github.com/sunitdev/no
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/sunitdeshpande/
 [product-screenshot]: docs/images/screenshot_landing_page.png
